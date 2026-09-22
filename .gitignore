@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+
+# The benchmark and its test-suite databases are third party and are not
+# redistributed here. Place a copy at data/spider/ to rerun anything that
+# executes SQL.
+data/

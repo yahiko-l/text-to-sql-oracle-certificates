@@ -1,0 +1,9 @@
+# The analysis scripts need only this.
+numpy>=1.26
+
+# The table and figure scripts additionally need:
+matplotlib>=3.9
+
+# Sampling SQL candidates again needs a GPU and, additionally:
+# vllm>=0.22
+# transformers>=4.57
