@@ -1,0 +1,63 @@
+{
+ "model": "Kwai-AutoSQL/Kwai-AutoSQL-14B",
+ "arm": "negative_control_false_schema",
+ "negative_control": "false_schema",
+ "false_schema_mapping": {
+  "battle_death": "car_1",
+  "car_1": "concert_singer",
+  "concert_singer": "course_teach",
+  "course_teach": "dog_kennels",
+  "dog_kennels": "employee_hire_evaluation",
+  "employee_hire_evaluation": "flight_2",
+  "flight_2": "museum_visit",
+  "museum_visit": "network_1",
+  "network_1": "orchestra",
+  "orchestra": "pets_1",
+  "pets_1": "poker_player",
+  "poker_player": "real_estate_properties",
+  "real_estate_properties": "singer",
+  "singer": "student_transcripts_tracking",
+  "student_transcripts_tracking": "tvshow",
+  "tvshow": "voter_1",
+  "voter_1": "world_1",
+  "world_1": "wta_1",
+  "wta_1": "battle_death"
+ },
+ "prompts": "experiments/c4_prompts_omnisql.jsonl",
+ "prompts_sha256": "d545326b0eb66d0be1376914b1544dbd2577c6f7984f14984a3692e519d5dfe4",
+ "template": "omnisql",
+ "answer_mode": "fenced",
+ "assistant_prefix_used": false,
+ "prompt_tokens": {
+  "max": 2132,
+  "median": 730
+ },
+ "questions": 508,
+ "samples_per_question": 20,
+ "sampling_policy": {
+  "kind": "independent temperature sampling, fixed budget",
+  "temperature": 1.0,
+  "top_p": 0.95,
+  "max_tokens": 2048,
+  "seed": 999
+ },
+ "tensor_parallel_size": 1,
+ "encoder": "chat_template",
+ "chat_template_kwargs": {
+  "enable_thinking": false
+ },
+ "system_prompt": "",
+ "dtype": "bfloat16",
+ "kv_cache_dtype": "auto",
+ "max_model_len": 8192,
+ "vllm_version": "0.22.1",
+ "extractor": "extract_sql: last non-empty fenced block, else text up to the first fence; a leading <think> block and leading -- comment lines are dropped; parsed = extracted text starts with SELECT or WITH (lexical check only)",
+ "instrument_checks": {
+  "candidates": 10160,
+  "parse_rate": 0.3252,
+  "truncation_rate": 0.0001,
+  "note": "a truncated generation is a cut-off scratchpad: discard it, never parse it",
+  "raw_kept": true
+ },
+ "wall_clock_sec": 322.9
+}

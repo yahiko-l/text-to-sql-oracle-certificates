@@ -1,0 +1,140 @@
+{
+ "note": "Preregistered secondary analyses for PREREGISTRATION_4, section 4.",
+ "six_scores": {
+  "top_class_mass": {
+   "xiyansql-32b": {
+    "auroc_a": 0.5596,
+    "auroc_d": 0.5749,
+    "delta": 0.0153,
+    "p": 0.2751,
+    "n_correct": 370,
+    "n_wrong": 93
+   },
+   "kwai-autosql-32b": {
+    "auroc_a": 0.6274,
+    "auroc_d": 0.697,
+    "delta": 0.0696,
+    "p": 0.004,
+    "n_correct": 364,
+    "n_wrong": 91
+   }
+  },
+  "discrete_semantic_entropy": {
+   "xiyansql-32b": {
+    "auroc_a": 0.5606,
+    "auroc_d": 0.5762,
+    "delta": 0.0155,
+    "p": 0.2626,
+    "n_correct": 370,
+    "n_wrong": 93
+   },
+   "kwai-autosql-32b": {
+    "auroc_a": 0.6271,
+    "auroc_d": 0.7017,
+    "delta": 0.0746,
+    "p": 0.0014,
+    "n_correct": 364,
+    "n_wrong": 91
+   }
+  },
+  "lin_deg": {
+   "xiyansql-32b": {
+    "auroc_a": 0.5598,
+    "auroc_d": 0.5752,
+    "delta": 0.0154,
+    "p": 0.2688,
+    "n_correct": 370,
+    "n_wrong": 93
+   },
+   "kwai-autosql-32b": {
+    "auroc_a": 0.628,
+    "auroc_d": 0.6984,
+    "delta": 0.0704,
+    "p": 0.0032,
+    "n_correct": 364,
+    "n_wrong": 91
+   }
+  },
+  "lin_numsets": {
+   "xiyansql-32b": {
+    "auroc_a": 0.5603,
+    "auroc_d": 0.577,
+    "delta": 0.0167,
+    "p": 0.2375,
+    "n_correct": 370,
+    "n_wrong": 93
+   },
+   "kwai-autosql-32b": {
+    "auroc_a": 0.6196,
+    "auroc_d": 0.7113,
+    "delta": 0.0917,
+    "p": 0.0001,
+    "n_correct": 364,
+    "n_wrong": 91
+   }
+  },
+  "mean_seq_logprob": {
+   "xiyansql-32b": {
+    "auroc_a": 0.4923,
+    "auroc_d": 0.4923,
+    "delta": 0.0,
+    "p": 1.0,
+    "n_correct": 370,
+    "n_wrong": 93
+   },
+   "kwai-autosql-32b": {
+    "auroc_a": 0.6873,
+    "auroc_d": 0.6873,
+    "delta": 0.0,
+    "p": 1.0,
+    "n_correct": 364,
+    "n_wrong": 91
+   }
+  },
+  "max_seq_logprob": {
+   "xiyansql-32b": {
+    "auroc_a": 0.5026,
+    "auroc_d": 0.5026,
+    "delta": 0.0,
+    "p": 1.0,
+    "n_correct": 370,
+    "n_wrong": 93
+   },
+   "kwai-autosql-32b": {
+    "auroc_a": 0.6647,
+    "auroc_d": 0.6647,
+    "delta": 0.0,
+    "p": 1.0,
+    "n_correct": 364,
+    "n_wrong": 91
+   }
+  }
+ },
+ "oracle_agreement": {
+  "xiyansql-32b": {
+   "weak_ok": {
+    "agreement": 0.7927,
+    "kappa": 0.1995,
+    "n": 463
+   },
+   "suite_ok": {
+    "agreement": 0.7667,
+    "kappa": 0.1503,
+    "n": 463
+   }
+  },
+  "kwai-autosql-32b": {
+   "weak_ok": {
+    "agreement": 0.8044,
+    "kappa": 0.3058,
+    "n": 455
+   },
+   "suite_ok": {
+    "agreement": 0.7363,
+    "kappa": 0.2208,
+    "n": 455
+   }
+  }
+ },
+ "null_control_passed": true
+}

@@ -1,0 +1,241 @@
+{
+ "key_items_sha256": "48d955007732402c4c9457fdd8627a2755a8f7238f7bda5c3b0741ad01eb4872",
+ "seed": 20260906,
+ "response_files": [
+  "experiments/blind_audit/RESPONSES_专家1.clean.csv",
+  "experiments/blind_audit/RESPONSES_专家2.clean.csv"
+ ],
+ "note": "analysis fixed in blind-audit/PREREGISTRATION.md before any label existed",
+ "expert_agreement": {
+  "n": 153,
+  "full_agreement": 0.915,
+  "full_kappa": 0.8634,
+  "binary_agreement": 0.9412,
+  "binary_kappa": 0.8632,
+  "disagreements": [
+   "Q003",
+   "Q022",
+   "Q033",
+   "Q034",
+   "Q058",
+   "Q070",
+   "Q080",
+   "Q108",
+   "Q137",
+   "Q138",
+   "Q139",
+   "Q145",
+   "Q146"
+  ]
+ },
+ "items_answered": 153,
+ "items_total": 153,
+ "rates": {
+  "flagged": {
+   "n": 73,
+   "defective": 40,
+   "D": 0.5479,
+   "interval95": [
+    0.427,
+    0.6648
+   ],
+   "underspecified": 15,
+   "cannot_judge": 0
+  },
+  "examined": {
+   "n": 40,
+   "defective": 8,
+   "D": 0.2,
+   "interval95": [
+    0.0905,
+    0.3565
+   ],
+   "underspecified": 9,
+   "cannot_judge": 1
+  },
+  "unexamined": {
+   "n": 40,
+   "defective": 3,
+   "D": 0.075,
+   "interval95": [
+    0.0157,
+    0.2039
+   ],
+   "underspecified": 7,
+   "cannot_judge": 0
+  }
+ },
+ "rates_excluding_borderline": {
+  "flagged": {
+   "n": 50,
+   "defective": 32,
+   "D": 0.64,
+   "interval95": [
+    0.4919,
+    0.7708
+   ],
+   "underspecified": 0,
+   "cannot_judge": 0
+  },
+  "examined": {
+   "n": 25,
+   "defective": 5,
+   "D": 0.2,
+   "interval95": [
+    0.0683,
+    0.407
+   ],
+   "underspecified": 0,
+   "cannot_judge": 0
+  },
+  "unexamined": {
+   "n": 32,
+   "defective": 3,
+   "D": 0.0938,
+   "interval95": [
+    0.0198,
+    0.2502
+   ],
+   "underspecified": 0,
+   "cannot_judge": 0
+  }
+ },
+ "decision": {
+  "verdict": "supported",
+  "margin": 0.3479,
+  "D_flagged": 0.5479,
+  "D_examined": 0.2,
+  "rule": "supported if margin >= 0.25 and D(flagged) >= 0.4; refuted if margin < 0.1; otherwise partially supported"
+ },
+ "decision_excluding_borderline": {
+  "verdict": "supported",
+  "margin": 0.44,
+  "D_flagged": 0.64,
+  "D_examined": 0.2,
+  "rule": "supported if margin >= 0.25 and D(flagged) >= 0.4; refuted if margin < 0.1; otherwise partially supported"
+ },
+ "background_gold_defect_rate": {
+  "estimate": 0.075,
+  "interval95": [
+   0.0157,
+   0.2039
+  ],
+  "note": "the only figure in this project that may be used to speak about the benchmark's overall gold defect rate. The 73 flagged questions are a model-exposed count and must not be extrapolated on their own."
+ },
+ "human_vs_ai": {
+  "n": 153,
+  "agreement": 0.7124,
+  "kappa": 0.4159
+ },
+ "by_ai_label_strength": {
+  "adjudicated_only": {
+   "n": 10,
+   "defective": 1,
+   "D": 0.1,
+   "interval95": [
+    0.0025,
+    0.445
+   ]
+  },
+  "two_pass_agreed": {
+   "n": 29,
+   "defective": 8,
+   "D": 0.2759,
+   "interval95": [
+    0.1273,
+    0.4724
+   ]
+  },
+  "two_pass_non_borderline": {
+   "n": 34,
+   "defective": 31,
+   "D": 0.9118,
+   "interval95": [
+    0.7632,
+    0.9814
+   ]
+  }
+ },
+ "defect_types": {
+  "wrong_grouping": 5,
+  "other": 15,
+  "wrong_or_negated_filter": 7,
+  "text_column_numeric_or_ordering": 7,
+  "case_sensitivity": 9,
+  "wrong_extremum": 2,
+  "missing_join_condition": 2,
+  "incomplete_projection": 2,
+  "wrong_set_operation_key": 2
+ },
+ "by_database": {
+  "battle_death": {
+   "gold_correct": 3,
+   "gold_defective": 1
+  },
+  "car_1": {
+   "gold_defective": 12,
+   "gold_correct": 8,
+   "question_underspecified": 1
+  },
+  "concert_singer": {
+   "gold_correct": 6,
+   "gold_defective": 3
+  },
+  "course_teach": {
+   "question_underspecified": 1,
+   "gold_defective": 2,
+   "gold_correct": 4
+  },
+  "dog_kennels": {
+   "gold_defective": 5,
+   "gold_correct": 6
+  },
+  "employee_hire_evaluation": {
+   "gold_correct": 5
+  },
+  "flight_2": {
+   "gold_defective": 5,
+   "gold_correct": 3
+  },
+  "museum_visit": {
+   "gold_correct": 1
+  },
+  "network_1": {
+   "gold_correct": 2,
+   "question_underspecified": 6
+  },
+  "orchestra": {
+   "question_underspecified": 1
+  },
+  "pets_1": {
+   "gold_correct": 6,
+   "gold_defective": 6
+  },
+  "poker_player": {
+   "gold_correct": 2
+  },
+  "singer": {
+   "gold_correct": 2
+  },
+  "student_transcripts_tracking": {
+   "gold_correct": 3,
+   "question_underspecified": 1,
+   "gold_defective": 5
+  },
+  "tvshow": {
+   "question_underspecified": 1,
+   "gold_correct": 2,
+   "gold_defective": 1
+  },
+  "world_1": {
+   "gold_correct": 13,
+   "question_underspecified": 17,
+   "gold_defective": 11,
+   "cannot_judge": 1
+  },
+  "wta_1": {
+   "question_underspecified": 3,
+   "gold_correct": 4
+  }
+ }
+}

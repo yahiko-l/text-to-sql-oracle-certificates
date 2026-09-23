@@ -1,0 +1,27 @@
+{
+ "model": "deepseek-ai/DeepSeek-V4-Flash-0731",
+ "arm": "main",
+ "questions": 500,
+ "samples_per_question": 20,
+ "sampling_policy": {
+  "kind": "independent temperature sampling, fixed budget",
+  "temperature": 1.0,
+  "top_p": 0.95,
+  "max_tokens": 512,
+  "seed": 20260903
+ },
+ "tensor_parallel_size": 4,
+ "encoder": "deepseek_v4",
+ "dtype": "auto",
+ "kv_cache_dtype": "fp8",
+ "instrument_checks": {
+  "candidates": 10000,
+  "parse_rate": 0.9981,
+  "truncation_rate": 0.0013,
+  "note": "a truncated generation is a cut-off scratchpad: discard it, never parse it",
+  "raw_kept": true,
+  "parse_rate_before_reextraction": 0.3505,
+  "reextraction": "the first extractor read only up to the first fence, which for a model that writes prose then opens its own fenced block captures the prose; re-extracted offline from the kept raw generations"
+ },
+ "wall_clock_sec": 274.2
+}

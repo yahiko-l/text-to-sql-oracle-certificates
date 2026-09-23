@@ -1,0 +1,342 @@
+{
+ "pass": "adjudication",
+ "reviewer": "codex gpt-5.6-sol xhigh, fresh thread, saw both labels and both reasons",
+ "labels": [
+  {
+   "case_id": "R041",
+   "label": "underspecified",
+   "error_type": null,
+   "ruled_for": "2",
+   "confidence": "low",
+   "reason": "The question does not specify whether a place is determined by current residence alone or by both current and permanent address relationships."
+  },
+  {
+   "case_id": "R054",
+   "label": "underspecified",
+   "error_type": null,
+   "ruled_for": "2",
+   "confidence": "low",
+   "reason": "Most popular leaves the measure unstated: coverage across Asian countries and highest within-country percentage are different defensible proxies."
+  },
+  {
+   "case_id": "R067",
+   "label": "underspecified",
+   "error_type": null,
+   "ruled_for": "1",
+   "confidence": "low",
+   "reason": "The schema contains no nationality attribute, so population and language count are competing proxies and the question does not determine either one."
+  },
+  {
+   "case_id": "R071",
+   "label": "gold_defect",
+   "error_type": null,
+   "ruled_for": "2",
+   "confidence": "high",
+   "reason": "The returned query supplies exactly the requested country codes and maximizing languages, including ties; the gold adds percentage and arbitrarily selects one tied language."
+  },
+  {
+   "case_id": "R095",
+   "label": "underspecified",
+   "error_type": null,
+   "ruled_for": "2",
+   "confidence": "low",
+   "reason": "The question does not distinguish current addresses from the combined current and permanent address relationships."
+  },
+  {
+   "case_id": "R103",
+   "label": "gold_defect",
+   "error_type": null,
+   "ruled_for": "1",
+   "confidence": "high",
+   "reason": "Although the average target is unstated, the gold independently uses a case-mismatched continent literal and returns NULL, while the returned query gives a defensible average for North America."
+  },
+  {
+   "case_id": "R104",
+   "label": "semantic_error",
+   "error_type": "wrong_projection",
+   "ruled_for": "2",
+   "confidence": "high",
+   "reason": "Returning only language names loses the nation-to-language association required by in each nation."
+  },
+  {
+   "case_id": "R123",
+   "label": "comparator_artifact",
+   "error_type": null,
+   "ruled_for": "1",
+   "confidence": "high",
+   "reason": "Separate first-name and last-name columns identify exactly the same winners as the gold's concatenated full-name column."
+  },
+  {
+   "case_id": "R132",
+   "label": "gold_defect",
+   "error_type": null,
+   "ruled_for": "2",
+   "confidence": "high",
+   "reason": "The returned query associates every nation with all languages tied for its maximum and omits the unrequested percentage; the gold drops ties."
+  },
+  {
+   "case_id": "R142",
+   "label": "gold_defect",
+   "error_type": null,
+   "ruled_for": "2",
+   "confidence": "high",
+   "reason": "The returned query projects the requested first names and avoids duplication from multiple dogs, whereas the gold adds an unrequested age column."
+  },
+  {
+   "case_id": "R162",
+   "label": "semantic_error",
+   "error_type": "wrong_order_or_limit",
+   "ruled_for": "1",
+   "confidence": "high",
+   "reason": "The stored YYYYMMDD birth dates are not parsed by strftime, so the computed age is NULL and the result is not sorted by age in either direction."
+  },
+  {
+   "case_id": "R164",
+   "label": "semantic_error",
+   "error_type": "wrong_order_or_limit",
+   "ruled_for": "1",
+   "confidence": "high",
+   "reason": "Regardless of the unspecified age direction, strftime cannot parse the stored YYYYMMDD dates, leaving the left-handed players unsorted."
+  },
+  {
+   "case_id": "R184",
+   "label": "gold_defect",
+   "error_type": null,
+   "ruled_for": "1",
+   "confidence": "high",
+   "reason": "In this comparative, less than any Asian country naturally means less than every Asian country, which requires the Asian minimum as returned; the gold's maximum implements an existential reading."
+  },
+  {
+   "case_id": "R190",
+   "label": "gold_defect",
+   "error_type": null,
+   "ruled_for": "neither",
+   "confidence": "high",
+   "reason": "The average target is unstated, making life expectancy defensible, while the gold independently uses a case-mismatched continent literal and returns NULL."
+  },
+  {
+   "case_id": "R213",
+   "label": "semantic_error",
+   "error_type": "wrong_order_or_limit",
+   "ruled_for": "2",
+   "confidence": "high",
+   "reason": "The age expression is NULL because strftime cannot parse the stored YYYYMMDD birth dates, so the query does not actually sort by age."
+  },
+  {
+   "case_id": "R222",
+   "label": "semantic_error",
+   "error_type": "wrong_projection",
+   "ruled_for": "2",
+   "confidence": "high",
+   "reason": "Language names alone do not preserve which maximizing language belongs to each nation."
+  },
+  {
+   "case_id": "R223",
+   "label": "gold_defect",
+   "error_type": null,
+   "ruled_for": "2",
+   "confidence": "high",
+   "reason": "The returned query provides the requested codes and maximizing languages, preserves ties, and avoids the gold's unrequested percentage column."
+  },
+  {
+   "case_id": "R246",
+   "label": "gold_defect",
+   "error_type": null,
+   "ruled_for": "2",
+   "confidence": "high",
+   "reason": "The returned query projects exactly the requested first name, while the gold additionally returns age."
+  },
+  {
+   "case_id": "R247",
+   "label": "gold_defect",
+   "error_type": null,
+   "ruled_for": "1",
+   "confidence": "high",
+   "reason": "Maker naturally asks for the manufacturer represented by car_makers.Maker; the gold instead returns individual car designations from car_names.Make."
+  },
+  {
+   "case_id": "R253",
+   "label": "gold_defect",
+   "error_type": null,
+   "ruled_for": "1",
+   "confidence": "low",
+   "reason": "The normalized car_makers to model_list relationship is a defensible way to identify cars made by Volvo, while the gold relies on an unguaranteed child text value equaling volvo."
+  },
+  {
+   "case_id": "R258",
+   "label": "instance_defect",
+   "error_type": null,
+   "ruled_for": "2",
+   "confidence": "high",
+   "reason": "The sole extra heavy model is exposed only because the benchmark instance contains a dangling model_list.Maker reference; with the intended foreign-key relationships, the union does not add it."
+  },
+  {
+   "case_id": "R271",
+   "label": "comparator_artifact",
+   "error_type": null,
+   "ruled_for": "1",
+   "confidence": "high",
+   "reason": "Concatenating the same first and last names into one full-name column preserves the identities and ordering; only column layout differs."
+  },
+  {
+   "case_id": "R280",
+   "label": "gold_defect",
+   "error_type": null,
+   "ruled_for": "1",
+   "confidence": "high",
+   "reason": "The question asks when and names a semester, so the descriptive semester_name is more faithful than the gold's internal semester_id."
+  },
+  {
+   "case_id": "R301",
+   "label": "gold_defect",
+   "error_type": null,
+   "ruled_for": "1",
+   "confidence": "high",
+   "reason": "Greater than any European country naturally means greater than every European country, requiring MAX as returned; the gold's MIN implements only an existential comparison."
+  },
+  {
+   "case_id": "R304",
+   "label": "gold_defect",
+   "error_type": null,
+   "ruled_for": "1",
+   "confidence": "high",
+   "reason": "Under the database's closed-world representation, a country with no English row does not speak English; starting from country correctly retains countries with no language rows."
+  },
+  {
+   "case_id": "R305",
+   "label": "gold_defect",
+   "error_type": null,
+   "ruled_for": "1",
+   "confidence": "high",
+   "reason": "Under the database's closed-world representation, absence of an English row is the requested condition, and the gold wrongly excludes countries having no language rows."
+  },
+  {
+   "case_id": "R311",
+   "label": "gold_defect",
+   "error_type": null,
+   "ruled_for": "1",
+   "confidence": "high",
+   "reason": "The average target is unstated, so average population is defensible; the gold additionally uses a case-mismatched continent literal and returns NULL."
+  },
+  {
+   "case_id": "R365",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "ruled_for": "2",
+   "confidence": "high",
+   "reason": "The returned channel-level exclusion admits a country whenever it has one non-Todd channel, even if another channel in that country plays a Todd Casey cartoon."
+  },
+  {
+   "case_id": "R374",
+   "label": "underspecified",
+   "error_type": null,
+   "ruled_for": "1",
+   "confidence": "low",
+   "reason": "Most popular does not state a measure: number of Asian countries using a language and maximum within-country percentage are distinct defensible proxies."
+  },
+  {
+   "case_id": "R375",
+   "label": "gold_defect",
+   "error_type": null,
+   "ruled_for": "1",
+   "confidence": "high",
+   "reason": "The natural reading is that no English is spoken; the gold instead includes every multilingual country having any non-English language row."
+  },
+  {
+   "case_id": "R377",
+   "label": "underspecified",
+   "error_type": null,
+   "ruled_for": "1",
+   "confidence": "low",
+   "reason": "Because the schema has no nationality attribute, neither population nor distinct-language count is uniquely determined as the requested measure."
+  },
+  {
+   "case_id": "R395",
+   "label": "underspecified",
+   "error_type": null,
+   "ruled_for": "2",
+   "confidence": "low",
+   "reason": "In this schema, car and versions can plausibly refer either to a Model category and its Make names or to a Make name and its repeated data variants."
+  },
+  {
+   "case_id": "R421",
+   "label": "gold_defect",
+   "error_type": null,
+   "ruled_for": "1",
+   "confidence": "high",
+   "reason": "Greater than any country in Europe has the natural universal reading, so MAX is required; the gold's MIN answers greater than at least one."
+  },
+  {
+   "case_id": "R423",
+   "label": "gold_defect",
+   "error_type": null,
+   "ruled_for": "2",
+   "confidence": "high",
+   "reason": "Countries in which people do not speak English naturally requires absence of English, while the gold merely requires the presence of some non-English language."
+  },
+  {
+   "case_id": "R426",
+   "label": "gold_defect",
+   "error_type": null,
+   "ruled_for": "1",
+   "confidence": "high",
+   "reason": "The returned query supplies the requested country codes and all tied maximizing languages; the gold adds percentage and arbitrarily drops ties."
+  },
+  {
+   "case_id": "R438",
+   "label": "semantic_error",
+   "error_type": "wrong_set_operation",
+   "ruled_for": "2",
+   "confidence": "high",
+   "reason": "EXCEPT is applied after projecting name and age, so a cat owner sharing those values can erase a distinct qualifying dog-only student."
+  },
+  {
+   "case_id": "R443",
+   "label": "gold_defect",
+   "error_type": null,
+   "ruled_for": "1",
+   "confidence": "high",
+   "reason": "The returned Maker value answers the requested manufacturer and the singular wording permits one earliest tied result; the gold returns car names rather than makers."
+  },
+  {
+   "case_id": "R452",
+   "label": "comparator_artifact",
+   "error_type": null,
+   "ruled_for": "2",
+   "confidence": "high",
+   "reason": "The returned first-name and last-name columns preserve the same winning person and rank points as the gold's single full-name column."
+  },
+  {
+   "case_id": "R464",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "ruled_for": "2",
+   "confidence": "high",
+   "reason": "Filtering channels individually admits countries that have a non-Todd channel even when another channel in the same country plays Todd Casey cartoons."
+  },
+  {
+   "case_id": "R473",
+   "label": "semantic_error",
+   "error_type": "wrong_aggregate",
+   "ruled_for": "1",
+   "confidence": "high",
+   "reason": "Fewer than any Asian country naturally means fewer than every Asian country, requiring MIN; the returned MAX only requires being below at least one."
+  },
+  {
+   "case_id": "R480",
+   "label": "underspecified",
+   "error_type": null,
+   "ruled_for": "2",
+   "confidence": "low",
+   "reason": "The schema has no nationality attribute, leaving population and country-language row count as competing proxies not resolved by the question."
+  },
+  {
+   "case_id": "R497",
+   "label": "underspecified",
+   "error_type": null,
+   "ruled_for": "2",
+   "confidence": "low",
+   "reason": "The schema cannot directly count nationalities, and the question supplies no basis for choosing population over language-count diversity or vice versa."
+  }
+ ]
+}

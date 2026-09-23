@@ -1,0 +1,77 @@
+{
+ "rule": {
+  "parse_rate_min": 0.98,
+  "truncation_rate_max": 0.01,
+  "top1_strong_min": 0.75
+ },
+ "candidates": [
+  {
+   "tag": "kwai-autosql-32b",
+   "meta": "experiments/pilot3_kwai-autosql-32b_candidates_meta.json",
+   "results": "experiments/pilot3_kwai-autosql-32b_results_official.json",
+   "model": "Kwai-AutoSQL/Kwai-AutoSQL-32B",
+   "parse_rate": 1.0,
+   "truncation_rate": 0.0,
+   "top1_strong": 0.825,
+   "questions_usable": 200,
+   "status": "ENTER"
+  },
+  {
+   "tag": "kwai-autosql-14b",
+   "meta": "experiments/pilot3_kwai-autosql-14b_candidates_meta.json",
+   "results": "experiments/pilot3_kwai-autosql-14b_results_official.json",
+   "model": "Kwai-AutoSQL/Kwai-AutoSQL-14B",
+   "parse_rate": 1.0,
+   "truncation_rate": 0.0,
+   "top1_strong": 0.83,
+   "questions_usable": 200,
+   "status": "ENTER"
+  },
+  {
+   "tag": "xiyansql-32b",
+   "meta": "experiments/pilot3_xiyansql-32b_candidates_meta.json",
+   "results": "experiments/pilot3_xiyansql-32b_results_official.json",
+   "model": "XGenerationLab/XiYanSQL-QwenCoder-32B-2504",
+   "parse_rate": 1.0,
+   "truncation_rate": 0.0,
+   "top1_strong": 0.925,
+   "questions_usable": 200,
+   "status": "ENTER"
+  },
+  {
+   "tag": "omnisql-32b",
+   "meta": "experiments/pilot3_omnisql-32b_candidates_meta.json",
+   "results": "experiments/pilot3_omnisql-32b_results_official.json",
+   "model": "OmniSQL/OmniSQL-32B",
+   "parse_rate": 0.9995,
+   "truncation_rate": 0.0,
+   "top1_strong": 0.77,
+   "questions_usable": 200,
+   "status": "ENTER"
+  },
+  {
+   "tag": "sqlcoder-70b",
+   "meta": "experiments/pilot3_sqlcoder-70b_candidates_meta.json",
+   "results": "experiments/pilot3_sqlcoder-70b_results_official.json",
+   "model": "sqlcoder/sqlcoder-70b-alpha",
+   "parse_rate": 1.0,
+   "truncation_rate": 0.0,
+   "top1_strong": 0.67,
+   "questions_usable": 200,
+   "status": "EXCLUDED",
+   "reason": "top-1 under the strong oracle below 0.75"
+  },
+  {
+   "tag": "llama3-sqlcoder-8b",
+   "status": "UNLOADABLE",
+   "reason": "inference failure, not a load failure: the checkpoint loads and generates, but all 2000 pilot outputs are unparsable and length-truncated (parse 0.0, truncation 1.0; greedy decoding under vLLM 0.22.1 and transformers 4.57.1 yields only '|' or repeated 'also', see logs/remote/prereg3/prereg3-diag-llama3sqlcoder.20260905T093814Z.log); it fails the parse and truncation rule together, so the truncation-only retry does not apply; the analyser cannot score a pool with no usable question, and this script has no label for that case other than UNLOADABLE; excluded, not replaced"
+  }
+ ],
+ "panel": [
+  "kwai-autosql-32b",
+  "kwai-autosql-14b",
+  "xiyansql-32b",
+  "omnisql-32b"
+ ],
+ "status_vocabulary_note": "panel_entry.py has only ENTER, EXCLUDED, MISSING and UNLOADABLE. llama3-sqlcoder-8b is recorded UNLOADABLE because that is the only slot for a candidate excluded outside the numeric rule; its reason field states the accurate finding, which is an inference failure rather than a load failure."
+}

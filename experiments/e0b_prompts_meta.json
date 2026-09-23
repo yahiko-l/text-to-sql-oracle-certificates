@@ -1,0 +1,27 @@
+{
+ "experiment": "E0b oracle intervention 2x2, second benchmark axis",
+ "benchmark": "text2sql-data advising, distilled test suites (Zhong et al. 2020)",
+ "weak_oracle": "first_suite_instance",
+ "weak_oracle_note": "the shipped database of every text2sql-data task holds no rows, so the populated single database Spider supplies does not exist here; the substitution was validated on Spider before being used",
+ "sampling_policy": {
+  "kind": "independent temperature sampling, fixed budget",
+  "n_samples_per_question": 20,
+  "temperature": 1.0,
+  "top_p": 0.95,
+  "max_tokens": 512,
+  "seed": 20260903
+ },
+ "questions_available": 1832,
+ "questions_with_a_suite": 1832,
+ "questions": 500,
+ "suite_instances_per_question": {
+  "min": 8,
+  "median": 15,
+  "max": 43
+ },
+ "distinct_weak_oracle_instances": 18,
+ "question_selection": "uniform without replacement, seed 20260903",
+ "model": "XGenerationLab/XiYanSQL-QwenCoder-32B-2504",
+ "prompt_template": "XiYanSQL nl2sqlite_template_cn, dialect=SQLite, evidence empty",
+ "schema_serialisation": "DDL of the weak-oracle instance plus up to 3 example values"
+}

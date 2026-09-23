@@ -1,0 +1,37 @@
+{
+ "note": "deployment-equivalence sensitivity: the execution-equivalence partition is built from the sampled candidates alone, with the gold used only to label a class afterwards",
+ "models": {
+  "kwai-autosql-32b": {
+   "GAP_candidates_only": 0.1023,
+   "GAP_preregistered": 0.1023,
+   "REPAIR_candidates_only": -0.1038,
+   "REPAIR_preregistered": -0.1038,
+   "identical_to_preregistered": true,
+   "max_abs_diff": 0.0
+  },
+  "kwai-autosql-14b": {
+   "GAP_candidates_only": 0.0808,
+   "GAP_preregistered": 0.0808,
+   "REPAIR_candidates_only": -0.083,
+   "REPAIR_preregistered": -0.083,
+   "identical_to_preregistered": true,
+   "max_abs_diff": 0.0
+  },
+  "xiyansql-32b": {
+   "GAP_candidates_only": 0.0311,
+   "GAP_preregistered": 0.0311,
+   "REPAIR_candidates_only": -0.029,
+   "REPAIR_preregistered": -0.029,
+   "identical_to_preregistered": true,
+   "max_abs_diff": 0.0
+  },
+  "omnisql-32b": {
+   "GAP_candidates_only": 0.0951,
+   "GAP_preregistered": 0.0951,
+   "REPAIR_candidates_only": -0.0959,
+   "REPAIR_preregistered": -0.0959,
+   "identical_to_preregistered": true,
+   "max_abs_diff": 0.0
+  }
+ }
+}

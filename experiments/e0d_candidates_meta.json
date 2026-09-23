@@ -1,0 +1,25 @@
+{
+ "model": "XGenerationLab/XiYanSQL-QwenCoder-32B-2504",
+ "arm": "main",
+ "questions": 508,
+ "samples_per_question": 20,
+ "sampling_policy": {
+  "kind": "independent temperature sampling, fixed budget",
+  "temperature": 1.0,
+  "top_p": 0.95,
+  "max_tokens": 512,
+  "seed": 20260903
+ },
+ "tensor_parallel_size": 4,
+ "encoder": "chat_template",
+ "dtype": "bfloat16",
+ "kv_cache_dtype": "auto",
+ "instrument_checks": {
+  "candidates": 10160,
+  "parse_rate": 1.0,
+  "truncation_rate": 0.0,
+  "note": "a truncated generation is a cut-off scratchpad: discard it, never parse it",
+  "raw_kept": true
+ },
+ "wall_clock_sec": 71.1
+}

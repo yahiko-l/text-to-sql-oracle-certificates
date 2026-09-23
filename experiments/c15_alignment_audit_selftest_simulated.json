@@ -1,0 +1,37 @@
+{
+ "source": "SIMULATED on suite labels, not a result",
+ "items_sha256": "9d1f79f1eeb1e3a0c015edf5eb6ec0f0ea1a790301bb5ac9e727adc225bd351a",
+ "checkpoints": {
+  "xiyansql-32b": {
+   "score": "top_class_mass",
+   "n_correct": 436,
+   "n_wrong": 71,
+   "unlabelled": 0,
+   "auroc_built_on_A": 0.6645,
+   "auroc_built_on_D": 0.7564,
+   "delta": 0.092,
+   "se": 0.0242,
+   "z": 3.806,
+   "p_two_sided": 0.00014,
+   "significant_05": true
+  },
+  "kwai-autosql-32b": {
+   "score": "top_class_mass",
+   "n_correct": 373,
+   "n_wrong": 123,
+   "unlabelled": 0,
+   "auroc_built_on_A": 0.7521,
+   "auroc_built_on_D": 0.8407,
+   "delta": 0.0886,
+   "se": 0.0217,
+   "z": 4.082,
+   "p_two_sided": 4e-05,
+   "significant_05": true
+  }
+ },
+ "verdict_counts": {
+  "answers": 817,
+  "does_not_answer": 211
+ },
+ "preregistered_verdict": "SUBSTANTIVE"
+}

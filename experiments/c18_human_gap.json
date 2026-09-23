@@ -1,0 +1,227 @@
+{
+ "note": "The certificate re-scored against the expert labels, on both sides of the suite oracle.",
+ "post_hoc": true,
+ "sides": {
+  "xiyansql-32b": {
+   "suite_accepted": {
+    "n": 407,
+    "expert_wrong": 72,
+    "share": 0.1769
+   },
+   "suite_rejected": {
+    "n": 57,
+    "expert_wrong": 21,
+    "share": 0.3684
+   }
+  },
+  "kwai-autosql-32b": {
+   "suite_accepted": {
+    "n": 352,
+    "expert_wrong": 53,
+    "share": 0.1506
+   },
+   "suite_rejected": {
+    "n": 113,
+    "expert_wrong": 41,
+    "share": 0.3628
+   }
+  }
+ },
+ "certificate": {
+  "agreed": {
+   "suite": {
+    "xiyansql-32b": {
+     "gap": 10.0984,
+     "dma": -2.4193,
+     "levels": {
+      "weak": 9.89,
+      "suite": 12.96,
+      "expert": 19.99
+     }
+    },
+    "kwai-autosql-32b": {
+     "gap": 7.372,
+     "dma": -4.565,
+     "levels": {
+      "weak": 9.84,
+      "suite": 20.25,
+      "expert": 17.21
+     }
+    }
+   },
+   "weak": {
+    "xiyansql-32b": {
+     "gap": 9.2539,
+     "dma": -1.8583,
+     "levels": {
+      "weak": 9.89,
+      "suite": 12.96,
+      "expert": 19.15
+     }
+    },
+    "kwai-autosql-32b": {
+     "gap": 6.1949,
+     "dma": -3.7933,
+     "levels": {
+      "weak": 9.84,
+      "suite": 20.25,
+      "expert": 16.03
+     }
+    }
+   },
+   "drop": {
+    "xiyansql-32b": {
+     "gap": 10.137,
+     "dma": -1.4175,
+     "levels": {
+      "weak": 9.18,
+      "suite": 11.61,
+      "expert": 19.32
+     }
+    },
+    "kwai-autosql-32b": {
+     "gap": 6.7856,
+     "dma": -3.5766,
+     "levels": {
+      "weak": 9.25,
+      "suite": 19.36,
+      "expert": 16.04
+     }
+    }
+   }
+  },
+  "E1": {
+   "suite": {
+    "xiyansql-32b": {
+     "gap": 11.7579,
+     "dma": -2.5157,
+     "levels": {
+      "weak": 9.89,
+      "suite": 12.96,
+      "expert": 21.65
+     }
+    },
+    "kwai-autosql-32b": {
+     "gap": 7.9429,
+     "dma": -4.4055,
+     "levels": {
+      "weak": 9.84,
+      "suite": 20.25,
+      "expert": 17.78
+     }
+    }
+   },
+   "weak": {
+    "xiyansql-32b": {
+     "gap": 11.3543,
+     "dma": -2.3858,
+     "levels": {
+      "weak": 9.89,
+      "suite": 12.96,
+      "expert": 21.25
+     }
+    },
+    "kwai-autosql-32b": {
+     "gap": 7.3465,
+     "dma": -4.2146,
+     "levels": {
+      "weak": 9.84,
+      "suite": 20.25,
+      "expert": 17.18
+     }
+    }
+   },
+   "drop": {
+    "xiyansql-32b": {
+     "gap": 11.9292,
+     "dma": -1.9819,
+     "levels": {
+      "weak": 8.89,
+      "suite": 11.69,
+      "expert": 20.82
+     }
+    },
+    "kwai-autosql-32b": {
+     "gap": 7.6887,
+     "dma": -3.8862,
+     "levels": {
+      "weak": 8.87,
+      "suite": 19.14,
+      "expert": 16.55
+     }
+    }
+   }
+  },
+  "E2": {
+   "suite": {
+    "xiyansql-32b": {
+     "gap": 9.8878,
+     "dma": -1.9803,
+     "levels": {
+      "weak": 9.89,
+      "suite": 12.96,
+      "expert": 19.78
+     }
+    },
+    "kwai-autosql-32b": {
+     "gap": 7.2165,
+     "dma": -4.1831,
+     "levels": {
+      "weak": 9.84,
+      "suite": 20.25,
+      "expert": 17.05
+     }
+    }
+   },
+   "weak": {
+    "xiyansql-32b": {
+     "gap": 9.4075,
+     "dma": -1.7835,
+     "levels": {
+      "weak": 9.89,
+      "suite": 12.96,
+      "expert": 19.3
+     }
+    },
+    "kwai-autosql-32b": {
+     "gap": 6.4232,
+     "dma": -3.7953,
+     "levels": {
+      "weak": 9.84,
+      "suite": 20.25,
+      "expert": 16.26
+     }
+    }
+   },
+   "drop": {
+    "xiyansql-32b": {
+     "gap": 9.927,
+     "dma": -1.4891,
+     "levels": {
+      "weak": 9.33,
+      "suite": 12.06,
+      "expert": 19.26
+     }
+    },
+    "kwai-autosql-32b": {
+     "gap": 6.8198,
+     "dma": -3.751,
+     "levels": {
+      "weak": 9.48,
+      "suite": 19.69,
+      "expert": 16.3
+     }
+    }
+   }
+  }
+ },
+ "gap_range": [
+  6.19,
+  11.93
+ ],
+ "dma_range": [
+  -4.57,
+  -1.42
+ ],
+ "gap_positive_everywhere": true
+}

@@ -1,0 +1,1105 @@
+{
+ "date": "2026-09-06",
+ "alpha": 0.1,
+ "splits": 200,
+ "audit": {
+  "cases": 742,
+  "answers": 2779,
+  "narrow_share_of_answers": 0.3498,
+  "wide_share_of_answers": 0.4077
+ },
+ "stress_defective_gold": true,
+ "note": "risk_reported is what the certificate claims, fitted on weak labels; risk_audited is what it carries under the named convention; GAP is their difference. The preregistered row uses the strong oracle unchanged. GAP is non-negative by construction ONLY when the census covers just the answers the two oracles disagree about, because then every convention keeps the strong label a refinement of the weak one. A census that also covers the answers both oracles reject breaks that: exculpating one of those lowers the truth side below the reported side and GAP can go negative, as it does here. Where GAP is non-negative by construction the share of splits with GAP > 0 is not a significance statement and must not be read as a p-value; the magnitude is the result. Neither figure is an audited semantic risk: every answer the strong oracle ACCEPTS is still presumed correct, and none of them was audited.",
+ "conventions": {
+  "unanimous": {
+   "rule": "both passes independently said semantic_error and neither called the case borderline",
+   "cases": 184
+  },
+  "agreed": {
+   "rule": "both passes independently said semantic_error",
+   "cases": 261
+  },
+  "narrow": {
+   "rule": "the audit's final label is semantic_error",
+   "cases": 288
+  },
+  "wide": {
+   "rule": "narrow plus instance_defect",
+   "cases": 335
+  }
+ },
+ "pools": {
+  "kwai-autosql-32b|seed101|question": {
+   "preregistered": {
+    "risk_reported": 0.0984,
+    "risk_audited": 0.2025,
+    "GAP": 0.1041,
+    "GAP_positive_splits": 1.0
+   },
+   "unanimous": {
+    "risk_reported": 0.0984,
+    "risk_audited": 0.0418,
+    "GAP": -0.0565,
+    "GAP_positive_splits": 0.0,
+    "answers_exculpated": 92,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "agreed": {
+    "risk_reported": 0.0984,
+    "risk_audited": 0.0597,
+    "GAP": -0.0387,
+    "GAP_positive_splits": 0.015,
+    "answers_exculpated": 83,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "narrow": {
+    "risk_reported": 0.0984,
+    "risk_audited": 0.069,
+    "GAP": -0.0293,
+    "GAP_positive_splits": 0.075,
+    "answers_exculpated": 78,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "wide": {
+    "risk_reported": 0.0984,
+    "risk_audited": 0.0872,
+    "GAP": -0.0112,
+    "GAP_positive_splits": 0.295,
+    "answers_exculpated": 69,
+    "strong_wrong_answers_outside_the_census": 0
+   }
+  },
+  "kwai-autosql-32b|seed101|database": {
+   "preregistered": {
+    "risk_reported": 0.1043,
+    "risk_audited": 0.2062,
+    "GAP": 0.1019,
+    "GAP_positive_splits": 1.0
+   },
+   "unanimous": {
+    "risk_reported": 0.1043,
+    "risk_audited": 0.0471,
+    "GAP": -0.0571,
+    "GAP_positive_splits": 0.0,
+    "answers_exculpated": 92,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "agreed": {
+    "risk_reported": 0.1043,
+    "risk_audited": 0.0643,
+    "GAP": -0.04,
+    "GAP_positive_splits": 0.03,
+    "answers_exculpated": 83,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "narrow": {
+    "risk_reported": 0.1043,
+    "risk_audited": 0.0736,
+    "GAP": -0.0307,
+    "GAP_positive_splits": 0.06,
+    "answers_exculpated": 78,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "wide": {
+    "risk_reported": 0.1043,
+    "risk_audited": 0.0905,
+    "GAP": -0.0138,
+    "GAP_positive_splits": 0.215,
+    "answers_exculpated": 69,
+    "strong_wrong_answers_outside_the_census": 0
+   }
+  },
+  "kwai-autosql-32b|seed202|question": {
+   "preregistered": {
+    "risk_reported": 0.0981,
+    "risk_audited": 0.1971,
+    "GAP": 0.099,
+    "GAP_positive_splits": 1.0
+   },
+   "unanimous": {
+    "risk_reported": 0.0981,
+    "risk_audited": 0.0403,
+    "GAP": -0.0578,
+    "GAP_positive_splits": 0.005,
+    "answers_exculpated": 96,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "agreed": {
+    "risk_reported": 0.0981,
+    "risk_audited": 0.0557,
+    "GAP": -0.0424,
+    "GAP_positive_splits": 0.02,
+    "answers_exculpated": 85,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "narrow": {
+    "risk_reported": 0.0981,
+    "risk_audited": 0.0648,
+    "GAP": -0.0333,
+    "GAP_positive_splits": 0.045,
+    "answers_exculpated": 79,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "wide": {
+    "risk_reported": 0.0981,
+    "risk_audited": 0.081,
+    "GAP": -0.0172,
+    "GAP_positive_splits": 0.18,
+    "answers_exculpated": 70,
+    "strong_wrong_answers_outside_the_census": 0
+   }
+  },
+  "kwai-autosql-32b|seed202|database": {
+   "preregistered": {
+    "risk_reported": 0.1038,
+    "risk_audited": 0.2032,
+    "GAP": 0.0994,
+    "GAP_positive_splits": 1.0
+   },
+   "unanimous": {
+    "risk_reported": 0.1038,
+    "risk_audited": 0.0439,
+    "GAP": -0.0599,
+    "GAP_positive_splits": 0.005,
+    "answers_exculpated": 96,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "agreed": {
+    "risk_reported": 0.1038,
+    "risk_audited": 0.0596,
+    "GAP": -0.0442,
+    "GAP_positive_splits": 0.005,
+    "answers_exculpated": 85,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "narrow": {
+    "risk_reported": 0.1038,
+    "risk_audited": 0.0691,
+    "GAP": -0.0347,
+    "GAP_positive_splits": 0.02,
+    "answers_exculpated": 79,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "wide": {
+    "risk_reported": 0.1038,
+    "risk_audited": 0.0851,
+    "GAP": -0.0187,
+    "GAP_positive_splits": 0.135,
+    "answers_exculpated": 70,
+    "strong_wrong_answers_outside_the_census": 0
+   }
+  },
+  "kwai-autosql-32b|seed303|question": {
+   "preregistered": {
+    "risk_reported": 0.0978,
+    "risk_audited": 0.2016,
+    "GAP": 0.1038,
+    "GAP_positive_splits": 1.0
+   },
+   "unanimous": {
+    "risk_reported": 0.0978,
+    "risk_audited": 0.0398,
+    "GAP": -0.058,
+    "GAP_positive_splits": 0.0,
+    "answers_exculpated": 98,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "agreed": {
+    "risk_reported": 0.0978,
+    "risk_audited": 0.0543,
+    "GAP": -0.0435,
+    "GAP_positive_splits": 0.03,
+    "answers_exculpated": 87,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "narrow": {
+    "risk_reported": 0.0978,
+    "risk_audited": 0.0637,
+    "GAP": -0.0341,
+    "GAP_positive_splits": 0.04,
+    "answers_exculpated": 81,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "wide": {
+    "risk_reported": 0.0978,
+    "risk_audited": 0.0843,
+    "GAP": -0.0134,
+    "GAP_positive_splits": 0.23,
+    "answers_exculpated": 70,
+    "strong_wrong_answers_outside_the_census": 0
+   }
+  },
+  "kwai-autosql-32b|seed303|database": {
+   "preregistered": {
+    "risk_reported": 0.1042,
+    "risk_audited": 0.2081,
+    "GAP": 0.1039,
+    "GAP_positive_splits": 1.0
+   },
+   "unanimous": {
+    "risk_reported": 0.1042,
+    "risk_audited": 0.0438,
+    "GAP": -0.0604,
+    "GAP_positive_splits": 0.005,
+    "answers_exculpated": 98,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "agreed": {
+    "risk_reported": 0.1042,
+    "risk_audited": 0.0582,
+    "GAP": -0.0461,
+    "GAP_positive_splits": 0.025,
+    "answers_exculpated": 87,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "narrow": {
+    "risk_reported": 0.1042,
+    "risk_audited": 0.0681,
+    "GAP": -0.0361,
+    "GAP_positive_splits": 0.075,
+    "answers_exculpated": 81,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "wide": {
+    "risk_reported": 0.1042,
+    "risk_audited": 0.0884,
+    "GAP": -0.0159,
+    "GAP_positive_splits": 0.22,
+    "answers_exculpated": 70,
+    "strong_wrong_answers_outside_the_census": 0
+   }
+  },
+  "kwai-autosql-14b|seed101|question": {
+   "preregistered": {
+    "risk_reported": 0.0996,
+    "risk_audited": 0.1772,
+    "GAP": 0.0776,
+    "GAP_positive_splits": 1.0
+   },
+   "unanimous": {
+    "risk_reported": 0.0996,
+    "risk_audited": 0.0784,
+    "GAP": -0.0212,
+    "GAP_positive_splits": 0.14,
+    "answers_exculpated": 65,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "agreed": {
+    "risk_reported": 0.0996,
+    "risk_audited": 0.0972,
+    "GAP": -0.0024,
+    "GAP_positive_splits": 0.44,
+    "answers_exculpated": 53,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "narrow": {
+    "risk_reported": 0.0996,
+    "risk_audited": 0.1028,
+    "GAP": 0.0031,
+    "GAP_positive_splits": 0.545,
+    "answers_exculpated": 49,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "wide": {
+    "risk_reported": 0.0996,
+    "risk_audited": 0.1127,
+    "GAP": 0.0131,
+    "GAP_positive_splits": 0.74,
+    "answers_exculpated": 44,
+    "strong_wrong_answers_outside_the_census": 0
+   }
+  },
+  "kwai-autosql-14b|seed101|database": {
+   "preregistered": {
+    "risk_reported": 0.0978,
+    "risk_audited": 0.1729,
+    "GAP": 0.0751,
+    "GAP_positive_splits": 1.0
+   },
+   "unanimous": {
+    "risk_reported": 0.0978,
+    "risk_audited": 0.0777,
+    "GAP": -0.0201,
+    "GAP_positive_splits": 0.235,
+    "answers_exculpated": 65,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "agreed": {
+    "risk_reported": 0.0978,
+    "risk_audited": 0.0941,
+    "GAP": -0.0037,
+    "GAP_positive_splits": 0.46,
+    "answers_exculpated": 53,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "narrow": {
+    "risk_reported": 0.0978,
+    "risk_audited": 0.0996,
+    "GAP": 0.0018,
+    "GAP_positive_splits": 0.535,
+    "answers_exculpated": 49,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "wide": {
+    "risk_reported": 0.0978,
+    "risk_audited": 0.1089,
+    "GAP": 0.0111,
+    "GAP_positive_splits": 0.655,
+    "answers_exculpated": 44,
+    "strong_wrong_answers_outside_the_census": 0
+   }
+  },
+  "kwai-autosql-14b|seed202|question": {
+   "preregistered": {
+    "risk_reported": 0.099,
+    "risk_audited": 0.1821,
+    "GAP": 0.083,
+    "GAP_positive_splits": 1.0
+   },
+   "unanimous": {
+    "risk_reported": 0.099,
+    "risk_audited": 0.074,
+    "GAP": -0.0251,
+    "GAP_positive_splits": 0.065,
+    "answers_exculpated": 65,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "agreed": {
+    "risk_reported": 0.099,
+    "risk_audited": 0.0897,
+    "GAP": -0.0094,
+    "GAP_positive_splits": 0.22,
+    "answers_exculpated": 54,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "narrow": {
+    "risk_reported": 0.099,
+    "risk_audited": 0.0978,
+    "GAP": -0.0013,
+    "GAP_positive_splits": 0.465,
+    "answers_exculpated": 49,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "wide": {
+    "risk_reported": 0.099,
+    "risk_audited": 0.1094,
+    "GAP": 0.0103,
+    "GAP_positive_splits": 0.73,
+    "answers_exculpated": 43,
+    "strong_wrong_answers_outside_the_census": 0
+   }
+  },
+  "kwai-autosql-14b|seed202|database": {
+   "preregistered": {
+    "risk_reported": 0.0964,
+    "risk_audited": 0.1773,
+    "GAP": 0.0809,
+    "GAP_positive_splits": 1.0
+   },
+   "unanimous": {
+    "risk_reported": 0.0964,
+    "risk_audited": 0.0735,
+    "GAP": -0.0229,
+    "GAP_positive_splits": 0.17,
+    "answers_exculpated": 65,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "agreed": {
+    "risk_reported": 0.0964,
+    "risk_audited": 0.0878,
+    "GAP": -0.0086,
+    "GAP_positive_splits": 0.33,
+    "answers_exculpated": 54,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "narrow": {
+    "risk_reported": 0.0964,
+    "risk_audited": 0.0954,
+    "GAP": -0.0009,
+    "GAP_positive_splits": 0.465,
+    "answers_exculpated": 49,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "wide": {
+    "risk_reported": 0.0964,
+    "risk_audited": 0.106,
+    "GAP": 0.0097,
+    "GAP_positive_splits": 0.65,
+    "answers_exculpated": 43,
+    "strong_wrong_answers_outside_the_census": 0
+   }
+  },
+  "kwai-autosql-14b|seed303|question": {
+   "preregistered": {
+    "risk_reported": 0.1004,
+    "risk_audited": 0.1823,
+    "GAP": 0.0819,
+    "GAP_positive_splits": 1.0
+   },
+   "unanimous": {
+    "risk_reported": 0.1004,
+    "risk_audited": 0.064,
+    "GAP": -0.0364,
+    "GAP_positive_splits": 0.035,
+    "answers_exculpated": 77,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "agreed": {
+    "risk_reported": 0.1004,
+    "risk_audited": 0.0857,
+    "GAP": -0.0147,
+    "GAP_positive_splits": 0.165,
+    "answers_exculpated": 63,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "narrow": {
+    "risk_reported": 0.1004,
+    "risk_audited": 0.0915,
+    "GAP": -0.009,
+    "GAP_positive_splits": 0.255,
+    "answers_exculpated": 59,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "wide": {
+    "risk_reported": 0.1004,
+    "risk_audited": 0.1035,
+    "GAP": 0.0031,
+    "GAP_positive_splits": 0.585,
+    "answers_exculpated": 53,
+    "strong_wrong_answers_outside_the_census": 0
+   }
+  },
+  "kwai-autosql-14b|seed303|database": {
+   "preregistered": {
+    "risk_reported": 0.0967,
+    "risk_audited": 0.1768,
+    "GAP": 0.08,
+    "GAP_positive_splits": 1.0
+   },
+   "unanimous": {
+    "risk_reported": 0.0967,
+    "risk_audited": 0.0626,
+    "GAP": -0.0341,
+    "GAP_positive_splits": 0.11,
+    "answers_exculpated": 77,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "agreed": {
+    "risk_reported": 0.0967,
+    "risk_audited": 0.0824,
+    "GAP": -0.0143,
+    "GAP_positive_splits": 0.24,
+    "answers_exculpated": 63,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "narrow": {
+    "risk_reported": 0.0967,
+    "risk_audited": 0.0881,
+    "GAP": -0.0086,
+    "GAP_positive_splits": 0.33,
+    "answers_exculpated": 59,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "wide": {
+    "risk_reported": 0.0967,
+    "risk_audited": 0.0992,
+    "GAP": 0.0025,
+    "GAP_positive_splits": 0.52,
+    "answers_exculpated": 53,
+    "strong_wrong_answers_outside_the_census": 0
+   }
+  },
+  "xiyansql-32b|seed101|question": {
+   "preregistered": {
+    "risk_reported": 0.0989,
+    "risk_audited": 0.1296,
+    "GAP": 0.0306,
+    "GAP_positive_splits": 0.995
+   },
+   "unanimous": {
+    "risk_reported": 0.0989,
+    "risk_audited": 0.1017,
+    "GAP": 0.0027,
+    "GAP_positive_splits": 0.505,
+    "answers_exculpated": 17,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "agreed": {
+    "risk_reported": 0.0989,
+    "risk_audited": 0.1187,
+    "GAP": 0.0197,
+    "GAP_positive_splits": 0.835,
+    "answers_exculpated": 8,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "narrow": {
+    "risk_reported": 0.0989,
+    "risk_audited": 0.1308,
+    "GAP": 0.0318,
+    "GAP_positive_splits": 0.975,
+    "answers_exculpated": 2,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "wide": {
+    "risk_reported": 0.0989,
+    "risk_audited": 0.1369,
+    "GAP": 0.038,
+    "GAP_positive_splits": 0.985,
+    "answers_exculpated": -2,
+    "strong_wrong_answers_outside_the_census": 0
+   }
+  },
+  "xiyansql-32b|seed101|database": {
+   "preregistered": {
+    "risk_reported": 0.0897,
+    "risk_audited": 0.1174,
+    "GAP": 0.0276,
+    "GAP_positive_splits": 0.925
+   },
+   "unanimous": {
+    "risk_reported": 0.0897,
+    "risk_audited": 0.0929,
+    "GAP": 0.0032,
+    "GAP_positive_splits": 0.495,
+    "answers_exculpated": 17,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "agreed": {
+    "risk_reported": 0.0897,
+    "risk_audited": 0.1076,
+    "GAP": 0.0179,
+    "GAP_positive_splits": 0.77,
+    "answers_exculpated": 8,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "narrow": {
+    "risk_reported": 0.0897,
+    "risk_audited": 0.1176,
+    "GAP": 0.0278,
+    "GAP_positive_splits": 0.82,
+    "answers_exculpated": 2,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "wide": {
+    "risk_reported": 0.0897,
+    "risk_audited": 0.1235,
+    "GAP": 0.0338,
+    "GAP_positive_splits": 0.82,
+    "answers_exculpated": -2,
+    "strong_wrong_answers_outside_the_census": 0
+   }
+  },
+  "xiyansql-32b|seed202|question": {
+   "preregistered": {
+    "risk_reported": 0.0979,
+    "risk_audited": 0.1292,
+    "GAP": 0.0313,
+    "GAP_positive_splits": 0.995
+   },
+   "unanimous": {
+    "risk_reported": 0.0979,
+    "risk_audited": 0.1,
+    "GAP": 0.0021,
+    "GAP_positive_splits": 0.5,
+    "answers_exculpated": 16,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "agreed": {
+    "risk_reported": 0.0979,
+    "risk_audited": 0.1186,
+    "GAP": 0.0207,
+    "GAP_positive_splits": 0.88,
+    "answers_exculpated": 6,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "narrow": {
+    "risk_reported": 0.0979,
+    "risk_audited": 0.1306,
+    "GAP": 0.0327,
+    "GAP_positive_splits": 0.985,
+    "answers_exculpated": 0,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "wide": {
+    "risk_reported": 0.0979,
+    "risk_audited": 0.1376,
+    "GAP": 0.0397,
+    "GAP_positive_splits": 0.99,
+    "answers_exculpated": -4,
+    "strong_wrong_answers_outside_the_census": 0
+   }
+  },
+  "xiyansql-32b|seed202|database": {
+   "preregistered": {
+    "risk_reported": 0.0878,
+    "risk_audited": 0.114,
+    "GAP": 0.0262,
+    "GAP_positive_splits": 0.88
+   },
+   "unanimous": {
+    "risk_reported": 0.0878,
+    "risk_audited": 0.0898,
+    "GAP": 0.002,
+    "GAP_positive_splits": 0.45,
+    "answers_exculpated": 16,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "agreed": {
+    "risk_reported": 0.0878,
+    "risk_audited": 0.1053,
+    "GAP": 0.0175,
+    "GAP_positive_splits": 0.715,
+    "answers_exculpated": 6,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "narrow": {
+    "risk_reported": 0.0878,
+    "risk_audited": 0.1147,
+    "GAP": 0.0269,
+    "GAP_positive_splits": 0.78,
+    "answers_exculpated": 0,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "wide": {
+    "risk_reported": 0.0878,
+    "risk_audited": 0.1206,
+    "GAP": 0.0328,
+    "GAP_positive_splits": 0.78,
+    "answers_exculpated": -4,
+    "strong_wrong_answers_outside_the_census": 0
+   }
+  },
+  "xiyansql-32b|seed303|question": {
+   "preregistered": {
+    "risk_reported": 0.0985,
+    "risk_audited": 0.1298,
+    "GAP": 0.0313,
+    "GAP_positive_splits": 0.995
+   },
+   "unanimous": {
+    "risk_reported": 0.0985,
+    "risk_audited": 0.102,
+    "GAP": 0.0035,
+    "GAP_positive_splits": 0.53,
+    "answers_exculpated": 17,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "agreed": {
+    "risk_reported": 0.0985,
+    "risk_audited": 0.1181,
+    "GAP": 0.0196,
+    "GAP_positive_splits": 0.83,
+    "answers_exculpated": 8,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "narrow": {
+    "risk_reported": 0.0985,
+    "risk_audited": 0.13,
+    "GAP": 0.0315,
+    "GAP_positive_splits": 0.975,
+    "answers_exculpated": 2,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "wide": {
+    "risk_reported": 0.0985,
+    "risk_audited": 0.1376,
+    "GAP": 0.039,
+    "GAP_positive_splits": 0.98,
+    "answers_exculpated": -2,
+    "strong_wrong_answers_outside_the_census": 0
+   }
+  },
+  "xiyansql-32b|seed303|database": {
+   "preregistered": {
+    "risk_reported": 0.0899,
+    "risk_audited": 0.1179,
+    "GAP": 0.028,
+    "GAP_positive_splits": 0.925
+   },
+   "unanimous": {
+    "risk_reported": 0.0899,
+    "risk_audited": 0.0932,
+    "GAP": 0.0034,
+    "GAP_positive_splits": 0.5,
+    "answers_exculpated": 17,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "agreed": {
+    "risk_reported": 0.0899,
+    "risk_audited": 0.1072,
+    "GAP": 0.0173,
+    "GAP_positive_splits": 0.755,
+    "answers_exculpated": 8,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "narrow": {
+    "risk_reported": 0.0899,
+    "risk_audited": 0.1169,
+    "GAP": 0.027,
+    "GAP_positive_splits": 0.82,
+    "answers_exculpated": 2,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "wide": {
+    "risk_reported": 0.0899,
+    "risk_audited": 0.1239,
+    "GAP": 0.034,
+    "GAP_positive_splits": 0.83,
+    "answers_exculpated": -2,
+    "strong_wrong_answers_outside_the_census": 0
+   }
+  },
+  "omnisql-32b|seed101|question": {
+   "preregistered": {
+    "risk_reported": 0.0944,
+    "risk_audited": 0.1906,
+    "GAP": 0.0963,
+    "GAP_positive_splits": 1.0
+   },
+   "unanimous": {
+    "risk_reported": 0.0944,
+    "risk_audited": 0.0454,
+    "GAP": -0.049,
+    "GAP_positive_splits": 0.005,
+    "answers_exculpated": 100,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "agreed": {
+    "risk_reported": 0.0944,
+    "risk_audited": 0.0593,
+    "GAP": -0.035,
+    "GAP_positive_splits": 0.025,
+    "answers_exculpated": 90,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "narrow": {
+    "risk_reported": 0.0944,
+    "risk_audited": 0.0654,
+    "GAP": -0.029,
+    "GAP_positive_splits": 0.04,
+    "answers_exculpated": 85,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "wide": {
+    "risk_reported": 0.0944,
+    "risk_audited": 0.0826,
+    "GAP": -0.0118,
+    "GAP_positive_splits": 0.255,
+    "answers_exculpated": 75,
+    "strong_wrong_answers_outside_the_census": 0
+   }
+  },
+  "omnisql-32b|seed101|database": {
+   "preregistered": {
+    "risk_reported": 0.1108,
+    "risk_audited": 0.2068,
+    "GAP": 0.096,
+    "GAP_positive_splits": 1.0
+   },
+   "unanimous": {
+    "risk_reported": 0.1108,
+    "risk_audited": 0.0523,
+    "GAP": -0.0585,
+    "GAP_positive_splits": 0.135,
+    "answers_exculpated": 100,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "agreed": {
+    "risk_reported": 0.1108,
+    "risk_audited": 0.0671,
+    "GAP": -0.0437,
+    "GAP_positive_splits": 0.265,
+    "answers_exculpated": 90,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "narrow": {
+    "risk_reported": 0.1108,
+    "risk_audited": 0.0733,
+    "GAP": -0.0375,
+    "GAP_positive_splits": 0.3,
+    "answers_exculpated": 85,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "wide": {
+    "risk_reported": 0.1108,
+    "risk_audited": 0.0902,
+    "GAP": -0.0207,
+    "GAP_positive_splits": 0.385,
+    "answers_exculpated": 75,
+    "strong_wrong_answers_outside_the_census": 0
+   }
+  },
+  "omnisql-32b|seed202|question": {
+   "preregistered": {
+    "risk_reported": 0.0948,
+    "risk_audited": 0.1893,
+    "GAP": 0.0944,
+    "GAP_positive_splits": 1.0
+   },
+   "unanimous": {
+    "risk_reported": 0.0948,
+    "risk_audited": 0.0532,
+    "GAP": -0.0417,
+    "GAP_positive_splits": 0.01,
+    "answers_exculpated": 99,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "agreed": {
+    "risk_reported": 0.0948,
+    "risk_audited": 0.0722,
+    "GAP": -0.0227,
+    "GAP_positive_splits": 0.1,
+    "answers_exculpated": 84,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "narrow": {
+    "risk_reported": 0.0948,
+    "risk_audited": 0.0764,
+    "GAP": -0.0184,
+    "GAP_positive_splits": 0.155,
+    "answers_exculpated": 80,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "wide": {
+    "risk_reported": 0.0948,
+    "risk_audited": 0.091,
+    "GAP": -0.0039,
+    "GAP_positive_splits": 0.38,
+    "answers_exculpated": 72,
+    "strong_wrong_answers_outside_the_census": 0
+   }
+  },
+  "omnisql-32b|seed202|database": {
+   "preregistered": {
+    "risk_reported": 0.109,
+    "risk_audited": 0.2033,
+    "GAP": 0.0943,
+    "GAP_positive_splits": 1.0
+   },
+   "unanimous": {
+    "risk_reported": 0.109,
+    "risk_audited": 0.0585,
+    "GAP": -0.0505,
+    "GAP_positive_splits": 0.185,
+    "answers_exculpated": 99,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "agreed": {
+    "risk_reported": 0.109,
+    "risk_audited": 0.0796,
+    "GAP": -0.0294,
+    "GAP_positive_splits": 0.305,
+    "answers_exculpated": 84,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "narrow": {
+    "risk_reported": 0.109,
+    "risk_audited": 0.0839,
+    "GAP": -0.025,
+    "GAP_positive_splits": 0.325,
+    "answers_exculpated": 80,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "wide": {
+    "risk_reported": 0.109,
+    "risk_audited": 0.0982,
+    "GAP": -0.0108,
+    "GAP_positive_splits": 0.435,
+    "answers_exculpated": 72,
+    "strong_wrong_answers_outside_the_census": 0
+   }
+  },
+  "omnisql-32b|seed303|question": {
+   "preregistered": {
+    "risk_reported": 0.0954,
+    "risk_audited": 0.1896,
+    "GAP": 0.0943,
+    "GAP_positive_splits": 1.0
+   },
+   "unanimous": {
+    "risk_reported": 0.0954,
+    "risk_audited": 0.0516,
+    "GAP": -0.0438,
+    "GAP_positive_splits": 0.005,
+    "answers_exculpated": 96,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "agreed": {
+    "risk_reported": 0.0954,
+    "risk_audited": 0.0725,
+    "GAP": -0.0228,
+    "GAP_positive_splits": 0.085,
+    "answers_exculpated": 83,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "narrow": {
+    "risk_reported": 0.0954,
+    "risk_audited": 0.0773,
+    "GAP": -0.018,
+    "GAP_positive_splits": 0.115,
+    "answers_exculpated": 77,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "wide": {
+    "risk_reported": 0.0954,
+    "risk_audited": 0.0926,
+    "GAP": -0.0027,
+    "GAP_positive_splits": 0.5,
+    "answers_exculpated": 69,
+    "strong_wrong_answers_outside_the_census": 0
+   }
+  },
+  "omnisql-32b|seed303|database": {
+   "preregistered": {
+    "risk_reported": 0.1081,
+    "risk_audited": 0.2026,
+    "GAP": 0.0945,
+    "GAP_positive_splits": 1.0
+   },
+   "unanimous": {
+    "risk_reported": 0.1081,
+    "risk_audited": 0.0556,
+    "GAP": -0.0525,
+    "GAP_positive_splits": 0.1,
+    "answers_exculpated": 96,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "agreed": {
+    "risk_reported": 0.1081,
+    "risk_audited": 0.0777,
+    "GAP": -0.0304,
+    "GAP_positive_splits": 0.275,
+    "answers_exculpated": 83,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "narrow": {
+    "risk_reported": 0.1081,
+    "risk_audited": 0.0832,
+    "GAP": -0.0249,
+    "GAP_positive_splits": 0.31,
+    "answers_exculpated": 77,
+    "strong_wrong_answers_outside_the_census": 0
+   },
+   "wide": {
+    "risk_reported": 0.1081,
+    "risk_audited": 0.0979,
+    "GAP": -0.0102,
+    "GAP_positive_splits": 0.425,
+    "answers_exculpated": 69,
+    "strong_wrong_answers_outside_the_census": 0
+   }
+  }
+ },
+ "summary": {
+  "ALL|database": {
+   "preregistered": 0.0756,
+   "wide": 0.0028,
+   "narrow": -0.0096,
+   "agreed": -0.0173,
+   "unanimous": -0.034,
+   "retained_unanimous": -0.45,
+   "retained_agreed": -0.229,
+   "retained_narrow": -0.127,
+   "retained_wide": 0.037
+  },
+  "ALL|question": {
+   "preregistered": 0.0773,
+   "wide": 0.0069,
+   "narrow": -0.0061,
+   "agreed": -0.0143,
+   "unanimous": -0.0318,
+   "retained_unanimous": -0.411,
+   "retained_agreed": -0.185,
+   "retained_narrow": -0.079,
+   "retained_wide": 0.089
+  },
+  "kwai-autosql-14b|database": {
+   "preregistered": 0.0787,
+   "wide": 0.0078,
+   "narrow": -0.0026,
+   "agreed": -0.0089,
+   "unanimous": -0.0257,
+   "retained_unanimous": -0.327,
+   "retained_agreed": -0.113,
+   "retained_narrow": -0.033,
+   "retained_wide": 0.099
+  },
+  "kwai-autosql-14b|question": {
+   "preregistered": 0.0808,
+   "wide": 0.0088,
+   "narrow": -0.0024,
+   "agreed": -0.0088,
+   "unanimous": -0.0276,
+   "retained_unanimous": -0.342,
+   "retained_agreed": -0.109,
+   "retained_narrow": -0.03,
+   "retained_wide": 0.109
+  },
+  "kwai-autosql-32b|database": {
+   "preregistered": 0.1017,
+   "wide": -0.0161,
+   "narrow": -0.0338,
+   "agreed": -0.0434,
+   "unanimous": -0.0591,
+   "retained_unanimous": -0.581,
+   "retained_agreed": -0.427,
+   "retained_narrow": -0.332,
+   "retained_wide": -0.158
+  },
+  "kwai-autosql-32b|question": {
+   "preregistered": 0.1023,
+   "wide": -0.0139,
+   "narrow": -0.0322,
+   "agreed": -0.0415,
+   "unanimous": -0.0574,
+   "retained_unanimous": -0.561,
+   "retained_agreed": -0.406,
+   "retained_narrow": -0.315,
+   "retained_wide": -0.136
+  },
+  "omnisql-32b|database": {
+   "preregistered": 0.0949,
+   "wide": -0.0139,
+   "narrow": -0.0291,
+   "agreed": -0.0345,
+   "unanimous": -0.0538,
+   "retained_unanimous": -0.567,
+   "retained_agreed": -0.364,
+   "retained_narrow": -0.307,
+   "retained_wide": -0.146
+  },
+  "omnisql-32b|question": {
+   "preregistered": 0.095,
+   "wide": -0.0061,
+   "narrow": -0.0218,
+   "agreed": -0.0268,
+   "unanimous": -0.0448,
+   "retained_unanimous": -0.472,
+   "retained_agreed": -0.282,
+   "retained_narrow": -0.229,
+   "retained_wide": -0.064
+  },
+  "xiyansql-32b|database": {
+   "preregistered": 0.0273,
+   "wide": 0.0335,
+   "narrow": 0.0272,
+   "agreed": 0.0176,
+   "unanimous": 0.0029,
+   "retained_unanimous": 0.106,
+   "retained_agreed": 0.645,
+   "retained_narrow": 0.996,
+   "retained_wide": 1.227
+  },
+  "xiyansql-32b|question": {
+   "preregistered": 0.0311,
+   "wide": 0.0389,
+   "narrow": 0.032,
+   "agreed": 0.02,
+   "unanimous": 0.0028,
+   "retained_unanimous": 0.09,
+   "retained_agreed": 0.643,
+   "retained_narrow": 1.029,
+   "retained_wide": 1.251
+  }
+ }
+}

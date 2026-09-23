@@ -1,0 +1,1411 @@
+{
+ "date": null,
+ "alpha": 0.1,
+ "splits": 200,
+ "conventions_computed": [
+  "preregistered",
+  "wide",
+  "narrow",
+  "agreed",
+  "unanimous"
+ ],
+ "cases_with_one_pass_only": 0,
+ "mode": "evaluation_only",
+ "population": {
+  "title": "every wrong answer of the two cells REPAIR contrasts",
+  "definition": "every answer either the current-practice cell A or the strong cell D returns and the strong oracle rejects",
+  "arm": "results_official",
+  "pools": {
+   "kwai-autosql-32b/seed101": 508,
+   "kwai-autosql-32b/seed202": 508,
+   "kwai-autosql-32b/seed303": 508,
+   "kwai-autosql-14b/seed101": 508,
+   "kwai-autosql-14b/seed202": 508,
+   "kwai-autosql-14b/seed303": 508,
+   "omnisql-32b/seed101": 508,
+   "omnisql-32b/seed202": 508,
+   "omnisql-32b/seed303": 508,
+   "xiyansql-32b/seed101": 508,
+   "xiyansql-32b/seed202": 508,
+   "xiyansql-32b/seed303": 508
+  },
+  "answers_examined_per_cell": 6096,
+  "cells_return_the_same_sql": 5919,
+  "cells_return_the_same_sql_share": 0.971,
+  "wrong_answers": 2779,
+  "distinct_cases": 742,
+  "cases_by_cell": {
+   "AD": 576,
+   "A": 96,
+   "D": 70
+  },
+  "carried_over_from_c6": 240,
+  "new_cases": 502,
+  "distinct_questions": 203,
+  "already_disagree_on_the_shipped_database": 472,
+  "census": true
+ },
+ "note": "REPAIR is cell D's risk minus cell A's, both under the named yardstick; negative means cell D carries less. In the primary mode the strong oracle stays the intervention and only the yardstick is audited.",
+ "pools": {
+  "kwai-autosql-32b|seed101|question": {
+   "preregistered": {
+    "risk_A": 0.2025,
+    "risk_D": 0.0971,
+    "REPAIR": -0.1054,
+    "REPAIR_negative_splits": 1.0,
+    "answer_rate_A": 0.9141,
+    "answer_rate_change": -0.1617,
+    "exculpated_A": 0,
+    "exculpated_D": 0
+   },
+   "unanimous": {
+    "risk_A": 0.0225,
+    "risk_D": 0.0081,
+    "REPAIR": -0.0144,
+    "REPAIR_negative_splits": 0.985,
+    "answer_rate_A": 0.9141,
+    "answer_rate_change": -0.1617,
+    "exculpated_A": 107,
+    "exculpated_D": 104
+   },
+   "agreed": {
+    "risk_A": 0.0403,
+    "risk_D": 0.0178,
+    "REPAIR": -0.0226,
+    "REPAIR_negative_splits": 0.995,
+    "answer_rate_A": 0.9141,
+    "answer_rate_change": -0.1617,
+    "exculpated_A": 98,
+    "exculpated_D": 95
+   },
+   "narrow": {
+    "risk_A": 0.0497,
+    "risk_D": 0.0195,
+    "REPAIR": -0.0302,
+    "REPAIR_negative_splits": 1.0,
+    "answer_rate_A": 0.9141,
+    "answer_rate_change": -0.1617,
+    "exculpated_A": 93,
+    "exculpated_D": 91
+   },
+   "wide": {
+    "risk_A": 0.0678,
+    "risk_D": 0.0277,
+    "REPAIR": -0.0401,
+    "REPAIR_negative_splits": 1.0,
+    "answer_rate_A": 0.9141,
+    "answer_rate_change": -0.1617,
+    "exculpated_A": 84,
+    "exculpated_D": 83
+   }
+  },
+  "kwai-autosql-32b|seed101|database": {
+   "preregistered": {
+    "risk_A": 0.2062,
+    "risk_D": 0.0991,
+    "REPAIR": -0.1071,
+    "REPAIR_negative_splits": 1.0,
+    "answer_rate_A": 0.9292,
+    "answer_rate_change": -0.1693,
+    "exculpated_A": 0,
+    "exculpated_D": 0
+   },
+   "unanimous": {
+    "risk_A": 0.0258,
+    "risk_D": 0.0084,
+    "REPAIR": -0.0174,
+    "REPAIR_negative_splits": 0.98,
+    "answer_rate_A": 0.9292,
+    "answer_rate_change": -0.1693,
+    "exculpated_A": 107,
+    "exculpated_D": 104
+   },
+   "agreed": {
+    "risk_A": 0.043,
+    "risk_D": 0.0183,
+    "REPAIR": -0.0247,
+    "REPAIR_negative_splits": 0.995,
+    "answer_rate_A": 0.9292,
+    "answer_rate_change": -0.1693,
+    "exculpated_A": 98,
+    "exculpated_D": 95
+   },
+   "narrow": {
+    "risk_A": 0.0523,
+    "risk_D": 0.02,
+    "REPAIR": -0.0322,
+    "REPAIR_negative_splits": 1.0,
+    "answer_rate_A": 0.9292,
+    "answer_rate_change": -0.1693,
+    "exculpated_A": 93,
+    "exculpated_D": 91
+   },
+   "wide": {
+    "risk_A": 0.0692,
+    "risk_D": 0.0287,
+    "REPAIR": -0.0405,
+    "REPAIR_negative_splits": 1.0,
+    "answer_rate_A": 0.9292,
+    "answer_rate_change": -0.1693,
+    "exculpated_A": 84,
+    "exculpated_D": 83
+   }
+  },
+  "kwai-autosql-32b|seed202|question": {
+   "preregistered": {
+    "risk_A": 0.1971,
+    "risk_D": 0.0969,
+    "REPAIR": -0.1002,
+    "REPAIR_negative_splits": 1.0,
+    "answer_rate_A": 0.9097,
+    "answer_rate_change": -0.1692,
+    "exculpated_A": 0,
+    "exculpated_D": 0
+   },
+   "unanimous": {
+    "risk_A": 0.0247,
+    "risk_D": 0.0104,
+    "REPAIR": -0.0143,
+    "REPAIR_negative_splits": 0.97,
+    "answer_rate_A": 0.9097,
+    "answer_rate_change": -0.1692,
+    "exculpated_A": 108,
+    "exculpated_D": 111
+   },
+   "agreed": {
+    "risk_A": 0.0401,
+    "risk_D": 0.0193,
+    "REPAIR": -0.0208,
+    "REPAIR_negative_splits": 0.99,
+    "answer_rate_A": 0.9097,
+    "answer_rate_change": -0.1692,
+    "exculpated_A": 97,
+    "exculpated_D": 100
+   },
+   "narrow": {
+    "risk_A": 0.0492,
+    "risk_D": 0.0211,
+    "REPAIR": -0.0281,
+    "REPAIR_negative_splits": 1.0,
+    "answer_rate_A": 0.9097,
+    "answer_rate_change": -0.1692,
+    "exculpated_A": 91,
+    "exculpated_D": 95
+   },
+   "wide": {
+    "risk_A": 0.0654,
+    "risk_D": 0.0277,
+    "REPAIR": -0.0376,
+    "REPAIR_negative_splits": 1.0,
+    "answer_rate_A": 0.9097,
+    "answer_rate_change": -0.1692,
+    "exculpated_A": 82,
+    "exculpated_D": 86
+   }
+  },
+  "kwai-autosql-32b|seed202|database": {
+   "preregistered": {
+    "risk_A": 0.2032,
+    "risk_D": 0.0991,
+    "REPAIR": -0.1041,
+    "REPAIR_negative_splits": 1.0,
+    "answer_rate_A": 0.9251,
+    "answer_rate_change": -0.177,
+    "exculpated_A": 0,
+    "exculpated_D": 0
+   },
+   "unanimous": {
+    "risk_A": 0.0269,
+    "risk_D": 0.0107,
+    "REPAIR": -0.0162,
+    "REPAIR_negative_splits": 0.975,
+    "answer_rate_A": 0.9251,
+    "answer_rate_change": -0.177,
+    "exculpated_A": 108,
+    "exculpated_D": 111
+   },
+   "agreed": {
+    "risk_A": 0.0427,
+    "risk_D": 0.0191,
+    "REPAIR": -0.0235,
+    "REPAIR_negative_splits": 0.985,
+    "answer_rate_A": 0.9251,
+    "answer_rate_change": -0.177,
+    "exculpated_A": 97,
+    "exculpated_D": 100
+   },
+   "narrow": {
+    "risk_A": 0.0522,
+    "risk_D": 0.021,
+    "REPAIR": -0.0312,
+    "REPAIR_negative_splits": 1.0,
+    "answer_rate_A": 0.9251,
+    "answer_rate_change": -0.177,
+    "exculpated_A": 91,
+    "exculpated_D": 95
+   },
+   "wide": {
+    "risk_A": 0.0682,
+    "risk_D": 0.0281,
+    "REPAIR": -0.0401,
+    "REPAIR_negative_splits": 1.0,
+    "answer_rate_A": 0.9251,
+    "answer_rate_change": -0.177,
+    "exculpated_A": 82,
+    "exculpated_D": 86
+   }
+  },
+  "kwai-autosql-32b|seed303|question": {
+   "preregistered": {
+    "risk_A": 0.2016,
+    "risk_D": 0.0957,
+    "REPAIR": -0.1058,
+    "REPAIR_negative_splits": 1.0,
+    "answer_rate_A": 0.9096,
+    "answer_rate_change": -0.1786,
+    "exculpated_A": 0,
+    "exculpated_D": 0
+   },
+   "unanimous": {
+    "risk_A": 0.0219,
+    "risk_D": 0.0103,
+    "REPAIR": -0.0116,
+    "REPAIR_negative_splits": 0.96,
+    "answer_rate_A": 0.9096,
+    "answer_rate_change": -0.1786,
+    "exculpated_A": 111,
+    "exculpated_D": 108
+   },
+   "agreed": {
+    "risk_A": 0.0364,
+    "risk_D": 0.0182,
+    "REPAIR": -0.0182,
+    "REPAIR_negative_splits": 1.0,
+    "answer_rate_A": 0.9096,
+    "answer_rate_change": -0.1786,
+    "exculpated_A": 100,
+    "exculpated_D": 98
+   },
+   "narrow": {
+    "risk_A": 0.0458,
+    "risk_D": 0.0201,
+    "REPAIR": -0.0257,
+    "REPAIR_negative_splits": 1.0,
+    "answer_rate_A": 0.9096,
+    "answer_rate_change": -0.1786,
+    "exculpated_A": 94,
+    "exculpated_D": 91
+   },
+   "wide": {
+    "risk_A": 0.0664,
+    "risk_D": 0.0265,
+    "REPAIR": -0.04,
+    "REPAIR_negative_splits": 1.0,
+    "answer_rate_A": 0.9096,
+    "answer_rate_change": -0.1786,
+    "exculpated_A": 83,
+    "exculpated_D": 82
+   }
+  },
+  "kwai-autosql-32b|seed303|database": {
+   "preregistered": {
+    "risk_A": 0.2081,
+    "risk_D": 0.0986,
+    "REPAIR": -0.1096,
+    "REPAIR_negative_splits": 1.0,
+    "answer_rate_A": 0.9257,
+    "answer_rate_change": -0.1851,
+    "exculpated_A": 0,
+    "exculpated_D": 0
+   },
+   "unanimous": {
+    "risk_A": 0.0251,
+    "risk_D": 0.0107,
+    "REPAIR": -0.0144,
+    "REPAIR_negative_splits": 0.985,
+    "answer_rate_A": 0.9257,
+    "answer_rate_change": -0.1851,
+    "exculpated_A": 111,
+    "exculpated_D": 108
+   },
+   "agreed": {
+    "risk_A": 0.0394,
+    "risk_D": 0.0181,
+    "REPAIR": -0.0213,
+    "REPAIR_negative_splits": 0.99,
+    "answer_rate_A": 0.9257,
+    "answer_rate_change": -0.1851,
+    "exculpated_A": 100,
+    "exculpated_D": 98
+   },
+   "narrow": {
+    "risk_A": 0.0493,
+    "risk_D": 0.0205,
+    "REPAIR": -0.0289,
+    "REPAIR_negative_splits": 0.995,
+    "answer_rate_A": 0.9257,
+    "answer_rate_change": -0.1851,
+    "exculpated_A": 94,
+    "exculpated_D": 91
+   },
+   "wide": {
+    "risk_A": 0.0696,
+    "risk_D": 0.0271,
+    "REPAIR": -0.0425,
+    "REPAIR_negative_splits": 1.0,
+    "answer_rate_A": 0.9257,
+    "answer_rate_change": -0.1851,
+    "exculpated_A": 83,
+    "exculpated_D": 82
+   }
+  },
+  "kwai-autosql-14b|seed101|question": {
+   "preregistered": {
+    "risk_A": 0.1772,
+    "risk_D": 0.0972,
+    "REPAIR": -0.0801,
+    "REPAIR_negative_splits": 1.0,
+    "answer_rate_A": 0.9107,
+    "answer_rate_change": -0.1409,
+    "exculpated_A": 0,
+    "exculpated_D": 0
+   },
+   "unanimous": {
+    "risk_A": 0.0439,
+    "risk_D": 0.0169,
+    "REPAIR": -0.027,
+    "REPAIR_negative_splits": 1.0,
+    "answer_rate_A": 0.9107,
+    "answer_rate_change": -0.1409,
+    "exculpated_A": 85,
+    "exculpated_D": 94
+   },
+   "agreed": {
+    "risk_A": 0.0628,
+    "risk_D": 0.0256,
+    "REPAIR": -0.0372,
+    "REPAIR_negative_splits": 1.0,
+    "answer_rate_A": 0.9107,
+    "answer_rate_change": -0.1409,
+    "exculpated_A": 73,
+    "exculpated_D": 82
+   },
+   "narrow": {
+    "risk_A": 0.0683,
+    "risk_D": 0.0274,
+    "REPAIR": -0.0408,
+    "REPAIR_negative_splits": 1.0,
+    "answer_rate_A": 0.9107,
+    "answer_rate_change": -0.1409,
+    "exculpated_A": 69,
+    "exculpated_D": 78
+   },
+   "wide": {
+    "risk_A": 0.0783,
+    "risk_D": 0.034,
+    "REPAIR": -0.0443,
+    "REPAIR_negative_splits": 1.0,
+    "answer_rate_A": 0.9107,
+    "answer_rate_change": -0.1409,
+    "exculpated_A": 64,
+    "exculpated_D": 71
+   }
+  },
+  "kwai-autosql-14b|seed101|database": {
+   "preregistered": {
+    "risk_A": 0.1729,
+    "risk_D": 0.0941,
+    "REPAIR": -0.0788,
+    "REPAIR_negative_splits": 0.99,
+    "answer_rate_A": 0.9071,
+    "answer_rate_change": -0.1441,
+    "exculpated_A": 0,
+    "exculpated_D": 0
+   },
+   "unanimous": {
+    "risk_A": 0.045,
+    "risk_D": 0.0168,
+    "REPAIR": -0.0283,
+    "REPAIR_negative_splits": 0.995,
+    "answer_rate_A": 0.9071,
+    "answer_rate_change": -0.1441,
+    "exculpated_A": 85,
+    "exculpated_D": 94
+   },
+   "agreed": {
+    "risk_A": 0.0615,
+    "risk_D": 0.0249,
+    "REPAIR": -0.0366,
+    "REPAIR_negative_splits": 0.99,
+    "answer_rate_A": 0.9071,
+    "answer_rate_change": -0.1441,
+    "exculpated_A": 73,
+    "exculpated_D": 82
+   },
+   "narrow": {
+    "risk_A": 0.0669,
+    "risk_D": 0.0268,
+    "REPAIR": -0.0401,
+    "REPAIR_negative_splits": 0.99,
+    "answer_rate_A": 0.9071,
+    "answer_rate_change": -0.1441,
+    "exculpated_A": 69,
+    "exculpated_D": 78
+   },
+   "wide": {
+    "risk_A": 0.0763,
+    "risk_D": 0.0326,
+    "REPAIR": -0.0436,
+    "REPAIR_negative_splits": 0.99,
+    "answer_rate_A": 0.9071,
+    "answer_rate_change": -0.1441,
+    "exculpated_A": 64,
+    "exculpated_D": 71
+   }
+  },
+  "kwai-autosql-14b|seed202|question": {
+   "preregistered": {
+    "risk_A": 0.1821,
+    "risk_D": 0.0974,
+    "REPAIR": -0.0847,
+    "REPAIR_negative_splits": 1.0,
+    "answer_rate_A": 0.905,
+    "answer_rate_change": -0.1399,
+    "exculpated_A": 0,
+    "exculpated_D": 0
+   },
+   "unanimous": {
+    "risk_A": 0.0423,
+    "risk_D": 0.0169,
+    "REPAIR": -0.0254,
+    "REPAIR_negative_splits": 1.0,
+    "answer_rate_A": 0.905,
+    "answer_rate_change": -0.1399,
+    "exculpated_A": 86,
+    "exculpated_D": 91
+   },
+   "agreed": {
+    "risk_A": 0.0581,
+    "risk_D": 0.0253,
+    "REPAIR": -0.0328,
+    "REPAIR_negative_splits": 1.0,
+    "answer_rate_A": 0.905,
+    "answer_rate_change": -0.1399,
+    "exculpated_A": 75,
+    "exculpated_D": 77
+   },
+   "narrow": {
+    "risk_A": 0.0662,
+    "risk_D": 0.0294,
+    "REPAIR": -0.0368,
+    "REPAIR_negative_splits": 1.0,
+    "answer_rate_A": 0.905,
+    "answer_rate_change": -0.1399,
+    "exculpated_A": 70,
+    "exculpated_D": 72
+   },
+   "wide": {
+    "risk_A": 0.0778,
+    "risk_D": 0.0339,
+    "REPAIR": -0.0438,
+    "REPAIR_negative_splits": 1.0,
+    "answer_rate_A": 0.905,
+    "answer_rate_change": -0.1399,
+    "exculpated_A": 64,
+    "exculpated_D": 65
+   }
+  },
+  "kwai-autosql-14b|seed202|database": {
+   "preregistered": {
+    "risk_A": 0.1773,
+    "risk_D": 0.0974,
+    "REPAIR": -0.0799,
+    "REPAIR_negative_splits": 1.0,
+    "answer_rate_A": 0.9026,
+    "answer_rate_change": -0.1399,
+    "exculpated_A": 0,
+    "exculpated_D": 0
+   },
+   "unanimous": {
+    "risk_A": 0.0429,
+    "risk_D": 0.0177,
+    "REPAIR": -0.0253,
+    "REPAIR_negative_splits": 0.995,
+    "answer_rate_A": 0.9026,
+    "answer_rate_change": -0.1399,
+    "exculpated_A": 86,
+    "exculpated_D": 91
+   },
+   "agreed": {
+    "risk_A": 0.0572,
+    "risk_D": 0.0257,
+    "REPAIR": -0.0315,
+    "REPAIR_negative_splits": 1.0,
+    "answer_rate_A": 0.9026,
+    "answer_rate_change": -0.1399,
+    "exculpated_A": 75,
+    "exculpated_D": 77
+   },
+   "narrow": {
+    "risk_A": 0.0649,
+    "risk_D": 0.0293,
+    "REPAIR": -0.0355,
+    "REPAIR_negative_splits": 1.0,
+    "answer_rate_A": 0.9026,
+    "answer_rate_change": -0.1399,
+    "exculpated_A": 70,
+    "exculpated_D": 72
+   },
+   "wide": {
+    "risk_A": 0.0755,
+    "risk_D": 0.0339,
+    "REPAIR": -0.0416,
+    "REPAIR_negative_splits": 1.0,
+    "answer_rate_A": 0.9026,
+    "answer_rate_change": -0.1399,
+    "exculpated_A": 64,
+    "exculpated_D": 65
+   }
+  },
+  "kwai-autosql-14b|seed303|question": {
+   "preregistered": {
+    "risk_A": 0.1823,
+    "risk_D": 0.0981,
+    "REPAIR": -0.0842,
+    "REPAIR_negative_splits": 1.0,
+    "answer_rate_A": 0.9012,
+    "answer_rate_change": -0.1354,
+    "exculpated_A": 0,
+    "exculpated_D": 0
+   },
+   "unanimous": {
+    "risk_A": 0.0359,
+    "risk_D": 0.0123,
+    "REPAIR": -0.0237,
+    "REPAIR_negative_splits": 0.995,
+    "answer_rate_A": 0.9012,
+    "answer_rate_change": -0.1354,
+    "exculpated_A": 94,
+    "exculpated_D": 97
+   },
+   "agreed": {
+    "risk_A": 0.0576,
+    "risk_D": 0.0268,
+    "REPAIR": -0.0308,
+    "REPAIR_negative_splits": 1.0,
+    "answer_rate_A": 0.9012,
+    "answer_rate_change": -0.1354,
+    "exculpated_A": 80,
+    "exculpated_D": 84
+   },
+   "narrow": {
+    "risk_A": 0.0634,
+    "risk_D": 0.0287,
+    "REPAIR": -0.0347,
+    "REPAIR_negative_splits": 1.0,
+    "answer_rate_A": 0.9012,
+    "answer_rate_change": -0.1354,
+    "exculpated_A": 76,
+    "exculpated_D": 81
+   },
+   "wide": {
+    "risk_A": 0.0754,
+    "risk_D": 0.0339,
+    "REPAIR": -0.0415,
+    "REPAIR_negative_splits": 1.0,
+    "answer_rate_A": 0.9012,
+    "answer_rate_change": -0.1354,
+    "exculpated_A": 70,
+    "exculpated_D": 73
+   }
+  },
+  "kwai-autosql-14b|seed303|database": {
+   "preregistered": {
+    "risk_A": 0.1768,
+    "risk_D": 0.0948,
+    "REPAIR": -0.082,
+    "REPAIR_negative_splits": 1.0,
+    "answer_rate_A": 0.8964,
+    "answer_rate_change": -0.136,
+    "exculpated_A": 0,
+    "exculpated_D": 0
+   },
+   "unanimous": {
+    "risk_A": 0.0353,
+    "risk_D": 0.0108,
+    "REPAIR": -0.0246,
+    "REPAIR_negative_splits": 0.985,
+    "answer_rate_A": 0.8964,
+    "answer_rate_change": -0.136,
+    "exculpated_A": 94,
+    "exculpated_D": 97
+   },
+   "agreed": {
+    "risk_A": 0.0551,
+    "risk_D": 0.0251,
+    "REPAIR": -0.0301,
+    "REPAIR_negative_splits": 0.99,
+    "answer_rate_A": 0.8964,
+    "answer_rate_change": -0.136,
+    "exculpated_A": 80,
+    "exculpated_D": 84
+   },
+   "narrow": {
+    "risk_A": 0.0608,
+    "risk_D": 0.027,
+    "REPAIR": -0.0338,
+    "REPAIR_negative_splits": 0.99,
+    "answer_rate_A": 0.8964,
+    "answer_rate_change": -0.136,
+    "exculpated_A": 76,
+    "exculpated_D": 81
+   },
+   "wide": {
+    "risk_A": 0.0719,
+    "risk_D": 0.0321,
+    "REPAIR": -0.0398,
+    "REPAIR_negative_splits": 1.0,
+    "answer_rate_A": 0.8964,
+    "answer_rate_change": -0.136,
+    "exculpated_A": 70,
+    "exculpated_D": 73
+   }
+  },
+  "xiyansql-32b|seed101|question": {
+   "preregistered": {
+    "risk_A": 0.1296,
+    "risk_D": 0.1009,
+    "REPAIR": -0.0287,
+    "REPAIR_negative_splits": 0.975,
+    "answer_rate_A": 0.9728,
+    "answer_rate_change": -0.0483,
+    "exculpated_A": 0,
+    "exculpated_D": 0
+   },
+   "unanimous": {
+    "risk_A": 0.0274,
+    "risk_D": 0.0201,
+    "REPAIR": -0.0073,
+    "REPAIR_negative_splits": 0.795,
+    "answer_rate_A": 0.9728,
+    "answer_rate_change": -0.0483,
+    "exculpated_A": 56,
+    "exculpated_D": 57
+   },
+   "agreed": {
+    "risk_A": 0.0444,
+    "risk_D": 0.0339,
+    "REPAIR": -0.0105,
+    "REPAIR_negative_splits": 0.85,
+    "answer_rate_A": 0.9728,
+    "answer_rate_change": -0.0483,
+    "exculpated_A": 47,
+    "exculpated_D": 48
+   },
+   "narrow": {
+    "risk_A": 0.0565,
+    "risk_D": 0.0456,
+    "REPAIR": -0.0109,
+    "REPAIR_negative_splits": 0.85,
+    "answer_rate_A": 0.9728,
+    "answer_rate_change": -0.0483,
+    "exculpated_A": 41,
+    "exculpated_D": 42
+   },
+   "wide": {
+    "risk_A": 0.0626,
+    "risk_D": 0.0461,
+    "REPAIR": -0.0165,
+    "REPAIR_negative_splits": 0.95,
+    "answer_rate_A": 0.9728,
+    "answer_rate_change": -0.0483,
+    "exculpated_A": 37,
+    "exculpated_D": 37
+   }
+  },
+  "xiyansql-32b|seed101|database": {
+   "preregistered": {
+    "risk_A": 0.1174,
+    "risk_D": 0.1047,
+    "REPAIR": -0.0127,
+    "REPAIR_negative_splits": 0.715,
+    "answer_rate_A": 0.905,
+    "answer_rate_change": 0.0203,
+    "exculpated_A": 0,
+    "exculpated_D": 0
+   },
+   "unanimous": {
+    "risk_A": 0.0241,
+    "risk_D": 0.0203,
+    "REPAIR": -0.0038,
+    "REPAIR_negative_splits": 0.445,
+    "answer_rate_A": 0.905,
+    "answer_rate_change": 0.0203,
+    "exculpated_A": 56,
+    "exculpated_D": 57
+   },
+   "agreed": {
+    "risk_A": 0.0388,
+    "risk_D": 0.0334,
+    "REPAIR": -0.0054,
+    "REPAIR_negative_splits": 0.53,
+    "answer_rate_A": 0.905,
+    "answer_rate_change": 0.0203,
+    "exculpated_A": 47,
+    "exculpated_D": 48
+   },
+   "narrow": {
+    "risk_A": 0.0487,
+    "risk_D": 0.0434,
+    "REPAIR": -0.0053,
+    "REPAIR_negative_splits": 0.525,
+    "answer_rate_A": 0.905,
+    "answer_rate_change": 0.0203,
+    "exculpated_A": 41,
+    "exculpated_D": 42
+   },
+   "wide": {
+    "risk_A": 0.0546,
+    "risk_D": 0.0469,
+    "REPAIR": -0.0077,
+    "REPAIR_negative_splits": 0.575,
+    "answer_rate_A": 0.905,
+    "answer_rate_change": 0.0203,
+    "exculpated_A": 37,
+    "exculpated_D": 37
+   }
+  },
+  "xiyansql-32b|seed202|question": {
+   "preregistered": {
+    "risk_A": 0.1292,
+    "risk_D": 0.0999,
+    "REPAIR": -0.0293,
+    "REPAIR_negative_splits": 0.97,
+    "answer_rate_A": 0.9718,
+    "answer_rate_change": -0.0519,
+    "exculpated_A": 0,
+    "exculpated_D": 0
+   },
+   "unanimous": {
+    "risk_A": 0.0256,
+    "risk_D": 0.0178,
+    "REPAIR": -0.0079,
+    "REPAIR_negative_splits": 0.785,
+    "answer_rate_A": 0.9718,
+    "answer_rate_change": -0.0519,
+    "exculpated_A": 55,
+    "exculpated_D": 55
+   },
+   "agreed": {
+    "risk_A": 0.0443,
+    "risk_D": 0.0334,
+    "REPAIR": -0.0108,
+    "REPAIR_negative_splits": 0.825,
+    "answer_rate_A": 0.9718,
+    "answer_rate_change": -0.0519,
+    "exculpated_A": 45,
+    "exculpated_D": 45
+   },
+   "narrow": {
+    "risk_A": 0.0563,
+    "risk_D": 0.0449,
+    "REPAIR": -0.0114,
+    "REPAIR_negative_splits": 0.835,
+    "answer_rate_A": 0.9718,
+    "answer_rate_change": -0.0519,
+    "exculpated_A": 39,
+    "exculpated_D": 39
+   },
+   "wide": {
+    "risk_A": 0.0632,
+    "risk_D": 0.0455,
+    "REPAIR": -0.0177,
+    "REPAIR_negative_splits": 0.95,
+    "answer_rate_A": 0.9718,
+    "answer_rate_change": -0.0519,
+    "exculpated_A": 35,
+    "exculpated_D": 35
+   }
+  },
+  "xiyansql-32b|seed202|database": {
+   "preregistered": {
+    "risk_A": 0.114,
+    "risk_D": 0.1029,
+    "REPAIR": -0.0111,
+    "REPAIR_negative_splits": 0.665,
+    "answer_rate_A": 0.8642,
+    "answer_rate_change": 0.0488,
+    "exculpated_A": 0,
+    "exculpated_D": 0
+   },
+   "unanimous": {
+    "risk_A": 0.0232,
+    "risk_D": 0.0191,
+    "REPAIR": -0.0041,
+    "REPAIR_negative_splits": 0.505,
+    "answer_rate_A": 0.8642,
+    "answer_rate_change": 0.0488,
+    "exculpated_A": 55,
+    "exculpated_D": 55
+   },
+   "agreed": {
+    "risk_A": 0.0388,
+    "risk_D": 0.0341,
+    "REPAIR": -0.0047,
+    "REPAIR_negative_splits": 0.51,
+    "answer_rate_A": 0.8642,
+    "answer_rate_change": 0.0488,
+    "exculpated_A": 45,
+    "exculpated_D": 45
+   },
+   "narrow": {
+    "risk_A": 0.0481,
+    "risk_D": 0.0439,
+    "REPAIR": -0.0042,
+    "REPAIR_negative_splits": 0.52,
+    "answer_rate_A": 0.8642,
+    "answer_rate_change": 0.0488,
+    "exculpated_A": 39,
+    "exculpated_D": 39
+   },
+   "wide": {
+    "risk_A": 0.054,
+    "risk_D": 0.047,
+    "REPAIR": -0.007,
+    "REPAIR_negative_splits": 0.58,
+    "answer_rate_A": 0.8642,
+    "answer_rate_change": 0.0488,
+    "exculpated_A": 35,
+    "exculpated_D": 35
+   }
+  },
+  "xiyansql-32b|seed303|question": {
+   "preregistered": {
+    "risk_A": 0.1298,
+    "risk_D": 0.1007,
+    "REPAIR": -0.0291,
+    "REPAIR_negative_splits": 0.975,
+    "answer_rate_A": 0.9712,
+    "answer_rate_change": -0.0467,
+    "exculpated_A": 0,
+    "exculpated_D": 0
+   },
+   "unanimous": {
+    "risk_A": 0.028,
+    "risk_D": 0.0227,
+    "REPAIR": -0.0053,
+    "REPAIR_negative_splits": 0.55,
+    "answer_rate_A": 0.9712,
+    "answer_rate_change": -0.0467,
+    "exculpated_A": 56,
+    "exculpated_D": 56
+   },
+   "agreed": {
+    "risk_A": 0.0441,
+    "risk_D": 0.0357,
+    "REPAIR": -0.0084,
+    "REPAIR_negative_splits": 0.725,
+    "answer_rate_A": 0.9712,
+    "answer_rate_change": -0.0467,
+    "exculpated_A": 47,
+    "exculpated_D": 47
+   },
+   "narrow": {
+    "risk_A": 0.056,
+    "risk_D": 0.0469,
+    "REPAIR": -0.0091,
+    "REPAIR_negative_splits": 0.725,
+    "answer_rate_A": 0.9712,
+    "answer_rate_change": -0.0467,
+    "exculpated_A": 41,
+    "exculpated_D": 41
+   },
+   "wide": {
+    "risk_A": 0.0636,
+    "risk_D": 0.0479,
+    "REPAIR": -0.0156,
+    "REPAIR_negative_splits": 0.93,
+    "answer_rate_A": 0.9712,
+    "answer_rate_change": -0.0467,
+    "exculpated_A": 37,
+    "exculpated_D": 37
+   }
+  },
+  "xiyansql-32b|seed303|database": {
+   "preregistered": {
+    "risk_A": 0.1179,
+    "risk_D": 0.1043,
+    "REPAIR": -0.0136,
+    "REPAIR_negative_splits": 0.725,
+    "answer_rate_A": 0.9042,
+    "answer_rate_change": 0.0149,
+    "exculpated_A": 0,
+    "exculpated_D": 0
+   },
+   "unanimous": {
+    "risk_A": 0.0246,
+    "risk_D": 0.0219,
+    "REPAIR": -0.0027,
+    "REPAIR_negative_splits": 0.36,
+    "answer_rate_A": 0.9042,
+    "answer_rate_change": 0.0149,
+    "exculpated_A": 56,
+    "exculpated_D": 56
+   },
+   "agreed": {
+    "risk_A": 0.0386,
+    "risk_D": 0.0348,
+    "REPAIR": -0.0038,
+    "REPAIR_negative_splits": 0.38,
+    "answer_rate_A": 0.9042,
+    "answer_rate_change": 0.0149,
+    "exculpated_A": 47,
+    "exculpated_D": 47
+   },
+   "narrow": {
+    "risk_A": 0.0483,
+    "risk_D": 0.0448,
+    "REPAIR": -0.0035,
+    "REPAIR_negative_splits": 0.41,
+    "answer_rate_A": 0.9042,
+    "answer_rate_change": 0.0149,
+    "exculpated_A": 41,
+    "exculpated_D": 41
+   },
+   "wide": {
+    "risk_A": 0.0553,
+    "risk_D": 0.0482,
+    "REPAIR": -0.0071,
+    "REPAIR_negative_splits": 0.575,
+    "answer_rate_A": 0.9042,
+    "answer_rate_change": 0.0149,
+    "exculpated_A": 37,
+    "exculpated_D": 37
+   }
+  },
+  "omnisql-32b|seed101|question": {
+   "preregistered": {
+    "risk_A": 0.1906,
+    "risk_D": 0.0922,
+    "REPAIR": -0.0984,
+    "REPAIR_negative_splits": 1.0,
+    "answer_rate_A": 0.8881,
+    "answer_rate_change": -0.1466,
+    "exculpated_A": 0,
+    "exculpated_D": 0
+   },
+   "unanimous": {
+    "risk_A": 0.0275,
+    "risk_D": 0.016,
+    "REPAIR": -0.0114,
+    "REPAIR_negative_splits": 0.955,
+    "answer_rate_A": 0.8881,
+    "answer_rate_change": -0.1466,
+    "exculpated_A": 112,
+    "exculpated_D": 104
+   },
+   "agreed": {
+    "risk_A": 0.0414,
+    "risk_D": 0.0235,
+    "REPAIR": -0.0179,
+    "REPAIR_negative_splits": 0.995,
+    "answer_rate_A": 0.8881,
+    "answer_rate_change": -0.1466,
+    "exculpated_A": 102,
+    "exculpated_D": 98
+   },
+   "narrow": {
+    "risk_A": 0.0474,
+    "risk_D": 0.0241,
+    "REPAIR": -0.0233,
+    "REPAIR_negative_splits": 1.0,
+    "answer_rate_A": 0.8881,
+    "answer_rate_change": -0.1466,
+    "exculpated_A": 97,
+    "exculpated_D": 93
+   },
+   "wide": {
+    "risk_A": 0.0647,
+    "risk_D": 0.0287,
+    "REPAIR": -0.0359,
+    "REPAIR_negative_splits": 1.0,
+    "answer_rate_A": 0.8881,
+    "answer_rate_change": -0.1466,
+    "exculpated_A": 87,
+    "exculpated_D": 87
+   }
+  },
+  "omnisql-32b|seed101|database": {
+   "preregistered": {
+    "risk_A": 0.2068,
+    "risk_D": 0.1028,
+    "REPAIR": -0.104,
+    "REPAIR_negative_splits": 1.0,
+    "answer_rate_A": 0.9169,
+    "answer_rate_change": -0.1508,
+    "exculpated_A": 0,
+    "exculpated_D": 0
+   },
+   "unanimous": {
+    "risk_A": 0.0327,
+    "risk_D": 0.0166,
+    "REPAIR": -0.0161,
+    "REPAIR_negative_splits": 0.96,
+    "answer_rate_A": 0.9169,
+    "answer_rate_change": -0.1508,
+    "exculpated_A": 112,
+    "exculpated_D": 104
+   },
+   "agreed": {
+    "risk_A": 0.0475,
+    "risk_D": 0.0244,
+    "REPAIR": -0.0231,
+    "REPAIR_negative_splits": 0.975,
+    "answer_rate_A": 0.9169,
+    "answer_rate_change": -0.1508,
+    "exculpated_A": 102,
+    "exculpated_D": 98
+   },
+   "narrow": {
+    "risk_A": 0.0537,
+    "risk_D": 0.0254,
+    "REPAIR": -0.0283,
+    "REPAIR_negative_splits": 0.98,
+    "answer_rate_A": 0.9169,
+    "answer_rate_change": -0.1508,
+    "exculpated_A": 97,
+    "exculpated_D": 93
+   },
+   "wide": {
+    "risk_A": 0.0705,
+    "risk_D": 0.0317,
+    "REPAIR": -0.0389,
+    "REPAIR_negative_splits": 0.995,
+    "answer_rate_A": 0.9169,
+    "answer_rate_change": -0.1508,
+    "exculpated_A": 87,
+    "exculpated_D": 87
+   }
+  },
+  "omnisql-32b|seed202|question": {
+   "preregistered": {
+    "risk_A": 0.1893,
+    "risk_D": 0.0952,
+    "REPAIR": -0.0941,
+    "REPAIR_negative_splits": 1.0,
+    "answer_rate_A": 0.8847,
+    "answer_rate_change": -0.1377,
+    "exculpated_A": 0,
+    "exculpated_D": 0
+   },
+   "unanimous": {
+    "risk_A": 0.0311,
+    "risk_D": 0.0137,
+    "REPAIR": -0.0174,
+    "REPAIR_negative_splits": 0.99,
+    "answer_rate_A": 0.8847,
+    "answer_rate_change": -0.1377,
+    "exculpated_A": 114,
+    "exculpated_D": 108
+   },
+   "agreed": {
+    "risk_A": 0.0501,
+    "risk_D": 0.0217,
+    "REPAIR": -0.0284,
+    "REPAIR_negative_splits": 1.0,
+    "answer_rate_A": 0.8847,
+    "answer_rate_change": -0.1377,
+    "exculpated_A": 99,
+    "exculpated_D": 99
+   },
+   "narrow": {
+    "risk_A": 0.0543,
+    "risk_D": 0.0222,
+    "REPAIR": -0.0321,
+    "REPAIR_negative_splits": 1.0,
+    "answer_rate_A": 0.8847,
+    "answer_rate_change": -0.1377,
+    "exculpated_A": 95,
+    "exculpated_D": 95
+   },
+   "wide": {
+    "risk_A": 0.0689,
+    "risk_D": 0.0265,
+    "REPAIR": -0.0424,
+    "REPAIR_negative_splits": 1.0,
+    "answer_rate_A": 0.8847,
+    "answer_rate_change": -0.1377,
+    "exculpated_A": 87,
+    "exculpated_D": 91
+   }
+  },
+  "omnisql-32b|seed202|database": {
+   "preregistered": {
+    "risk_A": 0.2033,
+    "risk_D": 0.103,
+    "REPAIR": -0.1003,
+    "REPAIR_negative_splits": 1.0,
+    "answer_rate_A": 0.9068,
+    "answer_rate_change": -0.1408,
+    "exculpated_A": 0,
+    "exculpated_D": 0
+   },
+   "unanimous": {
+    "risk_A": 0.0344,
+    "risk_D": 0.0146,
+    "REPAIR": -0.0198,
+    "REPAIR_negative_splits": 0.975,
+    "answer_rate_A": 0.9068,
+    "answer_rate_change": -0.1408,
+    "exculpated_A": 114,
+    "exculpated_D": 108
+   },
+   "agreed": {
+    "risk_A": 0.0555,
+    "risk_D": 0.0232,
+    "REPAIR": -0.0323,
+    "REPAIR_negative_splits": 0.98,
+    "answer_rate_A": 0.9068,
+    "answer_rate_change": -0.1408,
+    "exculpated_A": 99,
+    "exculpated_D": 99
+   },
+   "narrow": {
+    "risk_A": 0.0598,
+    "risk_D": 0.0242,
+    "REPAIR": -0.0356,
+    "REPAIR_negative_splits": 0.995,
+    "answer_rate_A": 0.9068,
+    "answer_rate_change": -0.1408,
+    "exculpated_A": 95,
+    "exculpated_D": 95
+   },
+   "wide": {
+    "risk_A": 0.074,
+    "risk_D": 0.0293,
+    "REPAIR": -0.0447,
+    "REPAIR_negative_splits": 0.995,
+    "answer_rate_A": 0.9068,
+    "answer_rate_change": -0.1408,
+    "exculpated_A": 87,
+    "exculpated_D": 91
+   }
+  },
+  "omnisql-32b|seed303|question": {
+   "preregistered": {
+    "risk_A": 0.1896,
+    "risk_D": 0.0948,
+    "REPAIR": -0.0948,
+    "REPAIR_negative_splits": 1.0,
+    "answer_rate_A": 0.8855,
+    "answer_rate_change": -0.137,
+    "exculpated_A": 0,
+    "exculpated_D": 0
+   },
+   "unanimous": {
+    "risk_A": 0.0296,
+    "risk_D": 0.0179,
+    "REPAIR": -0.0117,
+    "REPAIR_negative_splits": 0.945,
+    "answer_rate_A": 0.8855,
+    "answer_rate_change": -0.137,
+    "exculpated_A": 113,
+    "exculpated_D": 102
+   },
+   "agreed": {
+    "risk_A": 0.0506,
+    "risk_D": 0.0294,
+    "REPAIR": -0.0211,
+    "REPAIR_negative_splits": 1.0,
+    "answer_rate_A": 0.8855,
+    "answer_rate_change": -0.137,
+    "exculpated_A": 100,
+    "exculpated_D": 95
+   },
+   "narrow": {
+    "risk_A": 0.0553,
+    "risk_D": 0.0294,
+    "REPAIR": -0.0259,
+    "REPAIR_negative_splits": 1.0,
+    "answer_rate_A": 0.8855,
+    "answer_rate_change": -0.137,
+    "exculpated_A": 94,
+    "exculpated_D": 89
+   },
+   "wide": {
+    "risk_A": 0.0706,
+    "risk_D": 0.0335,
+    "REPAIR": -0.0371,
+    "REPAIR_negative_splits": 1.0,
+    "answer_rate_A": 0.8855,
+    "answer_rate_change": -0.137,
+    "exculpated_A": 86,
+    "exculpated_D": 83
+   }
+  },
+  "omnisql-32b|seed303|database": {
+   "preregistered": {
+    "risk_A": 0.2026,
+    "risk_D": 0.1005,
+    "REPAIR": -0.1021,
+    "REPAIR_negative_splits": 1.0,
+    "answer_rate_A": 0.907,
+    "answer_rate_change": -0.1396,
+    "exculpated_A": 0,
+    "exculpated_D": 0
+   },
+   "unanimous": {
+    "risk_A": 0.0318,
+    "risk_D": 0.0172,
+    "REPAIR": -0.0146,
+    "REPAIR_negative_splits": 0.955,
+    "answer_rate_A": 0.907,
+    "answer_rate_change": -0.1396,
+    "exculpated_A": 113,
+    "exculpated_D": 102
+   },
+   "agreed": {
+    "risk_A": 0.0539,
+    "risk_D": 0.0289,
+    "REPAIR": -0.025,
+    "REPAIR_negative_splits": 0.99,
+    "answer_rate_A": 0.907,
+    "answer_rate_change": -0.1396,
+    "exculpated_A": 100,
+    "exculpated_D": 95
+   },
+   "narrow": {
+    "risk_A": 0.0594,
+    "risk_D": 0.029,
+    "REPAIR": -0.0303,
+    "REPAIR_negative_splits": 0.99,
+    "answer_rate_A": 0.907,
+    "answer_rate_change": -0.1396,
+    "exculpated_A": 94,
+    "exculpated_D": 89
+   },
+   "wide": {
+    "risk_A": 0.0741,
+    "risk_D": 0.0338,
+    "REPAIR": -0.0403,
+    "REPAIR_negative_splits": 1.0,
+    "answer_rate_A": 0.907,
+    "answer_rate_change": -0.1396,
+    "exculpated_A": 86,
+    "exculpated_D": 83
+   }
+  }
+ },
+ "summary": {
+  "ALL|database": {
+   "preregistered": -0.0754,
+   "wide": -0.0328,
+   "narrow": -0.0257,
+   "agreed": -0.0218,
+   "unanimous": -0.0156
+  },
+  "ALL|question": {
+   "preregistered": -0.0779,
+   "wide": -0.0344,
+   "narrow": -0.0258,
+   "agreed": -0.0216,
+   "unanimous": -0.0148
+  },
+  "kwai-autosql-14b|database": {
+   "preregistered": -0.0802,
+   "wide": -0.0417,
+   "narrow": -0.0365,
+   "agreed": -0.0327,
+   "unanimous": -0.0261,
+   "preregistered_negative_splits": 0.9967,
+   "wide_negative_splits": 0.9967,
+   "narrow_negative_splits": 0.9933,
+   "agreed_negative_splits": 0.9933,
+   "unanimous_negative_splits": 0.9917
+  },
+  "kwai-autosql-14b|question": {
+   "preregistered": -0.083,
+   "wide": -0.0432,
+   "narrow": -0.0374,
+   "agreed": -0.0336,
+   "unanimous": -0.0254,
+   "preregistered_negative_splits": 1.0,
+   "wide_negative_splits": 1.0,
+   "narrow_negative_splits": 1.0,
+   "agreed_negative_splits": 1.0,
+   "unanimous_negative_splits": 0.9983
+  },
+  "kwai-autosql-32b|database": {
+   "preregistered": -0.1069,
+   "wide": -0.041,
+   "narrow": -0.0308,
+   "agreed": -0.0232,
+   "unanimous": -0.016,
+   "preregistered_negative_splits": 1.0,
+   "wide_negative_splits": 1.0,
+   "narrow_negative_splits": 0.9983,
+   "agreed_negative_splits": 0.99,
+   "unanimous_negative_splits": 0.98
+  },
+  "kwai-autosql-32b|question": {
+   "preregistered": -0.1038,
+   "wide": -0.0392,
+   "narrow": -0.028,
+   "agreed": -0.0205,
+   "unanimous": -0.0134,
+   "preregistered_negative_splits": 1.0,
+   "wide_negative_splits": 1.0,
+   "narrow_negative_splits": 1.0,
+   "agreed_negative_splits": 0.995,
+   "unanimous_negative_splits": 0.9717
+  },
+  "omnisql-32b|database": {
+   "preregistered": -0.1021,
+   "wide": -0.0413,
+   "narrow": -0.0314,
+   "agreed": -0.0268,
+   "unanimous": -0.0168,
+   "preregistered_negative_splits": 1.0,
+   "wide_negative_splits": 0.9967,
+   "narrow_negative_splits": 0.9883,
+   "agreed_negative_splits": 0.9817,
+   "unanimous_negative_splits": 0.9633
+  },
+  "omnisql-32b|question": {
+   "preregistered": -0.0958,
+   "wide": -0.0385,
+   "narrow": -0.0271,
+   "agreed": -0.0225,
+   "unanimous": -0.0135,
+   "preregistered_negative_splits": 1.0,
+   "wide_negative_splits": 1.0,
+   "narrow_negative_splits": 1.0,
+   "agreed_negative_splits": 0.9983,
+   "unanimous_negative_splits": 0.9633
+  },
+  "xiyansql-32b|database": {
+   "preregistered": -0.0125,
+   "wide": -0.0073,
+   "narrow": -0.0043,
+   "agreed": -0.0046,
+   "unanimous": -0.0035,
+   "preregistered_negative_splits": 0.7017,
+   "wide_negative_splits": 0.5767,
+   "narrow_negative_splits": 0.485,
+   "agreed_negative_splits": 0.4733,
+   "unanimous_negative_splits": 0.4367
+  },
+  "xiyansql-32b|question": {
+   "preregistered": -0.029,
+   "wide": -0.0166,
+   "narrow": -0.0105,
+   "agreed": -0.0099,
+   "unanimous": -0.0068,
+   "preregistered_negative_splits": 0.9733,
+   "wide_negative_splits": 0.9433,
+   "narrow_negative_splits": 0.8033,
+   "agreed_negative_splits": 0.8,
+   "unanimous_negative_splits": 0.71
+  }
+ }
+}

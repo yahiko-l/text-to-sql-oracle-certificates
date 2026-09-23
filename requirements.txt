@@ -4,6 +4,10 @@ numpy>=1.26
 # The table and figure scripts additionally need:
 matplotlib>=3.9
 
+# Executing SQL through the official test-suite evaluator additionally needs:
+sqlparse>=0.6
+tqdm>=4.66
+
 # Sampling SQL candidates again needs a GPU and, additionally:
 # vllm>=0.22
 # transformers>=4.57

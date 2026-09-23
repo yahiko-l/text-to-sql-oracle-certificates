@@ -1,0 +1,3520 @@
+{
+ "pass": "B",
+ "reviewer": "codex gpt-5.6-sol xhigh, fresh threads, stride-13 regrouping, taxonomy reversed",
+ "labels": [
+  {
+   "case_id": "R001",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "DISTINCT removes repeated singer names; the question does not say whether repeated appearances should produce duplicate names."
+  },
+  {
+   "case_id": "R002",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "DISTINCT removes repeated singer names, but the question does not say whether repeated performances should duplicate a singer."
+  },
+  {
+   "case_id": "R003",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Omitting DISTINCT repeats a student's first name for multiple qualifying pets; the question does not specify duplicate elimination."
+  },
+  {
+   "case_id": "R004",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The missing DISTINCT repeats a student with multiple qualifying pets, but the question does not explicitly fix output multiplicity."
+  },
+  {
+   "case_id": "R005",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The returned projection gives every requested first name; the gold's added age is an unrequested descriptive column."
+  },
+  {
+   "case_id": "R006",
+   "label": "semantic_error",
+   "error_type": "wrong_order_or_limit",
+   "borderline": false,
+   "reason": "LIMIT 1 drops cars tied for the earliest production year, although the plural question asks for all cars at that year."
+  },
+  {
+   "case_id": "R007",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Thirty-five cars share the earliest year; the singular question resolves neither that tie nor whether maker means vehicle make or manufacturer."
+  },
+  {
+   "case_id": "R008",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "Filtering car_names.Model instead of car_names.Make misses the named car, whose full vehicle name is stored in Make."
+  },
+  {
+   "case_id": "R009",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Horsepower is stored as text, so gold compares lexicographically; the returned cast correctly implements the numeric threshold."
+  },
+  {
+   "case_id": "R010",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Horsepower is stored as text, so gold compares it lexically; the returned numeric cast correctly implements over 150 hp."
+  },
+  {
+   "case_id": "R011",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Numeric casting correctly ranks MPG values, while the gold lexically ranks the text placeholder null above real mileages."
+  },
+  {
+   "case_id": "R012",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Casting text-formatted MPG to numeric correctly identifies maximum fuel efficiency; the gold orders the stored strings lexicographically."
+  },
+  {
+   "case_id": "R013",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Maker supplies abbreviated company names while FullName supplies expanded names, and the question does not specify representation or column order."
+  },
+  {
+   "case_id": "R014",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Omitting DISTINCT repeats a year once per qualifying car; which years suggests uniqueness but does not explicitly specify duplicate handling."
+  },
+  {
+   "case_id": "R015",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The question asks for one count of qualifying nations; the gold instead emits each qualifying nation's maker count."
+  },
+  {
+   "case_id": "R016",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Gold emits each qualifying nation's maker count, while the returned outer COUNT gives the requested number of qualifying nations."
+  },
+  {
+   "case_id": "R017",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The outer COUNT correctly returns the number of qualifying nations; the gold instead returns each nation's maker count."
+  },
+  {
+   "case_id": "R018",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Horsepower is stored as text with literal null markers, so numeric casting identifies a genuine maximum while the gold orders lexically."
+  },
+  {
+   "case_id": "R019",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "DISTINCT only removes repeated model names, and the question does not specify whether duplicate rows should be preserved."
+  },
+  {
+   "case_id": "R020",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "The case-sensitive literal Jetblue Airways misses the stored proper name JetBlue Airways, so the returned query answers with no country."
+  },
+  {
+   "case_id": "R021",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": true,
+   "reason": "Case-sensitive equality uses the question's misspelled casing instead of stored JetBlue Airways, so it returns no abbreviation for the intended airline."
+  },
+  {
+   "case_id": "R022",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "The literal Jetblue Airways does not match the stored JetBlue Airways, causing the returned query to count zero flights."
+  },
+  {
+   "case_id": "R023",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Airport names and codes both identify airports, and the question does not specify which representation to return."
+  },
+  {
+   "case_id": "R024",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The returned literal matches the stored proper-case hometown; the gold's lowercase comparison wrongly retains Anne Walker."
+  },
+  {
+   "case_id": "R025",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The returned literal matches the named place and stored capitalization; the gold's lowercase literal fails to exclude that hometown."
+  },
+  {
+   "case_id": "R026",
+   "label": "semantic_error",
+   "error_type": "wrong_aggregate",
+   "borderline": false,
+   "reason": "Ordering individual ticket purchases does not find the visitor with the largest summed spending across all tickets."
+  },
+  {
+   "case_id": "R027",
+   "label": "comparator_artifact",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The returned first- and last-name columns encode the same player names as the gold's single concatenated column."
+  },
+  {
+   "case_id": "R028",
+   "label": "semantic_error",
+   "error_type": "wrong_order_or_limit",
+   "borderline": false,
+   "reason": "Birth dates are stored as YYYYMMDD integers, so strftime returns NULL and the returned query does not order players by age."
+  },
+  {
+   "case_id": "R029",
+   "label": "semantic_error",
+   "error_type": "wrong_order_or_limit",
+   "borderline": false,
+   "reason": "The YYYYMMDD birth dates are unparseable by strftime, so every age sort key is NULL and players are not sorted by age."
+  },
+  {
+   "case_id": "R030",
+   "label": "semantic_error",
+   "error_type": "wrong_order_or_limit",
+   "borderline": false,
+   "reason": "The strftime expression cannot parse the stored birth dates, so it does not actually order players by age."
+  },
+  {
+   "case_id": "R031",
+   "label": "semantic_error",
+   "error_type": "wrong_order_or_limit",
+   "borderline": false,
+   "reason": "strftime cannot parse the stored YYYYMMDD integers, making the returned age expression NULL and leaving the requested age order unsatisfied."
+  },
+  {
+   "case_id": "R032",
+   "label": "semantic_error",
+   "error_type": "wrong_aggregate",
+   "borderline": false,
+   "reason": "Joining all ranking histories multiplies each player's match rows, corrupting the win count and returning unrelated ranking points."
+  },
+  {
+   "case_id": "R033",
+   "label": "semantic_error",
+   "error_type": "wrong_join",
+   "borderline": false,
+   "reason": "Joining every historical rankings row multiplies match wins and supplies unrelated ranking points, causing the returned query to select the wrong player."
+  },
+  {
+   "case_id": "R034",
+   "label": "semantic_error",
+   "error_type": "wrong_aggregate",
+   "borderline": false,
+   "reason": "COUNT counts victories, so repeat champions are counted repeatedly although the question asks for the number of distinct left-handed winners."
+  },
+  {
+   "case_id": "R035",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Gold counts incident records per ship, whereas total injuries requires summing death.injured, as the returned query does."
+  },
+  {
+   "case_id": "R036",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Gold intersects name-date values and can conflate distinct battle IDs; the returned joins require both ships to share one battle."
+  },
+  {
+   "case_id": "R037",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "The returned filter uses North Carolina, but the database encodes the requested state as NorthCarolina, so it misses qualifying students."
+  },
+  {
+   "case_id": "R038",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "The database encodes the state as NorthCarolina; filtering for the spaced spelling omits the requested students."
+  },
+  {
+   "case_id": "R039",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Gold lowercases case-sensitive name literals and misses Timmothy Ward; returned spelling matches both the question and stored student."
+  },
+  {
+   "case_id": "R040",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "All lines includes line_3 in the schema, so the returned projection is more complete than the gold's two address lines."
+  },
+  {
+   "case_id": "R041",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The question does not specify whether place means current address only or both current and permanent addresses."
+  },
+  {
+   "case_id": "R042",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Semester can defensibly mean its identifier or its name, and both queries identify the same enrolled semesters."
+  },
+  {
+   "case_id": "R043",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The returned Haiti literal matches the named country and stored values; the gold's lowercase literal wrongly excludes Haitian students."
+  },
+  {
+   "case_id": "R044",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The database and question use Haiti, while the gold's lowercase literal misses Haitian addresses under SQLite's case-sensitive comparison."
+  },
+  {
+   "case_id": "R045",
+   "label": "semantic_error",
+   "error_type": "wrong_set_operation",
+   "borderline": true,
+   "reason": "Channel-level NOT IN admits a country having any non-Todd channel, while the question asks for countries having no Todd channel."
+  },
+  {
+   "case_id": "R046",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "Excluding Todd Casey channel IDs still retains their countries through other channels, instead of excluding every country that plays one of his cartoons."
+  },
+  {
+   "case_id": "R047",
+   "label": "semantic_error",
+   "error_type": "wrong_set_operation",
+   "borderline": false,
+   "reason": "IN accepts a channel with either director; the question's conjunction requires cartoons by both directors, as expressed by INTERSECT."
+  },
+  {
+   "case_id": "R048",
+   "label": "semantic_error",
+   "error_type": "wrong_set_operation",
+   "borderline": false,
+   "reason": "IN implements either director, while the conjunction requires channels represented in both director-specific sets."
+  },
+  {
+   "case_id": "R049",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The returned query selects every channel ID from qualifying countries; gold arbitrarily selects one ID per country."
+  },
+  {
+   "case_id": "R050",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "LIKE on United States does not identify rows whose GovernmentForm is US Territory, so the returned aggregates use the wrong population."
+  },
+  {
+   "case_id": "R051",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "Caribbean region membership is not equivalent to having US Territory as the government form."
+  },
+  {
+   "case_id": "R052",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "Filtering Caribbean countries is unrelated to the requested GovernmentForm value US Territory."
+  },
+  {
+   "case_id": "R053",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The gold uses lowercase literals against case-sensitive title-case data, while the returned query implements the requested official languages."
+  },
+  {
+   "case_id": "R054",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Most popular does not specify whether popularity means coverage across Asian countries or the highest within-country percentage."
+  },
+  {
+   "case_id": "R055",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Both identify the same city; the question does not specify whether its population must also be projected."
+  },
+  {
+   "case_id": "R056",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The returned name identifies the requested city, while including its population is an unpinned extra projection."
+  },
+  {
+   "case_id": "R057",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "Filtering for a nonofficial English row omits countries with no English row; the question excludes only countries where English is official."
+  },
+  {
+   "case_id": "R058",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Less than any Asian country ordinarily means less than every one, so MIN is correct and the gold's MAX is not."
+  },
+  {
+   "case_id": "R059",
+   "label": "semantic_error",
+   "error_type": "wrong_aggregate",
+   "borderline": false,
+   "reason": "Using MIN African population implements greater than at least one African country, not the requested greater-than-all comparison requiring MAX."
+  },
+  {
+   "case_id": "R060",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "In a comparative, more than any African country means exceeding every African country, requiring MAX; gold's MIN means exceeding at least one."
+  },
+  {
+   "case_id": "R061",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The question does not say whether countries lacking all language records count as countries that do not speak English."
+  },
+  {
+   "case_id": "R062",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "Language inequality includes bilingual English-speaking countries and repeats language rows; it does not identify countries with no English."
+  },
+  {
+   "case_id": "R063",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Omitting DISTINCT repeats each country code per non-English language, but the question does not specify duplicate elimination."
+  },
+  {
+   "case_id": "R064",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "DISTINCT changes only duplicate country codes, and the question does not specify whether repeated codes should be retained."
+  },
+  {
+   "case_id": "R065",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "DISTINCT collapses equal city-name rows while returned preserves one per city; the question does not specify duplicate multiplicity."
+  },
+  {
+   "case_id": "R066",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The gold's lowercase literals match nothing under case-sensitive comparison, while the returned query correctly selects official Chinese in Asia."
+  },
+  {
+   "case_id": "R067",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The returned query treats nationality count as language count; the gold inexplicably minimizes population and misorders the requested columns."
+  },
+  {
+   "case_id": "R068",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The returned literal matches both the question and stored North America value; the gold's lowercase literal produces empty aggregates."
+  },
+  {
+   "case_id": "R069",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The question naturally coordinates total and average population, and the returned casing also matches stored North America values."
+  },
+  {
+   "case_id": "R070",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Selecting only Language yields one winner per nation but omits the nation and percentage columns, whose inclusion the wording does not clearly specify."
+  },
+  {
+   "case_id": "R071",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The returned query supplies the requested code-language pairs and preserves maximum-percentage ties; the gold adds percentage and arbitrarily drops ties."
+  },
+  {
+   "case_id": "R072",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Gold emits one Spanish percentage per country, while the returned query correctly counts countries where Spanish attains that country's maximum language percentage."
+  },
+  {
+   "case_id": "R073",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "Official-language status does not establish that Spanish has the greatest percentage within a country, which is what predominantly spoken asks."
+  },
+  {
+   "case_id": "R074",
+   "label": "semantic_error",
+   "error_type": "wrong_order_or_limit",
+   "borderline": true,
+   "reason": "LIMIT 1 finds only the globally highest Spanish share, not all countries where Spanish is the predominant language."
+  },
+  {
+   "case_id": "R075",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": true,
+   "reason": "Filtering for Spanish tests only its presence, never whether Spanish has the country's greatest speaking percentage."
+  },
+  {
+   "case_id": "R076",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Likes.student_id denotes likes made and liked_id likes received; the wording does not specify which direction Kyle has."
+  },
+  {
+   "case_id": "R077",
+   "label": "semantic_error",
+   "error_type": "wrong_aggregate",
+   "borderline": false,
+   "reason": "The join weights each student's grade by their number of outgoing friendships instead of averaging each student with any friend once."
+  },
+  {
+   "case_id": "R078",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Gold's NOT IN returns dogs below the threshold, reversing the requested condition; the returned HAVING sum correctly selects above-threshold dogs."
+  },
+  {
+   "case_id": "R079",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The gold lacks an ON condition and cross-joins every professional; the returned join correctly attributes below-average treatments to their professionals."
+  },
+  {
+   "case_id": "R080",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The gold's unconstrained join assigns every cheap treatment to every professional; the returned query correctly links treatments to their professionals."
+  },
+  {
+   "case_id": "R081",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "MAX(age) selects the oldest dogs, whereas the latest date_of_birth correctly identifies the youngest dog requested."
+  },
+  {
+   "case_id": "R082",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "MAX(age) selects oldest dogs, whereas the returned latest birth date correctly selects the youngest dog."
+  },
+  {
+   "case_id": "R083",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The modifier with more than 1 room can scope only apartments, as in gold, or both property types, as returned."
+  },
+  {
+   "case_id": "R084",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Casting text-stored MPG to REAL implements gasoline efficiency numerically; the gold's lexical ordering selects NA as the maximum."
+  },
+  {
+   "case_id": "R085",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Gold returns each qualifying nation's maker count, while the returned outer COUNT correctly reports how many nations have more than two makers."
+  },
+  {
+   "case_id": "R086",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The question asks for one count of qualifying nations; returned does that, while gold emits each qualifying nation's maker count."
+  },
+  {
+   "case_id": "R087",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Gold returns each qualifying nation's maker count; the returned query correctly counts how many nations qualify."
+  },
+  {
+   "case_id": "R088",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "MPG is textual, so gold's uncast maximum is lexical; the returned numeric maximum answers the quantitative question."
+  },
+  {
+   "case_id": "R089",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "The case-sensitive literal Jetblue Airways does not match the stored airline name JetBlue Airways, producing a zero count."
+  },
+  {
+   "case_id": "R090",
+   "label": "semantic_error",
+   "error_type": "wrong_aggregate",
+   "borderline": false,
+   "reason": "Ordering individual visit spending does not identify the visitor with the greatest summed spending across all tickets."
+  },
+  {
+   "case_id": "R091",
+   "label": "comparator_artifact",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Splitting each full name into first-name and last-name columns preserves the requested information; only result structure differs."
+  },
+  {
+   "case_id": "R092",
+   "label": "comparator_artifact",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Separate first- and last-name columns convey the same player names as the gold's single concatenated name column."
+  },
+  {
+   "case_id": "R093",
+   "label": "semantic_error",
+   "error_type": "wrong_join",
+   "borderline": false,
+   "reason": "Joining every historical ranking row multiplies match counts and supplies arbitrary ranking points, so it can select the wrong winner."
+  },
+  {
+   "case_id": "R094",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The question requests all address lines, but gold omits line_3 while the returned query includes it."
+  },
+  {
+   "case_id": "R095",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The question does not specify whether place counts current addresses only or both current and permanent addresses."
+  },
+  {
+   "case_id": "R096",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Semester can defensibly mean its identifier or its human-readable name, and both queries find the same intersecting semester."
+  },
+  {
+   "case_id": "R097",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The returned literal matches Haiti's stored capitalization, and LEFT JOIN retains phone-number matches lacking an address; both follow the question."
+  },
+  {
+   "case_id": "R098",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "Excluding Todd Casey channel IDs still retains their countries through other channels, instead of excluding every country that plays one of his cartoons."
+  },
+  {
+   "case_id": "R099",
+   "label": "semantic_error",
+   "error_type": "wrong_set_operation",
+   "borderline": false,
+   "reason": "IN accepts a channel with either director; the question's conjunction requires cartoons by both directors, as expressed by INTERSECT."
+  },
+  {
+   "case_id": "R100",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "Matching any Territory includes non-US territories, whereas the question specifically restricts the aggregation to US Territory nations."
+  },
+  {
+   "case_id": "R101",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Gold intersects country names and can conflate distinct country codes; the returned joins require one nation to speak both languages."
+  },
+  {
+   "case_id": "R102",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The returned city name answers which city, while the gold additionally reports its population without the question explicitly requesting that value."
+  },
+  {
+   "case_id": "R103",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The question omits what should be averaged; average population and average surface area are both defensible, though the gold also miscapitalizes the continent."
+  },
+  {
+   "case_id": "R104",
+   "label": "semantic_error",
+   "error_type": "wrong_projection",
+   "borderline": true,
+   "reason": "Returning only Language omits the nation needed to associate each language with its per-nation maximum."
+  },
+  {
+   "case_id": "R105",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Both choose one maximum-percentage language per country; the question does not settle whether to include the percentage or how to order columns."
+  },
+  {
+   "case_id": "R106",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The returned query counts countries where Spanish has the highest language percentage; the gold returns per-country counts and percentages instead."
+  },
+  {
+   "case_id": "R107",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "Counting every Spanish row includes countries where Spanish is not the highest-percentage language, contrary to predominantly spoken."
+  },
+  {
+   "case_id": "R108",
+   "label": "semantic_error",
+   "error_type": "wrong_order_or_limit",
+   "borderline": false,
+   "reason": "Ascending time existed requires newer founding years first; ascending Year_of_Founded reverses that requested duration order."
+  },
+  {
+   "case_id": "R109",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Multiple realistic students can share Kyle, leaving the referent ambiguous between one arbitrary Kyle and all Kyle-named students."
+  },
+  {
+   "case_id": "R110",
+   "label": "semantic_error",
+   "error_type": "wrong_aggregate",
+   "borderline": false,
+   "reason": "Joining Friend directly weights each student's grade by friend count, whereas the question asks to average qualifying students once."
+  },
+  {
+   "case_id": "R111",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Gold reverses the requested condition with NOT IN; the returned HAVING correctly selects dogs whose summed treatment cost exceeds 1000."
+  },
+  {
+   "case_id": "R112",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Latest date_of_birth identifies the youngest dog; gold instead selects maximum age, which identifies the oldest dogs."
+  },
+  {
+   "case_id": "R113",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Gold can conflate distinct stadium IDs sharing a name and location; returned correctly requires one stadium to host concerts in both years."
+  },
+  {
+   "case_id": "R114",
+   "label": "semantic_error",
+   "error_type": "wrong_order_or_limit",
+   "borderline": false,
+   "reason": "LIMIT 1 discards other cars tied for the earliest year, despite the question's plural cars."
+  },
+  {
+   "case_id": "R115",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Casting text Horsepower numerically implements more than 150 hp; the gold's lexical comparison incorrectly counts text placeholders and low values."
+  },
+  {
+   "case_id": "R116",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Casting text-formatted horsepower to numeric correctly counts cars over 150 hp; the gold compares the stored strings lexicographically."
+  },
+  {
+   "case_id": "R117",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Maker supplies abbreviated company names while FullName supplies expanded names, and the question does not specify representation or column order."
+  },
+  {
+   "case_id": "R118",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The question asks for one count of qualifying nations; the gold instead returns each qualifying nation's maker count."
+  },
+  {
+   "case_id": "R119",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The question asks how many nations qualify, while the gold returns each qualifying nation's number of makers."
+  },
+  {
+   "case_id": "R120",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Gold emits each qualifying nation's maker count, while the returned outer COUNT gives the requested number of qualifying nations."
+  },
+  {
+   "case_id": "R121",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The outer COUNT correctly returns the number of qualifying nations; the gold instead returns each nation's maker count."
+  },
+  {
+   "case_id": "R122",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "The returned Jetblue literal does not match the stored airline name JetBlue Airways, so its case-sensitive filter counts no flights."
+  },
+  {
+   "case_id": "R123",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The question does not require one full-name column rather than separate first-name and last-name columns."
+  },
+  {
+   "case_id": "R124",
+   "label": "semantic_error",
+   "error_type": "wrong_join",
+   "borderline": false,
+   "reason": "Joining every historical rankings row multiplies match wins and supplies unrelated ranking points, causing the returned query to select the wrong player."
+  },
+  {
+   "case_id": "R125",
+   "label": "semantic_error",
+   "error_type": "wrong_join",
+   "borderline": false,
+   "reason": "Joining every ranking-history row and grouping by ranking_points distorts win counts, returning the wrong player and point value."
+  },
+  {
+   "case_id": "R126",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": true,
+   "reason": "The channel-level anti-filter admits a country when one channel lacks Todd Casey cartoons even though another channel plays them."
+  },
+  {
+   "case_id": "R127",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "Filtering channel IDs lets a country survive through another channel; the question excludes countries airing any Todd Casey cartoon."
+  },
+  {
+   "case_id": "R128",
+   "label": "semantic_error",
+   "error_type": "wrong_set_operation",
+   "borderline": false,
+   "reason": "IN accepts channels carrying either director's cartoons, but the question requires channels represented for both directors."
+  },
+  {
+   "case_id": "R129",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "Government forms containing United States are not the countries whose government form is US Territory."
+  },
+  {
+   "case_id": "R130",
+   "label": "instance_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The scalar subquery diverges only because generated data contains multiple Aruba country rows; a realistic country dimension has one Aruba."
+  },
+  {
+   "case_id": "R131",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "Language inequality selects non-English rows even for countries also speaking English and repeats codes, rather than testing English's absence."
+  },
+  {
+   "case_id": "R132",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The returned query reports each nation's maximal-percentage language, including ties; the gold adds an unasked percentage and arbitrarily drops tied languages."
+  },
+  {
+   "case_id": "R133",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The question leaves tied maximum languages and inclusion of the percentage unspecified; both result shapes are defensible."
+  },
+  {
+   "case_id": "R134",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The correlated maximum counts countries where Spanish is their top-percentage language; the gold merely emits one row per Spanish record."
+  },
+  {
+   "case_id": "R135",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": true,
+   "reason": "IsOfficial does not establish that Spanish is predominant, and the query substitutes official status for the requested prevalence criterion."
+  },
+  {
+   "case_id": "R136",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": true,
+   "reason": "Counting every Spanish row includes countries where Spanish is present but is not the highest-percentage language."
+  },
+  {
+   "case_id": "R137",
+   "label": "semantic_error",
+   "error_type": "wrong_grouping",
+   "borderline": true,
+   "reason": "Grouping by dog name combines treatment totals for distinct same-named dogs, so a name can qualify although no individual dog does."
+  },
+  {
+   "case_id": "R138",
+   "label": "semantic_error",
+   "error_type": "wrong_aggregate",
+   "borderline": false,
+   "reason": "ORDER BY after an ungrouped COUNT cannot select the highest-capacity stadium; the returned query counts concerts across every stadium."
+  },
+  {
+   "case_id": "R139",
+   "label": "semantic_error",
+   "error_type": "wrong_aggregate",
+   "borderline": false,
+   "reason": "The global count is computed before ordering, so LIMIT 1 does not restrict concerts to the highest-capacity stadium."
+  },
+  {
+   "case_id": "R140",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "DISTINCT collapses students sharing the same major and age, but the question does not specify duplicate multiplicity."
+  },
+  {
+   "case_id": "R141",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "DISTINCT removes duplicate student rows caused by multiple dogs, and the question does not prescribe whether identical projected answers repeat."
+  },
+  {
+   "case_id": "R142",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The question asks only for first names; the gold additionally projects age, while DISTINCT is a defensible name-list rendering."
+  },
+  {
+   "case_id": "R143",
+   "label": "semantic_error",
+   "error_type": "wrong_join",
+   "borderline": false,
+   "reason": "Joining car_names.Make directly to car_makers.Maker bypasses model_list and fails to connect qualifying cars to their manufacturers."
+  },
+  {
+   "case_id": "R144",
+   "label": "semantic_error",
+   "error_type": "wrong_join",
+   "borderline": false,
+   "reason": "Joining car_names.Make to car_makers.Maker bypasses the model mapping and loses valid 1970 makers."
+  },
+  {
+   "case_id": "R145",
+   "label": "semantic_error",
+   "error_type": "wrong_join",
+   "borderline": false,
+   "reason": "The returned query joins manufacturer IDs to car-name text, projects manufacturers instead of car makes, and limits tied earliest cars to one."
+  },
+  {
+   "case_id": "R146",
+   "label": "semantic_error",
+   "error_type": "wrong_join",
+   "borderline": false,
+   "reason": "car_names.MakeId references a car instance, not car_makers.Id, so the returned join counts the wrong objects."
+  },
+  {
+   "case_id": "R147",
+   "label": "semantic_error",
+   "error_type": "wrong_join",
+   "borderline": false,
+   "reason": "Joining car_makers.Maker to car_names.Make mismatches maker codes with model names, eliminating the Volvo cars."
+  },
+  {
+   "case_id": "R148",
+   "label": "semantic_error",
+   "error_type": "wrong_join",
+   "borderline": false,
+   "reason": "The join equates model_list.ModelId with cars_data.Id, unrelated identifiers, so it averages one arbitrary Volvo-linked car rather than all Volvo cars."
+  },
+  {
+   "case_id": "R149",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "The query filters American Motor Company instead of General Motors and joins maker codes to full car names."
+  },
+  {
+   "case_id": "R150",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "The manufacturer branch filters American Motor Company instead of General Motors, so it selects the wrong maker's models."
+  },
+  {
+   "case_id": "R151",
+   "label": "semantic_error",
+   "error_type": "wrong_join",
+   "borderline": false,
+   "reason": "car_names.MakeId identifies a car record, not its maker; joining it directly to car_makers.Id drops valid General Motors or heavy models."
+  },
+  {
+   "case_id": "R152",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The outer count correctly counts qualifying nations; gold instead returns each nation's maker count separately."
+  },
+  {
+   "case_id": "R153",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Casting textual horsepower correctly ranks numeric values; gold's lexical ordering places the null literal above actual horsepower."
+  },
+  {
+   "case_id": "R154",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "The case-sensitive literal Jetblue Airways does not match the stored airline name JetBlue Airways, producing a zero count."
+  },
+  {
+   "case_id": "R155",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "DISTINCT only removes repeated airline names, and the question does not say whether one row per qualifying flight or airline is required."
+  },
+  {
+   "case_id": "R156",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Gold's lowercase case-sensitive hometown literal fails to exclude the named district; returned capitalization matches the stored value."
+  },
+  {
+   "case_id": "R157",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The returned literal matches the named hometown; the gold's lowercase literal fails under the database's case-sensitive comparison."
+  },
+  {
+   "case_id": "R158",
+   "label": "semantic_error",
+   "error_type": "wrong_aggregate",
+   "borderline": false,
+   "reason": "Ordering individual visits by Total_spent finds the largest single purchase, not the visitor with the largest summed spending overall."
+  },
+  {
+   "case_id": "R159",
+   "label": "comparator_artifact",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The queries identify the same visitor, but text visit.visitor_ID and integer visitor.ID make identical displayed values compare unequal."
+  },
+  {
+   "case_id": "R160",
+   "label": "semantic_error",
+   "error_type": "wrong_order_or_limit",
+   "borderline": false,
+   "reason": "Year-only strftime parsing does not reliably order the stored birth dates, so it selects a player other than the oldest."
+  },
+  {
+   "case_id": "R161",
+   "label": "semantic_error",
+   "error_type": "wrong_order_or_limit",
+   "borderline": false,
+   "reason": "strftime cannot parse stored YYYYMMDD birth dates, so the returned expression is NULL and does not sort players by age."
+  },
+  {
+   "case_id": "R162",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Age direction is unstated: birth-date ascending lists oldest first, while computed-age ascending lists youngest first."
+  },
+  {
+   "case_id": "R163",
+   "label": "semantic_error",
+   "error_type": "wrong_order_or_limit",
+   "borderline": false,
+   "reason": "strftime cannot parse the integer YYYYMMDD birth dates, making every sort key NULL and leaving players unordered by age."
+  },
+  {
+   "case_id": "R164",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The question specifies ordering by age but not youngest-first versus oldest-first; returned and gold choose opposite defensible directions."
+  },
+  {
+   "case_id": "R165",
+   "label": "semantic_error",
+   "error_type": "wrong_join",
+   "borderline": false,
+   "reason": "Joining every historical ranking to every win and grouping by ranking points multiplies and fragments wins, selecting the wrong player."
+  },
+  {
+   "case_id": "R166",
+   "label": "semantic_error",
+   "error_type": "wrong_join",
+   "borderline": false,
+   "reason": "Joining every historical ranking to every win and grouping by ranking points multiplies and fragments wins, selecting the wrong player."
+  },
+  {
+   "case_id": "R167",
+   "label": "semantic_error",
+   "error_type": "wrong_aggregate",
+   "borderline": false,
+   "reason": "COUNT(winner_id) counts winning match rows, whereas the question asks for the number of distinct left-handed winners."
+  },
+  {
+   "case_id": "R168",
+   "label": "semantic_error",
+   "error_type": "wrong_aggregate",
+   "borderline": false,
+   "reason": "The query selects the largest single injured value rather than summing injuries by ship before choosing the maximum."
+  },
+  {
+   "case_id": "R169",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Gold ranks ships by death-row count, while total injuries requires SUM(injured), as returned computes."
+  },
+  {
+   "case_id": "R170",
+   "label": "semantic_error",
+   "error_type": "wrong_set_operation",
+   "borderline": false,
+   "reason": "OR selects battles losing either ship and duplicates a shared battle; the question requires a battle associated with both ships."
+  },
+  {
+   "case_id": "R171",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "The database represents the requested state as NorthCarolina, so filtering for North Carolina excludes every qualifying student."
+  },
+  {
+   "case_id": "R172",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "The stored state token is NorthCarolina; filtering for North Carolina omits every intended student."
+  },
+  {
+   "case_id": "R173",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "A semester ID and its semester name are both defensible answers to the unqualified request for the semester."
+  },
+  {
+   "case_id": "R174",
+   "label": "semantic_error",
+   "error_type": "wrong_set_operation",
+   "borderline": false,
+   "reason": "Negating channel IDs still admits a country with another non-Todd channel; the question requires excluding any country airing Todd Casey's cartoons."
+  },
+  {
+   "case_id": "R175",
+   "label": "semantic_error",
+   "error_type": "wrong_set_operation",
+   "borderline": true,
+   "reason": "OR returns channels carrying either director's cartoons; the coordinated names require channels carrying cartoons by both directors."
+  },
+  {
+   "case_id": "R176",
+   "label": "semantic_error",
+   "error_type": "wrong_set_operation",
+   "borderline": true,
+   "reason": "OR admits channels carrying either director's cartoons, whereas the conjunction asks for channels carrying cartoons from both directors."
+  },
+  {
+   "case_id": "R177",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The question asks for every channel ID in qualifying countries; gold's grouped projection arbitrarily returns only one ID per country."
+  },
+  {
+   "case_id": "R178",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "The stored category is US Territory; the returned pattern matches none and omits every requested nation."
+  },
+  {
+   "case_id": "R179",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "Searching GovernmentForm for United States does not match the stored US Territory category and omits every requested nation."
+  },
+  {
+   "case_id": "R180",
+   "label": "instance_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The generated instance contains several countries all named Afghanistan with non-AFG codes, an impossible real-world condition that defeats the hard-coded ISO code."
+  },
+  {
+   "case_id": "R181",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": true,
+   "reason": "Selecting countries with a nonofficial English row excludes countries with no English row, although both satisfy not officially spoken."
+  },
+  {
+   "case_id": "R182",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "Filtering non-English language rows includes countries that also use English and weights each population once per other language."
+  },
+  {
+   "case_id": "R183",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Larger than any country in Europe conventionally means larger than all, so MAX is appropriate and the gold's MIN is too permissive."
+  },
+  {
+   "case_id": "R184",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Less than any can defensibly mean less than every Asian country or less than at least one, requiring MIN or MAX respectively."
+  },
+  {
+   "case_id": "R185",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "More people than any African country naturally means exceeding all African populations, requiring MAX rather than gold's MIN."
+  },
+  {
+   "case_id": "R186",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Using country as the universe correctly includes countries with no English row; whether absent language data proves non-English is debatable."
+  },
+  {
+   "case_id": "R187",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "DISTINCT collapses same-named city records while the returned query preserves them, and the question does not specify name deduplication."
+  },
+  {
+   "case_id": "R188",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The shipped data uses Chinese and T with uppercase initials; the gold's lowercase literals miss the intended official-language rows."
+  },
+  {
+   "case_id": "R189",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Returned matches the question and stored North America; gold's lowercase literal yields an empty aggregate under case-sensitive comparison."
+  },
+  {
+   "case_id": "R190",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The question omits what should be averaged, so life expectancy and surface area are both defensible despite the returned query's corrected continent casing."
+  },
+  {
+   "case_id": "R191",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The question specifies neither tie handling nor whether country code and maximum percentage should accompany each language."
+  },
+  {
+   "case_id": "R192",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Returned includes all maximum ties and omits percentage; gold keeps one tied language and includes percentage, choices the question leaves open."
+  },
+  {
+   "case_id": "R193",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": true,
+   "reason": "The returned aggregate counts every Spanish row without testing whether Spanish has the greatest language percentage within its country."
+  },
+  {
+   "case_id": "R194",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "Official status does not establish that Spanish has the highest speaking percentage in each country."
+  },
+  {
+   "case_id": "R195",
+   "label": "semantic_error",
+   "error_type": "wrong_aggregate",
+   "borderline": false,
+   "reason": "The join weights each student once per friendship instead of once per student, changing the requested average grade."
+  },
+  {
+   "case_id": "R196",
+   "label": "semantic_error",
+   "error_type": "wrong_aggregate",
+   "borderline": false,
+   "reason": "Joining Friend duplicates students once per friendship, weighting grades by friend count instead of averaging each student with friends once."
+  },
+  {
+   "case_id": "R197",
+   "label": "semantic_error",
+   "error_type": "wrong_join",
+   "borderline": false,
+   "reason": "The returned query substitutes Charges and equates dog_id with charge_id, which does not calculate owners' total treatment spending."
+  },
+  {
+   "case_id": "R198",
+   "label": "semantic_error",
+   "error_type": "wrong_join",
+   "borderline": false,
+   "reason": "Charges has no dog foreign key, so joining dog_id to charge_id sums unrelated charges instead of treatment spending."
+  },
+  {
+   "case_id": "R199",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The gold omits the professional-treatment join condition and attributes every cheap treatment to every professional; the returned join is correct."
+  },
+  {
+   "case_id": "R200",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The gold omits the professional-treatment join condition and cross joins all professionals; the returned professional_id join answers who actually operated qualifying treatments."
+  },
+  {
+   "case_id": "R201",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "DISTINCT only collapses students sharing the same major and age, and the question does not specify duplicate-row multiplicity."
+  },
+  {
+   "case_id": "R202",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "DISTINCT removes duplicate rows for a student owning multiple dogs; the question does not specify whether a student should repeat per dog."
+  },
+  {
+   "case_id": "R203",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The question requests first names but leaves duplicate handling unstated; gold's extra age column and the returned DISTINCT are defensible presentation choices."
+  },
+  {
+   "case_id": "R204",
+   "label": "semantic_error",
+   "error_type": "wrong_join",
+   "borderline": false,
+   "reason": "Joining car_names.Make to car_makers.Maker compares a full vehicle name with a maker code, eliminating the requested makers."
+  },
+  {
+   "case_id": "R205",
+   "label": "semantic_error",
+   "error_type": "wrong_join",
+   "borderline": false,
+   "reason": "The returned join compares car_makers.Id with car_names.Make text, so it cannot identify cars from the earliest year."
+  },
+  {
+   "case_id": "R206",
+   "label": "semantic_error",
+   "error_type": "wrong_join",
+   "borderline": false,
+   "reason": "Joining car_names.Make to car_makers.FullName compares car designations with manufacturer names, yielding no earliest-car maker."
+  },
+  {
+   "case_id": "R207",
+   "label": "semantic_error",
+   "error_type": "wrong_join",
+   "borderline": false,
+   "reason": "Joining a car model name directly to a maker code discards the actual earliest cars and returns a 1974 match."
+  },
+  {
+   "case_id": "R208",
+   "label": "semantic_error",
+   "error_type": "wrong_join",
+   "borderline": false,
+   "reason": "Joining car_makers.Id to car_names.MakeId confuses manufacturer IDs with car-record IDs and counts the wrong relation."
+  },
+  {
+   "case_id": "R209",
+   "label": "semantic_error",
+   "error_type": "wrong_join",
+   "borderline": false,
+   "reason": "car_names.Make is a full car name, not car_makers.Id; that join cannot identify Volvo models and yields a null average."
+  },
+  {
+   "case_id": "R210",
+   "label": "semantic_error",
+   "error_type": "wrong_join",
+   "borderline": false,
+   "reason": "The returned query equates car_makers.Id with car_names.Make text, so its Volvo filter cannot reach the relevant cars."
+  },
+  {
+   "case_id": "R211",
+   "label": "semantic_error",
+   "error_type": "wrong_join",
+   "borderline": false,
+   "reason": "The General Motors branch equates maker IDs with car-name text, making GM model membership depend on an invalid join."
+  },
+  {
+   "case_id": "R212",
+   "label": "semantic_error",
+   "error_type": "wrong_aggregate",
+   "borderline": true,
+   "reason": "It returns each qualifying nation's maker count, not the requested number of nations."
+  },
+  {
+   "case_id": "R213",
+   "label": "semantic_error",
+   "error_type": "wrong_order_or_limit",
+   "borderline": false,
+   "reason": "strftime cannot parse stored YYYYMMDD birth dates, so the returned expression is NULL and does not sort players by age."
+  },
+  {
+   "case_id": "R214",
+   "label": "semantic_error",
+   "error_type": "wrong_aggregate",
+   "borderline": false,
+   "reason": "Joining all ranking histories multiplies each player's match rows, corrupting the win count and returning unrelated ranking points."
+  },
+  {
+   "case_id": "R215",
+   "label": "semantic_error",
+   "error_type": "wrong_join",
+   "borderline": false,
+   "reason": "Joining every historical rankings row multiplies match wins and supplies unrelated ranking points, causing the returned query to select the wrong player."
+  },
+  {
+   "case_id": "R216",
+   "label": "semantic_error",
+   "error_type": "wrong_join",
+   "borderline": false,
+   "reason": "Joining every ranking-history row and grouping by ranking_points distorts win counts, returning the wrong player and point value."
+  },
+  {
+   "case_id": "R217",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "The literal misses stored NorthCarolina, and the OR join also treats permanent addresses as current residences."
+  },
+  {
+   "case_id": "R218",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "Filtering channel IDs lets a country survive through another channel; the question excludes countries airing any Todd Casey cartoon."
+  },
+  {
+   "case_id": "R219",
+   "label": "instance_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The scalar name lookup diverges only because the generated instance contains several distinct country rows named Afghanistan, impossible for a real country catalog."
+  },
+  {
+   "case_id": "R220",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "Filtering non-English language rows includes multilingual countries that also speak English; the question requires excluding any country with English."
+  },
+  {
+   "case_id": "R221",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "DISTINCT collapses equal city-name rows while returned preserves one per city; the question does not specify duplicate multiplicity."
+  },
+  {
+   "case_id": "R222",
+   "label": "semantic_error",
+   "error_type": "wrong_projection",
+   "borderline": true,
+   "reason": "Returning only languages loses the nation-to-language association required by in each nation; the gold supplies CountryCode for that mapping."
+  },
+  {
+   "case_id": "R223",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The returned query supplies the requested country codes and maximal-percentage languages, including ties; the gold adds percentage and arbitrarily drops ties."
+  },
+  {
+   "case_id": "R224",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "Counting every Spanish row includes countries where Spanish is not the highest-percentage language, contrary to predominantly spoken."
+  },
+  {
+   "case_id": "R225",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "DISTINCT collapses different students sharing the same major and age, but the question does not specify duplicate preservation."
+  },
+  {
+   "case_id": "R226",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "The returned filter applies the full car name to model_list.Model, which stores manufacturer models, instead of car_names.Make."
+  },
+  {
+   "case_id": "R227",
+   "label": "semantic_error",
+   "error_type": "wrong_join",
+   "borderline": false,
+   "reason": "Joining model_list.ModelId to car_names.MakeId equates unrelated identifiers, so the average is calculated over non-Volvo cars."
+  },
+  {
+   "case_id": "R228",
+   "label": "semantic_error",
+   "error_type": "wrong_join",
+   "borderline": false,
+   "reason": "The General Motors branch joins a full car name to a maker code, so it cannot reliably identify General Motors models."
+  },
+  {
+   "case_id": "R229",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "The returned filter substitutes American Motor Company for the explicitly requested General Motors, adding models that fail the stated condition."
+  },
+  {
+   "case_id": "R230",
+   "label": "semantic_error",
+   "error_type": "wrong_join",
+   "borderline": false,
+   "reason": "Joining numeric car_makers.Id to textual car_names.Make is not the maker relationship and loses all qualifying models."
+  },
+  {
+   "case_id": "R231",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Without DISTINCT, each qualifying car repeats its production year; the question does not explicitly specify duplicate removal."
+  },
+  {
+   "case_id": "R232",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The returned outer COUNT correctly counts qualifying nations; the grouped gold instead emits each nation's maker count."
+  },
+  {
+   "case_id": "R233",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The returned outer count answers how many nations have over two makers; the gold instead lists each qualifying nation's maker count."
+  },
+  {
+   "case_id": "R234",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": true,
+   "reason": "The case-sensitive Jetblue literal misses the stored JetBlue Airways value, producing zero instead of the flight count."
+  },
+  {
+   "case_id": "R235",
+   "label": "semantic_error",
+   "error_type": "wrong_join",
+   "borderline": false,
+   "reason": "Joining every rankings row multiplies each winner's match count and can select the wrong most-frequent winner, as it does here."
+  },
+  {
+   "case_id": "R236",
+   "label": "semantic_error",
+   "error_type": "wrong_set_operation",
+   "borderline": false,
+   "reason": "IN accepts battles losing either named ship and can duplicate a battle, whereas the question requires a battle associated with both ships."
+  },
+  {
+   "case_id": "R237",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "The stored state token is NorthCarolina; filtering for North Carolina omits every intended student."
+  },
+  {
+   "case_id": "R238",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "The stored state token is NorthCarolina; filtering for North Carolina wrongly removes every qualifying student."
+  },
+  {
+   "case_id": "R239",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Country code and language identify each requested winner; whether to include and position the maximum percentage column is not specified."
+  },
+  {
+   "case_id": "R240",
+   "label": "semantic_error",
+   "error_type": "wrong_projection",
+   "borderline": false,
+   "reason": "The returned Name is the singer's name, but the question requests the youngest singer's Song_Name."
+  },
+  {
+   "case_id": "R241",
+   "label": "semantic_error",
+   "error_type": "wrong_grouping",
+   "borderline": false,
+   "reason": "Grouping by concert name and theme merges distinct concerts sharing those descriptors, so singer counts are not computed for each concert."
+  },
+  {
+   "case_id": "R242",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The question does not specify whether repeated appearances of the same singer should duplicate that singer's name, so DISTINCT is defensible."
+  },
+  {
+   "case_id": "R243",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Gold intersects first names and can conflate different same-named students; returned correctly requires both pet types for one student ID."
+  },
+  {
+   "case_id": "R244",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "One query returns one row per student and the other one per qualifying dog; duplicate multiplicity is unspecified."
+  },
+  {
+   "case_id": "R245",
+   "label": "semantic_error",
+   "error_type": "wrong_set_operation",
+   "borderline": true,
+   "reason": "EXCEPT on first names conflates different students sharing a name, potentially removing a dog-only student because another namesake owns a cat."
+  },
+  {
+   "case_id": "R246",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The returned query projects exactly the requested first name; the gold's additional age column is not asked for."
+  },
+  {
+   "case_id": "R247",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "car_names.Make denotes a car designation while car_makers.Maker denotes its manufacturer; the wording maker does not unambiguously choose between them."
+  },
+  {
+   "case_id": "R248",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": true,
+   "reason": "CountryName values are lowercase in the shipped database; the case-sensitive France filter misses the requested country's makers."
+  },
+  {
+   "case_id": "R249",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "The countries table stores the requested nation as usa, so filtering for United States produces the wrong count."
+  },
+  {
+   "case_id": "R250",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Horsepower is textual, so gold compares lexically; casting to REAL correctly applies the numeric threshold in the question."
+  },
+  {
+   "case_id": "R251",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "The stored continent value is lowercase europe, so the case-sensitive Europe filter wrongly returns no countries."
+  },
+  {
+   "case_id": "R252",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "The returned subquery filters car_names.Make for exactly volvo, but Volvo is stored in Model, leaving no qualifying cars."
+  },
+  {
+   "case_id": "R253",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": true,
+   "reason": "Filtering the parent maker named Volvo can include non-Volvo marques it owns, while all Volvos targets car_names.Model."
+  },
+  {
+   "case_id": "R254",
+   "label": "semantic_error",
+   "error_type": "wrong_aggregate",
+   "borderline": false,
+   "reason": "It counts model-list rows rather than car-name versions, making every model a single version, and additionally projects an unrequested count."
+  },
+  {
+   "case_id": "R255",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The schema offers both abbreviated Maker and FullName as company names, and the question does not pin either representation or column order."
+  },
+  {
+   "case_id": "R256",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "The General Motors branch compares the full company name against abbreviated car_makers.Maker instead of car_makers.FullName."
+  },
+  {
+   "case_id": "R257",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Gold's global inner joins unnecessarily discard heavy models or General Motors catalog models; the returned UNION scopes each branch correctly."
+  },
+  {
+   "case_id": "R258",
+   "label": "instance_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The only extra model exploits a shipped row whose declared model_list.Maker foreign key has no car_makers parent, an impossible valid-schema state."
+  },
+  {
+   "case_id": "R259",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Splitting the OR preserves GM models without car rows and heavy-car models; the gold's mandatory car join wrongly drops a valid GM model."
+  },
+  {
+   "case_id": "R260",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Gold emits each qualifying nation's maker count; returned correctly counts how many nations satisfy the threshold."
+  },
+  {
+   "case_id": "R261",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The question requests the number of qualifying nations, while the gold returns separate maker counts for those nations."
+  },
+  {
+   "case_id": "R262",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The only substantive difference is DISTINCT, and the question does not state whether repeated model names should be retained."
+  },
+  {
+   "case_id": "R263",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "The case-sensitive Jetblue Airways literal misses the stored JetBlue Airways name and therefore returns no country."
+  },
+  {
+   "case_id": "R264",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "The airline is stored as JetBlue Airways; the case-sensitive Jetblue Airways filter misses the requested airline."
+  },
+  {
+   "case_id": "R265",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "The returned Jetblue literal does not match the stored airline name JetBlue Airways, so its case-sensitive filter counts no flights."
+  },
+  {
+   "case_id": "R266",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The stored hometown matches Little Lever Urban District exactly; the gold's lowercase comparison fails under the database's case-sensitive collation."
+  },
+  {
+   "case_id": "R267",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Returned uses the question's and database's capitalization; gold's lowercase hometown fails case-sensitive equality and wrongly retains the Little Lever teacher."
+  },
+  {
+   "case_id": "R268",
+   "label": "comparator_artifact",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Joined visitor IDs are equal and displayed rows identical; only storage type differs between visit.visitor_ID and visitor.ID."
+  },
+  {
+   "case_id": "R269",
+   "label": "semantic_error",
+   "error_type": "wrong_order_or_limit",
+   "borderline": false,
+   "reason": "strftime cannot parse the integer YYYYMMDD birth dates, making every computed age NULL and leaving rows unsorted by age."
+  },
+  {
+   "case_id": "R270",
+   "label": "semantic_error",
+   "error_type": "wrong_order_or_limit",
+   "borderline": false,
+   "reason": "Birth dates are integer YYYYMMDD values, so strftime returns NULL and the returned rows are not ordered by age."
+  },
+  {
+   "case_id": "R271",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "A concatenated full-name column and separate first-name and last-name columns are both defensible renderings of full names."
+  },
+  {
+   "case_id": "R272",
+   "label": "semantic_error",
+   "error_type": "wrong_order_or_limit",
+   "borderline": false,
+   "reason": "Joining every ranking snapshot without selecting a date returns hundreds of historical point values instead of one rank-points value."
+  },
+  {
+   "case_id": "R273",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Gold ranks ships by death-row count, while total injuries requires SUM(injured), as returned computes."
+  },
+  {
+   "case_id": "R274",
+   "label": "semantic_error",
+   "error_type": "wrong_set_operation",
+   "borderline": false,
+   "reason": "OR selects battles involving either named ship rather than requiring the same battle to have lost both ships."
+  },
+  {
+   "case_id": "R275",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "The database represents the requested state as NorthCarolina, so filtering for North Carolina excludes every qualifying student."
+  },
+  {
+   "case_id": "R276",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "The stored state token is NorthCarolina; filtering for North Carolina omits every intended student."
+  },
+  {
+   "case_id": "R277",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The question requests all address lines, so including line_3 is correct and the gold is too narrow."
+  },
+  {
+   "case_id": "R278",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "All lines includes line_3 in the schema, so the returned four-column projection is complete and the gold is too narrow."
+  },
+  {
+   "case_id": "R279",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Grouping by address ID or by that ID plus its dependent attributes is equivalent; LIMIT 1 merely chooses differently among tied addresses."
+  },
+  {
+   "case_id": "R280",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "One query returns semester IDs and the other semester names; the question does not specify which representation of the semester is required."
+  },
+  {
+   "case_id": "R281",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "The program values are singular Master and Bachelor; filtering for plural literals misses the requested enrolments."
+  },
+  {
+   "case_id": "R282",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The stored country is Haiti; gold's lowercase literal misses Haitian residents, while the returned filter matches them."
+  },
+  {
+   "case_id": "R283",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The stored country value is Haiti; gold's lowercase literal misses Haitian residents, while the returned filter matches them."
+  },
+  {
+   "case_id": "R284",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": true,
+   "reason": "Two LIKE predicates on one cartoon require joint direction, whereas the question asks for a channel having cartoons by each director."
+  },
+  {
+   "case_id": "R285",
+   "label": "semantic_error",
+   "error_type": "wrong_set_operation",
+   "borderline": false,
+   "reason": "Requiring one Directed_by value to contain both names is not equivalent to finding channels with a cartoon from each director."
+  },
+  {
+   "case_id": "R286",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "LIKE Republic correctly includes federal and other republic forms; gold's exact equality is unjustifiably narrower."
+  },
+  {
+   "case_id": "R287",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "LIKE Republic correctly includes Federal and Islamic Republics, which are republics; the gold's exact category excludes them."
+  },
+  {
+   "case_id": "R288",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "US Territory is a GovernmentForm value, not a Region value, so the returned filter selects the wrong countries."
+  },
+  {
+   "case_id": "R289",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "The case-sensitive US territory literal misses the stored US Territory category, producing empty aggregates."
+  },
+  {
+   "case_id": "R290",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "Code2 equals US selects the United States itself, not countries whose GovernmentForm is US Territory."
+  },
+  {
+   "case_id": "R291",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Five nations tie at twelve languages, and neither the singular question nor either query specifies which tied nation to return."
+  },
+  {
+   "case_id": "R292",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Canada and the United States tie for the most language rows, and the question supplies no rule for choosing one."
+  },
+  {
+   "case_id": "R293",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "COUNT DISTINCT Language properly measures language diversity; gold counts repeated country-language rows, while returning the supporting count is defensible."
+  },
+  {
+   "case_id": "R294",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Counting distinct language names matches most languages; gold counts country-language occurrences repeatedly, while the returned count column is harmless explanatory detail."
+  },
+  {
+   "case_id": "R295",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Stored values are English, Dutch, and T; gold's lowercase equalities wrongly return no official-language countries."
+  },
+  {
+   "case_id": "R296",
+   "label": "semantic_error",
+   "error_type": "wrong_aggregate",
+   "borderline": true,
+   "reason": "Ordering one country's Percentage does not measure popularity across Asia; a continent-level aggregation is required."
+  },
+  {
+   "case_id": "R297",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The returned city name answers which city, while the gold additionally reports its population without the question explicitly requesting that value."
+  },
+  {
+   "case_id": "R298",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The question identifies the most populous city but does not specify whether its population value should accompany its name."
+  },
+  {
+   "case_id": "R299",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "Selecting nonofficial English rows is not equivalent to selecting countries having no official English language."
+  },
+  {
+   "case_id": "R300",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "An unofficial-English row is not equivalent to having no official English; countries without any English row are also wrongly excluded."
+  },
+  {
+   "case_id": "R301",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Greater than any can mean greater than every European country or greater than at least one, requiring MAX or MIN respectively."
+  },
+  {
+   "case_id": "R302",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Larger than any European country naturally means exceeding all European areas, requiring MAX rather than gold's MIN."
+  },
+  {
+   "case_id": "R303",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "In more than any African country, any is universal, requiring the African maximum; the gold incorrectly uses the minimum."
+  },
+  {
+   "case_id": "R304",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Countries lacking any language row are included only by the returned query, and the question does not say whether absence means not English-speaking."
+  },
+  {
+   "case_id": "R305",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The question does not say whether countries having no language records count as countries that do not speak English."
+  },
+  {
+   "case_id": "R306",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Gold includes any country with a non-English language, while the returned EXCEPT more naturally answers countries having no English-language row."
+  },
+  {
+   "case_id": "R307",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The queries select the same qualifying city names; the question does not specify whether duplicate names for distinct city rows should be removed."
+  },
+  {
+   "case_id": "R308",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Stored values are Asia, Chinese, and T; gold's lowercase equalities incorrectly return no qualifying cities."
+  },
+  {
+   "case_id": "R309",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Number of nationalities can mean population size or represented groups; Population and language count reflect competing readings."
+  },
+  {
+   "case_id": "R310",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The returned proper-case continent literal matches the stored value and question; the gold's lowercase equality incorrectly selects no countries."
+  },
+  {
+   "case_id": "R311",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The question omits what should be averaged; average population and average surface area are both defensible, though the gold also miscapitalizes the continent."
+  },
+  {
+   "case_id": "R312",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Returned names each nation and all tied top languages; gold uses codes, adds percentages, and chooses one tie, none pinned by wording."
+  },
+  {
+   "case_id": "R313",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The returned query emits all languages tied at each maximum and omits the percentage; the question specifies neither tie handling nor that extra measure."
+  },
+  {
+   "case_id": "R314",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The returned query counts countries where Spanish has the highest language percentage; the gold returns per-country counts and percentages instead."
+  },
+  {
+   "case_id": "R315",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "Restricting the correlated maximum to Spanish makes every Spanish row qualify instead of comparing Spanish with each country's other languages."
+  },
+  {
+   "case_id": "R316",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The returned query counts countries where Spanish has the highest language percentage; the gold merely groups all countries having any Spanish row."
+  },
+  {
+   "case_id": "R317",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The returned query correctly finds the country codes attaining the global maximum Spanish percentage; the gold instead returns every Spanish-listed country."
+  },
+  {
+   "case_id": "R318",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The correlated MAX keeps only countries where Spanish has the greatest percentage and projects exactly the requested codes."
+  },
+  {
+   "case_id": "R319",
+   "label": "semantic_error",
+   "error_type": "wrong_aggregate",
+   "borderline": false,
+   "reason": "The join repeats each student once per friendship, weighting the average by friend count instead of averaging each student with friends once."
+  },
+  {
+   "case_id": "R320",
+   "label": "semantic_error",
+   "error_type": "wrong_aggregate",
+   "borderline": false,
+   "reason": "Averaging joined friendship rows weights each student by friend count; the question requires each student with at least one friend once."
+  },
+  {
+   "case_id": "R321",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Friendship involves both endpoints, so returned correctly excludes students appearing in either Friend column while gold checks only student_id."
+  },
+  {
+   "case_id": "R322",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Friendship involves both endpoints, so returned correctly excludes students appearing in either Friend column while gold checks only student_id."
+  },
+  {
+   "case_id": "R323",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The returned HAVING selects dogs with treatment totals above 1000; the gold's NOT IN reverses the requested condition."
+  },
+  {
+   "case_id": "R324",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The requested identity columns are correct; including the computed dog count is a defensible but unrequested descriptive column."
+  },
+  {
+   "case_id": "R325",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": true,
+   "reason": "The schema's doctor role is Veterenarian, so filtering the nonexistent role_code Doctor wrongly removes every qualifying professional."
+  },
+  {
+   "case_id": "R326",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Both identify the same top-paying owner; the question does not clearly forbid also reporting the total that establishes the ranking."
+  },
+  {
+   "case_id": "R327",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The gold's missing join admits every professional, while the returned query links cheap treatments correctly apart from unrequested duplicate rows."
+  },
+  {
+   "case_id": "R328",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The returned join correctly links professionals to their treatments; gold's missing ON clause makes every professional qualify."
+  },
+  {
+   "case_id": "R329",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "MIN(age) correctly identifies the youngest dog; the gold's MAX(age) identifies the oldest."
+  },
+  {
+   "case_id": "R330",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Maximum date_of_birth selects the youngest dog, whereas the gold's maximum age selects the oldest dogs."
+  },
+  {
+   "case_id": "R331",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Youngest means minimum age, so the returned MIN is correct and the gold's MAX selects the oldest dogs."
+  },
+  {
+   "case_id": "R332",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Gold intersects first-name sets, allowing different same-named students to supply the cat and dog; returned correctly requires both pets for one student."
+  },
+  {
+   "case_id": "R333",
+   "label": "semantic_error",
+   "error_type": "wrong_set_operation",
+   "borderline": false,
+   "reason": "EXCEPT on first_name and age can remove a dog-only student when a different cat owner shares those values; exclusion must use student identity."
+  },
+  {
+   "case_id": "R334",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Returned emits each qualifying student once while gold repeats one row per dog; duplicate multiplicity is not specified."
+  },
+  {
+   "case_id": "R335",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Gold adds age and repeats names per dog; the question requests first names without specifying extra detail or duplicate preservation."
+  },
+  {
+   "case_id": "R336",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The returned joins reach car_makers.Maker, matching maker; the gold projects a car designation, while its sole omitted car violates a declared foreign key."
+  },
+  {
+   "case_id": "R337",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "The stored country name is lowercase france; the case-sensitive France predicate returns no French makers."
+  },
+  {
+   "case_id": "R338",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": true,
+   "reason": "The case-sensitive USA literal misses the stored usa country name, so the returned count is zero."
+  },
+  {
+   "case_id": "R339",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "Volvo is stored in car_names.Model, while car_names.Make contains full car names; filtering the latter produces the wrong average."
+  },
+  {
+   "case_id": "R340",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Volvo is a manufacturer in car_makers; the returned normalized joins capture its models, while the gold requires a model literally named volvo."
+  },
+  {
+   "case_id": "R341",
+   "label": "semantic_error",
+   "error_type": "wrong_grouping",
+   "borderline": false,
+   "reason": "Returned groups individual Make values and counts models, rather than grouping each car Model to count its versions."
+  },
+  {
+   "case_id": "R342",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Maker supplies recognizable short company names while FullName supplies formal names, and the question does not choose between them."
+  },
+  {
+   "case_id": "R343",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": true,
+   "reason": "Filtering car_makers.Maker by the full name General Motors is wrong; the correct field is FullName, even though heavy models mask the omission here."
+  },
+  {
+   "case_id": "R344",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": true,
+   "reason": "General Motors is represented by FullName, not Maker; testing the wrong attribute can include or omit unrelated models."
+  },
+  {
+   "case_id": "R345",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "The General Motors branch compares the maker-code column to the full manufacturer name, omitting General Motors models not otherwise heavy."
+  },
+  {
+   "case_id": "R346",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The question asks for one count of qualifying nations; returned does that, while gold emits each qualifying nation's maker count."
+  },
+  {
+   "case_id": "R347",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Returned counts qualifying nation groups once; gold returns the maker count for each qualifying nation."
+  },
+  {
+   "case_id": "R348",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Returned preserves one row per qualifying car while gold deduplicates model names; the question does not specify multiplicity."
+  },
+  {
+   "case_id": "R349",
+   "label": "semantic_error",
+   "error_type": "wrong_join",
+   "borderline": false,
+   "reason": "The Fiat branch joins a manufacturer abbreviation to a full car designation, so it fails to return Italy."
+  },
+  {
+   "case_id": "R350",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "The stored airline name is JetBlue Airways; the case-sensitive Jetblue Airways predicate misses every requested flight."
+  },
+  {
+   "case_id": "R351",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "DISTINCT removes repeated airline names caused by multiple AHD flights; the question does not specify duplicate multiplicity."
+  },
+  {
+   "case_id": "R352",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Airport names and airport codes both identify airports, and the question does not specify which representation to return."
+  },
+  {
+   "case_id": "R353",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Player identity determines winning in both years; the gold conflates distinct players who share winner-name text."
+  },
+  {
+   "case_id": "R354",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Grouping by winner_id preserves person identity across homonyms; gold merges same-named players, while splitting the name columns loses no requested information."
+  },
+  {
+   "case_id": "R355",
+   "label": "semantic_error",
+   "error_type": "wrong_join",
+   "borderline": false,
+   "reason": "Joining every historical ranking row yields hundreds of rank-point answers instead of one value for the most-winning player."
+  },
+  {
+   "case_id": "R356",
+   "label": "instance_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "winner_name and the joined player's concatenated name represent the same winner; only the generated instance's inconsistent duplicated fields separate them."
+  },
+  {
+   "case_id": "R357",
+   "label": "semantic_error",
+   "error_type": "wrong_join",
+   "borderline": true,
+   "reason": "The unconstrained rankings join uses each participant's unrelated historical points instead of winner_rank_points from the Australian Open match."
+  },
+  {
+   "case_id": "R358",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Total injuries requires SUM(injured), which the returned query uses; gold instead ranks ships by the number of death rows."
+  },
+  {
+   "case_id": "R359",
+   "label": "semantic_error",
+   "error_type": "wrong_set_operation",
+   "borderline": false,
+   "reason": "IN means either ship and may return separate battles; the question requires one battle in which both named ships were lost."
+  },
+  {
+   "case_id": "R360",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "The literal North Carolina does not match the stored NorthCarolina value, excluding every intended student."
+  },
+  {
+   "case_id": "R361",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": true,
+   "reason": "The spaced North Carolina literal misses the database's NorthCarolina value, excluding every intended student."
+  },
+  {
+   "case_id": "R362",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The question requests all address lines, so including line_3 is correct and the gold's two-line projection is incomplete."
+  },
+  {
+   "case_id": "R363",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "The degree value is Bachelor, not Bachelors, so the second INTERSECT branch is empty."
+  },
+  {
+   "case_id": "R364",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Gold's lowercase Haiti literal misses residents in the case-sensitive database; returned matches the named country and phone alternative."
+  },
+  {
+   "case_id": "R365",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "The channel-level NOT IN admits a country when any non-Todd channel exists, even if another channel there plays his cartoon."
+  },
+  {
+   "case_id": "R366",
+   "label": "semantic_error",
+   "error_type": "wrong_set_operation",
+   "borderline": false,
+   "reason": "OR returns channels airing a cartoon by either director, while the question asks for channels associated with cartoons by both directors."
+  },
+  {
+   "case_id": "R367",
+   "label": "semantic_error",
+   "error_type": "wrong_set_operation",
+   "borderline": false,
+   "reason": "IN selects channels carrying either director's cartoons, while the question asks for channels carrying cartoons by both directors."
+  },
+  {
+   "case_id": "R368",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The returned query lists every channel in qualifying countries; the gold's grouped projection arbitrarily retains only one channel per country."
+  },
+  {
+   "case_id": "R369",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "US Territory is a GovernmentForm value, not a Region value, so the returned filter selects the wrong domain."
+  },
+  {
+   "case_id": "R370",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "US territory is represented by GovernmentForm; filtering HeadOfState for United States tests a different property and misses the territories."
+  },
+  {
+   "case_id": "R371",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Canada, China, India, Russia, and the United States tie at twelve languages; LIMIT 1 has no tie-breaker, so any selected nation is defensible."
+  },
+  {
+   "case_id": "R372",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Both countries tie for the maximum language count, and the question supplies no tie-breaking rule for LIMIT 1."
+  },
+  {
+   "case_id": "R373",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Returned capitalization matches stored English, Dutch, and T values; gold's lowercase literals produce an empty answer."
+  },
+  {
+   "case_id": "R374",
+   "label": "semantic_error",
+   "error_type": "wrong_aggregate",
+   "borderline": true,
+   "reason": "Ordering one country's Percentage does not measure popularity across Asia; a continent-level aggregation is required."
+  },
+  {
+   "case_id": "R375",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "People do not speak English can mean no English is spoken or that some non-English language is spoken, supporting both set predicates."
+  },
+  {
+   "case_id": "R376",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The queries identify the same city names; only the DISTINCT treatment of repeated names differs, which the question leaves open."
+  },
+  {
+   "case_id": "R377",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Gold minimizes population, not nationalities; the returned distinct-language count is the schema's closest rendering of nationality diversity."
+  },
+  {
+   "case_id": "R378",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The returned country-name and language pairs include all tied maxima, while the gold uses codes, includes percentages, and chooses one; these choices are unspecified."
+  },
+  {
+   "case_id": "R379",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The returned query counts countries tied for the greatest Spanish-speaking percentage globally; the gold does not return the requested total."
+  },
+  {
+   "case_id": "R380",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Returned counts countries where Spanish has the maximum language share; gold neither tests predominance nor returns one total."
+  },
+  {
+   "case_id": "R381",
+   "label": "semantic_error",
+   "error_type": "wrong_aggregate",
+   "borderline": false,
+   "reason": "The join repeats students once per friend, producing a friend-count-weighted average rather than the average across students."
+  },
+  {
+   "case_id": "R382",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The requested owner fields agree; the returned query merely adds the dog count used to choose the maximum."
+  },
+  {
+   "case_id": "R383",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The latest date_of_birth identifies the youngest dog, while the gold's maximum age identifies the oldest."
+  },
+  {
+   "case_id": "R384",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Youngest corresponds to the latest date of birth, which returned uses; gold's MAX(age) selects the oldest dogs instead."
+  },
+  {
+   "case_id": "R385",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Maximum date_of_birth returns every youngest dog; gold's maximum age instead selects the oldest dogs."
+  },
+  {
+   "case_id": "R386",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The room qualifier can grammatically modify only apartments or both houses and apartments, making both filter scopes defensible."
+  },
+  {
+   "case_id": "R387",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Omitting DISTINCT repeats a first name for multiple qualifying pets, and the question does not specify duplicate multiplicity."
+  },
+  {
+   "case_id": "R388",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "EXISTS returns each qualifying student once while the gold repeats students with multiple dogs; the question does not specify duplicate multiplicity."
+  },
+  {
+   "case_id": "R389",
+   "label": "semantic_error",
+   "error_type": "wrong_set_operation",
+   "borderline": true,
+   "reason": "EXCEPT on first_name removes a dog-only student whenever a different cat-owning student shares that name; exclusion must use student identity."
+  },
+  {
+   "case_id": "R390",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Returned omits unasked age and deduplicates a student with multiple dogs; neither extra projection nor duplicate multiplicity is specified."
+  },
+  {
+   "case_id": "R391",
+   "label": "semantic_error",
+   "error_type": "wrong_join",
+   "borderline": false,
+   "reason": "Joining model_list.ModelId to car_names.MakeId confuses model identifiers with car rows and admits manufacturers unrelated to 1970 cars."
+  },
+  {
+   "case_id": "R392",
+   "label": "semantic_error",
+   "error_type": "wrong_join",
+   "borderline": false,
+   "reason": "The returned query equates a car's full name with a manufacturer's full name, so it cannot identify makers of earliest cars."
+  },
+  {
+   "case_id": "R393",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "CountryName stores usa; filtering for United States returns no United States models."
+  },
+  {
+   "case_id": "R394",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "The stored continent value is lowercase europe, so the case-sensitive Europe filter wrongly returns no countries."
+  },
+  {
+   "case_id": "R395",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Car can denote the broad Model category or the full Make name, so the level at which versions are counted is unclear."
+  },
+  {
+   "case_id": "R396",
+   "label": "semantic_error",
+   "error_type": "wrong_join",
+   "borderline": true,
+   "reason": "The General Motors branch equates a car's model-specific Make with the maker's FullName, so it cannot retrieve light General Motors models."
+  },
+  {
+   "case_id": "R397",
+   "label": "semantic_error",
+   "error_type": "wrong_join",
+   "borderline": false,
+   "reason": "Joining model IDs directly to car-record IDs invents a nonexistent relationship, associating weights with the wrong models."
+  },
+  {
+   "case_id": "R398",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The question asks for one count of qualifying nations; returned does that, while gold emits each qualifying nation's maker count."
+  },
+  {
+   "case_id": "R399",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The returned query correctly counts qualifying nation groups; gold returns each qualifying nation's maker count."
+  },
+  {
+   "case_id": "R400",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The returned outer count answers how many nations qualify; gold emits a manufacturer count for each qualifying nation."
+  },
+  {
+   "case_id": "R401",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Omitting DISTINCT repeats models once per qualifying car, but the question does not explicitly specify duplicate elimination."
+  },
+  {
+   "case_id": "R402",
+   "label": "semantic_error",
+   "error_type": "wrong_join",
+   "borderline": false,
+   "reason": "The Fiat branch joins maker IDs to car record IDs and never links model_list.Maker to the maker, thereby losing Italy."
+  },
+  {
+   "case_id": "R403",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": true,
+   "reason": "The case-sensitive Jetblue literal misses the stored JetBlue Airways value, producing zero instead of the flight count."
+  },
+  {
+   "case_id": "R404",
+   "label": "instance_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The generated instance assigns the same winner_name to different winner_ids and unrelated player names; realistic WTA records keep these redundant fields consistent."
+  },
+  {
+   "case_id": "R405",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Grouping by player ID correctly counts one person's wins; the gold conflates distinct players sharing winner-name text."
+  },
+  {
+   "case_id": "R406",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Returned uses the top winner's latest ranking points; gold projects an arbitrary match-time value from an unaggregated grouped column."
+  },
+  {
+   "case_id": "R407",
+   "label": "semantic_error",
+   "error_type": "wrong_join",
+   "borderline": false,
+   "reason": "The many-to-many match-ranking join multiplies both wins and ranking points, selecting the wrong player and an enormous meaningless sum."
+  },
+  {
+   "case_id": "R408",
+   "label": "semantic_error",
+   "error_type": "wrong_aggregate",
+   "borderline": false,
+   "reason": "COUNT counts winning match rows, while the question asks how many distinct left-handed winners participated."
+  },
+  {
+   "case_id": "R409",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Player IDs and players.hand identify people reliably; the gold can merge names and relies on a redundant, potentially inconsistent match-level hand."
+  },
+  {
+   "case_id": "R410",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Gold intersects displayed name-date pairs, conflating distinct battle IDs that share those values; returned correctly requires both ships to share one battle."
+  },
+  {
+   "case_id": "R411",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "The stored state value is NorthCarolina; filtering on the display spelling North Carolina matches no residents."
+  },
+  {
+   "case_id": "R412",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "The literal North Carolina does not match stored NorthCarolina, so the returned query misses all qualifying students."
+  },
+  {
+   "case_id": "R413",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The question asks for the semester without specifying its ID or name; both values defensibly identify it."
+  },
+  {
+   "case_id": "R414",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "The returned plurals Masters and Bachelors do not match the stored degree labels Master and Bachelor, eliminating the qualifying semester."
+  },
+  {
+   "case_id": "R415",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The returned Haiti literal matches the question and stored values; the gold's lowercase filter misses the permanent residents."
+  },
+  {
+   "case_id": "R416",
+   "label": "semantic_error",
+   "error_type": "wrong_set_operation",
+   "borderline": false,
+   "reason": "OR accepts channels with either director, while the conjunction names channels having cartoons directed by both."
+  },
+  {
+   "case_id": "R417",
+   "label": "semantic_error",
+   "error_type": "wrong_set_operation",
+   "borderline": false,
+   "reason": "OR returns channels carrying cartoons by either director, while the question asks for channels carrying cartoons by both."
+  },
+  {
+   "case_id": "R418",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "US Territory is a GovernmentForm value, not a Region value, so the returned filter selects the wrong countries."
+  },
+  {
+   "case_id": "R419",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Canada and the United States tie for the maximum language count, and the question provides no tie-breaker."
+  },
+  {
+   "case_id": "R420",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "Requiring English to be official excludes cities whose countries speak English nonofficially, a restriction absent from the question."
+  },
+  {
+   "case_id": "R421",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Any can mean exceeding at least one European country, requiring MIN, or every European country, requiring MAX."
+  },
+  {
+   "case_id": "R422",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "More than any African country ordinarily means more than every one, so MAX is correct and the gold's MIN is not."
+  },
+  {
+   "case_id": "R423",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Gold includes any country with a non-English language, while returned more naturally selects countries having no English-language row."
+  },
+  {
+   "case_id": "R424",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The queries select the same qualifying city names; the question does not specify whether duplicate names for distinct city rows should be removed."
+  },
+  {
+   "case_id": "R425",
+   "label": "semantic_error",
+   "error_type": "wrong_aggregate",
+   "borderline": true,
+   "reason": "Counting language rows substitutes languages for nationalities, a relationship the question and schema never establish, although gold also uses an unsupported proxy."
+  },
+  {
+   "case_id": "R426",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Returned includes all maximum ties and omits percentage; gold keeps one tied language and includes percentage, choices the question leaves open."
+  },
+  {
+   "case_id": "R427",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": true,
+   "reason": "Restricting the correlated maximum to Spanish makes the predicate tautological and never checks whether Spanish exceeds each country's other languages."
+  },
+  {
+   "case_id": "R428",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The returned correlated maximum counts countries where Spanish has the highest percentage; the grouped gold returns one count-and-percentage row per country."
+  },
+  {
+   "case_id": "R429",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Likes Kyle has does not specify outgoing student_id versus incoming liked_id edges, so both directions are defensible."
+  },
+  {
+   "case_id": "R430",
+   "label": "semantic_error",
+   "error_type": "wrong_aggregate",
+   "borderline": false,
+   "reason": "The Friend join weights each student's grade by their number of friendships instead of averaging qualifying students once each."
+  },
+  {
+   "case_id": "R431",
+   "label": "semantic_error",
+   "error_type": "wrong_aggregate",
+   "borderline": false,
+   "reason": "The join weights each student's grade by that student's friend count, rather than averaging each student with friends once."
+  },
+  {
+   "case_id": "R432",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Gold's NOT IN reverses the requested condition; returned selects dogs whose total treatment spending exceeds 1000."
+  },
+  {
+   "case_id": "R433",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Dog count is a reasonable explanatory extra column, though the question explicitly requests only owner ID and names."
+  },
+  {
+   "case_id": "R434",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The requested owner id and zip code agree; the returned query additionally exposes the total used for ranking."
+  },
+  {
+   "case_id": "R435",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The gold omits the join condition and cross-joins every professional to cheap treatments; the returned query links treatments to their professionals."
+  },
+  {
+   "case_id": "R436",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Youngest corresponds to the latest date of birth, which returned uses; gold's MAX(age) selects the oldest dogs instead."
+  },
+  {
+   "case_id": "R437",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Ordering date_of_birth descending identifies a youngest dog; gold's maximum age selects oldest dogs, contrary to the question."
+  },
+  {
+   "case_id": "R438",
+   "label": "semantic_error",
+   "error_type": "wrong_set_operation",
+   "borderline": true,
+   "reason": "EXCEPT operates on name-age pairs, so a different cat owner sharing that pair can erase a qualifying dog-only student."
+  },
+  {
+   "case_id": "R439",
+   "label": "semantic_error",
+   "error_type": "wrong_set_operation",
+   "borderline": true,
+   "reason": "EXCEPT operates on first names, so a cat owner can erase a different dog-only student sharing that name."
+  },
+  {
+   "case_id": "R440",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "FullName and Maker are both plausible maker-name fields, and the question also leaves duplicate elimination unstated."
+  },
+  {
+   "case_id": "R441",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Maker and FullName are short and expanded manufacturer names respectively; the question does not specify which naming form to return."
+  },
+  {
+   "case_id": "R442",
+   "label": "semantic_error",
+   "error_type": "wrong_order_or_limit",
+   "borderline": true,
+   "reason": "LIMIT 1 arbitrarily drops other cars tied for the earliest year, although the question asks for cars in the plural."
+  },
+  {
+   "case_id": "R443",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The return chooses one tied earliest manufacturer's name, while the gold lists every earliest car make; singular wording leaves both choices ambiguous."
+  },
+  {
+   "case_id": "R444",
+   "label": "comparator_artifact",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Both queries return the same nation names and IDs; only integer CountryId versus text-typed foreign-key Country makes the comparator reject them."
+  },
+  {
+   "case_id": "R445",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "Omitting the Europe join and filter admits countries from other continents that also have at least three manufacturers."
+  },
+  {
+   "case_id": "R446",
+   "label": "semantic_error",
+   "error_type": "wrong_grouping",
+   "borderline": false,
+   "reason": "It groups by Make, the individual version, instead of Model, the car family whose versions must be counted."
+  },
+  {
+   "case_id": "R447",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The question asks for one count of qualifying nations, which the returned outer count provides; the gold instead emits each nation's maker count."
+  },
+  {
+   "case_id": "R448",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The stored hometown matches Little Lever Urban District exactly; the gold's lowercase comparison fails under the database's case-sensitive collation."
+  },
+  {
+   "case_id": "R449",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Returned uses the question's and database's capitalization; gold's lowercase hometown fails case-sensitive equality and wrongly retains the Little Lever teacher."
+  },
+  {
+   "case_id": "R450",
+   "label": "comparator_artifact",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Joined visitor IDs are equal and displayed rows identical; only storage type differs between visit.visitor_ID and visitor.ID."
+  },
+  {
+   "case_id": "R451",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Ascending birth date gives oldest-first while descending gives youngest-first; ordering by age does not specify a direction."
+  },
+  {
+   "case_id": "R452",
+   "label": "comparator_artifact",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Splitting winner_name into first- and last-name columns preserves the winner and rank points; only the result layout differs."
+  },
+  {
+   "case_id": "R453",
+   "label": "semantic_error",
+   "error_type": "wrong_join",
+   "borderline": false,
+   "reason": "Joining all ranking-history rows multiplies each player's match rows, so ORDER BY COUNT no longer identifies the player with most wins."
+  },
+  {
+   "case_id": "R454",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Summing injured by ship directly answers most total injuries; the gold counts death-table rows instead of injuries."
+  },
+  {
+   "case_id": "R455",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "A non-channel ship does not prove a battle had no English Channel losses; the join also excludes battles with no ships."
+  },
+  {
+   "case_id": "R456",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": true,
+   "reason": "The shipped database encodes the state as NorthCarolina; the space-added literal matches no address and drops all otherwise qualifying students."
+  },
+  {
+   "case_id": "R457",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "The database represents the requested state as NorthCarolina, so filtering for North Carolina excludes every qualifying student."
+  },
+  {
+   "case_id": "R458",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Returned capitalization matches the question and stored student name; gold's lowercase literals miss Timmothy Ward under case-sensitive comparison."
+  },
+  {
+   "case_id": "R459",
+   "label": "semantic_error",
+   "error_type": "wrong_join",
+   "borderline": false,
+   "reason": "student_id is unrelated to transcript_id, and transcript date is not graduation date, so the join selects the wrong graduate."
+  },
+  {
+   "case_id": "R460",
+   "label": "semantic_error",
+   "error_type": "wrong_join",
+   "borderline": false,
+   "reason": "The returned query ranks transcript dates through an invalid enrolment-to-transcript join instead of ranking students by date_left."
+  },
+  {
+   "case_id": "R461",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "All lines includes line_3, which the returned query supplies and the gold omits."
+  },
+  {
+   "case_id": "R462",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Gold's lowercase Haiti filter misses stored Haiti rows, and its inner join can discard phone-matching students; the returned UNION avoids both defects."
+  },
+  {
+   "case_id": "R463",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The question and stored value use Haiti; gold's lowercase literal is case-sensitive and wrongly excludes permanent Haiti residents."
+  },
+  {
+   "case_id": "R464",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": true,
+   "reason": "Filtering individual channels admits countries having another channel that plays Todd Casey cartoons, contrary to country-level negation."
+  },
+  {
+   "case_id": "R465",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": true,
+   "reason": "One combined director literal misses channels with separate Ben Jones-directed and Michael Chang-directed cartoons required by the conjunction."
+  },
+  {
+   "case_id": "R466",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": true,
+   "reason": "Equality to one combined director string misses channels with separate cartoons by Ben Jones and Michael Chang."
+  },
+  {
+   "case_id": "R467",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "Africa is a Continent value, not a Region value, so the returned filter selects no African republics."
+  },
+  {
+   "case_id": "R468",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "Region does not contain the continent value Africa; the returned filter therefore selects no qualifying countries."
+  },
+  {
+   "case_id": "R469",
+   "label": "instance_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Real World data nests African regions under continent Africa; the generated instance independently corrupts Region and Continent, breaking their realistic equivalence."
+  },
+  {
+   "case_id": "R470",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The returned literals match the stored values English, Dutch, and T; the gold's lowercase literals incorrectly return no countries."
+  },
+  {
+   "case_id": "R471",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "Region contains European subregions, not Europe; filtering Region = Europe yields no comparison set instead of using Continent."
+  },
+  {
+   "case_id": "R472",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "Europe is a Continent value, not an exact Region value, so the subquery is empty and no land-area comparison is made."
+  },
+  {
+   "case_id": "R473",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Any can mean fewer than every Asian country, requiring MIN, or fewer than at least one, requiring MAX."
+  },
+  {
+   "case_id": "R474",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "More than any African country ordinarily means more than every one, so MAX is correct and the gold's MIN is not."
+  },
+  {
+   "case_id": "R475",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The queries differ only for uninhabited countries with no language rows; whether such countries vacuously count as not speaking English is unspecified."
+  },
+  {
+   "case_id": "R476",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The question does not say whether countries with no language rows count as non-English-speaking; returned includes them while gold excludes them."
+  },
+  {
+   "case_id": "R477",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Gold includes bilingual countries that do speak English merely because they also have a non-English language; returned correctly excludes them."
+  },
+  {
+   "case_id": "R478",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "Region equals Europe matches no European subregions, and city-name exclusion compares cities globally instead of excluding countries."
+  },
+  {
+   "case_id": "R479",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The returned literals use the database's capitalization for T, Chinese, and Asia; the gold's lowercase equalities wrongly yield no rows."
+  },
+  {
+   "case_id": "R480",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The schema has no nationality attribute; total population and number of recorded languages are competing proxies, so the question does not determine the ordering."
+  },
+  {
+   "case_id": "R481",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "The returned greater-than predicate answers over 80000, whereas the question requires population exactly 80000."
+  },
+  {
+   "case_id": "R482",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "The question requires Population equal to 80000, but the returned greater-than predicate selects every more-populous European country."
+  },
+  {
+   "case_id": "R483",
+   "label": "semantic_error",
+   "error_type": "wrong_order_or_limit",
+   "borderline": false,
+   "reason": "LIMIT 1 makes the outer count equal one whenever any Spanish row exists, rather than counting all qualifying countries."
+  },
+  {
+   "case_id": "R484",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Treating predominantly as a Spanish share above 50 percent is defensible; gold neither tests predominance nor returns one country count."
+  },
+  {
+   "case_id": "R485",
+   "label": "semantic_error",
+   "error_type": "wrong_grouping",
+   "borderline": true,
+   "reason": "It finds one global maximum Spanish share instead of the countries where Spanish is each country's predominant language."
+  },
+  {
+   "case_id": "R486",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "A percentage above 50 reasonably implements predominantly and returns only requested codes; the gold neither tests predominance nor limits projection."
+  },
+  {
+   "case_id": "R487",
+   "label": "semantic_error",
+   "error_type": "wrong_order_or_limit",
+   "borderline": false,
+   "reason": "Ascending duration means shortest-lived orchestras first, which requires founding year descending; the returned ASC reverses the requested order."
+  },
+  {
+   "case_id": "R488",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Gold reverses the requested threshold with NOT IN; returned correctly groups treatments per dog and selects sums exceeding 1000."
+  },
+  {
+   "case_id": "R489",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Gold's join lacks an ON condition and cross-joins every professional to cheap treatments; returned correctly links treatments to their professionals."
+  },
+  {
+   "case_id": "R490",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Gold omits the professional-treatment join predicate and produces a Cartesian product; returned correctly links each cheap treatment to its professional."
+  },
+  {
+   "case_id": "R491",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Latest date_of_birth identifies the youngest dog; gold's maximum age instead selects the oldest dogs."
+  },
+  {
+   "case_id": "R492",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Latest date_of_birth correctly identifies the youngest dog, whereas the gold's MAX(age) selects the oldest dogs."
+  },
+  {
+   "case_id": "R493",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The returned query gives a manufacturer and earliest year as asked; LIMIT 1 is defensible because the singular question leaves tied earliest cars unresolved."
+  },
+  {
+   "case_id": "R494",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": true,
+   "reason": "The spaced literal North Carolina misses the database's NorthCarolina encoding, so the returned query omits all qualifying students."
+  },
+  {
+   "case_id": "R495",
+   "label": "semantic_error",
+   "error_type": "wrong_join",
+   "borderline": false,
+   "reason": "The returned query searches for a city named Anguilla instead of the country Anguilla, so its unnecessary join loses the answer."
+  },
+  {
+   "case_id": "R496",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The returned literals match stored Asia, Chinese, and T values; the gold's lowercase literals incorrectly return no cities."
+  },
+  {
+   "case_id": "R497",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The schema lacks nationality counts, leaving population size and language-count diversity as competing proxies that the question does not resolve."
+  },
+  {
+   "case_id": "R498",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The returned professional_id join correctly attributes cheap treatments; the gold's conditionless join falsely includes every professional."
+  },
+  {
+   "case_id": "R499",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "The returned North Carolina literal does not match the stored NorthCarolina value, so its case-sensitive state filter returns no qualifying students."
+  },
+  {
+   "case_id": "R500",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": true,
+   "reason": "The shipped database stores NorthCarolina without a space, so the returned spaced literal filters out every intended student."
+  },
+  {
+   "case_id": "R501",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "Region = Europe tests a subregion column against a continent value, yielding no cities; the query should filter Continent."
+  },
+  {
+   "case_id": "R502",
+   "label": "semantic_error",
+   "error_type": "wrong_order_or_limit",
+   "borderline": false,
+   "reason": "Global ORDER BY Percentage LIMIT 1 makes COUNT always one; the question requires counting countries where Spanish is each country's highest-percentage language."
+  }
+ ]
+}

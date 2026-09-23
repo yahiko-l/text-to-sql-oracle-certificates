@@ -1,0 +1,86 @@
+{
+ "note": "cell A of every main pool under the archived file-order tie rule; 'accepted' means the top class of the original-database partition is correct under the multi-instance suite oracle. No census examined any accepted answer. 'flagged' questions carry at least one gold_defect verdict in the full census; the reverse stress test counts every accepted answer on them as wrong.",
+ "flagged_questions": 73,
+ "answers": 6096,
+ "accepted": 4690,
+ "accepted_share": 0.7694,
+ "rejected": 1406,
+ "accepted_distinct_question_sql": 1580,
+ "accepted_on_flagged_question": 259,
+ "accepted_on_flagged_question_share_of_answers": 0.0425,
+ "accepted_on_flagged_question_distinct": 102,
+ "per_pool": {
+  "kwai-autosql-32b|seed101": {
+   "answers": 508,
+   "accepted": 375,
+   "rejected": 133,
+   "accepted_on_flagged_question": 15
+  },
+  "kwai-autosql-32b|seed202": {
+   "answers": 508,
+   "accepted": 376,
+   "rejected": 132,
+   "accepted_on_flagged_question": 12
+  },
+  "kwai-autosql-32b|seed303": {
+   "answers": 508,
+   "accepted": 374,
+   "rejected": 134,
+   "accepted_on_flagged_question": 13
+  },
+  "kwai-autosql-14b|seed101": {
+   "answers": 508,
+   "accepted": 383,
+   "rejected": 125,
+   "accepted_on_flagged_question": 20
+  },
+  "kwai-autosql-14b|seed202": {
+   "answers": 508,
+   "accepted": 383,
+   "rejected": 125,
+   "accepted_on_flagged_question": 21
+  },
+  "kwai-autosql-14b|seed303": {
+   "answers": 508,
+   "accepted": 378,
+   "rejected": 130,
+   "accepted_on_flagged_question": 17
+  },
+  "xiyansql-32b|seed101": {
+   "answers": 508,
+   "accepted": 437,
+   "accepted_on_flagged_question": 39,
+   "rejected": 71
+  },
+  "xiyansql-32b|seed202": {
+   "answers": 508,
+   "accepted": 438,
+   "accepted_on_flagged_question": 39,
+   "rejected": 70
+  },
+  "xiyansql-32b|seed303": {
+   "answers": 508,
+   "accepted": 437,
+   "accepted_on_flagged_question": 39,
+   "rejected": 71
+  },
+  "omnisql-32b|seed101": {
+   "answers": 508,
+   "accepted": 370,
+   "rejected": 138,
+   "accepted_on_flagged_question": 12
+  },
+  "omnisql-32b|seed202": {
+   "answers": 508,
+   "accepted": 369,
+   "rejected": 139,
+   "accepted_on_flagged_question": 15
+  },
+  "omnisql-32b|seed303": {
+   "answers": 508,
+   "accepted": 370,
+   "rejected": 138,
+   "accepted_on_flagged_question": 17
+  }
+ }
+}

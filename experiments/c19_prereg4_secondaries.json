@@ -1,0 +1,165 @@
+{
+ "note": "The two secondary analyses of PREREGISTRATION_4 that the first pass left unrun.",
+ "reversal_under_experts": {
+  "per_checkpoint": {
+   "xiyansql-32b": {
+    "A": {
+     "n": 464,
+     "auroc_weak": 0.6565,
+     "auroc_human": 0.5597,
+     "drop_weak_minus_human": 0.0968
+    },
+    "D": {
+     "n": 464,
+     "auroc_weak": 0.7027,
+     "auroc_human": 0.5734,
+     "drop_weak_minus_human": 0.1292
+    },
+    "reversal": false
+   },
+   "kwai-autosql-32b": {
+    "A": {
+     "n": 465,
+     "auroc_weak": 0.854,
+     "auroc_human": 0.6343,
+     "drop_weak_minus_human": 0.2198
+    },
+    "D": {
+     "n": 464,
+     "auroc_weak": 0.8215,
+     "auroc_human": 0.6923,
+     "drop_weak_minus_human": 0.1292
+    },
+    "reversal": false
+   }
+  },
+  "survived": 0,
+  "of": 2
+ },
+ "instance_crossfit": {
+  "per_pool": {
+   "kwai-autosql-32b|f0": {
+    "A": {
+     "n": 508,
+     "auroc_own_instances": 0.7457,
+     "auroc_held_out": 0.7549,
+     "drop": -0.0093
+    },
+    "D": {
+     "n": 508,
+     "auroc_own_instances": 0.8405,
+     "auroc_held_out": 0.8385,
+     "drop": 0.0021
+    },
+    "d_drops_more": true
+   },
+   "kwai-autosql-32b|f1": {
+    "A": {
+     "n": 508,
+     "auroc_own_instances": 0.7549,
+     "auroc_held_out": 0.7457,
+     "drop": 0.0093
+    },
+    "D": {
+     "n": 508,
+     "auroc_own_instances": 0.8455,
+     "auroc_held_out": 0.8347,
+     "drop": 0.0108
+    },
+    "d_drops_more": true
+   },
+   "kwai-autosql-14b|f0": {
+    "A": {
+     "n": 508,
+     "auroc_own_instances": 0.7594,
+     "auroc_held_out": 0.7594,
+     "drop": 0.0
+    },
+    "D": {
+     "n": 508,
+     "auroc_own_instances": 0.8259,
+     "auroc_held_out": 0.8187,
+     "drop": 0.0072
+    },
+    "d_drops_more": true
+   },
+   "kwai-autosql-14b|f1": {
+    "A": {
+     "n": 508,
+     "auroc_own_instances": 0.7594,
+     "auroc_held_out": 0.7594,
+     "drop": 0.0
+    },
+    "D": {
+     "n": 508,
+     "auroc_own_instances": 0.8326,
+     "auroc_held_out": 0.8249,
+     "drop": 0.0076
+    },
+    "d_drops_more": true
+   },
+   "omnisql-32b|f0": {
+    "A": {
+     "n": 508,
+     "auroc_own_instances": 0.7887,
+     "auroc_held_out": 0.7977,
+     "drop": -0.0091
+    },
+    "D": {
+     "n": 508,
+     "auroc_own_instances": 0.8516,
+     "auroc_held_out": 0.8479,
+     "drop": 0.0038
+    },
+    "d_drops_more": true
+   },
+   "omnisql-32b|f1": {
+    "A": {
+     "n": 508,
+     "auroc_own_instances": 0.7977,
+     "auroc_held_out": 0.7887,
+     "drop": 0.0091
+    },
+    "D": {
+     "n": 508,
+     "auroc_own_instances": 0.8605,
+     "auroc_held_out": 0.8479,
+     "drop": 0.0126
+    },
+    "d_drops_more": true
+   },
+   "xiyansql-32b|f0": {
+    "A": {
+     "n": 508,
+     "auroc_own_instances": 0.6645,
+     "auroc_held_out": 0.6645,
+     "drop": 0.0
+    },
+    "D": {
+     "n": 508,
+     "auroc_own_instances": 0.7597,
+     "auroc_held_out": 0.7597,
+     "drop": 0.0
+    },
+    "d_drops_more": false
+   },
+   "xiyansql-32b|f1": {
+    "A": {
+     "n": 508,
+     "auroc_own_instances": 0.6645,
+     "auroc_held_out": 0.6645,
+     "drop": 0.0
+    },
+    "D": {
+     "n": 508,
+     "auroc_own_instances": 0.7592,
+     "auroc_held_out": 0.7592,
+     "drop": 0.0
+    },
+    "d_drops_more": false
+   }
+  },
+  "d_drops_more": 6,
+  "of": 8
+ }
+}

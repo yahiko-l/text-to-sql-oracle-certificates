@@ -1,0 +1,36 @@
+{
+ "note": "Design-based uncertainty for the benchmark-wide defect estimate of the blinded human audit.",
+ "population": 508,
+ "estimate": 0.175,
+ "standard_error": 0.0273,
+ "ci95": [
+  0.1215,
+  0.2284
+ ],
+ "strata": {
+  "flagged": {
+   "N": 73,
+   "n": 73,
+   "defective": 40,
+   "rate": 0.5479,
+   "weight": 0.1437,
+   "variance_contribution": 0.0
+  },
+  "examined, not flagged": {
+   "N": 130,
+   "n": 40,
+   "defective": 8,
+   "rate": 0.2,
+   "weight": 0.2559,
+   "variance_contribution": 0.00018600037200074398
+  },
+  "never examined": {
+   "N": 305,
+   "n": 40,
+   "defective": 3,
+   "rate": 0.075,
+   "weight": 0.6004,
+   "variance_contribution": 0.0005571301707507262
+  }
+ }
+}

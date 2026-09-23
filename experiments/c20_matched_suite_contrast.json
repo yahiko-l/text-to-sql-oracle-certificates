@@ -1,0 +1,74 @@
+{
+ "note": "The suite-label contrast on exactly the questions the expert contrast is estimated on.",
+ "post_hoc": true,
+ "checkpoints": {
+  "xiyansql-32b": {
+   "expert_agreed": {
+    "auroc_a": 0.5596,
+    "auroc_d": 0.5749,
+    "delta": 0.0153,
+    "se": 0.014,
+    "p": 0.2751,
+    "n_correct": 370,
+    "n_wrong": 93,
+    "n": 463
+   },
+   "suite_matched": {
+    "auroc_a": 0.6449,
+    "auroc_d": 0.728,
+    "delta": 0.0832,
+    "se": 0.0262,
+    "p": 0.0015,
+    "n_correct": 406,
+    "n_wrong": 57,
+    "n": 463
+   },
+   "suite_all_same_sql": {
+    "auroc_a": 0.6645,
+    "auroc_d": 0.7564,
+    "delta": 0.092,
+    "se": 0.0242,
+    "p": 0.0001,
+    "n_correct": 436,
+    "n_wrong": 71,
+    "n": 507
+   },
+   "population_shrinkage": 44,
+   "delta_shift_from_population": -0.0088
+  },
+  "kwai-autosql-32b": {
+   "expert_agreed": {
+    "auroc_a": 0.6274,
+    "auroc_d": 0.697,
+    "delta": 0.0696,
+    "se": 0.0242,
+    "p": 0.004,
+    "n_correct": 364,
+    "n_wrong": 91,
+    "n": 455
+   },
+   "suite_matched": {
+    "auroc_a": 0.7518,
+    "auroc_d": 0.8442,
+    "delta": 0.0924,
+    "se": 0.0236,
+    "p": 0.0001,
+    "n_correct": 350,
+    "n_wrong": 105,
+    "n": 455
+   },
+   "suite_all_same_sql": {
+    "auroc_a": 0.7521,
+    "auroc_d": 0.8407,
+    "delta": 0.0886,
+    "se": 0.0217,
+    "p": 0.0,
+    "n_correct": 373,
+    "n_wrong": 123,
+    "n": 496
+   },
+   "population_shrinkage": 41,
+   "delta_shift_from_population": 0.0038
+  }
+ }
+}

@@ -1,0 +1,43 @@
+{
+ "model": "Kwai-AutoSQL/Kwai-AutoSQL-14B",
+ "arm": "main",
+ "negative_control": "none",
+ "false_schema_mapping": null,
+ "prompts": "experiments/c5_prompts_omnisql.jsonl",
+ "prompts_sha256": "db1c8d9daf1305b4b888b36f74ff774e93a5736a1d8ebf2012a16b80ebc792d7",
+ "template": "omnisql",
+ "answer_mode": "fenced",
+ "assistant_prefix_used": false,
+ "prompt_tokens": {
+  "max": 2148,
+  "median": 892
+ },
+ "questions": 508,
+ "samples_per_question": 50,
+ "sampling_policy": {
+  "kind": "independent temperature sampling, fixed budget",
+  "temperature": 1.0,
+  "top_p": 0.95,
+  "max_tokens": 2048,
+  "seed": 101
+ },
+ "tensor_parallel_size": 1,
+ "encoder": "chat_template",
+ "chat_template_kwargs": {
+  "enable_thinking": false
+ },
+ "system_prompt": "",
+ "dtype": "bfloat16",
+ "kv_cache_dtype": "auto",
+ "max_model_len": 8192,
+ "vllm_version": "0.22.1",
+ "extractor": "extract_sql: last non-empty fenced block, else text up to the first fence; a leading <think> block and leading -- comment lines are dropped; parsed = extracted text starts with SELECT or WITH (lexical check only)",
+ "instrument_checks": {
+  "candidates": 25400,
+  "parse_rate": 0.9998,
+  "truncation_rate": 0.0,
+  "note": "a truncated generation is a cut-off scratchpad: discard it, never parse it",
+  "raw_kept": true
+ },
+ "wall_clock_sec": 698.1
+}

@@ -1,0 +1,282 @@
+{
+ "pools": {
+  "experiments/c4_kwai-autosql-14b_falseschema_candidates.jsonl": {
+   "sha256": "62e0a7568c6a26fa67310c62603317d63cf92f403ed09963e95ff7a94c7c925d",
+   "bytes": 12119994,
+   "matches_result_provenance": true
+  },
+  "experiments/c4_kwai-autosql-14b_seed101_candidates.jsonl": {
+   "sha256": "82933a4afc486adff67167b83438c8f7bb26942f1d04faf4e00f6b1f49116c53",
+   "bytes": 26499868,
+   "matches_result_provenance": true
+  },
+  "experiments/c4_kwai-autosql-14b_seed202_candidates.jsonl": {
+   "sha256": "5642b1c0c12e70bc4be4f83e6c39a57e0dc6cfbeaa30f7d8f684d3c4c261d9ed",
+   "bytes": 26407394,
+   "matches_result_provenance": true
+  },
+  "experiments/c4_kwai-autosql-14b_seed303_candidates.jsonl": {
+   "sha256": "e51d1355295031d9eb941092beccc19d38e050e0c6a37a0af67370f2c4e96a2b",
+   "bytes": 26504654,
+   "matches_result_provenance": true
+  },
+  "experiments/c4_kwai-autosql-32b_falseschema_candidates.jsonl": {
+   "sha256": "205e6a326fc14cc894a6ad1370b5303d77e12183f1c639b3974cbbdacec9f4b0",
+   "bytes": 12994193,
+   "matches_result_provenance": true
+  },
+  "experiments/c4_kwai-autosql-32b_seed101_candidates.jsonl": {
+   "sha256": "3fe4d4f07f99a6aaa260460eedea909d9cae4516cd98f8f233cc4cd57e66a007",
+   "bytes": 26683405,
+   "matches_result_provenance": true
+  },
+  "experiments/c4_kwai-autosql-32b_seed202_candidates.jsonl": {
+   "sha256": "a5d58e71f998f6461df258efc2031d8de7bc3cf1dacf7cea2fcc8cbcadd6bbbf",
+   "bytes": 26600691,
+   "matches_result_provenance": true
+  },
+  "experiments/c4_kwai-autosql-32b_seed303_candidates.jsonl": {
+   "sha256": "f2a4f4bc2a4cfa0bcd3f6fd0cfb85482794ffb394f56c69c8e8c2b03a569509d",
+   "bytes": 26729095,
+   "matches_result_provenance": true
+  },
+  "experiments/c4_omnisql-32b_falseschema_candidates.jsonl": {
+   "sha256": "10c95e2374ff3b96238b07c6946b512bcd6a9d69e2a941b34a398d7816ae5885",
+   "bytes": 26704775,
+   "matches_result_provenance": true
+  },
+  "experiments/c4_omnisql-32b_seed101_candidates.jsonl": {
+   "sha256": "5f0ea1d5f9ba00957a8adcf193469af7d4ebf94cf62ace1a2fe6a9689f9093d8",
+   "bytes": 57699292,
+   "matches_result_provenance": true
+  },
+  "experiments/c4_omnisql-32b_seed202_candidates.jsonl": {
+   "sha256": "56d849ab7c37eaf806a4fa6e364f32f4034e4f6f3429aab90f98588d46ae2d40",
+   "bytes": 57921411,
+   "matches_result_provenance": true
+  },
+  "experiments/c4_omnisql-32b_seed303_candidates.jsonl": {
+   "sha256": "3b3388531e0ed342ecc970f3ac0bb5d10e8ada260eb233439035ce2f73e4ff95",
+   "bytes": 58170973,
+   "matches_result_provenance": true
+  },
+  "experiments/c4_xiyansql-32b_falseschema_candidates.jsonl": {
+   "sha256": "eff107559c45cb3c27530f9b6825bd38804f2b2f653fd57873f774d9a2fba91d",
+   "bytes": 3544969,
+   "matches_result_provenance": true
+  },
+  "experiments/c4_xiyansql-32b_seed101_candidates.jsonl": {
+   "sha256": "b7c188f917f3e1bdd558363174f0d267648b0536f5c28f1e5e2de849b6d4e22a",
+   "bytes": 9390999,
+   "matches_result_provenance": true
+  },
+  "experiments/c4_xiyansql-32b_seed202_candidates.jsonl": {
+   "sha256": "2d2a4fa38490ebf1d36ae5104899ed3a689de8044f23678ab4c4bffe28b872cd",
+   "bytes": 9388869,
+   "matches_result_provenance": true
+  },
+  "experiments/c4_xiyansql-32b_seed303_candidates.jsonl": {
+   "sha256": "fad6265c28392513364cc71c3fcfba362d2fde87472e5ffe48fb11ed9f7a9f17",
+   "bytes": 9387148,
+   "matches_result_provenance": true
+  },
+  "experiments/pilot3_kwai-autosql-14b_candidates.jsonl": {
+   "sha256": "3ab8728d637e611f83a11bffcb88e3767602741d231d469bee12e9f3f076de76",
+   "bytes": 1859884,
+   "matches_result_provenance": true
+  },
+  "experiments/pilot3_kwai-autosql-32b_candidates.jsonl": {
+   "sha256": "6d05b5a718d48c655ff19da40083878d792121a70b84ac160c79bf6c357b2de0",
+   "bytes": 1869091,
+   "matches_result_provenance": true
+  },
+  "experiments/pilot3_llama3-sqlcoder-8b_candidates.jsonl": {
+   "sha256": "2984c5c845c42edbf27c85b8190d7330defd39affb7b91d14995894c926d18f5",
+   "bytes": 8420860,
+   "matches_result_provenance": null
+  },
+  "experiments/pilot3_omnisql-32b_candidates.jsonl": {
+   "sha256": "6ff08558eb77e0183b3095818190f6ee02ec6600592b56e7abfce6caf4bc31e3",
+   "bytes": 4061120,
+   "matches_result_provenance": true
+  },
+  "experiments/pilot3_sqlcoder-70b_candidates.jsonl": {
+   "sha256": "db5d789b2bbf74e23549fb02dfc273cb2b12a0e073dc93fc00d935d7fc28184a",
+   "bytes": 806693,
+   "matches_result_provenance": true
+  },
+  "experiments/pilot3_xiyansql-32b_candidates.jsonl": {
+   "sha256": "004c9b0ac18293df84d0c76918e3eca4a989757feb9d5e8402897ccd3bf435ab",
+   "bytes": 694551,
+   "matches_result_provenance": true
+  }
+ },
+ "note": "sha256 of every candidate pool used by Preregistration 3 (gitignored files); each result JSON records the same digest under provenance.candidates_sha256",
+ "models": {
+  "Kwai-AutoSQL/Kwai-AutoSQL-32B": {
+   "config_json_sha256": "7adcf8a5beedefe3d42c700291a9f39977154698453837dd68d0cecd8b45f193",
+   "safetensors_index_sha256": "75b1d9ebda87b99e395f322e9e06699bca91b3a780f64b9f01ed71b6dd39ffeb",
+   "tokenizer_config_sha256": "cd5c1909da4950a610a9e3a6cb6763cff0381d91c6f0838855db8d5ae83d6c9f",
+   "n_shards": 14,
+   "bytes_on_disk": 65540300552,
+   "index_file_date": "2026-09-04",
+   "revision": null,
+   "note": "local checkpoint on the run host; no revision file ships with it, so the config, index, tokenizer-config and per-shard weight digests above identify the copy (shards hashed 2026-09-05 after the runs)",
+   "weight_shard_sha256": {
+    "model-00001-of-00014.safetensors": "49c4b61082f75c7748bb97e9229bb3843ea8cfb676c96e344bbc7cb195edfa47",
+    "model-00002-of-00014.safetensors": "3ed8c23ac5186c6ec2a46121eb1455af2839af63c6f93c745e5e80060fb74b12",
+    "model-00003-of-00014.safetensors": "016128e90a7952251db4fa120b81dd7d746af115d5e394f54d7785eb3b606cc1",
+    "model-00004-of-00014.safetensors": "7b6230e99f8b756f3697b29f620b7332341ed4db6e23c17770e53b87ff3b093e",
+    "model-00005-of-00014.safetensors": "aad78aa29609ed3989b6d6a271c04035b80f61e2da629a3250b0783a5403de0b",
+    "model-00006-of-00014.safetensors": "c8428e73cf1d64aa185bbde32dbe6ce16011b107f7780084ce25143a53308dc4",
+    "model-00007-of-00014.safetensors": "0585b55effb2b09c1d73f85dde28bd389edee8771c93c203b05deb8a3de98cca",
+    "model-00008-of-00014.safetensors": "931ec3e636765766d5f3c7c4ffce35562c0c426c9939331a92d044dd39d81edb",
+    "model-00009-of-00014.safetensors": "fb0e12965ec9da9e474f49ee71887d5c0c11ce3a93aafba397b145679128afd6",
+    "model-00010-of-00014.safetensors": "6d29df38071d39c748baefceff6b457e63e5a4aea4af1ff31fab0b51bf6578de",
+    "model-00011-of-00014.safetensors": "82af9fbeed52648313010ee9be4f8a850b5e7aac04e23b16655be1f5b2750ec4",
+    "model-00012-of-00014.safetensors": "89e0646265ad0005608355ac9c18307a8e6244da0b0be1375479e37fbbd086e9",
+    "model-00013-of-00014.safetensors": "13cb9383c1ed5bad348618b3aa3b90fe91c3ef4184476e7401b76ebce9f02a1a",
+    "model-00014-of-00014.safetensors": "82514f0ea5e79346d47356f5b017c99d79f46549a344ea735bfd53311d686c5d",
+    "tokenizer.json": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4"
+   }
+  },
+  "Kwai-AutoSQL/Kwai-AutoSQL-14B": {
+   "config_json_sha256": "1148e95e21d7fd3fe067130aefcdf05a34a096ed15ef30cf183d5f31d34768a8",
+   "safetensors_index_sha256": "fb349f5ee2a67dec22349af846bf09d006105c25ce22342d6ae635fc51b3782c",
+   "tokenizer_config_sha256": "cd5c1909da4950a610a9e3a6cb6763cff0381d91c6f0838855db8d5ae83d6c9f",
+   "n_shards": 7,
+   "bytes_on_disk": 29552614247,
+   "index_file_date": "2026-09-04",
+   "revision": null,
+   "note": "local checkpoint on the run host; no revision file ships with it, so the config, index, tokenizer-config and per-shard weight digests above identify the copy (shards hashed 2026-09-05 after the runs)",
+   "weight_shard_sha256": {
+    "model-00001-of-00007.safetensors": "907a3d81b2cc6dcd0e6ad9899f68b60cee882fe0e25ab8ad8ce945f2ce72256a",
+    "model-00002-of-00007.safetensors": "297aa72929823d13f2aed746c81516c7b1fdb5cc377e771aa7c949fa546bdd3c",
+    "model-00003-of-00007.safetensors": "b5b91a3011fedc4dd8f221dafe956b7e3da63765ee150a81c9dda1f9803b24da",
+    "model-00004-of-00007.safetensors": "eab28ab8e219de340b10385dd911608229430a8678b74268f1c671676ddbb395",
+    "model-00005-of-00007.safetensors": "b06e57e7a2df673504f6406ac82dcbd0b349c1704078e08cc7a2e99ae3d9a570",
+    "model-00006-of-00007.safetensors": "9c8ce3d08f53899c80f598d875b14143c0636bb495ed2b9bb708219a86691a93",
+    "model-00007-of-00007.safetensors": "881704d9413fdba6d9043a394fdaf0776ae36017fcc69da8dae0157ad5618612",
+    "tokenizer.json": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4"
+   }
+  },
+  "XGenerationLab/XiYanSQL-QwenCoder-32B-2504": {
+   "config_json_sha256": "3f501730c36948789ba9cea25c26652e91de448a6aa5686703c1d5e248487346",
+   "safetensors_index_sha256": "e6548816f7ae8cd9fc353a20737f640ad32db6eff13a8c097246084c3207300f",
+   "tokenizer_config_sha256": "57fea41fa99fce34f91450643e48b3bfbb078c32c6831a3c06834f122c200510",
+   "n_shards": 14,
+   "bytes_on_disk": 65532986069,
+   "index_file_date": "2025-11-16",
+   "revision": null,
+   "note": "local checkpoint on the run host; no revision file ships with it, so the config, index, tokenizer-config and per-shard weight digests above identify the copy (shards hashed 2026-09-05 after the runs)",
+   "weight_shard_sha256": {
+    "model-00001-of-00014.safetensors": "44f3ea3c44b4efa3b777e10a9f9ddc2ed3cc8ae6347a88174362b16d11e7c02b",
+    "model-00002-of-00014.safetensors": "a8a0fec8fe32085fd9eb6b1cebbad85240d12c65d3498669a2628cbc784d44b8",
+    "model-00003-of-00014.safetensors": "449677fa34c44352ba57d48824caeaf35825d91d17773b4b2b0824ff84d2d24a",
+    "model-00004-of-00014.safetensors": "0156e3c7ec9a346d6839a49e7f07b120f26dc531ec5238cf9aab22adff3c0617",
+    "model-00005-of-00014.safetensors": "a2770304fccf63dcf39ff54664dffc401fac953a8c4e9890fd2e041017ccdd96",
+    "model-00006-of-00014.safetensors": "7b68fea4aed6af2fcb374b445f7f8d402ae347eb459c1118c5d2d08873502797",
+    "model-00007-of-00014.safetensors": "63118332ade4a12627ceb04562ae2af45aa8246d830e2fd1f551f86d8e79e6ef",
+    "model-00008-of-00014.safetensors": "ee6a65a08a75b0229b4b472f90909224edcc7c3c1b89159bfe90367c44c5517e",
+    "model-00009-of-00014.safetensors": "80639ed87cf9f03884c2739f28fa99a4bb21f24cf70cc31368677d7379955260",
+    "model-00010-of-00014.safetensors": "0926ba5c87f6151236efdca1d3f83c51b29fea48cbcd033b50fa8e3b168c35d0",
+    "model-00011-of-00014.safetensors": "cc80d03db821dafa000ca953c64919de7826ab00c34d04e5a6be98362020d04d",
+    "model-00012-of-00014.safetensors": "8435752dfcd2950c29ba88e304bbc3c226324273f89b341c2d88ed774642d5c1",
+    "model-00013-of-00014.safetensors": "4017f2df60f7ea42f11547eeacafde496f4ec983bdcf012ff6b0f3d9f46e6af7",
+    "model-00014-of-00014.safetensors": "5baec148dde79225140eaddb6aae76034adbea46cd035c23d171b825c2f69093"
+   }
+  },
+  "OmniSQL/OmniSQL-32B": {
+   "config_json_sha256": "c543dc6bcd3fd02379231699e77f32471f7b98566cc31a84084badd33a81d770",
+   "safetensors_index_sha256": "487c27978b0bad77946ba1a5093acfc7747a62bd5e256d3a083345d133fc3042",
+   "tokenizer_config_sha256": "7e88129d9769a0b14b1587a7d5e829fe93ac0e1511636471fdfc0811951418e6",
+   "n_shards": 17,
+   "bytes_on_disk": 65544868831,
+   "index_file_date": "2025-12-01",
+   "revision": null,
+   "note": "local checkpoint on the run host; no revision file ships with it, so the config, index, tokenizer-config and per-shard weight digests above identify the copy (shards hashed 2026-09-05 after the runs)",
+   "weight_shard_sha256": {
+    "model-00001-of-00017.safetensors": "3c107c7779a99fa2f3f71e1f68636fa7b07b790e5d035af0516b22dfdb790920",
+    "model-00002-of-00017.safetensors": "655ddd60641d879a9d134f36780af8436fd11e664862614b980715d81638f3ce",
+    "model-00003-of-00017.safetensors": "43322ee3ceec5255b69c31a84b1bd2663d655d933a3067c041f4407507f2c81f",
+    "model-00004-of-00017.safetensors": "b3ceffc8f979e41f40b81afbe326b0dcee030a4a7301ecc16de5047abe30d8d8",
+    "model-00005-of-00017.safetensors": "0d3bcaba1743195700df3188e0e81099b644c7b6a8598da092a69ef84f3850f2",
+    "model-00006-of-00017.safetensors": "fa19fa2b0ff2bff7d796197672958aad7d626861a1def27767a74776ee63f6e6",
+    "model-00007-of-00017.safetensors": "25d336c0dbab424d99ce783c68f9bc6f90705faf8b3ff284f136ed09b9778ec7",
+    "model-00008-of-00017.safetensors": "eb0f528db3b530e7ef6b241901880a60208ce10986ff21b5a92a711c3a0368aa",
+    "model-00009-of-00017.safetensors": "47b9fba2a09b185890ac659c6aac2a290aea085507c98f96353f4f864363277d",
+    "model-00010-of-00017.safetensors": "77f2ac250943617d514bc16f4e6b7ab98b02bdf3554280dce4aa8c0dea28455c",
+    "model-00011-of-00017.safetensors": "29aae6da8882842890f219a1683642148f69d7525a3663887641679749bcf733",
+    "model-00012-of-00017.safetensors": "eefdd3304c303edab02515fcab41ed83086f8a8b521012594c79852c8f86cada",
+    "model-00013-of-00017.safetensors": "87bfcec9f76fa364dd86896790bcd2008e813bc2a896c399dda2f09d04bd545e",
+    "model-00014-of-00017.safetensors": "b2af3c8bc8fe826fe7039ea04b6413e4cbec7e68fbf45bd2ccb7a802c3348b82",
+    "model-00015-of-00017.safetensors": "4b76f6dd9b431aa835055f6ac2421a7132e868b0e81b7773c9bc680039385a17",
+    "model-00016-of-00017.safetensors": "3f12c579c5a8cc3086480a784a2ec02affbd7454aeff9a70ba3ad7000a135f6b",
+    "model-00017-of-00017.safetensors": "0945d8d62e1bac9e312feb7a97a2ded0bfd186e9088cb523293dbce25cc45591",
+    "tokenizer.json": "9c5ae00e602b8860cbd784ba82a8aa14e8feecec692e7076590d014d7b7fdafa"
+   }
+  },
+  "sqlcoder/sqlcoder-70b-alpha": {
+   "config_json_sha256": "e160a5d31e218b80c194a268ca012c133774d479a62078b890a1e7af34f8ae70",
+   "safetensors_index_sha256": "554a427c289b09d7518de7fbe206f0e5fc5c8869ab2e34bcf5e9c8361ed10cc6",
+   "tokenizer_config_sha256": "bcdc6f267b05e1afd27fa622a62fea649bcb941e6dc705d2835883a0746192da",
+   "n_shards": 29,
+   "bytes_on_disk": 137956327283,
+   "index_file_date": "2025-11-17",
+   "revision": null,
+   "note": "local checkpoint on the run host; no revision file ships with it, so the config, index, tokenizer-config and per-shard weight digests above identify the copy (shards hashed 2026-09-05 after the runs)",
+   "weight_shard_sha256": {
+    "model-00001-of-00029.safetensors": "106123e302da654f219cdf1a5dd2e823fbf6275d6d8840414fabffa0582c4698",
+    "model-00002-of-00029.safetensors": "bf267703fa78abb03011a201575448cfb32361e7dbb3190b558294ad34affc53",
+    "model-00003-of-00029.safetensors": "f73be1592633bd58632a46e3352d7457811ebb2be818f900cdfd2004adbf2f5e",
+    "model-00004-of-00029.safetensors": "15c63a04364adf5aa49ebf3dce57bbd65629ff962a7543a60184985bb217b8d6",
+    "model-00005-of-00029.safetensors": "d32a5bfa332e3348da4742af2db87294cfdb346b0c40dbf9c399c77cbe49207f",
+    "model-00006-of-00029.safetensors": "e06b4cf9b5160a6078ba89efcc88575e4dc78ee668c30196622ec71552f3aeaa",
+    "model-00007-of-00029.safetensors": "ddd92403e2d737b499fb55f6fea99ccc4c3e7071402d2d463626220256a3e14c",
+    "model-00008-of-00029.safetensors": "6da1897cc8273a9bd251a704f1d96c807da868e55bb2e7870fda7d0edc60e760",
+    "model-00009-of-00029.safetensors": "b6ac2798a5b1b9111fcfc0c66e82321474743560eaa398b54b10c6655126b085",
+    "model-00010-of-00029.safetensors": "d26c95001493104390fe514e92524a1bcb18bd91c396a6211e8beb0ff7e73f2b",
+    "model-00011-of-00029.safetensors": "19918deca8f7958be9c4b0ddcc3ea1883f3a3132d44b7500719367f01101f639",
+    "model-00012-of-00029.safetensors": "4f41560d80aa6743207428da814e671c5f28becca88ec13c12b6b5eceacab890",
+    "model-00013-of-00029.safetensors": "7cdff2644fa98081415d95f1ad32e274af2bc647bd4dc31f1c580361e54b1b73",
+    "model-00014-of-00029.safetensors": "2c006d72d6c3bf57c2ef23659531098e70305a8dc57167da8ba699dac85b1c5f",
+    "model-00015-of-00029.safetensors": "7d2b0378e86b9e7ea314f4511eb9cb1bc325b214fb85e07818091cd829ec6e8d",
+    "model-00016-of-00029.safetensors": "b74ddccad2aa2048594e7348b4b5c53579a66f4cd74c5a13b90affdbc9b6fa97",
+    "model-00017-of-00029.safetensors": "3d15fa56ab583cc36aa2c761543f21af453e88c11230a39e5e69342592df33bc",
+    "model-00018-of-00029.safetensors": "f4bc4a84e30ac112755acd50a02293d60188d4284e08cb4ea1a8a8525b7054b9",
+    "model-00019-of-00029.safetensors": "ccf0dfd3135acf497c18edda7a8dfe6901a81b2e9779ad39c895692413b055c7",
+    "model-00020-of-00029.safetensors": "88705019ff80c84fa9c1220bef096a95505ad72d4dc314f572468eef7c14fe63",
+    "model-00021-of-00029.safetensors": "3bf7e0cefd26d54257a426169b1f63dcc4b4e96918fac606460ee3f9d9cbb495",
+    "model-00022-of-00029.safetensors": "de9d9e75608fbdd32d54e3876a6459579e9dda6a191b2e4c3b5e8857f941940c",
+    "model-00023-of-00029.safetensors": "f5969f4c9ed9420f9db8065c78500ffbb4657903a1419fce51cd0862e14d1c48",
+    "model-00024-of-00029.safetensors": "b517fb8788e819b243f560b81ba759b10ba97a132c7e401f1151bc03a461c407",
+    "model-00025-of-00029.safetensors": "7d99d5963dae2cb300d5a25d4a1d09f4bc2e57805bd08f4dcbec2b9b0febb5a6",
+    "model-00026-of-00029.safetensors": "d698eb6f08fd4d190cf10664a75434ae00421caaf1f949f4ea097bdef96053d3",
+    "model-00027-of-00029.safetensors": "53895744962304aef71920e0598f37cf78d07f3ad0512f603a300214843f8e74",
+    "model-00028-of-00029.safetensors": "542e5a2b241d1419654b7498bb51fd6bf72cdc092e6997992e63bf2620b8d54d",
+    "model-00029-of-00029.safetensors": "ad4fc8b2e6da5b7ec4cea296bbf00873160a2cf66d6d05710ae11f371202c74b",
+    "tokenizer.json": "98a16f275101fd89c7152358dcecf2e3d6ac9fcdcbafc68587383a6410fb9f12"
+   }
+  },
+  "sqlcoder/llama-3-sqlcoder-8b": {
+   "config_json_sha256": "7fb3ea52b01d7f951dd7ff3b968ceb42b4ee30c32bd3f343242836164ad9ccc9",
+   "safetensors_index_sha256": "146776fce3f6db1103aa6f249e65ee5544c5923ce6f971b092eee79aa6e5d37b",
+   "tokenizer_config_sha256": "da0e3a7cce6e4d787e85eb1c24d548420e0d7fe2c7a214e192795c46e40d75bb",
+   "n_shards": 4,
+   "bytes_on_disk": 16069766540,
+   "index_file_date": "2025-11-17",
+   "revision": null,
+   "note": "local checkpoint on the run host; no revision file ships with it, so the config, index, tokenizer-config and per-shard weight digests above identify the copy (shards hashed 2026-09-05 after the runs)",
+   "weight_shard_sha256": {
+    "model-00001-of-00004.safetensors": "65bfd55ab43b3463230ca15bcd87c22810ea38621864a6edaeb8b4e0fca74784",
+    "model-00002-of-00004.safetensors": "44aca46d6e6a471e919a511ce1cd1d0d3dcf5cc4828f6a4b2a433dbcd54852aa",
+    "model-00003-of-00004.safetensors": "a0f2c83c62767ceaa9c46884ad08df1dca13d266dd2e8e6523fd25c5d9b1ed30",
+    "model-00004-of-00004.safetensors": "79925407cc9b3988886d6011c475b5fd3fcf1c064542da277d1a04a3f7722445",
+    "tokenizer.json": "52b583ee1699c6ca4468f70885bd5f96dd1f7517292362a67581038afc04f4d8"
+   }
+  }
+ },
+ "remote_logs": "logs/remote/prereg3/ (pilot, main, relaunch and diagnostic lane logs with their exit-code sentinels)",
+ "frozen_hash_check": "the 69 PREREGISTERED result files (c4_*_results_{official,official_dbsplit,official_budget,custom}.json and pilot3_*_results_official.json) carry analyser_sha256 21e64a48..., the version frozen in PREREGISTRATION_3.md; of those, the 53 official-comparator ones also carry official_evaluator_sha256 29d034db... while the 16 custom-comparator ones record null there. The post-hoc analyses (crossfit2, candonly, goldfree, c5) were produced by later versions of the analyser and carry their own hashes; the analyser's new options all default to the preregistered behaviour and the legacy scientific fields reproduce exactly, but the output SCHEMA is not identical (per-question files gained constr_ok, provenance gained five options).",
+ "suite_sqlite_sha256": "experiments/c4_suite_sqlite_sha256.json (every SQLite file under data/spider/test_suite_database, computed 2026-09-05 after the runs)"
+}

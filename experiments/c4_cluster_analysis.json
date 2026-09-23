@@ -1,0 +1,790 @@
+{
+ "note": "post-hoc re-analysis from per-question sufficient statistics; the preregistered result is experiments/c4_panel_summary.json",
+ "options": {
+  "tags": [
+   "kwai-autosql-32b",
+   "kwai-autosql-14b",
+   "xiyansql-32b",
+   "omnisql-32b"
+  ],
+  "alpha": 0.1,
+  "splits": 200,
+  "seed": 20260903,
+  "verify": false,
+  "alphas": null,
+  "per_db": true,
+  "bootstrap": 200,
+  "tie_break": "first",
+  "denominator": "usable",
+  "out": "experiments/c4_cluster_analysis.json"
+ },
+ "per_database": {
+  "kwai-autosql-32b|battle_death": {
+   "n_questions": 5,
+   "GAP": 0.3333,
+   "REPAIR": -0.2667
+  },
+  "kwai-autosql-32b|car_1": {
+   "n_questions": 54,
+   "GAP": 0.1543,
+   "REPAIR": -0.2716
+  },
+  "kwai-autosql-32b|concert_singer": {
+   "n_questions": 33,
+   "GAP": 0.2424,
+   "REPAIR": -0.1212
+  },
+  "kwai-autosql-32b|course_teach": {
+   "n_questions": 16,
+   "GAP": 0.1875,
+   "REPAIR": -0.1875
+  },
+  "kwai-autosql-32b|dog_kennels": {
+   "n_questions": 25,
+   "GAP": 0.24,
+   "REPAIR": -0.08
+  },
+  "kwai-autosql-32b|employee_hire_evaluation": {
+   "n_questions": 20,
+   "GAP": 0.0,
+   "REPAIR": 0.0
+  },
+  "kwai-autosql-32b|flight_2": {
+   "n_questions": 56,
+   "GAP": 0.0417,
+   "REPAIR": -0.0476
+  },
+  "kwai-autosql-32b|museum_visit": {
+   "n_questions": 13,
+   "GAP": 0.0,
+   "REPAIR": -0.0769
+  },
+  "kwai-autosql-32b|network_1": {
+   "n_questions": 21,
+   "GAP": 0.1746,
+   "REPAIR": -0.1746
+  },
+  "kwai-autosql-32b|orchestra": {
+   "n_questions": 7,
+   "GAP": 0.0,
+   "REPAIR": 0.0
+  },
+  "kwai-autosql-32b|pets_1": {
+   "n_questions": 26,
+   "GAP": 0.1538,
+   "REPAIR": -0.1154
+  },
+  "kwai-autosql-32b|poker_player": {
+   "n_questions": 10,
+   "GAP": 0.0,
+   "REPAIR": 0.0
+  },
+  "kwai-autosql-32b|real_estate_properties": {
+   "n_questions": 1,
+   "GAP": 0.0,
+   "REPAIR": 0.0
+  },
+  "kwai-autosql-32b|singer": {
+   "n_questions": 17,
+   "GAP": 0.0,
+   "REPAIR": 0.0
+  },
+  "kwai-autosql-32b|student_transcripts_tracking": {
+   "n_questions": 17,
+   "GAP": 0.0588,
+   "REPAIR": -0.2157
+  },
+  "kwai-autosql-32b|tvshow": {
+   "n_questions": 48,
+   "GAP": 0.0417,
+   "REPAIR": -0.0486
+  },
+  "kwai-autosql-32b|voter_1": {
+   "n_questions": 4,
+   "GAP": 0.0,
+   "REPAIR": 0.0
+  },
+  "kwai-autosql-32b|world_1": {
+   "n_questions": 103,
+   "GAP": 0.0906,
+   "REPAIR": -0.0809
+  },
+  "kwai-autosql-32b|wta_1": {
+   "n_questions": 32,
+   "GAP": 0.0938,
+   "REPAIR": -0.1146
+  },
+  "kwai-autosql-14b|battle_death": {
+   "n_questions": 5,
+   "GAP": 0.4,
+   "REPAIR": -0.5333
+  },
+  "kwai-autosql-14b|car_1": {
+   "n_questions": 54,
+   "GAP": 0.0988,
+   "REPAIR": -0.0556
+  },
+  "kwai-autosql-14b|concert_singer": {
+   "n_questions": 33,
+   "GAP": 0.2121,
+   "REPAIR": -0.0808
+  },
+  "kwai-autosql-14b|course_teach": {
+   "n_questions": 16,
+   "GAP": 0.0,
+   "REPAIR": 0.0
+  },
+  "kwai-autosql-14b|dog_kennels": {
+   "n_questions": 25,
+   "GAP": 0.24,
+   "REPAIR": -0.16
+  },
+  "kwai-autosql-14b|employee_hire_evaluation": {
+   "n_questions": 20,
+   "GAP": 0.1,
+   "REPAIR": -0.1
+  },
+  "kwai-autosql-14b|flight_2": {
+   "n_questions": 56,
+   "GAP": 0.0298,
+   "REPAIR": -0.0238
+  },
+  "kwai-autosql-14b|museum_visit": {
+   "n_questions": 13,
+   "GAP": 0.0,
+   "REPAIR": -0.0769
+  },
+  "kwai-autosql-14b|network_1": {
+   "n_questions": 21,
+   "GAP": 0.0,
+   "REPAIR": -0.0476
+  },
+  "kwai-autosql-14b|orchestra": {
+   "n_questions": 7,
+   "GAP": 0.0,
+   "REPAIR": 0.0
+  },
+  "kwai-autosql-14b|pets_1": {
+   "n_questions": 26,
+   "GAP": 0.1666,
+   "REPAIR": -0.0897
+  },
+  "kwai-autosql-14b|poker_player": {
+   "n_questions": 10,
+   "GAP": 0.0,
+   "REPAIR": 0.0
+  },
+  "kwai-autosql-14b|real_estate_properties": {
+   "n_questions": 1,
+   "GAP": 0.0,
+   "REPAIR": 0.0
+  },
+  "kwai-autosql-14b|singer": {
+   "n_questions": 17,
+   "GAP": 0.0,
+   "REPAIR": 0.0
+  },
+  "kwai-autosql-14b|student_transcripts_tracking": {
+   "n_questions": 17,
+   "GAP": 0.0588,
+   "REPAIR": -0.1569
+  },
+  "kwai-autosql-14b|tvshow": {
+   "n_questions": 48,
+   "GAP": 0.0417,
+   "REPAIR": -0.0347
+  },
+  "kwai-autosql-14b|voter_1": {
+   "n_questions": 4,
+   "GAP": 0.0,
+   "REPAIR": 0.0
+  },
+  "kwai-autosql-14b|world_1": {
+   "n_questions": 103,
+   "GAP": 0.0518,
+   "REPAIR": -0.0874
+  },
+  "kwai-autosql-14b|wta_1": {
+   "n_questions": 32,
+   "GAP": 0.125,
+   "REPAIR": -0.2084
+  },
+  "xiyansql-32b|battle_death": {
+   "n_questions": 5,
+   "GAP": 0.0,
+   "REPAIR": 0.0
+  },
+  "xiyansql-32b|car_1": {
+   "n_questions": 54,
+   "GAP": 0.1914,
+   "REPAIR": -0.0926
+  },
+  "xiyansql-32b|concert_singer": {
+   "n_questions": 33,
+   "GAP": 0.0303,
+   "REPAIR": 0.0
+  },
+  "xiyansql-32b|course_teach": {
+   "n_questions": 16,
+   "GAP": 0.0,
+   "REPAIR": 0.0
+  },
+  "xiyansql-32b|dog_kennels": {
+   "n_questions": 25,
+   "GAP": 0.08,
+   "REPAIR": 0.0
+  },
+  "xiyansql-32b|employee_hire_evaluation": {
+   "n_questions": 20,
+   "GAP": 0.0,
+   "REPAIR": 0.0
+  },
+  "xiyansql-32b|flight_2": {
+   "n_questions": 56,
+   "GAP": 0.0,
+   "REPAIR": 0.0
+  },
+  "xiyansql-32b|museum_visit": {
+   "n_questions": 13,
+   "GAP": 0.0,
+   "REPAIR": 0.0
+  },
+  "xiyansql-32b|network_1": {
+   "n_questions": 21,
+   "GAP": 0.0317,
+   "REPAIR": -0.0317
+  },
+  "xiyansql-32b|orchestra": {
+   "n_questions": 7,
+   "GAP": 0.0,
+   "REPAIR": 0.0
+  },
+  "xiyansql-32b|pets_1": {
+   "n_questions": 26,
+   "GAP": 0.0385,
+   "REPAIR": 0.0
+  },
+  "xiyansql-32b|poker_player": {
+   "n_questions": 10,
+   "GAP": 0.0,
+   "REPAIR": 0.0
+  },
+  "xiyansql-32b|real_estate_properties": {
+   "n_questions": 1,
+   "GAP": 0.0,
+   "REPAIR": 0.0
+  },
+  "xiyansql-32b|singer": {
+   "n_questions": 17,
+   "GAP": 0.0,
+   "REPAIR": 0.0
+  },
+  "xiyansql-32b|student_transcripts_tracking": {
+   "n_questions": 17,
+   "GAP": 0.0,
+   "REPAIR": -0.0588
+  },
+  "xiyansql-32b|tvshow": {
+   "n_questions": 48,
+   "GAP": 0.0,
+   "REPAIR": -0.0278
+  },
+  "xiyansql-32b|voter_1": {
+   "n_questions": 4,
+   "GAP": 0.0,
+   "REPAIR": 0.0
+  },
+  "xiyansql-32b|world_1": {
+   "n_questions": 103,
+   "GAP": 0.0129,
+   "REPAIR": -0.0226
+  },
+  "xiyansql-32b|wta_1": {
+   "n_questions": 32,
+   "GAP": 0.0,
+   "REPAIR": -0.0625
+  },
+  "omnisql-32b|battle_death": {
+   "n_questions": 5,
+   "GAP": 0.2667,
+   "REPAIR": -0.3333
+  },
+  "omnisql-32b|car_1": {
+   "n_questions": 54,
+   "GAP": 0.1234,
+   "REPAIR": -0.1111
+  },
+  "omnisql-32b|concert_singer": {
+   "n_questions": 33,
+   "GAP": 0.202,
+   "REPAIR": -0.0909
+  },
+  "omnisql-32b|course_teach": {
+   "n_questions": 16,
+   "GAP": 0.0,
+   "REPAIR": 0.0
+  },
+  "omnisql-32b|dog_kennels": {
+   "n_questions": 25,
+   "GAP": 0.1333,
+   "REPAIR": -0.2
+  },
+  "omnisql-32b|employee_hire_evaluation": {
+   "n_questions": 20,
+   "GAP": 0.0,
+   "REPAIR": 0.0
+  },
+  "omnisql-32b|flight_2": {
+   "n_questions": 56,
+   "GAP": 0.1548,
+   "REPAIR": -0.1369
+  },
+  "omnisql-32b|museum_visit": {
+   "n_questions": 13,
+   "GAP": 0.0,
+   "REPAIR": 0.0
+  },
+  "omnisql-32b|network_1": {
+   "n_questions": 21,
+   "GAP": 0.2381,
+   "REPAIR": -0.2222
+  },
+  "omnisql-32b|orchestra": {
+   "n_questions": 7,
+   "GAP": 0.0,
+   "REPAIR": 0.0
+  },
+  "omnisql-32b|pets_1": {
+   "n_questions": 26,
+   "GAP": 0.1666,
+   "REPAIR": -0.1154
+  },
+  "omnisql-32b|poker_player": {
+   "n_questions": 10,
+   "GAP": 0.0,
+   "REPAIR": 0.0
+  },
+  "omnisql-32b|real_estate_properties": {
+   "n_questions": 1,
+   "GAP": 0.0,
+   "REPAIR": -1.0
+  },
+  "omnisql-32b|singer": {
+   "n_questions": 17,
+   "GAP": 0.0,
+   "REPAIR": 0.0
+  },
+  "omnisql-32b|student_transcripts_tracking": {
+   "n_questions": 17,
+   "GAP": 0.0196,
+   "REPAIR": -0.1568
+  },
+  "omnisql-32b|tvshow": {
+   "n_questions": 48,
+   "GAP": 0.0486,
+   "REPAIR": -0.0347
+  },
+  "omnisql-32b|voter_1": {
+   "n_questions": 4,
+   "GAP": 0.0,
+   "REPAIR": 0.0
+  },
+  "omnisql-32b|world_1": {
+   "n_questions": 103,
+   "GAP": 0.0388,
+   "REPAIR": -0.0745
+  },
+  "omnisql-32b|wta_1": {
+   "n_questions": 32,
+   "GAP": 0.1875,
+   "REPAIR": -0.2083
+  }
+ },
+ "leave_one_database_out": {
+  "kwai-autosql-32b|drop=<none>": {
+   "GAP": 0.1023,
+   "REPAIR": -0.1038
+  },
+  "kwai-autosql-32b|drop=battle_death": {
+   "GAP": 0.0999,
+   "REPAIR": -0.1024
+  },
+  "kwai-autosql-32b|drop=car_1": {
+   "GAP": 0.0988,
+   "REPAIR": -0.1011
+  },
+  "kwai-autosql-32b|drop=concert_singer": {
+   "GAP": 0.0896,
+   "REPAIR": -0.0898
+  },
+  "kwai-autosql-32b|drop=course_teach": {
+   "GAP": 0.0985,
+   "REPAIR": -0.0997
+  },
+  "kwai-autosql-32b|drop=dog_kennels": {
+   "GAP": 0.0944,
+   "REPAIR": -0.0954
+  },
+  "kwai-autosql-32b|drop=employee_hire_evaluation": {
+   "GAP": 0.1046,
+   "REPAIR": -0.1042
+  },
+  "kwai-autosql-32b|drop=flight_2": {
+   "GAP": 0.108,
+   "REPAIR": -0.1112
+  },
+  "kwai-autosql-32b|drop=museum_visit": {
+   "GAP": 0.1044,
+   "REPAIR": -0.1068
+  },
+  "kwai-autosql-32b|drop=network_1": {
+   "GAP": 0.0971,
+   "REPAIR": -0.0998
+  },
+  "kwai-autosql-32b|drop=orchestra": {
+   "GAP": 0.1032,
+   "REPAIR": -0.1039
+  },
+  "kwai-autosql-32b|drop=pets_1": {
+   "GAP": 0.0992,
+   "REPAIR": -0.0999
+  },
+  "kwai-autosql-32b|drop=poker_player": {
+   "GAP": 0.1023,
+   "REPAIR": -0.1047
+  },
+  "kwai-autosql-32b|drop=real_estate_properties": {
+   "GAP": 0.102,
+   "REPAIR": -0.1037
+  },
+  "kwai-autosql-32b|drop=singer": {
+   "GAP": 0.1036,
+   "REPAIR": -0.1069
+  },
+  "kwai-autosql-32b|drop=student_transcripts_tracking": {
+   "GAP": 0.1058,
+   "REPAIR": -0.1093
+  },
+  "kwai-autosql-32b|drop=tvshow": {
+   "GAP": 0.1063,
+   "REPAIR": -0.1088
+  },
+  "kwai-autosql-32b|drop=voter_1": {
+   "GAP": 0.1037,
+   "REPAIR": -0.105
+  },
+  "kwai-autosql-32b|drop=world_1": {
+   "GAP": 0.1055,
+   "REPAIR": -0.1069
+  },
+  "kwai-autosql-32b|drop=wta_1": {
+   "GAP": 0.1004,
+   "REPAIR": -0.1045
+  },
+  "kwai-autosql-14b|drop=<none>": {
+   "GAP": 0.0808,
+   "REPAIR": -0.083
+  },
+  "kwai-autosql-14b|drop=battle_death": {
+   "GAP": 0.0766,
+   "REPAIR": -0.0774
+  },
+  "kwai-autosql-14b|drop=car_1": {
+   "GAP": 0.0767,
+   "REPAIR": -0.0778
+  },
+  "kwai-autosql-14b|drop=concert_singer": {
+   "GAP": 0.0697,
+   "REPAIR": -0.0711
+  },
+  "kwai-autosql-14b|drop=course_teach": {
+   "GAP": 0.0821,
+   "REPAIR": -0.0838
+  },
+  "kwai-autosql-14b|drop=dog_kennels": {
+   "GAP": 0.0722,
+   "REPAIR": -0.0728
+  },
+  "kwai-autosql-14b|drop=employee_hire_evaluation": {
+   "GAP": 0.0782,
+   "REPAIR": -0.0747
+  },
+  "kwai-autosql-14b|drop=flight_2": {
+   "GAP": 0.0851,
+   "REPAIR": -0.0856
+  },
+  "kwai-autosql-14b|drop=museum_visit": {
+   "GAP": 0.0826,
+   "REPAIR": -0.0835
+  },
+  "kwai-autosql-14b|drop=network_1": {
+   "GAP": 0.0822,
+   "REPAIR": -0.0825
+  },
+  "kwai-autosql-14b|drop=orchestra": {
+   "GAP": 0.0813,
+   "REPAIR": -0.0827
+  },
+  "kwai-autosql-14b|drop=pets_1": {
+   "GAP": 0.075,
+   "REPAIR": -0.0762
+  },
+  "kwai-autosql-14b|drop=poker_player": {
+   "GAP": 0.0806,
+   "REPAIR": -0.0834
+  },
+  "kwai-autosql-14b|drop=real_estate_properties": {
+   "GAP": 0.0802,
+   "REPAIR": -0.0824
+  },
+  "kwai-autosql-14b|drop=singer": {
+   "GAP": 0.0825,
+   "REPAIR": -0.0824
+  },
+  "kwai-autosql-14b|drop=student_transcripts_tracking": {
+   "GAP": 0.0814,
+   "REPAIR": -0.083
+  },
+  "kwai-autosql-14b|drop=tvshow": {
+   "GAP": 0.0835,
+   "REPAIR": -0.0863
+  },
+  "kwai-autosql-14b|drop=voter_1": {
+   "GAP": 0.0805,
+   "REPAIR": -0.0818
+  },
+  "kwai-autosql-14b|drop=world_1": {
+   "GAP": 0.0895,
+   "REPAIR": -0.0896
+  },
+  "kwai-autosql-14b|drop=wta_1": {
+   "GAP": 0.0772,
+   "REPAIR": -0.0804
+  },
+  "xiyansql-32b|drop=<none>": {
+   "GAP": 0.0311,
+   "REPAIR": -0.029
+  },
+  "xiyansql-32b|drop=battle_death": {
+   "GAP": 0.0325,
+   "REPAIR": -0.0275
+  },
+  "xiyansql-32b|drop=car_1": {
+   "GAP": 0.0117,
+   "REPAIR": -0.0076
+  },
+  "xiyansql-32b|drop=concert_singer": {
+   "GAP": 0.0295,
+   "REPAIR": -0.0298
+  },
+  "xiyansql-32b|drop=course_teach": {
+   "GAP": 0.0325,
+   "REPAIR": -0.0315
+  },
+  "xiyansql-32b|drop=dog_kennels": {
+   "GAP": 0.0298,
+   "REPAIR": -0.0259
+  },
+  "xiyansql-32b|drop=employee_hire_evaluation": {
+   "GAP": 0.031,
+   "REPAIR": -0.032
+  },
+  "xiyansql-32b|drop=flight_2": {
+   "GAP": 0.0316,
+   "REPAIR": -0.0289
+  },
+  "xiyansql-32b|drop=museum_visit": {
+   "GAP": 0.0317,
+   "REPAIR": -0.03
+  },
+  "xiyansql-32b|drop=network_1": {
+   "GAP": 0.0304,
+   "REPAIR": -0.0313
+  },
+  "xiyansql-32b|drop=orchestra": {
+   "GAP": 0.0323,
+   "REPAIR": -0.0292
+  },
+  "xiyansql-32b|drop=pets_1": {
+   "GAP": 0.0308,
+   "REPAIR": -0.0299
+  },
+  "xiyansql-32b|drop=poker_player": {
+   "GAP": 0.031,
+   "REPAIR": -0.0297
+  },
+  "xiyansql-32b|drop=real_estate_properties": {
+   "GAP": 0.0311,
+   "REPAIR": -0.03
+  },
+  "xiyansql-32b|drop=singer": {
+   "GAP": 0.0312,
+   "REPAIR": -0.031
+  },
+  "xiyansql-32b|drop=student_transcripts_tracking": {
+   "GAP": 0.0336,
+   "REPAIR": -0.0268
+  },
+  "xiyansql-32b|drop=tvshow": {
+   "GAP": 0.0336,
+   "REPAIR": -0.0326
+  },
+  "xiyansql-32b|drop=voter_1": {
+   "GAP": 0.0316,
+   "REPAIR": -0.0289
+  },
+  "xiyansql-32b|drop=world_1": {
+   "GAP": 0.0386,
+   "REPAIR": -0.0252
+  },
+  "xiyansql-32b|drop=wta_1": {
+   "GAP": 0.0316,
+   "REPAIR": -0.0321
+  },
+  "omnisql-32b|drop=<none>": {
+   "GAP": 0.095,
+   "REPAIR": -0.0958
+  },
+  "omnisql-32b|drop=battle_death": {
+   "GAP": 0.0933,
+   "REPAIR": -0.0963
+  },
+  "omnisql-32b|drop=car_1": {
+   "GAP": 0.0902,
+   "REPAIR": -0.0901
+  },
+  "omnisql-32b|drop=concert_singer": {
+   "GAP": 0.0834,
+   "REPAIR": -0.0834
+  },
+  "omnisql-32b|drop=course_teach": {
+   "GAP": 0.0978,
+   "REPAIR": -0.0989
+  },
+  "omnisql-32b|drop=dog_kennels": {
+   "GAP": 0.0954,
+   "REPAIR": -0.0956
+  },
+  "omnisql-32b|drop=employee_hire_evaluation": {
+   "GAP": 0.0971,
+   "REPAIR": -0.0973
+  },
+  "omnisql-32b|drop=flight_2": {
+   "GAP": 0.0858,
+   "REPAIR": -0.087
+  },
+  "omnisql-32b|drop=museum_visit": {
+   "GAP": 0.0983,
+   "REPAIR": -0.0973
+  },
+  "omnisql-32b|drop=network_1": {
+   "GAP": 0.0895,
+   "REPAIR": -0.0893
+  },
+  "omnisql-32b|drop=orchestra": {
+   "GAP": 0.0954,
+   "REPAIR": -0.0939
+  },
+  "omnisql-32b|drop=pets_1": {
+   "GAP": 0.0921,
+   "REPAIR": -0.0909
+  },
+  "omnisql-32b|drop=poker_player": {
+   "GAP": 0.096,
+   "REPAIR": -0.0963
+  },
+  "omnisql-32b|drop=real_estate_properties": {
+   "GAP": 0.0944,
+   "REPAIR": -0.0952
+  },
+  "omnisql-32b|drop=singer": {
+   "GAP": 0.0971,
+   "REPAIR": -0.0995
+  },
+  "omnisql-32b|drop=student_transcripts_tracking": {
+   "GAP": 0.1008,
+   "REPAIR": -0.1023
+  },
+  "omnisql-32b|drop=tvshow": {
+   "GAP": 0.0973,
+   "REPAIR": -0.0959
+  },
+  "omnisql-32b|drop=voter_1": {
+   "GAP": 0.0958,
+   "REPAIR": -0.0952
+  },
+  "omnisql-32b|drop=world_1": {
+   "GAP": 0.1198,
+   "REPAIR": -0.1239
+  },
+  "omnisql-32b|drop=wta_1": {
+   "GAP": 0.0863,
+   "REPAIR": -0.0891
+  }
+ },
+ "database_cluster_bootstrap_SUPERSEDED": {
+  "reason": "this bootstrap resampled schemas with replacement and gave each copy a distinct id, so two copies of one schema could land on opposite sides of a schema-disjoint database split, which destroys the property that defines that estimand. Replaced by the exhaustive enumeration in experiments/c4_exhaustive_db_splits.json. Kept for the record; must not be cited.",
+  "values": {
+   "kwai-autosql-32b": {
+    "n_boot": 200,
+    "GAP_mean": 0.1009,
+    "GAP_ci95": [
+     0.0607,
+     0.1361
+    ],
+    "REPAIR_mean": -0.1009,
+    "REPAIR_ci95": [
+     -0.1413,
+     -0.0528
+    ],
+    "GAP_positive_fraction": 1.0,
+    "REPAIR_negative_fraction": 1.0
+   },
+   "kwai-autosql-14b": {
+    "n_boot": 200,
+    "GAP_mean": 0.0811,
+    "GAP_ci95": [
+     0.049,
+     0.1208
+    ],
+    "REPAIR_mean": -0.0807,
+    "REPAIR_ci95": [
+     -0.1187,
+     -0.0504
+    ],
+    "GAP_positive_fraction": 1.0,
+    "REPAIR_negative_fraction": 1.0
+   },
+   "xiyansql-32b": {
+    "n_boot": 200,
+    "GAP_mean": 0.0269,
+    "GAP_ci95": [
+     0.0031,
+     0.0631
+    ],
+    "REPAIR_mean": -0.0118,
+    "REPAIR_ci95": [
+     -0.0445,
+     0.0226
+    ],
+    "GAP_positive_fraction": 0.995,
+    "REPAIR_negative_fraction": 0.81
+   },
+   "omnisql-32b": {
+    "n_boot": 200,
+    "GAP_mean": 0.099,
+    "GAP_ci95": [
+     0.0522,
+     0.1469
+    ],
+    "REPAIR_mean": -0.1011,
+    "REPAIR_ci95": [
+     -0.1479,
+     -0.0558
+    ],
+    "GAP_positive_fraction": 1.0,
+    "REPAIR_negative_fraction": 1.0
+   }
+  }
+ }
+}

@@ -1,0 +1,21 @@
+{
+ "model": "XGenerationLab/XiYanSQL-QwenCoder-32B-2504",
+ "arm": "main",
+ "questions": 500,
+ "samples_per_question": 20,
+ "sampling_policy": {
+  "kind": "independent temperature sampling, fixed budget",
+  "temperature": 1.0,
+  "top_p": 0.95,
+  "max_tokens": 512,
+  "seed": 20260903
+ },
+ "tensor_parallel_size": 4,
+ "instrument_checks": {
+  "candidates": 10000,
+  "parse_rate": 1.0,
+  "truncation_rate": 0.0,
+  "note": "a truncated generation is a cut-off scratchpad: discard it, never parse it"
+ },
+ "wall_clock_sec": 70.7
+}

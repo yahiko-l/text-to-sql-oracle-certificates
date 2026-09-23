@@ -1,0 +1,12 @@
+Copyright (c) 2026 Jiamiao Liu, Dewen Qiao, Yu Zhang, Xuetao Chen
+
+The data of this repository, every file under experiments/, blind-audit/, alignment-audit/ and
+data/ other than the scripts (*.py and *.sh, which are under the MIT License in LICENSE), is
+licensed under the Creative Commons Attribution-ShareAlike 4.0 International License
+(CC BY-SA 4.0):
+
+    https://creativecommons.org/licenses/by-sa/4.0/
+
+The prompts, candidate pools and result files contain questions, reference queries and database
+values from Spider (Yu et al., 2018) and Spider-Realistic (Deng et al., 2021), which are
+distributed under CC BY-SA 4.0.

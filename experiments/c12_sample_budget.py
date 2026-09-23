@@ -111,7 +111,7 @@ def main():
                     sp = make_splits(ids, dbs, how, a.splits, a.seed)
                     reps = 1 if m >= 50 else a.draws
                     for r in range(reps):
-                        rng = random.Random((a.seed, tag, seed, how, m, r).__hash__())
+                        rng = random.Random(f"{a.seed}|{tag}|{seed}|{how}|{m}|{r}")
                         pool = qs if m >= 50 else draw(qs, m, rng)
                         g, ar = gap_of(pool, sp, a.alpha)
                         res = resolution(pool)

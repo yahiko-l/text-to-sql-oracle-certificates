@@ -1,0 +1,37 @@
+{
+ "model": "Qwen/Qwen3.6-27B",
+ "arm": "main",
+ "negative_control": "none",
+ "false_schema_mapping": null,
+ "prompts": "experiments/pilot_prompts_generic_en.jsonl",
+ "prompts_sha256": "ecdaeb8bda41b40bc9002c1eb29de6847ecb570dac905c9d5c02e9be11b0decb",
+ "template": "generic_en",
+ "questions": 200,
+ "samples_per_question": 10,
+ "sampling_policy": {
+  "kind": "independent temperature sampling, fixed budget",
+  "temperature": 1.0,
+  "top_p": 0.95,
+  "max_tokens": 1024,
+  "seed": 7
+ },
+ "tensor_parallel_size": 2,
+ "encoder": "chat_template",
+ "chat_template_kwargs": {
+  "enable_thinking": false
+ },
+ "system_prompt": "",
+ "dtype": "bfloat16",
+ "kv_cache_dtype": "auto",
+ "max_model_len": 8192,
+ "vllm_version": "0.22.1",
+ "extractor": "extract_sql: complete fenced block first, else continuation up to the first fence; parsed = extracted text starts with SELECT or WITH (lexical check only)",
+ "instrument_checks": {
+  "candidates": 2000,
+  "parse_rate": 1.0,
+  "truncation_rate": 0.0,
+  "note": "a truncated generation is a cut-off scratchpad: discard it, never parse it",
+  "raw_kept": true
+ },
+ "wall_clock_sec": 177.1
+}

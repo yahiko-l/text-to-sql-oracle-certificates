@@ -1,0 +1,21 @@
+{
+ "experiment": "E0 oracle intervention 2x2",
+ "split": "Spider-Realistic (508 questions, Spider dev schemas)",
+ "sampling_policy": {
+  "kind": "independent temperature sampling, fixed budget",
+  "n_samples_per_question": 20,
+  "temperature": 1.0,
+  "top_p": 0.95,
+  "max_tokens": 512,
+  "seed": 20260903,
+  "note": "declared because sample frequency only represents equivalence-class mass under a declared repeated-sampling policy; it is not valid for deduplicated beam or top-k candidate lists",
+  "n_samples_note": "20 was the prompt-build plan; the sampling run used 50 per question, see the matching *_candidates_meta.json (2026-09-04 audit)"
+ },
+ "questions": 508,
+ "databases": 19,
+ "question_selection": "proportional stratified by database, seed 20260903",
+ "model": "XGenerationLab/XiYanSQL-QwenCoder-32B-2504",
+ "prompt_template": "XiYanSQL nl2sqlite_template_cn, dialect=SQLite, evidence empty",
+ "schema_serialisation": "sqlite_master DDL plus up to 3 example values per column",
+ "label_corrected": "2026-09-04 audit: the prompt builder hard-coded the Spider dev label; every record in this file is Spider-Realistic (verified question/gold match)"
+}

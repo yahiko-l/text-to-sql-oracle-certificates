@@ -1,0 +1,83 @@
+{
+ "built_from_key": "c10_blind_audit_key.json",
+ "items_sha256": "48d955007732402c4c9457fdd8627a2755a8f7238f7bda5c3b0741ad01eb4872",
+ "seed": 20260906,
+ "files": {
+  "README.md": "2b78c83a64cff8734ea98e39ebf816c824d14768019ee02193842bc021effd2f",
+  "PROTOCOL.md": "67d41534c3354417722f778a90555f51d521a28abadae237b12aa49ac8a59fc7",
+  "PROTOCOL_EN.md": "01e0ddb1bb76565f69d5cc2760ebf157a10924ad8249f57a904cff29a0400e77",
+  "ITEMS.md": "48d955007732402c4c9457fdd8627a2755a8f7238f7bda5c3b0741ad01eb4872",
+  "RESPONSES.csv": "2ebcfa00b30e511783a6b0ebc29a6711ed0692595ed7c23a2d2d23aed4343dbe",
+  "run.py": "98255472de7c16771f33e326c1594031ede1016b13a7a9335a9b3b5c50bfeec2"
+ },
+ "databases": {
+  "battle_death": {
+   "sha256": "12569f4493a9655639c4ea86ba4bd8a4ea6411e1b8ae0e1fdf3d6a995344265d",
+   "bytes": 28672
+  },
+  "car_1": {
+   "sha256": "9d851e396e02997a1de073ae982fe1e4b1769fdffce2fac6e325857a3a938709",
+   "bytes": 65536
+  },
+  "concert_singer": {
+   "sha256": "4fa1ba5ab4577e895271088b1dc44aa94be88e25a54293317a67584112ef059d",
+   "bytes": 36864
+  },
+  "course_teach": {
+   "sha256": "da45fcdde64ac2b9330146506b7653ad4417489d8e496e509045e1b02245d793",
+   "bytes": 28672
+  },
+  "dog_kennels": {
+   "sha256": "ea5fbc6cf6aaf500371c5c121c339d9802ba6f5fbecd948a5274c0b487a9f486",
+   "bytes": 49152
+  },
+  "employee_hire_evaluation": {
+   "sha256": "760fec5cc872ef0cdf99242614f05c93dbd00d422ac9da87ea64fcf555be7373",
+   "bytes": 36864
+  },
+  "flight_2": {
+   "sha256": "db777ba6488ae2b515cb138d71ff23c4533e5fd0355854648a1102faff3fb7af",
+   "bytes": 77824
+  },
+  "museum_visit": {
+   "sha256": "3217aee38d8e3661d374bf025591b7164a1179c568ef5d20f3c338035fc6e1dd",
+   "bytes": 28672
+  },
+  "network_1": {
+   "sha256": "bec92cd9a68d6f23469a0df246429299f44caaf75eab12275784e0bb7d0aa9ca",
+   "bytes": 28672
+  },
+  "orchestra": {
+   "sha256": "13b64af1cf6fcbd34953a44f951b2bf79bedc000b344549212dac1a9345e2f86",
+   "bytes": 32768
+  },
+  "pets_1": {
+   "sha256": "8ffe0ea9b3b034ca8860a2f18300a98c7583ce2522ea195726a04803f675e5bb",
+   "bytes": 16384
+  },
+  "poker_player": {
+   "sha256": "63fffd7b68524f07a742a74b74b95a4ba178e6419f3574b9ee78b8dda1df46ba",
+   "bytes": 20480
+  },
+  "singer": {
+   "sha256": "5c1b72755d148c294b26d7b479307e8799b93485ac918720f953e2ab84d59a0a",
+   "bytes": 20480
+  },
+  "student_transcripts_tracking": {
+   "sha256": "5a1f4928a1fd36f6edb31c4f054203b2e2fab6b18e5951c4f5633628f82a8e56",
+   "bytes": 49152
+  },
+  "tvshow": {
+   "sha256": "1212c2e75cf1dcf3aeb4055331a85298b073d8a613ead77975b13bd3346b9fc4",
+   "bytes": 28672
+  },
+  "world_1": {
+   "sha256": "17b986695f16786d58d66f85e49dba87bdfe72953207ab9b1b49da9d2301ef65",
+   "bytes": 319488
+  },
+  "wta_1": {
+   "sha256": "8f20747456d7748674b4f05432f3de96446ced95b8bd5a6fd01284f6c28f727c",
+   "bytes": 104738816
+  }
+ }
+}

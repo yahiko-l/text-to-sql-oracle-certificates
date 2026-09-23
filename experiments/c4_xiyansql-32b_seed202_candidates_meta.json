@@ -1,0 +1,41 @@
+{
+ "model": "XGenerationLab/XiYanSQL-QwenCoder-32B-2504",
+ "arm": "main",
+ "negative_control": "none",
+ "false_schema_mapping": null,
+ "prompts": "experiments/c4_prompts_xiyan_cn.jsonl",
+ "prompts_sha256": "64237bc864fde9237f13a501cca390cfcd704fc5ed50c90bae0c5d731ed254aa",
+ "template": "xiyan_cn",
+ "answer_mode": "continuation",
+ "assistant_prefix_used": false,
+ "prompt_tokens": {
+  "max": 2046,
+  "median": 784
+ },
+ "questions": 508,
+ "samples_per_question": 50,
+ "sampling_policy": {
+  "kind": "independent temperature sampling, fixed budget",
+  "temperature": 1.0,
+  "top_p": 0.95,
+  "max_tokens": 512,
+  "seed": 202
+ },
+ "tensor_parallel_size": 2,
+ "encoder": "chat_template",
+ "chat_template_kwargs": {},
+ "system_prompt": "",
+ "dtype": "bfloat16",
+ "kv_cache_dtype": "auto",
+ "max_model_len": 8192,
+ "vllm_version": "0.22.1",
+ "extractor": "extract_sql: continuation up to the first fence; a leading <think> block and leading -- comment lines are dropped; parsed = extracted text starts with SELECT or WITH (lexical check only)",
+ "instrument_checks": {
+  "candidates": 25400,
+  "parse_rate": 1.0,
+  "truncation_rate": 0.0,
+  "note": "a truncated generation is a cut-off scratchpad: discard it, never parse it",
+  "raw_kept": true
+ },
+ "wall_clock_sec": 211.5
+}

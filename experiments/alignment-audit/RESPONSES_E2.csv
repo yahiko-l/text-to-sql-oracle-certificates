@@ -1,0 +1,1029 @@
+﻿item_id,verdict,note
+AL0001,answers,按教师籍贯分组计数，符合问题。
+AL0002,answers,按战役汇总关联死亡人数并筛选总数大于10。
+AL0003,does_not_answer,同一学生Tracy因两只狗返回两次；未按学生去重。
+AL0004,answers,定位Aruba并按语言使用比例降序取首项。
+AL0005,does_not_answer,机场代码有前导空格，城市名有尾随空格；直接筛选或连接失配，规范化对照可返回实际记录。
+AL0006,does_not_answer,机场代码有前导空格，城市名有尾随空格；直接筛选或连接失配，规范化对照可返回实际记录。
+AL0007,does_not_answer,birth_date为YYYYMMDD整数；strftime返回全NULL，未实现年龄排序。
+AL0008,answers,筛选2014年及以后，按场馆演唱会数降序取最大者。
+AL0009,answers,返回Angola的地区和人口。
+AL0010,answers,按国籍分组统计歌手数。
+AL0011,answers,筛选法国歌手并计算年龄平均值、最小值和最大值。
+AL0012,answers,在Volvo车型中按加速时间升序取气缸数。
+AL0013,answers,交集正确要求同一地区同时具有两类店铺；实际无符合者。
+AL0014,answers,筛选欧洲国家并保留至少3家制造商的国家。
+AL0015,answers,按USA国家代码筛选并返回名字与出生日期。
+AL0016,answers,按Captured处置状态统计船只。
+AL0017,answers,容量区间筛选正确；库中无符合场馆。
+AL0018,answers,按频道关联并返回Sky Radio频道的动画标题。
+AL0019,does_not_answer,问题要求各人累计花费最大；SQL仅比较单次访问花费，未求和。
+AL0020,answers,按年龄升序取最年轻歌手的歌曲及发行年份。
+AL0021,answers,按剧集标题定位并返回周排名。
+AL0022,does_not_answer,最早年份1970共有35辆车，LIMIT 1只返回其中一辆。
+AL0023,answers,排除concert表出现过的场馆，返回无演唱会场馆名。
+AL0024,answers,由指定剧集关联频道并返回系列名称。
+AL0025,answers,关联航空公司并筛选United Airlines的航班号。
+AL0026,answers,返回年龄超过全体歌手平均年龄的歌手歌曲。
+AL0027,answers,正确筛选32岁或33岁的教师。
+AL0028,answers,返回重量低于全体汽车平均重量的各车对应型号。
+AL0029,answers,按成立年份降序输出乐团唱片公司。
+AL0030,answers,按国籍分组统计人数。
+AL0031,answers,按国籍分组统计歌手人数。
+AL0032,answers,排除指定籍贯后返回教师姓名。
+AL0033,answers,库中对应编剧为Joseph Kuhr；按该姓名计数为2。
+AL0034,does_not_answer,内连接漏掉没有演唱会的歌手Joe Sharp，未覆盖每位歌手。
+AL0035,answers,返回库中每个歌手国家及人数。
+AL0036,answers,按国家聚合，正确使用制造商数大于3或含fiat的条件。
+AL0037,answers,返回至少关联一家汽车制造商的国家名和ID。
+AL0038,question_underspecified,“cheapest overall”未明确按平均费用、累计费用还是单次最低费用；SQL采用平均值。
+AL0039,answers,按各国制造商数降序取最高者japan。
+AL0040,question_underspecified,“average”未明确指全体城市平均人口还是各区内部平均人口；SQL采用全局平均。
+AL0041,answers,按Ben Jones导演筛选动画标题。
+AL0042,answers,筛选一级会员并汇总其各次购票支出。
+AL0043,answers,使用OR筛选两位导演的动画。
+AL0044,question_underspecified,“place”未说明按现住址还是永久住址统计；SQL选择current_address_id。
+AL0045,answers,按学生当前住址计数，返回人数最多地址的ID和全部地址行。
+AL0046,answers,排除俄罗斯国籍并返回姓名。
+AL0047,does_not_answer,成立年份升序等于存续时长降序，与要求的存续时长升序相反。
+AL0048,answers,按宠物年龄升序返回最年轻宠物的类型和重量。
+AL0049,answers,返回Anguilla所属洲。
+AL0050,answers,筛选猫或狗的主人并对学生名字去重。
+AL0051,answers,返回USA球员的名字和出生日期。
+AL0052,answers,筛选Central Africa地区并平均国家预期寿命字段。
+AL0053,answers,正确使用严格人口上下界160000和900000。
+AL0054,does_not_answer,Africa是Continent而非Region取值；错误筛选导致AVG为NULL。
+AL0055,answers,按库中弃养标记1筛选，返回狗的名字、年龄和重量。
+AL0056,does_not_answer,MPG为文本，MAX得到字符串'null'，不是数值最大油耗里程。
+AL0057,answers,关联Sky Radio频道并返回其全部剧集名称。
+AL0058,answers,筛选亚洲国家并按预期寿命升序取最短者。
+AL0059,question_underspecified,问题中两位导演的“and”可指频道同时播两者或播其中任一者；SQL按任一者。
+AL0060,answers,正确按Africa洲及Republic政府形式计算平均预期寿命。
+AL0061,answers,排除2014年举办过演唱会的场馆。
+AL0062,answers,返回Sky Radio频道的Content字段。
+AL0063,answers,关联厂家与型号表，统计American Motor Company的型号数。
+AL0064,answers,按动画标题关联频道并返回系列名。
+AL0065,question_underspecified,“cheapest overall”未确定费用口径；SQL按最低单次治疗费用选择类型。
+AL0066,does_not_answer,机场代码有前导空格，城市名有尾随空格；直接筛选或连接失配，规范化对照可返回实际记录。
+AL0067,answers,按制造商分组返回全名、ID及型号数，实际覆盖全部22家。
+AL0068,answers,使用洲与政府形式正确筛选并计算平均预期寿命。
+AL0069,answers,从政府形式不是Republic的国家中排除记录有English的国家。
+AL0070,answers,按主人Virginia州筛选，返回主人名字及其狗名。
+AL0071,does_not_answer,库中洲名为'North America'；小写等值条件不匹配，汇总错误返回NULL。
+AL0072,answers,排除Little Lever Urban District籍贯的教师。
+AL0073,answers,按Aruba语言使用比例降序返回最普及语言。
+AL0074,answers,正确返回非俄罗斯国籍的人名。
+AL0075,answers,以库中完整动画标题匹配并返回所属频道系列名。
+AL0076,answers,按比赛时长降序返回最长比赛胜负双方姓名。
+AL0077,question_underspecified,问题漏掉比较词，未明确销量高于还是低于300000；SQL选择高于。
+AL0078,answers,用差集返回养狗但不养猫的学生名字和年龄。
+AL0079,answers,跨主人、狗和治疗表按主人汇总费用，取总额最高者ID及邮编。
+AL0080,answers,关联国家语言，返回所在国家使用英语且人口最多的城市。
+AL0081,question_underspecified,库中age与出生日期的年龄顺序冲突；题目未指定依据，SQL按最新出生日期选择。
+AL0082,answers,正确统计Language为English的频道数。
+AL0083,answers,筛选使用英语或荷兰语的国家，返回去重地区。
+AL0084,answers,按出生日期升序返回最年长球员的名字和国家代码。
+AL0085,answers,以LIKE筛选歌名含Hey的歌手姓名和国家。
+AL0086,answers,按Aruba各语言使用比例取最大者。
+AL0087,answers,筛选2014年及以后演唱会，按场馆计数取最多者。
+AL0088,answers,关联车型与厂商，以General Motors或重量大于3500筛选并去重型号。
+AL0089,does_not_answer,机场代码有前导空格，城市名有尾随空格；直接筛选或连接失配，规范化对照可返回实际记录。
+AL0090,answers,筛选Todd Casey编剧的动画，返回其频道所在国家并去重。
+AL0091,does_not_answer,同一养狗不养猫学生Tracy因两只狗返回两次，未按学生去重。
+AL0092,does_not_answer,只要求在两个赛事各赢过一场，未限定夺冠；库中WTA记录为RR轮而非冠军。
+AL0093,answers,从全部国家代码中排除记录使用English者。
+AL0094,answers,按籍贯分组统计教师人数。
+AL0095,answers,关联Volvo的各车，按加速时间最小值返回气缸数。
+AL0096,does_not_answer,存在非英语语言不等于不说英语；该条件保留同时说英语的国家并大量重复。
+AL0097,answers,正确统计9或10年级学生数。
+AL0098,answers,以全体最小年龄筛选最年轻歌手的歌曲与发行年。
+AL0099,answers,按人口160000至900000的区间返回城市名。
+AL0100,answers,按国家统计语言记录数并取最多者。
+AL0101,answers,按员工数降序取最多的博物馆ID和名称。
+AL0102,answers,按不同籍贯分组统计教师数。
+AL0103,answers,返回Aruba使用比例最高的语言。
+AL0104,answers,按店铺Location分组计数。
+AL0105,answers,使用交集筛选同时有Master与Bachelor项目学生注册的学期。
+AL0106,answers,返回商品数量超过全部店铺平均值的店名。
+AL0107,answers,按高清支持标记yes筛选并返回套餐和系列名。
+AL0108,does_not_answer,机场代码有前导空格，城市名有尾随空格；直接筛选或连接失配，规范化对照可返回实际记录。
+AL0109,answers,返回Sky Radio频道播放的动画标题。
+AL0110,answers,排除France国籍后返回歌手名。
+AL0111,answers,正确统计9或10年级高中生。
+AL0112,does_not_answer,机场代码有前导空格，城市名有尾随空格；直接筛选或连接失配，规范化对照可返回实际记录。
+AL0113,does_not_answer,机场代码有前导空格，城市名有尾随空格；直接筛选或连接失配，规范化对照可返回实际记录。
+AL0114,answers,按最小宠物年龄取类型和重量。
+AL0115,answers,正确返回Angola的地区和人口。
+AL0116,answers,按歌手国家分组计数。
+AL0117,answers,按净资产数值升序排列歌手姓名。
+AL0118,does_not_answer,只比较亚洲某个国家内的语言占比，未衡量整个亚洲的语言普及程度。
+AL0119,answers,返回数据库中Beatrix领导的国家所记录的官方语言。
+AL0120,answers,筛选一级会员并汇总所有访问的票务支出。
+AL0121,answers,分组检验同时存在猫和狗；当前养宠学生名字不重名，结果为空。
+AL0122,answers,正确以弃养标记1筛选狗名、年龄和重量。
+AL0123,answers,按商品数降序取最多店铺的经理名和地区。
+AL0124,answers,关联厂商并去重国家，列顺序不同不影响回答。
+AL0125,answers,返回Anguilla所属洲。
+AL0126,answers,按厂家统计型号数并筛选大于3，返回厂家ID和名称。
+AL0127,answers,统计Aruba的语言记录数。
+AL0128,answers,筛选重量3000至4000磅并返回不同生产年份。
+AL0129,answers,排除有Friend记录的学生后取最低年级。
+AL0130,answers,筛选Australian Open并按胜者排名积分降序取姓名。
+AL0131,answers,筛选2013年以后演唱会，按场馆计数取最大者。
+AL0132,does_not_answer,连接全部历史排名使胜场数被放大，且未限定日期就返回任意ranking_points。
+AL0133,does_not_answer,最早年份有35辆车，LIMIT 1遗漏其余最早生产车辆。
+AL0134,answers,取官方英语国家与官方法语国家的交集。
+AL0135,answers,正确统计主要唱片格式为CD或DVD的乐团。
+AL0136,answers,按标题字母升序列出全部动画。
+AL0137,answers,按商品数量最高的店铺返回经理姓名与地区。
+AL0138,answers,排除存在雇佣记录的店铺。
+AL0139,answers,统计各演唱会歌手数；实际名称和主题组合唯一且覆盖全部6场。
+AL0140,answers,返回商品数高于全部店铺平均值的店名。
+AL0141,answers,先找频道数大于2的国家，再返回这些国家全部频道ID。
+AL0142,answers,关联厂家、型号及汽车记录，返回1970年生产过汽车的厂家并去重。
+AL0143,answers,按库中JetBlue Airways名称返回缩写。
+AL0144,answers,返回没有任何雇佣记录的店铺名称。
+AL0145,answers,筛选高于歌手平均年龄者并返回歌曲。
+AL0146,does_not_answer,机场代码有前导空格，城市名有尾随空格；直接筛选或连接失配，规范化对照可返回实际记录。
+AL0147,question_underspecified,age与出生日期的年龄顺序冲突；按登记age统计为9，按出生日期比较另有结果。
+AL0148,answers,实际年龄均为两位数字文本，升序正确选出最年轻教师籍贯。
+AL0149,question_underspecified,两位导演的“and”可指频道同时有两者作品或任一者作品；SQL采用任一者。
+AL0150,answers,正确统计2014或2015年的演唱会。
+AL0151,does_not_answer,机场代码有前导空格，城市名有尾随空格；直接筛选或连接失配，规范化对照可返回实际记录。
+AL0152,answers,以AFG和官方语言标记T正确计数。
+AL0153,answers,返回曾执行费用低于全部治疗平均费用项目的专业人员并去重。
+AL0154,does_not_answer,美国属地的政府形式记为'US Territory'，不是含United States的字符串；结果错误为空汇总。
+AL0155,answers,返回10年级全部学生姓名。
+AL0156,question_underspecified,age与出生日期对应的最年轻狗不同；问题未指定依据，SQL按出生日期。
+AL0157,answers,先将Horsepower转换为数值，再正确统计大于150的汽车。
+AL0158,does_not_answer,birth_date是YYYYMMDD整数，strftime结果全NULL，左手球员未按年龄排序。
+AL0159,does_not_answer,SQL统计语言数量，而问题问国籍数量；两个概念不同。
+AL0160,answers,在WTA Championships胜者记录中统计不同左手球员。
+AL0161,question_underspecified,7个籍贯各有1名教师并列最多；题目未说明并列时取一处还是全部。
+AL0162,answers,按人口升序返回3个最低人口国家；问题明确要求3个。
+AL0163,answers,按赛事及左手标记筛选，并对胜者ID去重计数。
+AL0164,does_not_answer,有船在其他地点损失不等于没有船在English Channel损失；还漏掉无损失船只的战役。
+AL0165,answers,按国籍分组返回最大净资产。
+AL0166,answers,排除播过Ben Jones动画的频道后返回其套餐。
+AL0167,answers,筛选四缸汽车并按数值马力降序返回最高车型。
+AL0168,answers,排除Republic政府形式及存在英语记录的国家。
+AL0169,answers,限定欧洲并按国家制造商数至少3筛选。
+AL0170,answers,返回非俄罗斯国籍人员姓名。
+AL0171,answers,正确统计非洲各国不同政府形式数。
+AL0172,answers,返回指定剧集的周排名。
+AL0173,answers,按亚洲国家面积降序返回最大者的名称、人口和预期寿命。
+AL0174,does_not_answer,以语言数代替国籍数，未回答问题所要求的数量维度。
+AL0175,does_not_answer,播出日期为英文月份文本，字典序选出2008年11月而非最新2009年2月动画。
+AL0176,answers,按最小歌手年龄返回歌曲名和发行年。
+AL0177,answers,机场表AirportCode准确匹配AKO并返回名称。
+AL0178,answers,按弃养标记1返回狗名、年龄和重量。
+AL0179,answers,正确筛选32岁或33岁的教师姓名。
+AL0180,answers,排除有朋友关系记录的学生后取最低年级。
+AL0181,answers,交集正确要求球员在2013与2016均有胜场。
+AL0182,answers,返回Sky Radio频道全部剧集名称。
+AL0183,does_not_answer,历史排名连接放大比赛记录，按积分再分组，选出Karolina而非胜场最多的Angelique。
+AL0184,does_not_answer,Africa属于Continent取值，错误使用Region导致AVG为NULL。
+AL0185,answers,以永久地址关联，并使用Haiti或指定手机号码的条件。
+AL0186,does_not_answer,城市实际存为'Anthony '，直接等值匹配漏掉ANY机场。
+AL0187,does_not_answer,城市尾随空格及航班代码前导空格使筛选失配；规范化后Aberdeen出发数为21。
+AL0188,answers,关联扑克玩家并按身高降序返回最高者的奖金排名。
+AL0189,answers,按高清标记yes返回套餐选项和系列名称。
+AL0190,answers,正确统计GovernmentForm字段为Republic的国家数。
+AL0191,answers,关联学生养宠关系，正确统计女生所养的狗。
+AL0192,answers,筛选身高大于200的扑克玩家并计算平均收益。
+AL0193,does_not_answer,起降机场代码前导空格与城市尾随空格导致连接、过滤失配；规范化后有2班。
+AL0194,answers,排除使用英语的国家后汇总其余国家人口。
+AL0195,answers,按导演分组统计动画数。
+AL0196,answers,筛选2014年演唱会并返回去重歌手姓名。
+AL0197,answers,在Republic国家范围内按语言分组，筛选仅一国使用者。
+AL0198,does_not_answer,机场代码及城市名空格未处理，错误返回0；规范化对照为2班。
+AL0199,does_not_answer,英文月份日期文本按字典序排序，不是按实际播出时间排序。
+AL0200,answers,按歌手国籍人数降序取最多的United States。
+AL0201,answers,以永久住址筛选Haiti，或匹配指定手机号码，返回学生名字。
+AL0202,answers,按店铺统计雇佣人数并返回最多员工的店名。
+AL0203,answers,排除播过Ben Jones作品的频道ID。
+AL0204,answers,返回Ben Jones导演的全部动画标题。
+AL0205,does_not_answer,机场代码前导空格及城市名尾随空格造成连接、筛选失配；实际规范化后为2班。
+AL0206,does_not_answer,“比非洲任何国家都多”需要超过非洲最大人口；SQL仅超过最小人口。
+AL0207,does_not_answer,城市存为'Anthony '，未处理尾随空格导致漏掉实际机场。
+AL0208,does_not_answer,COUNT(*)累计国家-语言记录，同一语言在同洲多国被重复计算，未统计语言种数。
+AL0209,answers,按单次奖金降序取最高者姓名，符合one time限定。
+AL0210,answers,按每只狗汇总治疗费用并筛选总额大于1000。
+AL0211,answers,排除英语为官方语言的国家后计算平均预期寿命。
+AL0212,answers,正确返回Hawaii或Wisconsin专业人员的邮箱。
+AL0213,does_not_answer,缺少PetType='dog'条件；查询最年轻宠物而非最年轻狗，当前结果仅碰巧相同。
+AL0214,answers,先筛选30岁以下员工，再按城市计数大于1。
+AL0215,does_not_answer,四缸车MPG含文本'null'；CAST将其变成0并计入AVG，压低有效MPG均值。
+AL0216,question_underspecified,“most popular”未指定按说话人数、国家覆盖或各国比例衡量；SQL采用各国比例之和。
+AL0217,answers,返回非俄罗斯国籍人员姓名。
+AL0218,answers,按净资产升序排列歌手姓名。
+AL0219,answers,按国籍人数取最常见的United States。
+AL0220,answers,按字母顺序列出全部动画标题。
+AL0221,does_not_answer,DISTINCT作用于姓名和排名组合，同一Madison Keys占3行，不是3位最年轻胜者。
+AL0222,does_not_answer,DestAirport实际有前导空格，直接与APG比较遗漏11条到达航班。
+AL0223,does_not_answer,Europe是Continent而非Region取值；子查询MAX为NULL，面积比较失效。
+AL0224,answers,筛选独立年份早于1930的国家并统计不同官方语言。
+AL0225,question_underspecified,“visited some museums more than once”可指总访问次数或重复访问同一馆；SQL只统计总访问次数。
+AL0226,answers,按战役汇总死亡人数，并返回总数大于10的ID和名称。
+AL0227,does_not_answer,整数出生日期不能由该strftime表达式解析，排序键全NULL。
+AL0228,does_not_answer,机场代码及城市名空格未处理，抵达Aberdeen或Abilene的统计错误为0。
+AL0229,question_underspecified,登记age与出生日期的年龄顺序冲突；题目未指定依据，SQL按age计数。
+AL0230,answers,排除有养宠关系的学生后计算平均年龄。
+AL0231,answers,按净资产降序返回最富有歌手姓名。
+AL0232,does_not_answer,错误以Region='Europe'筛选导致MIN为NULL；也未比较欧洲最大面积。
+AL0233,answers,按球员国家代码分组计数。
+AL0234,answers,由Kabul关联所属国家并返回Region字段。
+AL0235,does_not_answer,航班机场代码和城市名存在空格，连接过滤失配；实际Aberdeen出发航班为21。
+AL0236,does_not_answer,目的机场代码有前导空格，AHD直接等值匹配遗漏实际航空公司。
+AL0237,does_not_answer,连接全部历史排名放大胜场计数，并返回未指定日期的任意积分。
+AL0238,does_not_answer,DestAirport实际为带前导空格的代码；United Airlines到ASY有1班，SQL返回0。
+AL0239,answers,正确筛选Hawaii或Wisconsin并返回专业人员邮箱。
+AL0240,answers,交集正确要求同地区具有两类商品数量店铺；当前无符合地区。
+AL0241,answers,筛选1980年后生产汽车并返回不同型号。
+AL0242,answers,使用OR合并制造商数大于3与生产fiat的国家。
+AL0243,answers,左连接保留无治疗记录者，以Indiana或治疗次数大于2筛选专业人员。
+AL0244,answers,正确筛选32岁或33岁的教师。
+AL0245,answers,将MPG转换为数值并取最高者，返回最省油车型。
+AL0246,answers,按Kyle的学生ID关联Friend并计数。
+AL0247,answers,正确统计重量大于10的宠物。
+AL0248,answers,限定亚洲及Chinese官方语言，返回去重城市名称。
+AL0249,answers,由指定动画标题关联返回频道系列名。
+AL0250,does_not_answer,缺少欧洲洲别筛选，错误包含japan和usa。
+AL0251,answers,“won in”按在赛事中赢过比赛理解，交集返回两个赛事均有胜场的球员。
+AL0252,answers,正确统计2014或2015年的演唱会。
+AL0253,answers,按容量5000至10000筛选场馆位置和名称；当前无符合者。
+AL0254,does_not_answer,MPG为文本且含'null'，倒序选中缺失油耗的citroen而非数值最高车型。
+AL0255,answers,按GovernmentForm的US Territory分类汇总GNP均值和人口。
+AL0256,does_not_answer,仅保留有非官方英语记录的国家，漏掉完全没有英语记录的国家。
+AL0257,does_not_answer,题目要求两个年份都参赛，SQL要求两个年份都获胜，漏掉仅以负者身份参赛的球员。
+AL0258,does_not_answer,航班目的机场代码有前导空格，直接筛选AHD错误返回空表。
+AL0259,does_not_answer,仅按州连接把州内全部区号当成投票区号；应由投票者电话号码识别区号。
+AL0260,answers,正确返回指定剧集的周排名。
+AL0261,answers,筛选USA球员并返回名字和出生日期。
+AL0262,answers,通过交集要求同地区同时有两类店铺；当前无符合者。
+AL0263,answers,正确排除法国国籍歌手。
+AL0264,answers,按独立年份晚于1950筛选国家名。
+AL0265,answers,按Kyle姓名定位并返回年级。
+AL0266,answers,筛选CA投票并取最新时间戳。
+AL0267,answers,使用交集要求同一战役同时损失Lettice与HMS Atalanta。
+AL0268,answers,正确返回Port Chelsea地址的邮政编码。
+AL0269,answers,从全部场馆排除2014年办过演唱会者。
+AL0270,answers,正确统计亚洲国家数。
+AL0271,answers,用交集返回同时有英语与法语记录的国家。
+AL0272,answers,按制造商所属国家分组，返回有厂商的国家名及对应ID。
+AL0273,answers,排除指定籍贯后返回教师姓名。
+AL0274,answers,关联厂商至1970年汽车记录并返回去重厂商全名。
+AL0275,answers,同时限定重量小于3500及非Ford厂商，返回不同型号。
+AL0276,answers,按JetBlue Airways名称返回所属国家。
+AL0277,answers,正确筛选左手球员并按出生日期排列，即按年龄从大到小排序。
+AL0278,answers,筛选欧洲国家并排除英语为官方语言者，返回其城市。
+AL0279,answers,返回库中Beatrix领导的国家的官方语言。
+AL0280,question_underspecified,博物馆2与4各有2次访问并列最多；题目未明确并列时返回一馆还是全部。
+AL0281,answers,按国家代码统计球员数。
+AL0282,answers,关联扑克玩家并按身高降序返回最高者奖金排名。
+AL0283,answers,按年龄升序排列员工姓名。
+AL0284,does_not_answer,student_id与transcript_id不是学生和成绩单的关联键；直接相等连接错配人员。
+AL0285,answers,分别关联官方英语及官方法语记录，正确要求两者都存在。
+AL0286,answers,从全部频道ID中排除Ben Jones动画所在频道。
+AL0287,answers,返回Anguilla所属洲。
+AL0288,answers,使用交集返回2014与2015都办过演唱会的场馆及位置。
+AL0289,answers,筛选20岁以上学生并统计其养宠关系；当前为0。
+AL0290,answers,正确返回年龄大于1的宠物ID与重量。
+AL0291,answers,返回所在国家使用英语且人口最多的城市；附加人口列无害。
+AL0292,answers,按国籍统计歌手数。
+AL0293,answers,排除2014年办过演唱会的场馆后返回名称。
+AL0294,answers,将教师年龄转为整数后按从小到大排序。
+AL0295,question_underspecified,“least expensive”未明确按单次最低价还是该类型平均费用；SQL按单次最低价。
+AL0296,answers,正确筛选容量在5000至10000之间的场馆；实际为空。
+AL0297,answers,正确统计亚洲国家数。
+AL0298,question_underspecified,有5个国家各记录12种语言并列最高；题目未指定并列时取一个还是全部。
+AL0299,answers,按年龄升序返回员工姓名。
+AL0300,answers,正确筛选法国歌手并计算年龄均值、最小值和最大值。
+AL0301,answers,排除英语频道后返回每个频道的像素宽高比和国家。
+AL0302,answers,按国家统计球员数并筛选大于50者。
+AL0303,answers,正确统计2014或2015年的演唱会。
+AL0304,answers,按国籍分组统计人数。
+AL0305,answers,关联Todd Casey编剧作品的频道并返回国家；当前两条国家不重复。
+AL0306,does_not_answer,SourceAirport含前导空格，APG与CVO直接比较均不匹配，交集错误为空。
+AL0307,answers,正确关联United Airlines并返回航班号。
+AL0308,answers,从Kabul城市关联国家并返回Region。
+AL0309,answers,返回Anguilla所属洲。
+AL0310,does_not_answer,城市实际存为'Aberdeen '，直接等值比较漏掉两个机场。
+AL0311,answers,通过IN选出有朋友的学生，每人只计一次平均年级。
+AL0312,answers,筛选Afghanistan和官方标记T，正确计数。
+AL0313,answers,通过差集返回无英语记录的国家代码。
+AL0314,question_underspecified,“average”未指定全体城市还是区内城市的平均人口；SQL采用全体城市平均。
+AL0315,answers,按店铺雇佣记录数降序取最多者。
+AL0316,does_not_answer,student_enrolment_id与transcript_id不是对应关联键，成绩单连接错误。
+AL0317,does_not_answer,目的机场代码含前导空格，AHD直接匹配遗漏实际航班公司。
+AL0318,answers,限定亚洲及Chinese为官方语言，正确返回不同城市名。
+AL0319,answers,按USA筛选并返回全部航空公司名称和缩写。
+AL0320,answers,按年龄从小到大排列员工姓名。
+AL0321,answers,合计亚洲与欧洲国家的面积。
+AL0322,answers,返回歌手国籍中人数最多的United States。
+AL0323,answers,按国籍分组筛选至少2人的国家。
+AL0324,answers,通过交集筛选1945年前出生与1955年后出生歌手共享国籍。
+AL0325,does_not_answer,Caribbean地区不等于美国属地，筛选对象错误。
+AL0326,answers,关联指定制造商并统计其型号数。
+AL0327,answers,按高清支持yes筛选并返回套餐和系列名。
+AL0328,answers,按指定人口区间返回城市名称。
+AL0329,answers,返回Kyle的学生ID。
+AL0330,answers,筛选国籍不是USA的指挥家并返回姓名。
+AL0331,answers,按身高降序选出最高扑克玩家的奖金排名。
+AL0332,answers,按人口降序返回前三个国家名称。
+AL0333,answers,筛选20岁以上歌手并返回去重国家。
+AL0334,answers,筛选会员级别不高于4的访客并计算平均年龄。
+AL0335,does_not_answer,Europe是洲名，不是Region取值；外层筛选错误导致无城市返回。
+AL0336,answers,筛选歌名含Hey并返回歌手姓名与国家。
+AL0337,answers,返回Brazil人口与预期寿命。
+AL0338,answers,以国家差集排除存在Todd Casey动画播出记录的国家。
+AL0339,answers,按面积降序返回5个最大国家及面积。
+AL0340,answers,按人口升序返回3个最低人口国家。
+AL0341,question_underspecified,“likes Kyle has”未明确是Kyle发出的喜欢还是收到的喜欢；SQL统计收到的喜欢。
+AL0342,answers,以Spanish使用比例大于50%统计西班牙语占多数的国家。
+AL0343,answers,返回非英语频道的像素宽高比与国家。
+AL0344,answers,正确统计30岁以下访客数。
+AL0345,answers,筛选2014、2015并要求场馆覆盖两个不同年份。
+AL0346,answers,返回最高扑克玩家的奖金排名。
+AL0347,answers,同时匹配Timmothy与Ward，返回手机号码。
+AL0348,answers,按Joseph Kuhr编剧筛选动画并计数。
+AL0349,answers,机场代码AKO在机场表准确匹配，返回对应名称。
+AL0350,answers,正确筛选1948或1949年出生的歌手。
+AL0351,answers,正确返回出生于1948或1949年的歌手姓名。
+AL0352,answers,排除英语为官方语言国家后计算平均预期寿命。
+AL0353,answers,限定1974年与八缸，正确取最小重量。
+AL0354,answers,按航空公司ID关联并正确统计JetBlue Airways的100个航班。
+AL0355,answers,返回歌名含Hey的歌手姓名及国家。
+AL0356,does_not_answer,DestAirport实际有前导空格，直接APG等值过滤漏掉11条航班。
+AL0357,answers,正确返回年龄大于1的宠物ID与重量。
+AL0358,answers,返回Brazil人口与预期寿命。
+AL0359,answers,使用差集及去重返回养狗但不养猫的学生名字。
+AL0360,answers,先找最大容量场馆再统计其演唱会；该场馆实际无演唱会。
+AL0361,answers,返回重量低于全部汽车平均重量的车辆型号。
+AL0362,answers,排除有养宠记录的学生后计算平均年龄。
+AL0363,answers,正确返回United Airlines的航班号。
+AL0364,answers,按商品数量降序返回最多店铺的经理与地区。
+AL0365,answers,按当前住址统计人数，返回最多地址的ID及全部地址行。
+AL0366,answers,返回最年轻歌手的歌名与发行年份。
+AL0367,answers,按Kyle姓名返回学生ID。
+AL0368,answers,以当前年份减成立年份表示存续时长，并按从短到长排列唱片公司。
+AL0369,answers,取2010年后开馆者的最小员工数，再筛选超过该值的全部博物馆。
+AL0370,answers,返回指定剧集的播出日期。
+AL0371,answers,正确统计Kyle作为学生端的朋友记录。
+AL0372,answers,返回年龄超过全体歌手平均年龄的歌曲。
+AL0373,answers,按赛事名称分组，筛选比赛记录数大于10者。
+AL0374,does_not_answer,起飞机场代码及城市名空格未处理，连接、筛选失配导致遗漏Aberdeen航班。
+AL0375,does_not_answer,同种语言在一洲多个国家出现被重复计数，统计的不是语言种数。
+AL0376,answers,交集正确要求英语和法语都为官方语言。
+AL0377,answers,按净资产数值升序列出歌手。
+AL0378,does_not_answer,SourceAirport含前导空格，AHD直接比较导致United Airlines航班计数错误为0。
+AL0379,answers,同时限定猫与3岁，返回其主人学生的姓。
+AL0380,answers,正确限定欧洲与人口恰为80000；库中无符合国家。
+AL0381,answers,返回A Love of a Lifetime的播出日期。
+AL0382,answers,按人口升序返回3个最低人口国家。
+AL0383,answers,排除已有课程安排的教师后返回姓名。
+AL0384,does_not_answer,机场代码前导空格及城市名尾随空格导致统计失配。
+AL0385,answers,按厂商ID统计型号数，并返回全名和ID；覆盖全部22家厂商。
+AL0386,answers,每个有朋友学生仅取一次，正确计算平均年级。
+AL0387,answers,用UNION合并Indiana居民和治疗次数大于2的专业人员。
+AL0388,answers,通过朋友关系双向实体关联返回Kyle的朋友姓名。
+AL0389,does_not_answer,Horsepower为文本且含'null'，文本降序选中ford缺失值而非数值最大马力。
+AL0390,answers,使用交集要求学生同时拥有猫和狗；当前无符合者。
+AL0391,does_not_answer,州名实际存为'NorthCarolina'，SQL使用'North Carolina'不匹配，漏掉未注册学生。
+AL0392,answers,关联宠物、主人学生，正确统计女生养的狗。
+AL0393,question_underspecified,age与出生日期标识的最年轻狗不同；题目未指定依据，SQL采用出生日期。
+AL0394,answers,SQLite单个MAX聚合使语言列对应最大比例记录；返回国家代码及其最常用语言。
+AL0395,answers,筛选30岁以下员工，按城市计数大于1。
+AL0396,does_not_answer,目的机场代码及城市名的空格导致连接和过滤失配，漏掉实际到达航班。
+AL0397,answers,按面积降序返回最大国家的名称、人口与领导人；列顺序无害。
+AL0398,answers,按厂商分组统计型号数并返回全名、ID。
+AL0399,answers,正确合计亚洲与欧洲的国家面积。
+AL0400,answers,正确返回指定剧集的周排名。
+AL0401,answers,按US Territory政府形式分类计算GNP均值和总人口。
+AL0402,answers,按年龄降序返回全部歌手姓名、国家和年龄。
+AL0403,answers,排除拥有猫的学生，保留无宠物者，返回专业与年龄。
+AL0404,answers,正确统计独立年份早于1930国家的不同官方语言。
+AL0405,does_not_answer,完整车型名称存于Make而非Model；错误列条件导致遗漏amc hornet sportabout (sw)。
+AL0406,does_not_answer,按国家分组却选未聚合id，只返回任意一个频道；未列出符合国家的全部频道ID。
+AL0407,answers,正确统计9或10年级高中生。
+AL0408,does_not_answer,州名实际存为'NorthCarolina'，SQL使用'North Carolina'不匹配，漏掉未注册学生。
+AL0409,answers,正确统计2013或2016年的全部比赛记录。
+AL0410,answers,按国家代码分组筛选球员数大于50者。
+AL0411,answers,交集返回1945年前与1955年后出生歌手共享的国籍。
+AL0412,answers,按厂商ID统计型号数大于3，返回全名及ID。
+AL0413,answers,本库教师年龄都是两位数字文本，字典序与数值序一致，正确从年轻到年长。
+AL0414,answers,排除2014年举办过演唱会的场馆。
+AL0415,answers,按店铺所在地分组计数。
+AL0416,answers,正确关联Kyle的朋友关系并统计条数。
+AL0417,answers,按france国家名称筛选并统计汽车制造商。
+AL0418,does_not_answer,播出日期是英文月份文本，直接排序不是时间先后顺序。
+AL0419,does_not_answer,机场代码及城市名空格未处理，United Airlines到Aberdeen的计数错误。
+AL0420,answers,按导演分组正确统计动画数量。
+AL0421,does_not_answer,航班代码有前导空格，与机场表代码不一致，错误把全部100个机场判为没有航班。
+AL0422,answers,正确统计重量大于10的宠物。
+AL0423,answers,正确返回Kyle的年级。
+AL0424,does_not_answer,英文月份日期按文本降序，选出的并非实际最新动画。
+AL0425,question_underspecified,胜场最多球员选取正确，但其排名积分随比赛变化；问题未说明要哪个时点的积分。
+AL0426,answers,返回没有雇佣记录的店铺名称。
+AL0427,does_not_answer,SourceAirport含前导空格，AHD直接筛选导致航班数错误为0。
+AL0428,answers,筛选会员等级大于4，并按等级从高到低返回姓名。
+AL0429,answers,正确排除USA国籍指挥家。
+AL0430,does_not_answer,按每辆车输出造成型号反复出现252行，未按所问车型去重。
+AL0431,answers,筛选3岁的猫并返回学生主人的姓。
+AL0432,answers,按赛事名称分组，返回比赛记录多于10条的赛事。
+AL0433,does_not_answer,按比赛行取前三，三行均为Madison Keys，不是3位最年轻胜者。
+AL0434,answers,按导演分组计数，正确返回动画数量。
+AL0435,does_not_answer,题目要求人口为80000，SQL改成大于80000。
+AL0436,does_not_answer,COUNT(*)统计3场胜局，而不是2位不同的左手胜者。
+AL0437,answers,按单次奖金最大值返回员工姓名。
+AL0438,answers,返回Brazil人口与预期寿命。
+AL0439,answers,正确统计女生养的狗。
+AL0440,answers,排除有English语言记录的国家代码。
+AL0441,answers,按非France国籍筛选歌手姓名。
+AL0442,answers,按国家球员数降序返回最多的USA。
+AL0443,answers,关联Volvo车型并按最小加速时间返回气缸数。
+AL0444,answers,返回Sky Radio频道对应的剧集名称。
+AL0445,answers,返回Sky Radio的Content字段。
+AL0446,answers,正确统计亚洲国家。
+AL0447,answers,排除播过Ben Jones作品的频道，返回剩余频道的套餐。
+AL0448,answers,按Tabatha Gehling候选人关联投票，返回创建时间、州和电话号码。
+AL0449,answers,限定狗并取最小年龄对应重量。
+AL0450,answers,筛选亚洲国家并按预期寿命升序取最小者。
+AL0451,question_underspecified,“likes Kyle has”未明确发出还是收到的喜欢；SQL统计Kyle发出的喜欢。
+AL0452,answers,以学期交集要求Master与Bachelor学生都注册，返回学期名称。
+AL0453,answers,关联学生、养宠关系及宠物，正确统计女生养的狗。
+AL0454,answers,按年龄升序排列指挥家姓名。
+AL0455,question_underspecified,“with more than 1 room”可仅修饰公寓或同时修饰房屋和公寓；SQL采用后者。
+AL0456,answers,按年级统计学生人数。
+AL0457,answers,正确统计2013或2016年的比赛数。
+AL0458,answers,按国家频道数降序返回最多国家及其数量。
+AL0459,answers,排除有英语记录国家后汇总人口。
+AL0460,question_underspecified,否定范围可针对单个频道或整个国家所有频道；SQL返回至少有一个不播该编剧作品频道的国家。
+AL0461,answers,正确统计USA航空公司数量。
+AL0462,does_not_answer,COUNT(Language)重复计算同一语言在多个国家的记录，未统计不同语言种类。
+AL0463,answers,按人汇总全部票务支出，返回累计最多者的ID、姓名和等级。
+AL0464,answers,正确统计1980年生产的汽车。
+AL0465,does_not_answer,起飞机场代码与城市名空格导致连接、过滤失配，漏掉Aberdeen航班。
+AL0466,answers,以亚洲最小人口为上界，正确返回人口比所有亚洲国家都少的非洲国家。
+AL0467,does_not_answer,机场代码及城市名空格未处理，抵达两城市的统计错误为0。
+AL0468,answers,用交集返回2013与2016都有胜场的球员。
+AL0469,does_not_answer,机场代码及城市名空格导致筛选失配，未正确统计到Aberdeen的United Airlines航班。
+AL0470,answers,排除有朋友关系的学生并取最小年级。
+AL0471,answers,正确计算法国歌手年龄平均值、最小值和最大值。
+AL0472,question_underspecified,房间数限制可只修饰公寓或也修饰房屋；SQL对房屋不限制房间数。
+AL0473,answers,按宠物最小年龄返回类型与重量。
+AL0474,answers,使用General Motors或重量大于3500条件，正确返回去重型号。
+AL0475,answers,返回歌手人数最多的国籍。
+AL0476,answers,正确筛选弃养标记1的狗并返回名字、年龄和重量。
+AL0477,does_not_answer,同一制造商因多辆1970年汽车重复返回，34行并非11个不同厂家。
+AL0478,answers,按国家球员数降序返回最多的USA。
+AL0479,answers,关联美国厂商与型号表，正确统计车型数量。
+AL0480,does_not_answer,文本MPG降序优先取到'null'缺失值，返回的citroen并非数值MPG最高车型。
+AL0481,answers,返回Sky Radio频道的套餐选项。
+AL0482,does_not_answer,把两位导演拼成不存在的单个Directed_by值，未表达对两位导演作品的条件。
+AL0483,question_underspecified,问题未定义毕业时间口径；SQL使用离校日期date_left，库中没有明确毕业状态或毕业日期。
+AL0484,answers,汇总Gelderland地区全部已记录城市的人口。
+AL0485,answers,按Caribbean地区汇总国家面积。
+AL0486,answers,在Australian Open胜者记录中按排名积分降序返回最高者。
+AL0487,answers,按语言统计使用它的亚洲国家数，取最多者。
+AL0488,question_underspecified,“likes Kyle has”未明确发出还是收到的喜欢；SQL统计收到的喜欢。
+AL0489,answers,筛选身高大于200的扑克玩家并计算平均收益。
+AL0490,answers,按美国厂商关联型号表并正确计数。
+AL0491,answers,按国家统计频道数，返回最多的Italy及12个频道。
+AL0492,answers,由指定剧集关联频道并返回系列名称。
+AL0493,answers,筛选亚洲国家中Chinese为官方语言者并返回不同城市名。
+AL0494,answers,同时匹配Timmothy和Ward后返回手机号。
+AL0495,answers,用UNION合并永久居住Haiti和匹配指定手机号的学生名字。
+AL0496,answers,筛选2009年前开馆的博物馆并计算平均员工数。
+AL0497,answers,正确统计9或10年级学生。
+AL0498,answers,通过机场表代码AKO正确返回名称。
+AL0499,does_not_answer,超过欧洲最小面积只表示大于至少一国；题目“比任何欧洲国家都大”应比较最大面积。
+AL0500,answers,按人口升序返回3个人口最低的国家。
+AL0501,question_underspecified,题目未区分Kyle发出还是收到的喜欢；SQL按student_id统计发出的喜欢。
+AL0502,answers,正确统计独立年份早于1930国家的不同官方语言。
+AL0503,answers,通过Kyle的学生ID关联朋友ID并返回朋友姓名。
+AL0504,answers,返回Angola的地区和人口。
+AL0505,answers,按收益从高到低列出各扑克玩家的收益金额。
+AL0506,answers,返回曾执行低于全部治疗平均费用项目的专业人员姓名并去重。
+AL0507,answers,筛选非英语频道并返回像素宽高比及国家。
+AL0508,answers,筛选gm厂商或重量大于3500的车辆，返回不同型号。
+AL0509,answers,返回库中Beatrix领导国家的官方语言。
+AL0510,answers,统计非洲国家的不同政府形式数量。
+AL0511,answers,筛选左手球员并按出生日期升序，即年龄降序排列。
+AL0512,answers,正确合计亚洲人口并取亚洲国家最大GNP。
+AL0513,answers,按制造商统计型号数量并返回ID与全名。
+AL0514,answers,以交集筛选同时有Master与Bachelor学生注册的学期ID。
+AL0515,does_not_answer,机场表代码与带前导空格的航班代码不匹配，错误返回全部100个机场。
+AL0516,answers,按面积降序返回最大国家的人口、名称及领导人。
+AL0517,answers,两次关联船只，正确要求同一战役损失两艘指定船。
+AL0518,does_not_answer,起飞机场代码含前导空格，SQL返回0而实际APG出发航班为11。
+AL0519,answers,在Republic国家范围内按语言分组，筛选仅一国使用者。
+AL0520,answers,返回Spanish使用比例大于50%的国家代码。
+AL0521,answers,按Todd Casey作品关联频道并返回不同国家。
+AL0522,answers,按收益降序列出扑克玩家收益。
+AL0523,answers,按国籍分组筛选至少2人的国家。
+AL0524,does_not_answer,SourceAirport含前导空格，直接APG、CVO比较使交集错误为空。
+AL0525,answers,排除有访问记录的博物馆，返回无访客馆名。
+AL0526,answers,正确在Make字段匹配完整车型并返回加速时间13.5。
+AL0527,answers,按年龄降序返回全部歌手姓名、国家与年龄。
+AL0528,answers,正确使用OR筛选Ben Jones或Brandon Vietti导演的动画。
+AL0529,answers,先按国家统计制造商数大于2，再计符合国家数。
+AL0530,answers,返回非法国国籍歌手姓名。
+AL0531,does_not_answer,机场代码与城市名中的空格导致连接及筛选失配，抵达航班统计错误。
+AL0532,answers,正确筛选USA球员并返回名字及出生日期。
+AL0533,does_not_answer,官方语言标记不等于使用占比最高或过半；SQL未使用Percentage，计数相同仅是当前数据巧合。
+AL0534,answers,按国家球员数量筛选大于50者。
+AL0535,answers,筛选住Virginia的主人并返回其名字和狗名。
+AL0536,answers,正确统计处置为Captured的船只。
+AL0537,question_underspecified,题目“sold than 300000”缺少比较词，无法确定要大于还是小于；SQL采用大于。
+AL0538,question_underspecified,各籍贯人数都是1并列最多；题目未明确并列处理方式。
+AL0539,does_not_answer,起飞机场代码有前导空格，直接过滤APG漏掉11条航班。
+AL0540,answers,以General Motors或重量大于3500筛选并返回不同车型。
+AL0541,answers,先筛选有超过2家制造商的国家，再统计国家数量。
+AL0542,answers,返回JetBlue Airways所属国家USA。
+AL0543,does_not_answer,MPG中的文本'null'被AVG当作0计入；四缸车有效数值平均为29.2868而非28.8623。
+AL0544,does_not_answer,起飞机场代码有前导空格，AHD直接筛选错误为空。
+AL0545,answers,按比赛时长降序返回最长比赛胜负双方姓名。
+AL0546,question_underspecified,题目未明确Kyle发出还是收到的喜欢；SQL统计收到的喜欢。
+AL0547,answers,将教师年龄转成数值并从年轻到年长排序。
+AL0548,answers,正确返回Kyle的年级。
+AL0549,answers,筛选1930年前独立国家，并统计不同官方语言。
+AL0550,answers,交集返回1945年前与1955年后出生歌手共享的国籍。
+AL0551,answers,按USA筛选航空公司并返回名称、缩写。
+AL0552,answers,正确计算亚洲总人口与最大GNP。
+AL0553,answers,返回重量低于汽车总体平均值的车辆型号。
+AL0554,answers,按员工年龄升序排列姓名。
+AL0555,answers,按国家最大语言占比回查全部匹配语言，包含并列最高者。
+AL0556,answers,正确返回10年级学生姓名。
+AL0557,answers,筛选Chinese语言记录并统计不同洲数。
+AL0558,does_not_answer,城市名实际为'Aberdeen '，未处理尾随空格，遗漏两个机场。
+AL0559,answers,按店铺所在地分组计数。
+AL0560,does_not_answer,仅检查是否有Spanish记录，未要求西班牙语占多数或占比最高，额外包含非主要语言国家。
+AL0561,answers,按籍贯筛选至少2名教师的城镇；实际各城镇仅1人，结果为空。
+AL0562,answers,正确统计Afghanistan的官方语言数。
+AL0563,does_not_answer,缺少狗的类型条件，查询最年轻宠物而不是最年轻狗。
+AL0564,answers,按国家代码统计球员数量。
+AL0565,answers,通过课程安排关联Math课程，返回授课教师姓名。
+AL0566,answers,统计有Chinese语言记录的不同洲数。
+AL0567,answers,按国家面积降序返回前5个国家及面积。
+AL0568,answers,排除养宠学生后计算其余学生平均年龄。
+AL0569,does_not_answer,城市实际存为'Anthony '，直接等值条件遗漏ANY机场。
+AL0570,answers,正确统计1980年生产汽车数。
+AL0571,does_not_answer,按比赛行截取三行均为Madison Keys，未返回三个不同胜者。
+AL0572,answers,正确统计2013或2016年的比赛。
+AL0573,answers,由指定剧集关联并返回所属频道系列名称。
+AL0574,answers,要求官方语言集合同时包含English和French。
+AL0575,answers,正确按标题字母顺序排列动画。
+AL0576,does_not_answer,文本MPG的MAX结果是字符串'null'，不是数值最大值。
+AL0577,answers,返回Kyle的年级。
+AL0578,answers,正确统计1980年汽车生产记录。
+AL0579,answers,按导演分组返回动画数。
+AL0580,answers,按学生ID分组，要求猫、狗两种宠物都存在。
+AL0581,answers,正确筛选32或33岁的教师。
+AL0582,answers,返回高于歌手平均年龄者的歌曲名称。
+AL0583,answers,从全部频道中排除播放Ben Jones作品的频道ID。
+AL0584,answers,返回商品数高于全体店铺平均值的店名。
+AL0585,answers,正确统计USA航空公司数。
+AL0586,answers,汇总Gelderland地区已记录城市的人口。
+AL0587,answers,按年龄升序排列指挥家姓名。
+AL0588,answers,返回在2014年演唱会演出的歌手并去重。
+AL0589,does_not_answer,SourceAirport带前导空格，两个机场条件不匹配，差集错误为空。
+AL0590,answers,返回执行过低于总体平均费用治疗的专业人员姓名并去重。
+AL0591,answers,筛选2013年后演唱会，按场馆次数取最多者名称及容量。
+AL0592,answers,按赛事名称分组，筛选比赛数大于10。
+AL0593,answers,按国籍返回最大净资产。
+AL0594,answers,按语言统计亚洲使用国家数，取最多者。
+AL0595,answers,按专业人员统计治疗次数，正确筛选至少2次者并返回ID、角色和名字。
+AL0596,does_not_answer,若比较各国西语占比，CUB与SLV均为100%，LIMIT 1漏一国；若问各国内主要语言，则也遗漏其他国家。
+AL0597,answers,正确筛选Ben Jones或Brandon Vietti的动画标题。
+AL0598,answers,以Aruba对应国家代码统计语言记录。
+AL0599,answers,正确取1974年八缸汽车的最小重量。
+AL0600,answers,筛选Make包含volvo的汽车，正确计算平均发动机排量。
+AL0601,does_not_answer,Horsepower含2条文本'null'，CAST变成0计入平均，结果111.1329而非有效值均值111.8408。
+AL0602,answers,使用交集返回2014、2015均办过演唱会的场馆及位置。
+AL0603,does_not_answer,文本'null'被AVG当作0，错误拉低1980年前汽车的平均马力。
+AL0604,answers,按主人汇总全部狗的治疗费用，返回总额最多者ID和邮编。
+AL0605,answers,筛选Chinese语言记录并统计不同洲数。
+AL0606,does_not_answer,机场代码及城市名空格造成连接、过滤失配，遗漏Aberdeen出发航班。
+AL0607,answers,正确计算身高大于200的扑克玩家平均收益。
+AL0608,does_not_answer,SourceAirport带前导空格，APG直接筛选遗漏11条航班。
+AL0609,does_not_answer,同一学生Tracy因两只狗重复返回，未按学生去重。
+AL0610,does_not_answer,未处理航班代码前导空格，错误把所有机场都判为无进出航班。
+AL0611,answers,以亚洲最小人口为上界，正确筛选少于每个亚洲国家人口的非洲国家。
+AL0612,question_underspecified,登记age与出生日期的年龄顺序冲突；问题未指定依据，SQL使用登记age。
+AL0613,answers,限定亚洲及Chinese为官方语言，返回去重城市名。
+AL0614,does_not_answer,两个年份都有胜场比两个年份都参赛更严格，漏掉某年仅有败场的参赛胜者。
+AL0615,does_not_answer,目的机场代码有前导空格，直接与AHD比较错误返回空表。
+AL0616,answers,库中非洲所有Region均含Africa且无其他洲满足，LIKE筛选等价于非洲范围。
+AL0617,answers,正确统计france所属汽车制造商。
+AL0618,answers,每位有朋友学生取一次，正确计算平均年级。
+AL0619,does_not_answer,Horsepower含文本'null'，AVG按0处理导致平均马力偏低。
+AL0620,answers,正确计算身高大于200的扑克玩家平均收益。
+AL0621,answers,按france国家关联并统计汽车厂商数。
+AL0622,answers,从非Republic分类国家中排除有English语言记录的国家。
+AL0623,does_not_answer,DestAirport带前导空格，ATO直接过滤得到0而实际有7条到达航班。
+AL0624,answers,正确筛选两位指定导演中任一人的动画。
+AL0625,question_underspecified,9至12年级各4人并列最多，题目未说明并列时取一个年级还是全部。
+AL0626,answers,筛选养猫或养狗学生并去重名字。
+AL0627,does_not_answer,LIMIT 1后再COUNT只得1；最高西语占比100%实际有CUB、SLV两国，亦不是主要使用西语的全部国家数。
+AL0628,question_underspecified,5个国家各有12种语言并列最高；题目未明确如何处理并列。
+AL0629,answers,将马力转为数值后正确统计大于150的汽车。
+AL0630,answers,排除任何有船在English Channel损失的战役，正确保留无此损失者。
+AL0631,answers,返回不来自指定籍贯的教师姓名。
+AL0632,answers,以非洲最大人口为界，正确筛选人口超过所有非洲国家的亚洲国家。
+AL0633,does_not_answer,返回每个符合国家的厂商数4、4、3、5，未汇总成所问国家总数4。
+AL0634,answers,筛选English或Dutch语言记录并返回不同地区。
+AL0635,does_not_answer,英文月份日期按文本排序，未按实际播出时间排序。
+AL0636,answers,正确统计英语频道数量。
+AL0637,does_not_answer,日期存为英文月份文本，倒序选出2008年11月而非最新2009年2月动画。
+AL0638,answers,返回20岁以上歌手所属的不同国家。
+AL0639,answers,正确返回1岁以上宠物的ID和重量。
+AL0640,question_underspecified,最早1970年有多辆车和多家制造商，题目用单数但未指定并列对象；SQL任取gm。
+AL0641,answers,正确汇总Caribbean地区国家面积。
+AL0642,answers,排除拥有猫的学生，保留无宠物者，返回学生ID。
+AL0643,does_not_answer,朋友连接使多朋友学生重复进入AVG，按朋友数加权得到10.25而非学生均值10.4286。
+AL0644,answers,本库教师年龄两位数字文本可正确排序，返回最年轻教师籍贯。
+AL0645,answers,按商品数量降序返回各店铺名称、位置和地区。
+AL0646,answers,要求场馆演唱会年份同时包含2014、2015，正确返回名称及位置。
+AL0647,answers,返回Sky Radio频道对应的全部剧集名称。
+AL0648,answers,通过欧洲洲ID筛选国家并要求至少3家制造商。
+AL0649,answers,按math课程名返回课程描述字段。
+AL0650,answers,按出生日期升序返回最年长球员名字及国家代码。
+AL0651,does_not_answer,只排除播过该编剧作品的频道，仍返回其他频道也播该作品的Italy和United Kingdom，未按国家整体排除。
+AL0652,answers,正确合计Caribbean地区国家面积。
+AL0653,answers,筛选等级高于4的访客并按等级降序返回姓名。
+AL0654,answers,返回没有雇佣记录的店铺。
+AL0655,answers,根据库中对应名字Joseph Kuhr统计其编剧动画数。
+AL0656,answers,按人口降序返回前三个国家。
+AL0657,answers,准确匹配Timmothy Ward并返回手机号。
+AL0658,does_not_answer,州名存为'NorthCarolina'，带空格等值条件不匹配，漏掉Gleichner和Weimann。
+AL0659,answers,返回记录使用至少一种非英语语言的国家代码并去重。
+AL0660,answers,正确返回10年级学生姓名。
+AL0661,answers,正确合计Caribbean地区国家面积。
+AL0662,does_not_answer,未处理航班代码前导空格，错误返回所有机场为无进出航班。
+AL0663,answers,按歌名含Hey筛选歌手姓名及国家。
+AL0664,answers,按专业人员统计治疗次数，筛选至少2次并返回ID、角色和名字。
+AL0665,answers,返回20岁以上歌手所属不同国家。
+AL0666,answers,以Kyle的学生ID关联朋友ID，返回朋友姓名。
+AL0667,does_not_answer,机场代码及城市名空格导致连接、过滤失配，遗漏实际出发航班。
+AL0668,answers,筛选单曲销量超过300000的歌手并去重姓名。
+AL0669,answers,按歌手国籍分组返回最大净资产。
+AL0670,answers,正确统计1980年生产汽车数。
+AL0671,answers,正确统计Joseph Kuhr编剧的动画。
+AL0672,answers,返回Ben Jones导演的动画标题。
+AL0673,answers,正确统计Aruba语言记录数量。
+AL0674,answers,按标准时间戳降序返回最近治疗的费用。
+AL0675,answers,定位最大容量场馆并统计其演唱会；实际为0。
+AL0676,does_not_answer,同一歌手Justin Brown在2014年参加两场，结果重复返回，未按歌手去重。
+AL0677,answers,按治疗日期降序取最近一次的费用。
+AL0678,answers,返回重量低于全部汽车平均值的车辆对应型号。
+AL0679,question_underspecified,最早年份有多辆车及多家制造商，题目未指定并列对象，SQL任取一车的厂家。
+AL0680,answers,将MPG转为数值排序，正确返回最高油耗里程车型mazda。
+AL0681,answers,排除有英语语言记录国家后汇总人口。
+AL0682,question_underspecified,“only used by a single republic country”可限定全球使用国数或只计共和制国家；SQL仅计后者。
+AL0683,question_underspecified,多个国家人口为0并列最少；题目未说明并列时取一个还是全部。
+AL0684,does_not_answer,目的机场代码与城市名空格使连接、过滤失配，Aberdeen到达数错误为0。
+AL0685,question_underspecified,部分国家有并列最高语言比例，题目未明确每国选一门还是列出全部；SQL每国只取一门。
+AL0686,answers,正确返回非英语频道的像素宽高比及国家。
+AL0687,answers,按商品数量从多到少返回店铺名称、位置和地区。
+AL0688,does_not_answer,起飞机场代码含前导空格，直接与AHD比较遗漏实际航班公司。
+AL0689,answers,按单次奖金最大值返回员工姓名。
+AL0690,answers,先筛选制造商数超过2的国家，再计国家总数。
+AL0691,answers,用UNION合并Indiana居民和执行超过2次治疗的专业人员。
+AL0692,does_not_answer,内连接漏掉没有演唱会的Joe Sharp，未返回每位歌手的次数。
+AL0693,answers,正确返回JetBlue Airways的缩写。
+AL0694,question_underspecified,治疗类型最便宜可按最低单次费用或平均费用理解；SQL选择最低单次费用。
+AL0695,answers,使用UNION返回厂商数大于3或生产fiat的国家ID及名称。
+AL0696,answers,正确统计GovernmentForm为Republic的国家。
+AL0697,does_not_answer,同一学生Tracy因两只狗重复返回两行，未按学生去重。
+AL0698,answers,通过课程安排筛选Math课程并返回授课教师。
+AL0699,answers,按教师籍贯分组计数。
+AL0700,answers,关联美国厂商及型号表，正确统计车型数。
+AL0701,answers,正确统计JetBlue Airways的100条航班记录。
+AL0702,answers,按WTA Championships及左手筛选，并去重胜者计数。
+AL0703,answers,通过航空公司ID正确统计JetBlue Airways航班数。
+AL0704,answers,正确筛选欧洲且人口恰为80000的国家；当前无符合者。
+AL0705,answers,按国家要求English与French两种语言均存在。
+AL0706,does_not_answer,机场代码前导空格使CVO与APG筛选失配，差集错误为空。
+AL0707,answers,筛选1980年后汽车并返回不同型号。
+AL0708,answers,正确返回Sky Radio的频道内容。
+AL0709,answers,交集要求同一国家同时有40岁以上与30岁以下歌手。
+AL0710,does_not_answer,SourceAirport带前导空格，APG和CVO直接比较不匹配，交集错误为空。
+AL0711,answers,按主人统计狗数并返回最多者ID、名字和姓氏。
+AL0712,answers,汇总Gelderland地区已记录城市的人口。
+AL0713,answers,正确统计英语频道数。
+AL0714,answers,正确关联United Airlines并返回航班号。
+AL0715,answers,正确统计American Motor Company的车型数。
+AL0716,does_not_answer,只要求两赛事都有单场胜利，未限定赛事夺冠；WTA记录为循环赛RR轮。
+AL0717,answers,正确返回Port Chelsea邮政编码。
+AL0718,does_not_answer,最大西语比例100%有CUB和SLV，LIMIT 1遗漏并列国家；也不满足各国内西语为主要语言的读法。
+AL0719,answers,返回Ben Jones导演的全部动画标题。
+AL0720,answers,正确统计2014或2015年的演唱会。
+AL0721,does_not_answer,目的机场代码及城市名空格造成连接、筛选失配，遗漏到达Aberdeen航班。
+AL0722,question_underspecified,“car”与“versions”未明确按Model、Make还是配置/年份划分；SQL按相同Make的记录数比较。
+AL0723,answers,筛选重量3000至4000磅的汽车并返回不同生产年份。
+AL0724,answers,按狗汇总治疗费用，正确筛选总额超过1000者。
+AL0725,answers,正确返回Plaza Museum的开馆年份与员工数。
+AL0726,answers,筛选英语或荷兰语为官方语言的国家；实际48条国家无重复。
+AL0727,answers,按治疗日期降序返回最新治疗费用。
+AL0728,does_not_answer,起飞机场代码有前导空格，AHD直接比较遗漏航空公司。
+AL0729,answers,按出生日期升序返回最年长球员名字与国家代码。
+AL0730,answers,筛选左手球员，出生日期降序即年龄从小到大排序。
+AL0731,answers,正确返回指定剧集的播出日期。
+AL0732,answers,筛选Hawaii或Wisconsin专业人员并返回邮箱。
+AL0733,answers,返回非USA国籍指挥家姓名。
+AL0734,answers,按主人累计全部狗的治疗费用，返回总额最多者ID与邮编。
+AL0735,answers,正确统计非洲国家不同政府形式数量。
+AL0736,answers,关联Kyle的学生ID并正确统计朋友数。
+AL0737,does_not_answer,"用不存在的合并导演字符串'Ben Jones, Michael Chang'比较，未表达两位导演的作品条件。"
+AL0738,answers,按净资产升序排列歌手姓名。
+AL0739,does_not_answer,SourceAirport含前导空格，AHD直接筛选使United Airlines航班数错误为0。
+AL0740,answers,按国籍分组统计人数。
+AL0741,answers,正确统计USA航空公司数量。
+AL0742,answers,按船汇总受伤人数，返回总伤人数最多船只的ID及名称。
+AL0743,answers,按单次购票数降序，返回一次购票最多者姓名和年龄。
+AL0744,answers,按出生日期升序排列全部球员，即按年龄从大到小。
+AL0745,answers,按店铺雇佣人数降序返回最多员工的店名。
+AL0746,does_not_answer,州名实际为'NorthCarolina'，带空格条件不匹配，漏掉两位未注册学生。
+AL0747,answers,按学生ID分组要求同时有猫和狗，并返回完整姓名。
+AL0748,answers,按国籍返回歌手最大净资产。
+AL0749,answers,筛选Virginia主人并返回其名字及所养狗名。
+AL0750,does_not_answer,SQL只超过欧洲最小面积，未满足超过欧洲任何国家所需的最大面积比较。
+AL0751,answers,“won in”按赛事内获胜理解，要求两个赛事均有胜场；目标记录中姓名和国家组合唯一。
+AL0752,answers,正确统计2013或2016年的比赛数。
+AL0753,answers,返回非USA国籍指挥家姓名。
+AL0754,answers,返回有单曲销量超过300000的歌手并去重姓名。
+AL0755,answers,按商品数量降序返回店铺名、位置与地区。
+AL0756,answers,按厂家ID统计车型数并返回ID、全名，覆盖全部厂商。
+AL0757,does_not_answer,仅统计有演唱会关系的歌手，漏掉0场的Joe Sharp。
+AL0758,answers,限定3岁的猫并返回学生主人的姓。
+AL0759,answers,按国籍分组返回歌手数量。
+AL0760,answers,排除播过Ben Jones作品的频道后返回套餐选项。
+AL0761,answers,准确匹配Timmothy Ward并返回手机号。
+AL0762,answers,排除英语为官方语言的国家，正确计算其余国家平均预期寿命。
+AL0763,answers,按主人所养狗数取最多者，并返回ID及姓名。
+AL0764,does_not_answer,DestAirport有前导空格，SQL统计为0而United Airlines到ASY实际有1班。
+AL0765,answers,按非洲国家统计不同政府形式。
+AL0766,answers,分别关联英语与法语记录，正确要求国家同时使用两者。
+AL0767,answers,按机场表代码AKO正确返回机场名。
+AL0768,does_not_answer,目的机场代码前导空格未处理，United Airlines到ASY的1班航班被漏掉。
+AL0769,answers,交集返回同时注册Master与Bachelor学生的学期ID，题目未限定须返回名称。
+AL0770,answers,按缩写UAL正确返回United Airlines。
+AL0771,does_not_answer,题目限定医生，SQL未筛选兽医角色，返回了Employee等非医生人员。
+AL0772,answers,排除养猫学生并返回其余学生专业及年龄，含无宠物者。
+AL0773,answers,返回没有课程安排记录的教师姓名。
+AL0774,does_not_answer,SourceAirport带前导空格，直接过滤APG遗漏11条航班。
+AL0775,answers,按店铺所在地分组计数。
+AL0776,answers,按国家制造商数量取最多的japan。
+AL0777,does_not_answer,起飞机场代码有前导空格，APG直接匹配漏掉实际航班。
+AL0778,answers,按比赛时长降序返回最长一场的胜负双方姓名。
+AL0779,answers,返回商品数量高于全部店铺平均值的店名。
+AL0780,answers,通过差集返回没有English语言记录的国家代码。
+AL0781,answers,按主人统计犬只数量并取最大值，返回拥有3只犬的主人编号及姓名。
+AL0782,answers,按学生编号连接持有关系，筛选年龄大于20并统计宠物数，实得0。
+AL0783,answers,按制造商分组统计车型，返回车型数大于3的制造商全名及编号。
+AL0784,answers,正确连接学生、持有关系和宠物，筛出3岁猫的主人姓氏。
+AL0785,answers,按首次注册日期升序取第一位学生，返回其名、中间名和姓。
+AL0786,answers,先筛选30岁以下员工，再按城市统计并保留人数大于1的城市。
+AL0787,answers,分别筛选使用英语和法语的国家，通过交集返回同时满足的国家名。
+AL0788,answers,以演唱会所用体育场编号作排除条件，返回没有演唱会的体育场。
+AL0789,does_not_answer,航班起点代码含前导空格，直接与'AHD'比较使实际存在的联合航空航班被漏掉，计数误为0。
+AL0790,question_underspecified,“visited some museums more than once”可指总参观次数超过1，也可指重复参观同一家；SQL仅统计总次数。
+AL0791,does_not_answer,City中实际保存'Anthony '，末尾空格导致等值筛选为空，漏掉当地机场。
+AL0792,answers,按制造商全名统计车型；本库22家制造商均有车型，返回计数和全名。
+AL0793,answers,排除所有养猫学生，返回剩余学生的专业和年龄，包含没有宠物的学生。
+AL0794,answers,按年级分组统计高中生人数，四个年级分别返回4人。
+AL0795,does_not_answer,航班目的地代码有前导空格、城市名有尾随空格，连接和筛选均未规范化，错误返回0。
+AL0796,answers,按Continent='Asia'筛选并计数，返回51个国家记录。
+AL0797,answers,按制造商编号统计车型并筛选超过3种，Maker外键即所求制造商编号。
+AL0798,answers,按指定节目集名筛选，并沿频道外键返回频道的series_name。
+AL0799,answers,由Kabul所在城市关联国家，返回该国的Region。
+AL0800,answers,按节目集名称精确筛选，返回其Air_Date。
+AL0801,answers,对40岁以上和30岁以下歌手的国家取交集，返回France。
+AL0802,answers,以IndepYear作为建国年份字段，正确筛选1950年之后的国家名。
+AL0803,answers,筛选CA投票后取created最大值，返回该州最新投票时间。
+AL0804,does_not_answer,“比亚洲任何国家都少”应与亚洲最小人口比较；SQL用最大人口，使58个非洲国家全部入选。
+AL0805,does_not_answer,"航班起点代码含前导空格，IN('APG','CVO')没有匹配，错误返回空集。"
+AL0806,answers,按体育场编号排除举办过演唱会的场地，返回未举办者名称。
+AL0807,does_not_answer,Caribbean地区不等同于美国属地；查询既包含其他国家又漏掉非加勒比地区的美国属地。
+AL0808,answers,先定位容量最大的体育场，再统计其演唱会数量，结果为0。
+AL0809,answers,按宠物年龄升序取最小者，返回其类型dog及体重9.3。
+AL0810,answers,沿制造商、车型和车辆关系筛选volvo，按Accelerate最小值返回对应气缸数6。
+AL0811,does_not_answer,目的地代码前导空格和Aberdeen城市名尾随空格导致连接筛选失败，漏掉21个到达航班。
+AL0812,question_underspecified,“car”“different versions”未明确按Model、完整Make名称或年份配置界定；SQL按Model统计车辆记录数。
+AL0813,answers,按Language='English'统计频道，返回3个。
+AL0814,answers,通过州字段NY或CA筛选并计数，返回3张投票记录。
+AL0815,answers,用养猫学生集合排除后投影专业和年龄，筛选范围正确。
+AL0816,answers,排除播放Ben Jones执导动画的频道，逐频道返回其套餐选项。
+AL0817,answers,排除有英语语言记录的国家后汇总人口，国家集合和聚合均对应问题。
+AL0818,answers,排除visit表中出现过的博物馆编号，返回没有访客记录的博物馆名。
+AL0819,answers,按Country='USA'筛选航空公司，正确返回名称和缩写。
+AL0820,does_not_answer,起点机场代码前导空格及城市名尾随空格未处理，实际21个出发航班被计为0。
+AL0821,answers,先限定PetType='dog'，再按年龄升序取最年轻犬的体重9.3。
+AL0822,answers,按商店商品数量降序取首位，返回相应经理姓名和地区。
+AL0823,does_not_answer,航班代码和城市名的边缘空格使连接筛选失败，Aberdeen实际21个出发航班被计为0。
+AL0824,does_not_answer,实际SourceAirport为' APG'，直接比较'APG'使11个航班被漏掉。
+AL0825,answers,按比赛分钟数降序取最长比赛，返回该场败者和胜者姓名。
+AL0826,answers,以UNION合并制造商数超过3的国家和生产fiat的国家，返回编号及名称。
+AL0827,answers,用州字段的或条件选出Hawaii及Wisconsin的专业人员邮箱。
+AL0828,answers,按国家统计制造商数量并降序取首位，返回制造商最多的japan。
+AL0829,answers,准确筛选Brazil，返回人口和预期寿命。
+AL0830,question_underspecified,可问存在一个不播该作者作品的频道的国家，也可要求该国所有频道都不播；SQL采用前者并逐频道投影国家。
+AL0831,answers,正确筛选USA航空公司并返回公司名称和缩写。
+AL0832,answers,按主人编号连接犬只，并限定主人住在Virginia，返回主人名和犬名。
+AL0833,does_not_answer,DISTINCT作用于姓名与排名组合，前三行仍全是Madison Keys，并非三位不同的年轻胜者。
+AL0834,answers,限定Australian Open比赛后按胜者排名积分降序取最高者，返回Serena Williams。
+AL0835,does_not_answer,SurfaceArea采用平方千米，题目阈值为3000平方英里；未换算导致多计Trinidad and Tobago，人口总数应为479458000。
+AL0836,answers,将年龄转换为数值并升序取最小者，返回最年轻教师的家乡。
+AL0837,answers,使用IN筛选NY和CA并统计投票，共3条。
+AL0838,answers,按grade=10筛选并列出全部4位学生姓名。
+AL0839,answers,按国家统计电视频道并取最大计数，返回Italy及12个频道。
+AL0840,answers,先限定开馆年份小于2009，再对博物馆员工数取平均。
+AL0841,answers,关联国家与语言表，筛选Afghanistan及官方语言标志T，计数为2。
+AL0842,answers,按GovernmentForm='Republic'统计国家记录，返回122。
+AL0843,answers,沿制造商至车辆关系筛选1970年，并对制造商名称去重。
+AL0844,answers,通过所在国的英语语言记录筛选城市，按城市人口降序取最大者New York。
+AL0845,answers,按商店统计雇用记录并取最多者，FC Haka有2名员工，为唯一最大值。
+AL0846,answers,按净资产降序取首位，返回财富最高的歌手姓名。
+AL0847,answers,从教师集合中排除课程安排出现过的教师编号，返回未分配课程的两位教师。
+AL0848,does_not_answer,用亚洲人口最大值作上界只保证少于某个亚洲国家，不能保证少于亚洲所有国家。
+AL0849,answers,按制造商全名定位American Motor Company并统计其车型，返回1。
+AL0850,answers,筛选Central Africa地区国家后平均LifeExpectancy字段，返回50.3111。
+AL0851,answers,正确关联volvo的全部车辆并计算Edispl平均值，结果133.5。
+AL0852,answers,限定亚洲国家，按预期寿命升序取最小者Afghanistan。
+AL0853,answers,按制造商全名分组统计车型，列顺序不同不影响回答；本库22家制造商均被覆盖。
+AL0854,answers,按赛事名称统计比赛记录，返回比赛数超过10的赛事名称。
+AL0855,answers,学生编号集合减去养猫学生集合，包含没有宠物的学生。
+AL0856,answers,按国家代码统计球员数量并取最多者，返回USA。
+AL0857,answers,按姓名Kyle精确筛选，返回其学生编号1934。
+AL0858,answers,将年龄大于20的学生与持有关系连接并计数，实得0只宠物。
+AL0859,answers,年龄虽为文本，本库均为两位整数，升序与数值顺序一致，正确返回从年轻到年长的教师姓名。
+AL0860,answers,按成立年份降序排列各乐团，返回对应唱片公司。
+AL0861,question_underspecified,“only used by a single republic country”可指全球仅一个使用国且为共和国，也可只在共和国子集中计数；SQL采用后者。
+AL0862,does_not_answer,城市名尾随空格及航班目的地代码前导空格未处理，使Aberdeen和Abilene的到达航班错误计为0。
+AL0863,answers,按Central Africa地区筛选并计算各国预期寿命平均值。
+AL0864,answers,按单次评估奖金降序取最大记录，返回唯一最高奖金获得者Louis Deacon。
+AL0865,does_not_answer,题目要求严格大于160000且严格小于900000，BETWEEN包含两个端点；当前无端点记录不消除条件语义差异。
+AL0866,answers,筛选Dutch或English语言记录，关联国家后对Region去重。
+AL0867,answers,将国家与制造商内连接并去重，返回至少有一家制造商的国家名与编号。
+AL0868,question_underspecified,9至12年级均为4人，并列最多；题目未说明单数“which year”在并列情况下如何选择。
+AL0869,answers,按航空公司编号正确连接并筛选JetBlue Airways，返回100个航班。
+AL0870,answers,按制造商编号统计车型，返回全名、编号和数量；本库全部制造商均有车型。
+AL0871,answers,定位Kyle的编号后统计其Friend记录，返回1位朋友。
+AL0872,answers,限定France歌手后同时返回平均、最小和最大年龄。
+AL0873,answers,通过养猫学生子查询排除，返回不养猫的33个学生编号。
+AL0874,answers,以差集从有轻于3500车辆的车型中排除Ford制造商的车型，返回26个不同车型。
+AL0875,answers,分别筛选官方英语与官方荷兰语国家，通过UNION合并去重。
+AL0876,question_underspecified,博物馆2和4的参观次数均为2，并列最多；题目未说明并列时单个结果的选择规则。
+AL0877,question_underspecified,“average”可指全库城市人口平均值，也可指各自地区平均值；SQL选择全库平均，题目未限定基准。
+AL0878,answers,按Sky Radio频道名称定位，返回其Package_Option。
+AL0879,does_not_answer,连接后未按歌手去重，Justin Brown因参加两场2014年演唱会重复出现，并非每位歌手一次的名单。
+AL0880,does_not_answer,起点机场代码含前导空格，'CVO'和'APG'条件未匹配，错误返回空集。
+AL0881,does_not_answer,Horsepower中的文本'null'被CAST为0并参与平均，拉低结果；排除两条缺失值后平均应约111.8408。
+AL0882,answers,正确排除Ford制造商、限定重量小于3500，并对车型名称去重。
+AL0883,answers,按战役分组并要求Lettice和HMS Atalanta两个船名都出现，返回对应战役名称与日期。
+AL0884,answers,按国家统计制造商并取数量最多者，返回japan。
+AL0885,answers,限定亚洲国家，分别汇总人口和取GNP最大值，返回所求两个统计量。
+AL0886,answers,按重量在3000至4000之间筛选车辆，并返回不同生产年份。
+AL0887,answers,按Sky Radio名称筛选，返回内容字段music。
+AL0888,answers,按weight>10筛选并计数，返回2只宠物。
+AL0889,answers,按亚洲国家预期寿命升序取第一名，正确返回Afghanistan。
+AL0890,answers,筛选数据库中HeadOfState为Beatrix的国家，并返回其官方语言；重复语言对应不同国家记录。
+AL0891,answers,将Todd Casey编写的动画关联到频道，返回其所在国家United Kingdom和Italy。
+AL0892,does_not_answer,内连接漏掉没有演唱会的Joe Sharp；题目要求每位歌手，应包含其0场记录。
+AL0893,does_not_answer,SourceAirport实际保存' APG'，直接匹配'APG'未命中，11个航班被误计为0。
+AL0894,answers,同时排除Republic国家以及有英语语言记录的国家，返回剩余国家代码。
+AL0895,answers,按Plaza Museum精确筛选，返回开馆年份2000及员工数62。
+AL0896,does_not_answer,目的地机场代码前导空格和城市名尾随空格使连接筛选失败，到达Aberdeen的21个航班被漏计。
+AL0897,answers,限定2013年之后演唱会，按体育场统计并取最大者，返回Somerset Park及容量。
+AL0898,answers,按年级分组统计学生，返回各年级4人。
+AL0899,does_not_answer,UNION ALL统计地址引用次数而非不同学生人数；学生5的现住和常住地址均为9，被重复计入，聚合口径不正确。
+AL0900,answers,排除Friend表中有朋友关系的学生后取最低年级，返回10。
+AL0901,answers,按动画标题精确筛选并连接频道，返回播放该动画的频道series_name。
+AL0902,does_not_answer,城市字段实际为'Aberdeen '，直接与'Aberdeen'比较未命中，漏掉当地机场名称。
+AL0903,answers,按数据库实际的高清标志字段筛选yes，返回该频道的套餐和series_name。
+AL0904,answers,排除课程安排中出现的教师编号，返回未安排授课的两位教师姓名。
+AL0905,answers,限定Australian Open比赛并按胜者排名积分降序取最大者，返回Serena Williams。
+AL0906,answers,关联车辆名称后筛选生产年份大于1980，并对Model去重。
+AL0907,answers,按车辆编号关联名称，筛选1980年之后并返回不同车型。
+AL0908,answers,先筛选30岁以下员工，再按城市分组保留人数大于1者。
+AL0909,does_not_answer,Aberdeen城市名尾随空格及航班目的地代码前导空格未处理，实际21个到达航班被误计为0。
+AL0910,answers,正确筛选USA航空公司并计数，结果12。
+AL0911,question_underspecified,多条国家记录人口均为0，并列最少；题目使用单数但未指定并列选择规则，LIMIT 1任取Antarctica。
+AL0912,answers,按城市Port Chelsea筛选地址，返回邮编148。
+AL0913,answers,按国家代码分组统计球员数，逐国返回代码及数量。
+AL0914,answers,按年龄升序排列指挥，返回从最年轻到最年长的姓名。
+AL0915,answers,以IndepYear为建国年份字段，筛选1950年之后并返回国家名称。
+AL0916,does_not_answer,库中公司名为'JetBlue Airways'，SQL中的'Jetblue Airways'大小写不匹配，错误返回空集。
+AL0917,answers,将Aruba与其语言记录关联并计数，返回4种语言。
+AL0918,does_not_answer,航空公司名称大小写不匹配，Jetblue未命中JetBlue，实际100个航班被误计为0。
+AL0919,answers,按缩写UAL精确筛选，返回United Airlines。
+AL0920,answers,子查询计算2010年之后开馆博物馆的最少员工数，主查询返回员工多于该值的博物馆。
+AL0921,answers,按出生年份为1948或1949筛选，返回对应歌手姓名。
+AL0922,answers,排除播放Ben Jones执导动画的频道，返回剩余频道编号。
+AL0923,answers,通过集合差排除养猫学生，返回不养猫学生的编号。
+AL0924,answers,分别筛选商品少于3000和多于10000的商店地区并取交集，空集与库内记录一致。
+AL0925,answers,按首次注册日期升序取首位，返回完整三段姓名。
+AL0926,answers,按Age升序排列全部指挥，满足按年龄排序且题目未要求相反方向。
+AL0927,question_underspecified,部分国家有多种语言并列最高占比；题目未规定并列时全列还是任取一种，ROW_NUMBER每国只取一种。
+AL0928,does_not_answer,按州连接会把同州所有区号分配给每张选票；未从实际投票电话号码识别区号，错误返回14个NY区号。
+AL0929,does_not_answer,实际目的地代码为' ATO'，前导空格使'ATO'筛选失败，7个到达航班被误计为0。
+AL0930,answers,沿课程安排正确关联教师与课程，返回教授Math的两位教师姓名。
+AL0931,answers,按国家人口降序取前三，返回China、India和United States。
+AL0932,answers,通过车型和制造商关系筛选volvo车辆，计算Edispl平均值133.5。
+AL0933,answers,按UAL缩写定位航空公司并返回其名称United Airlines。
+AL0934,answers,排除有演唱会记录的体育场，返回没有演唱会的场地名称。
+AL0935,answers,按Kyle姓名筛选并返回学生编号1934。
+AL0936,answers,排除有宠物持有关系的学生后计算平均年龄，结果19.625。
+AL0937,does_not_answer,公司名'Jetblue Airways'与实际'JetBlue Airways'大小写不一致，查询未返回实际缩写JetBlue。
+AL0938,answers,关联制造商和国家并筛选france，统计制造商编号得到3。
+AL0939,answers,按年级分组并统计人数，返回9至12年级各4人。
+AL0940,answers,关联使用Chinese的国家并对Continent去重计数，返回4个洲。
+AL0941,answers,按Age<30筛选访客并计数，返回3人。
+AL0942,does_not_answer,目的地代码包含前导空格，'ATO'条件未命中，实际7个航班被计为0。
+AL0943,question_underspecified,库中age与出生日期推得的年龄顺序不一致；按登记age得9只，按出生日期比较得8只，题目未指定年龄来源。
+AL0944,does_not_answer,未对年份去重，返回107条车辆对应年份而非13个不同生产年份。
+AL0945,question_underspecified,可问各国内西班牙语占比最高的国家数，也可问西班牙语占比在国家间达到最高值的国家数；SQL采用前者，结果21，后者为2。
+AL0946,does_not_answer,未限定兽医角色，结果包含3名Employee；这些普通员工不满足题目所问doctors条件。
+AL0947,answers,以最大体育场容量筛选相应场地并统计演唱会，库中该最大容量场地唯一且无演唱会。
+AL0948,answers,按国籍分组统计人员，返回Bulgaria为1人、Russia为6人。
+AL0949,answers,按主人汇总其所有犬只的治疗费用并取总额最大者，返回主人编号3和邮编02647。
+AL0950,answers,筛选年龄大于20的学生后统计其持有的宠物记录，结果0。
+AL0951,answers,限定2013和2016年的获胜记录并要求两种年份都出现，返回在两年均有胜场的球员姓名。
+AL0952,does_not_answer,Original_air_date是英文月份日期文本，字典序不等于时间顺序；返回2008年11月记录而非最新2009年2月记录。
+AL0953,does_not_answer,直接按英文月份日期文本排序会把2009年2月排在2008年11月前，未按真实播出时间排序。
+AL0954,answers,birth_date以YYYYMMDD整数存储，直接排序可正确形成从年长到年轻的顺序；题目未指定排序方向。
+AL0955,does_not_answer,无论“average”指人口还是面积，3000平方英里的筛选阈值都未换算为SurfaceArea的平方千米，筛选集合错误。
+AL0956,does_not_answer,目的地代码前导空格及城市名尾随空格使连接筛选失败，未列出到达Aberdeen的21个航班号。
+AL0957,answers,按Math课程筛选并关联课程安排与教师，返回教授该课程的两位教师姓名。
+AL0958,answers,公司名称JetBlue Airways与库内值一致，正确返回缩写JetBlue。
+AL0959,answers,按演唱会编号统计关联歌手，返回名称、主题和人数；本库全部6场演唱会均有歌手而被覆盖。
+AL0960,answers,限定亚洲国家，汇总人口并取GNP最大值，两个聚合与问题一致。
+AL0961,answers,按Angola国家名精确筛选，返回其地区和人口。
+AL0962,answers,通过UNION合并Indiana居民与治疗次数超过2的专业人员，返回编号、姓氏和手机号码。
+AL0963,does_not_answer,合并现住与常住地址后使用COUNT会把学生5在地址9重复计数；统计的是地址引用数而非不同学生人数。
+AL0964,answers,筛选Central Africa地区国家并平均LifeExpectancy，返回50.3111。
+AL0965,answers,限定宠物体重大于10并计数，返回2只。
+AL0966,does_not_answer,存在非英语语言不等于不说英语；此条件纳入同时说英语的国家，并重复返回国家代码。
+AL0967,answers,按船只汇总其造成的受伤人数，返回总数最多的HMS Avon及编号4。
+AL0968,answers,筛选Gelderland地区的城市记录并汇总人口，得到库内总人口545548。
+AL0969,answers,正确关联volvo制造商的车辆并取Edispl平均值，返回133.5。
+AL0970,answers,按国家代码统计球员并保留人数超过50的国家。
+AL0971,answers,从Kyle沿Friend关系连接好友的学生记录，返回Jordan。
+AL0972,question_underspecified,date_left仅表示离校，库内没有明确毕业状态或毕业日期；题目未说明是否把所有离校都视为毕业。
+AL0973,answers,按Sky Radio频道筛选并关联动画，返回该频道的全部两个动画标题。
+AL0974,answers,正确关联动画与频道，列出Sky Radio播放的全部动画标题。
+AL0975,does_not_answer,COUNT(*)统计国家与语言组合，同一种语言跨国重复计数；语言多样性应按不同语言计数，最大洲相同也不代表口径正确。
+AL0976,answers,将Kabul城市记录关联其国家，返回国家的Region。
+AL0977,answers,本库教师年龄均为两位数字文本，直接升序能正确定位最年轻教师并返回家乡。
+AL0978,answers,按洲筛选Asia或Europe，汇总对应国家表面面积。
+AL0979,answers,用非洲人口最大值作下界，筛选比所有非洲国家人口都多的亚洲国家。
+AL0980,answers,按缩写UAL筛选并返回United Airlines。
+AL0981,does_not_answer,Horsepower为文本，直接比较按文本规则错误计得281辆；转换有效数值后大于150的实际为49辆。
+AL0982,answers,筛选宠物年龄大于1并返回编号和体重，得到两条符合记录。
+AL0983,answers,按永久地址筛选Haiti居民，与指定手机号码学生取并集，返回所求名字。
+AL0984,answers,筛选年龄大于20的歌手并对国家去重，返回3个国家。
+AL0985,answers,按独立年份大于1950筛选，返回国家名称。
+AL0986,answers,将选票与候选人编号关联并筛选Tabatha Gehling，返回投票时间、州和电话号码。
+AL0987,answers,按商品数量降序排列所有商店，并返回名称、位置和地区。
+AL0988,answers,对1945年前与1955年后出生歌手的国籍取交集，返回United States。
+AL0989,answers,按国家统计频道并取最大计数，返回Italy及12个频道。
+AL0990,answers,按GovernmentForm='Republic'筛选并计数，返回122。
+AL0991,answers,沿车型、制造商和国家关联关系筛选usa，返回13个车型。
+AL0992,answers,按国家代码统计球员编号并取最多者，返回USA。
+AL0993,does_not_answer,未对CountryCode去重，按非英语语言记录返回924行，多个国家反复出现，并非国家代码集合。
+AL0994,does_not_answer,Continent实际为'North America'，小写筛选不匹配而返回两个NULL；此外平方英里阈值也未换算。
+AL0995,does_not_answer,birth_date是YYYYMMDD整数，strftime无法按该格式解析，排序表达式均为NULL，未按年龄排序。
+AL0996,answers,分别找养猫与养狗学生后取交集；本库没有同时养二者的学生，空集正确。
+AL0997,does_not_answer,Horsepower列为文本，直接与150比较得到281而非数值口径下的49，数量不正确。
+AL0998,answers,限定亚洲并要求人口大于非洲最大值，正确实现比非洲任何国家都多。
+AL0999,answers,按Title默认升序排列动画标题，正确实现字母顺序。
+AL1000,does_not_answer,题目要求人口为80000，SQL改成大于80000，多返回38个不符合精确人口条件的国家。
+AL1001,answers,按员工数降序取最大博物馆，返回Plaza Museum及编号1。
+AL1002,question_underspecified,题目未说明人口平均值是全体城市平均还是各地区内部平均；SQL采用全库平均。
+AL1003,answers,按课程名math精确筛选，返回其课程描述q。
+AL1004,answers,按主人统计犬只数并取最多者，返回主人编号14及完整姓名。
+AL1005,answers,birth_date以可排序的YYYYMMDD整数保存，升序取最早出生者，返回Thelma和AUS。
+AL1006,answers,按家乡分组筛选教师数至少2的城镇；本库教师家乡均不同，空集正确。
+AL1007,answers,关联使用Dutch或English的国家，对地区字段去重后返回。
+AL1008,answers,内层筛选制造商超过2家的国家，外层统计国家数，正确返回4。
+AL1009,question_underspecified,Canada、China、India、Russia和USA均使用12种语言，并列最多；单数问题未规定如何选择，LIMIT 1只取一国。
+AL1010,answers,按主要录制格式为CD或DVD筛选乐团并计数，返回11。
+AL1011,answers,按人口降序取前三个国家名称，返回China、India、United States。
+AL1012,answers,按单次参观购买票数降序取最高记录，返回Arjen Robben及年龄27。
+AL1013,answers,按治疗时间倒序取最近一条，返回费用407。
+AL1014,answers,按歌手国家分组统计人数，返回各国家及对应歌手数。
+AL1015,question_underspecified,库中登记age与date_of_birth给出不同的最年轻犬；SQL按出生日期选主人Mertz，而按age则为Nicolas，题目未指定依据。
+AL1016,answers,SQL采用数据库内正确的JetBlue Airways大小写，成功返回所属国家USA。
+AL1017,answers,通过出生年份1948或1949的或条件筛选歌手，返回两位姓名。
+AL1018,answers,Age虽为文本，本库均为两位整数，升序正确对应从年轻到年长的教师顺序。
+AL1019,answers,将题中的场站按体育场理解，按容量5000至10000筛选并返回位置和名称；本库没有符合者。
+AL1020,answers,按math课程名称筛选并返回全部描述记录。
+AL1021,answers,使用洲的或条件筛选Asia及Europe，正确汇总面积。
+AL1022,answers,筛选费用低于全体治疗平均费用的记录，关联专业人员并对姓名去重。
+AL1023,does_not_answer,城市名末尾存在空格，'Aberdeen'未匹配'Aberdeen '，错误返回空机场名单。
+AL1024,answers,通过国家英语记录筛选城市，按城市人口取最大者New York；额外人口列有助于说明且不影响回答。
+AL1025,answers,按Port Chelsea城市筛选地址，正确返回邮编148。
+AL1026,answers,限定会员等级不高于4的访客，计算其平均年龄36。
+AL1027,answers,按数据库洲分类限定亚洲，再按面积降序取最大者，返回其名称、人口及预期寿命。
+AL1028,answers,按国籍分组统计歌手人数，返回不同国籍及相应数量。

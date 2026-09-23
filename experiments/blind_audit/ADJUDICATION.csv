@@ -1,0 +1,14 @@
+item_id,verdict,defect_type,borderline,note,expert1_verdict,expert1_borderline,expert1_note,expert2_verdict,expert2_borderline,expert2_note
+Q003,,,,,gold_correct,no,按频道分别核验两位导演的作品后，唯一同时满足条件的频道为707，输出MTV Dance及United Kingdom正确。,question_underspecified,yes,题目未明确两位导演是分别有作品在同一频道播出还是共同执导作品，金标采用前一种解释并返回MTV Dance、United Kingdom。
+Q022,,,,,gold_correct,yes,正确限定HeadOfState=Beatrix且IsOfficial=T，四行语言对应三个国家／地区的官方语言记录，重复Dutch来自不同实体。,question_underspecified,yes,库中Aruba、Netherlands Antilles和Netherlands的元首都为Beatrix，题目未确定单一国家或去重口径，金标返回三地官方语言并重复Dutch。
+Q033,,,,,gold_defective,yes,题目限定dog但金标在全部pets中取最小年龄，缺少PetType过滤；当前最年轻宠物恰好是dog，输出9.3与正确答案偶合。,gold_correct,yes,本库最年轻宠物恰是唯一1岁犬，重量9.3，与限定dog后的答案一致，但金标没有显式犬类过滤，不能据此认定对其他数据也正确。
+Q034,,,,,gold_defective,yes,按语言种类多样性应对Language去重，金标却计国家—语言记录数；非洲310条记录实际为215种语言，两种计数当前恰均使Africa居首。,gold_correct,yes,金标数的是国家—语言记录而非不同语言，但当前Africa同时以310条记录及215种不同语言居首，实际返回大陆正确。
+Q058,,,,,gold_defective,no,OR中的重量条件不要求有制造商记录，但对CAR_MAKERS的内连接先删掉制造商缺失且重量>3500的hi车型，金标13种而独立求两条件并集应为14种。,gold_correct,no,制造商FullName为General Motors或车辆重量大于3500的OR条件及四表连接均正确，去重后得到13个车型。
+Q070,,,,,gold_defective,yes,缺少PetType=dog条件，实际计算最年轻宠物的体重而不是限定狗类；当前两者恰同为PetID=2003、体重9.3，属结果偶合。,gold_correct,yes,本库年龄最小的全部宠物就是1岁犬2003，重量9.3，金标实际答案正确，但未限定dog使其正确性依赖当前数据。
+Q080,,,,,gold_defective,yes,最多语言应统计不同Language而非国家—语言记录数，非洲实际215种语言却被COUNT(*)计成310；当前输出Africa与去重结果恰一致。,gold_correct,yes,COUNT(*)计算国家—语言记录而不是不同语言种数，但Africa在两种算法下都唯一居首（310条／215种），本库返回结果正确。
+Q108,,,,,gold_defective,yes,猫主人与狗主人应先按StuID取交集再投影Fname，按Fname取交集可能拼接同名不同学生；当前按主键核验也为空，未出现实际误配，故标边界。,gold_correct,yes,按student_id核验确无同时养猫狗的学生，金标空集在本库正确；按Fname而非主键求交存在同名学生误配风险，但当前未触发。
+Q137,,,,,question_underspecified,yes,有七个国家／地区人口均为0并列最少，题目要求三个却未指定并列选择规则，金标返回其中三个，其他三元组合也同样符合人口排序。,gold_correct,yes,当前有7个国家人口并列为0，题目明确要3个，金标返回其中3个最低人口国家，未规定并列项内部的选择次序。
+Q138,,,,,question_underspecified,yes,different versions未定义为MakeId记录数还是不同Make名称，金标按记录数计ford为53而按不同名称为37，两个合理口径当前均由ford居首。,gold_correct,yes,按车型记录数ford以53条最多，按不同Make核验也以37款最多，虽然versions可有去重口径差异，本库返回ford在两种口径下都正确。
+Q139,,,,,gold_defective,no,制造商内连接错误限制了OR的重量分支，车型hi虽有重量>3500车辆但其制造商外键无对应记录而被丢弃，金标13种而完整条件并集为14种。,gold_correct,no,经车型、制造商和车辆数据连接，以General Motors或重量大于3500作OR筛选并去重，正确返回13个不同车型。
+Q145,,,,,gold_defective,yes,排除已入学学生应按student_id而不是last_name做集合差，同姓不同人会相互排除；当前姓氏无重复且主键核验同为Gleichner、Weimann，故标边界。,gold_correct,yes,按student_id排除入学记录后确为Gleichner、Weimann两人，当前15名学生的姓均唯一，按姓EXCEPT结果正确但存在同姓误排的潜在风险。
+Q146,,,,,gold_defective,yes,more than和less than要求严格开区间，BETWEEN却包含160000和900000两个端点；当前恰无端点记录，因此1860行输出暂与严格条件相同。,gold_correct,yes,BETWEEN包含边界而题目用严格大于和小于，但本库没有人口恰为160000或900000的城市，金标与严格条件实际均返回1860行。

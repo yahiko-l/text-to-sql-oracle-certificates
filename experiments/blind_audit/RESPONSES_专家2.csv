@@ -1,0 +1,154 @@
+item_id,verdict,defect_type,borderline,note
+Q001,gold_defective,wrong_grouping,no,题目要符合条件的国家总数4，金标却按国家返回厂商数4、4、3、5四行，缺少对合格国家的外层计数。
+Q002,question_underspecified,,yes,胜场最多者为Angelique Kerber（22胜），但其比赛记录有12个积分值（3590至8000），题目未指定积分时点，金标任取3715。
+Q003,question_underspecified,,yes,题目未明确两位导演是分别有作品在同一频道播出还是共同执导作品，金标采用前一种解释并返回MTV Dance、United Kingdom。
+Q004,gold_correct,,no,按实际战役标识核验，排除关联English Channel失船的战役后剩Adrianople、Rusion、Serres三场，与金标返回的名称、结果及保加利亚指挥官一致。
+Q005,gold_defective,other,no,机场城市实际存为带尾空格的Aberdeen，航班起飞机场代码又带前导空格，未清理空白使连接和筛选失配，金标返回0而规范化后为21班。
+Q006,gold_defective,other,no,机场城市实际存为带尾空格的Aberdeen，航班目的机场代码又带前导空格，未清理空白使连接和筛选失配，金标返回0而规范化后为21班。
+Q007,gold_defective,wrong_grouping,no,符合厂商数大于2的国家共有4个，金标返回的是各国厂商数4、4、3、5，未汇总为题目要求的国家数量。
+Q008,gold_correct,,no,两个分支均限定IsOfficial为T，交集确为Canada、Seychelles、Vanuatu，当前库国家名称唯一，不发生跨实体误配。
+Q009,gold_correct,,no,按semester_id取硕士与本科入学记录的交集得到13，对应fall 2018，正确标识同时有两类学生入学的学期。
+Q010,question_underspecified,,yes,republics可指GovernmentForm精确为Republic的46国或包含Federal／Islamic Republic的49国，平均寿命分别约50.8435和51.0612，金标采用前者。
+Q011,gold_correct,,no,以全部体育场减去2014年办过演唱会的体育场，实返6个名称，与按体育场主键核对的排除结果一致。
+Q012,gold_correct,,no,Age为整数，金标返回全部6名歌手的姓名、国家和年龄，并按52、43、41、32、29、25岁降序排列。
+Q013,gold_correct,,yes,按模式中唯一对应的独立年份IndepYear解释题目中的founded，严格筛选大于1950并返回110个国家名称，题目未另给建国日期字段。
+Q014,question_underspecified,,yes,7名教师来自7个不同地点，频数均为1，题目未说明是否须列全并列最多地点，金标仅任选Turton Urban District。
+Q015,gold_defective,wrong_or_negated_filter,no,治疗累计费用超过1000的犬为Troy、Lyric、Evangeline，金标使用NOT IN反而排除这3只并返回其余12只。
+Q016,gold_correct,,no,最新治疗时间为2018-03-24 22:25:58，费用407，按日期降序取首条的结果与独立核验一致。
+Q017,gold_correct,,no,航空公司名称与uid连接匹配，JetBlue Airways在航班表有100条记录，金标正确返回100。
+Q018,gold_defective,wrong_grouping,no,无论最高占比指国内主导还是各国间最高，题目要求国家总数，金标却返回28行各为1的分组计数且未应用最高占比筛选。
+Q019,gold_correct,,no,3只宠物的重量为12、13.4、9.3，严格大于10的有2只，金标正确返回2。
+Q020,question_underspecified,,yes,未说明无语言记录的国家是否算不说英语，金标仅在已有语言记录的国家中取差集得173国，包含另6个零人口国家时为179国。
+Q021,question_underspecified,,yes,any country可解作至少一个欧洲国家或所有欧洲国家，金标以欧洲最小面积作阈值取前者得238国，后一解释应以最大面积作阈值得0国。
+Q022,question_underspecified,,yes,库中Aruba、Netherlands Antilles和Netherlands的元首都为Beatrix，题目未确定单一国家或去重口径，金标返回三地官方语言并重复Dutch。
+Q023,gold_defective,other,yes,each person要求按歌手逐人列出场次，内连接只返回5名参演歌手，遗漏没有演唱会记录的Joe Sharp及其0场计数。
+Q024,gold_defective,wrong_grouping,no,题目要求国家总数，金标却给28个国家各自的计数1和西语比例，既未汇总国家数也未筛选主导语言，法国0.4%等明显不符项亦被包含。
+Q025,gold_correct,,no,本库最年轻歌手唯一，为25岁的Tribal King，其歌手记录仅有一首Love、发行年2016，金标完整返回可用歌曲信息。
+Q026,gold_defective,other,yes,仅学生1002 Tracy符合有狗无猫，因其有两只狗，未按学生去重的连接重复返回同一人的Tracy、19两行。
+Q027,gold_correct,,yes,实际年龄均为1至9的单字符数值文本，金标与显式数值比较均得到9只低于平均年龄约5.0667的犬，本库结果正确。
+Q028,gold_correct,,no,europe与库存小写值一致，连接欧洲国家及厂商后按国家统计，满足至少3家的是france和germany。
+Q029,gold_defective,text_column_numeric_or_ordering,no,Horsepower是TEXT且含字符串null，文本降序选中马力缺失的ford pinto；有效数值最大为115，属于citroen及saab而非ford。
+Q030,gold_correct,,no,题目明确要求两年均获胜，按2013和2016获胜者取交集得到5人，且已核实这些姓名与选手ID无冲突。
+Q031,gold_correct,,no,2014和2015办过演唱会的体育场交集仅为Somerset Park，地点Ayr United，与主键级核对一致。
+Q032,question_underspecified,,yes,平均人口未说明取全球还是区内，district同名跨国时是否合并也未交代，金标采用全球平均约350468.22并按district名称分组。
+Q033,gold_correct,,yes,本库最年轻宠物恰是唯一1岁犬，重量9.3，与限定dog后的答案一致，但金标没有显式犬类过滤，不能据此认定对其他数据也正确。
+Q034,gold_correct,,yes,金标数的是国家—语言记录而非不同语言，但当前Africa同时以310条记录及215种不同语言居首，实际返回大陆正确。
+Q035,question_underspecified,,yes,题目未区分现住址和永久住址，现住址9有最多3人而永久住址5与9并列3人，金标采用现住址口径。
+Q036,gold_correct,,no,经制造商、车型、车名与车辆数据逐级连接并筛选1970年，去重后返回11个制造商名称，符合题意。
+Q037,gold_defective,case_sensitivity,no,库存地点为Little Lever Urban District，金标用全小写字面量作不等比较而将Anne Walker也保留，实返7人而非6人。
+Q038,gold_defective,other,no,SourceAirport实际含前导空格，未规范化使两个分支均为空，清理后CVO出发但不从APG出发的航空公司有4家。
+Q039,question_underspecified,,yes,any country既可作存在量词也可作全称比较，金标采用大于欧洲最小面积的存在解释，不能据此把MIN直接判成错误极值。
+Q040,gold_defective,wrong_extremum,no,最年轻犬Evangeline为1岁、主人姓Nicolas，金标却用MAX(age)选9岁犬，返回Feil、Fisher、Rippin三位主人的姓。
+Q041,gold_correct,,no,按Hawaii或Wisconsin筛选专业人员，实返uboehm@example.org和mekhi.little@example.org两条邮箱，逻辑及字段匹配。
+Q042,gold_correct,,no,Asia、Chinese及T均与库存大小写一致，连接国家、语言和城市并对城市名称去重，正确返回359个名称。
+Q043,gold_correct,,yes,按模式中的离校时间date_left解释毕业时间，最早记录为1971-05-17的Timmothy Anna Ward，金标完整返回其名、中间名和姓。
+Q044,gold_correct,,no,严格筛选pet_age大于1后得到宠物2001、2002，重量分别12和13.4，正确排除1岁宠物2003。
+Q045,gold_correct,,no,Aruba对应ABW，语言表有4条不同语言记录且复合主键防止重复，金标正确计为4。
+Q046,gold_correct,,no,Written_by精确为Joseph Kuhr的卡通记录有2条，实际署名不存在需另计的共同署名情况，金标正确返回2。
+Q047,gold_correct,,no,重量严格大于10的宠物为2001和2002两只，金标计数2与实际数据一致。
+Q048,gold_correct,,no,Lettice与HMS Atalanta的lost_in_battle均为8，金标交集正确返回Siege of Constantinople及日期1235。
+Q049,gold_correct,,no,United States有4名歌手，其他国籍各1名，按国籍频数降序取得的唯一众数正确。
+Q050,gold_correct,,no,grade等于10的4名学生为Haley、Andrew、Kris、Brittany，金标完整返回其姓名。
+Q051,gold_defective,other,yes,按each person统计应包括全部6名歌手，金标的内连接只列有演出关系的5人，遗漏Joe Sharp的0场记录。
+Q052,gold_correct,,no,按完整车款名amc hornet sportabout (sw)连接唯一车辆记录，Accelerate为13.5，金标正确返回该值。
+Q053,question_underspecified,,yes,Friend仅存单向边且题目未规定好友关系是否双向解释，Kyle作为student_id有1人而合并两端有3人，金标采用前者。
+Q054,gold_defective,wrong_or_negated_filter,no,先筛Spanish再按国家取MAX只得到该国语种记录自身比例，未判断是否最高，实返28国且误含西语仅0.4%的France等国家。
+Q055,question_underspecified,,yes,Kyle有1条出边和2条入边，题目未明确朋友关系的方向口径，金标只数student_id方向为1，按双向好友则为3。
+Q056,gold_defective,case_sensitivity,no,金标使用t、chinese、asia，库存为T、Chinese、Asia，三个大小写不匹配的条件导致空表，校正后有359个不同城市名称。
+Q057,gold_correct,,no,Aruba语言占比最高者唯一，为76.7%的Papiamento，按Percentage降序取首行正确。
+Q058,gold_correct,,no,制造商FullName为General Motors或车辆重量大于3500的OR条件及四表连接均正确，去重后得到13个车型。
+Q059,gold_correct,,no,Continent精确为Asia的国家记录共有51条，金标正确返回51。
+Q060,gold_correct,,no,国家库存值usa与美国相对应，沿车型—制造商—国家连接后有13条车型记录，计数粒度正确。
+Q061,gold_defective,case_sensitivity,no,Little Lever Urban District库存含大写字母，使用全小写值作不等条件未排除Anne Walker，返回全部7人而应为6人。
+Q062,gold_correct,,no,Capacity为整数，最大容量体育场为52500人的Hampden Park，确无关联演唱会，金标返回0并非文本排序错误。
+Q063,question_underspecified,,yes,any country in Africa可指至少一国或全部非洲国家，金标以最小人口比较得51个亚洲国家，全称解释应比最大人口而得6国。
+Q064,gold_defective,missing_join_condition,no,Professionals与Treatments之间缺少professional_id连接条件，笛卡尔积误返全部15人，正确关联后只有5名人员做过低于均价的治疗。
+Q065,question_underspecified,,yes,8个国家的最高语言占比并列为0，题目未规定返回一项还是全部并列语言；SQLite单个MAX让Language来自某条极大值行，金标每国仅选一项。
+Q066,gold_defective,other,no,DestAirport实际为带前导空格的AHD，精确等于AHD的过滤返回空表，规范化后有10班到达航班、涉及8家航空公司。
+Q067,gold_correct,,no,Brazil在国家表中唯一，Population为170115000、LifeExpectancy为62.9，金标正确返回两项。
+Q068,question_underspecified,,yes,Republic精确类别与包括Federal／Islamic Republic在内的共和政体范围均可对应题意，分别得到约50.8435和51.0612，金标取前一口径。
+Q069,gold_correct,,no,"按English和French语言记录取国家名称交集，正确得到Canada、Monaco、Seychelles、United States、Vanuatu及Virgin Islands, U.S.共6国。"
+Q070,gold_correct,,yes,本库年龄最小的全部宠物就是1岁犬2003，重量9.3，金标实际答案正确，但未限定dog使其正确性依赖当前数据。
+Q071,gold_defective,text_column_numeric_or_ordering,no,Horsepower列为TEXT，horsepower>150执行文本比较并把字符串null等纳入，返回281辆，显式数值比较实际只有49辆。
+Q072,question_underspecified,,yes,winners可指两年各自的获胜者或曾获胜且两年均参赛的选手，金标采用前者得5人，后者为7人且另含Jankovic与Radwanska，题目未明确获胜范围。
+Q073,gold_defective,other,yes,题目列歌手而非逐场参演记录，金标连接后未按歌手去重，2014年实际5名歌手却返回6行，其中Justin Brown重复。
+Q074,gold_correct,,no,经战役—失船—死亡记录连接并累计killed，死亡人数超过10的为战役5、6、8，分别21、27、37人，与金标一致。
+Q075,gold_defective,wrong_or_negated_filter,no,存在一种非英语语言不等于没有英语，Language!=English错误纳入Canada、United States等双语或多语国家，应在国家层面排除任何英语记录。
+Q076,gold_defective,case_sensitivity,no,库存国家名为Haiti而非haiti，金标只保留手机号匹配的Jarvis，漏掉永久住在Haiti的Hobart、Warren和Delaney。
+Q077,gold_defective,case_sensitivity,no,haiti与库存Haiti大小写不符使国家分支失效，正确OR条件应返回Hobart、Warren、Jarvis、Delaney四人而非仅Jarvis。
+Q078,question_underspecified,,yes,Friend的方向语义未交代，按没有出边得到最低年级10，按双向友谊全部16人均有朋友而应返回NULL，金标采用前一口径。
+Q079,gold_defective,other,no,题目要受伤人数总和，金标却按伤亡记录条数排序而返回Three Brothers，SUM(injured)最高的实际为船4 HMS Avon（9人）。
+Q080,gold_correct,,yes,COUNT(*)计算国家—语言记录而不是不同语言种数，但Africa在两种算法下都唯一居首（310条／215种），本库返回结果正确。
+Q081,gold_defective,text_column_numeric_or_ordering,no,MPG为TEXT且缺失值写成字符串null，MAX(mpg)实际返回文本null，排除缺失并按数值计算的条件内最大MPG为43.1。
+Q082,gold_correct,,yes,7名教师年龄虽为TEXT但均是26至45之间的两位数，文本升序与数值升序相同，实际姓名顺序符合从年轻到年长。
+Q083,question_underspecified,,yes,US territory可指GovernmentForm精确标签的3地或连同Commonwealth／Dependent Territory of the US的6地，金标只取3地，题目未明确分类边界。
+Q084,gold_correct,,no,2010年后开放的博物馆最少员工数为17，严格大于17的为Plaza、Capital Plaza和Jefferson Development三馆，与金标一致。
+Q085,gold_correct,,yes,最年轻教师唯一，为26岁的Vicente Carretero，家乡Farnworth Municipal Borough，当前两位数文本年龄排序与数值排序一致。
+Q086,question_underspecified,,yes,22胜的Angelique Kerber确为胜场最多者，但其积分随比赛日期变化且有12个不同值，题目未指定取哪一时点，金标任取3715。
+Q087,gold_defective,text_column_numeric_or_ordering,no,MPG文本降序把缺失标记null排在数值前而选citroen，按有效数值比较最省油的车型应为mazda（MPG 46.6）。
+Q088,gold_correct,,no,当前库没有Continent为Europe且Population恰为80000的记录，人口整数与数值形式字面量可正确比较，空结果符合数据。
+Q089,gold_correct,,no,按owner_id统计犬数，主人14 Rachelle Funk唯一拥有最多的3只犬，金标正确返回其ID、名和姓。
+Q090,gold_defective,missing_join_condition,no,两表JOIN未写professional_id关联条件，存在低价治疗便使所有15名专业人员入选，正确关联结果仅5人。
+Q091,gold_defective,case_sensitivity,no,english、dutch和t均与库存English、Dutch和T不符，UNION两分支都为空，校正大小写后应有48国。
+Q092,question_underspecified,,yes,Canada、China、India、Russian Federation与United States各有12种语言并列最多，题目未说明并列返回规则，金标仅选United States。
+Q093,gold_correct,,no,按Nationality不等于Russia筛选，唯一非俄罗斯者为Teodor Salparov，金标正确返回其姓名。
+Q094,gold_defective,incomplete_projection,yes,题目明确要求地址ID和all lines，Addresses还包含line_3但金标仅投影line_1、line_2，即使本库line_3为NULL也缺少所要求字段。
+Q095,gold_correct,,no,volvo对应6条车辆记录，Edispl为数值列，按车名与车辆ID连接后的平均排量133.5与金标一致。
+Q096,question_underspecified,,yes,不说英语是否包含完全没有语言记录的国家未说明，金标在countrylanguage的233国范围内排除英语得173国，以country全表为范围则为179国。
+Q097,gold_correct,,no,全部6条volvo车辆数据经MakeId与Id正确连接，数值排量的算术平均为133.5，金标计算正确。
+Q098,gold_correct,,no,Port Chelsea对应唯一地址记录，其zip_postcode为文本148，金标返回正确且未破坏邮编字段。
+Q099,gold_correct,,no,TV_series中Episode为A Love of a Lifetime的记录唯一，Weekly_Rank为43，金标精确匹配并返回该值。
+Q100,gold_correct,,no,Abbreviation为UAL的航空公司唯一，为United Airlines，金标正确返回其名称。
+Q101,gold_defective,case_sensitivity,no,库存洲名为North America，金标全小写north america未匹配任何国家而返回两个NULL，仅校正大小写后即可匹配18国并得到有效汇总。
+Q102,gold_correct,,yes,本库犬龄均为1至9的数值文本，金标实际计得9只低于平均年龄约5.0667的犬，与显式数值比较一致。
+Q103,gold_correct,,no,最早生产年份为1970，金标以等于全表MIN(Year)保留该年全部35辆车，并返回车款Make和年份。
+Q104,question_underspecified,,yes,9、10、11、12四个年级各有4名学生并列最多，题目未明确并列时列全部还是任取一个，金标只返回12。
+Q105,gold_correct,,no,有效birth_date均按YYYYMMDD整数保存，最早为Thelma Long的19181014，空字符串排在整数日期之后，金标正确返回Thelma、AUS。
+Q106,gold_defective,wrong_extremum,no,最年轻应取最小年龄1，对应主人Nicolas，金标MAX(age)反而选年龄9的犬并返回Feil、Fisher和Rippin。
+Q107,gold_correct,,no,在已关联的5名扑克玩家中，Aleksey Ostapenko以207的身高唯一最高，其Money_Rank为68，金标正确返回68。
+Q108,gold_correct,,yes,按student_id核验确无同时养猫狗的学生，金标空集在本库正确；按Fname而非主键求交存在同名学生误配风险，但当前未触发。
+Q109,gold_correct,,no,Number_products为整数，金标按15000至1600递减排序全部9家商店，并完整返回名称、地点和区。
+Q110,gold_correct,,yes,当前教师年龄都是两位数文本且最小值唯一为26，返回该教师家乡Farnworth Municipal Borough与数值排序核验一致。
+Q111,gold_correct,,no,商品数最多的商店唯一，为15000件的FC Lahti，经理Ilkka Mäkelä、区Lahden Stadion，金标两项均正确。
+Q112,gold_defective,case_sensitivity,no,库存姓名为Timmothy Ward而非全小写timmothy ward，金标返回空表，正确手机号为(096)889-8954x524。
+Q113,gold_correct,,yes,WTA Championships中左手胜者去重为Petra Kvitova和Angelique Kerber两人，扩大为参加该赛事且在库中任处获胜者仍是这两人。
+Q114,question_underspecified,,yes,8国的最高占比存在0值并列，题目未指定并列语言和零占比的处理，金标依SQLite单个MAX语义每国返回某一条极大值语言。
+Q115,gold_defective,other,yes,题目用maker要求制造商，金标却投影car_names.Make的完整车款名而非car_makers.Maker或FullName，返回35个1970年车款未回答制造商。
+Q116,gold_defective,case_sensitivity,no,north america与库存North America大小写不一致，聚合输入为空而返回NULL、NULL，题目所指北美国家实际存在匹配记录。
+Q117,gold_correct,,no,Asia范围内有效预期寿命最低者唯一，为45.9的Afghanistan，金标按LifeExpectancy升序返回正确国家。
+Q118,gold_correct,,no,按犬主ID累计其所有犬的治疗费，主人3唯一最高为1601，金标正确返回owner_id 3及邮编02647。
+Q119,gold_correct,,no,实际养猫或狗的学生只有Linda和Tracy，OR过滤后对所问名字去重，金标完整返回这两个名字。
+Q120,gold_defective,text_column_numeric_or_ordering,no,Horsepower存为TEXT，直接与150比较按文本顺序并误纳缺失标记，金标计281辆，而数值马力严格大于150的只有49辆。
+Q121,gold_defective,other,no,起飞机场代码实际存为带前导空格的APG，直接等于APG的条件漏掉全部11班，TRIM规范化后可取得11个航班号。
+Q122,gold_correct,,no,两只犬2002、2003均由女性学生Tracy饲养且各有一条归属关系，金标以犬的连接记录计数正确得到2。
+Q123,gold_correct,,no,按Location统计所有商店，当前9个地点各有1家店，返回地点与对应数量，分组及计数对象均正确。
+Q124,gold_correct,,no,国家名称在当前库唯一，排除所有有English语言记录的国家后人口合计5451331150，与按国家主键NOT EXISTS核验一致。
+Q125,gold_defective,wrong_or_negated_filter,no,按国家先过滤Spanish再取MAX不会检查西语是否主导，误返28国含France的0.4%，无论按国内最高占比还是过半理解都不成立。
+Q126,gold_correct,,no,唯一最年轻宠物为1岁的dog 2003，重量9.3，金标按pet_age升序取首条正确返回类型和重量。
+Q127,gold_correct,,no,Highschooler中Kyle姓名唯一，其ID为1934，金标精确匹配并正确返回1934。
+Q128,gold_defective,wrong_grouping,no,Italy有12个频道满足所属国家频道数大于2，按country分组后直接取未聚合id只返回700，遗漏另外11个应列出的频道ID。
+Q129,question_underspecified,,yes,有朋友按仅有出边统计为14人、平均年级约10.4286，按Friend两端的双向关系则16人、平均10.5，题目未明确关系方向。
+Q130,gold_correct,,no,hiring中的Shop_ID均非NULL，按shop_id排除已有雇员的店后为FC Honka、KuPS和IFK Mariehamn，金标结果正确。
+Q131,question_underspecified,,yes,题目只说按年龄排序而未指定从年轻到年长或相反方向，金标选择升序，是可接受解释之一。
+Q132,gold_correct,,no,全部体育场名称减去2014年办过演唱会者，正确返回其余6个体育场，当前名称唯一且与主键级排除结果一致。
+Q133,gold_correct,,no,employee.Age为整数，金标对全部10名员工按年龄升序排列姓名，符合从年轻到年长。
+Q134,gold_defective,text_column_numeric_or_ordering,no,MPG是含字符串null的TEXT列，文本降序误选缺失MPG的citroen，最大有效数值46.6对应mazda。
+Q135,gold_defective,incomplete_projection,yes,题目要求学生姓名而模式同时有Fname和LName，金标只投影Fname且按名字求交；本库合格学生为空使缺列问题未体现为错误姓名值。
+Q136,gold_correct,,no,先排除任一语言记录为English的国家再累计Population，当前国家名唯一，结果5451331150与按Code排除的结果相同。
+Q137,gold_correct,,yes,当前有7个国家人口并列为0，题目明确要3个，金标返回其中3个最低人口国家，未规定并列项内部的选择次序。
+Q138,gold_correct,,yes,按车型记录数ford以53条最多，按不同Make核验也以37款最多，虽然versions可有去重口径差异，本库返回ford在两种口径下都正确。
+Q139,gold_correct,,no,经车型、制造商和车辆数据连接，以General Motors或重量大于3500作OR筛选并去重，正确返回13个不同车型。
+Q140,gold_correct,,no,AIRLINES中Country为USA的12家公司全部匹配，金标完整返回各自Airline和Abbreviation。
+Q141,cannot_judge,,yes,nationalities未定义且模式没有国籍或民族种类数量字段，无法确定题目是否误指人口，故不能确认按Population最小选Antarctica是否回答原意。
+Q142,question_underspecified,,yes,Republic精确类别有122国，合并Federal、Islamic等含Republic的政体类别共有143国，题目未说明是否包括这些子类，金标采用精确标签。
+Q143,gold_correct,,no,Net_Worth_Millions为数值列，金标按净资产升序返回全部8名歌手，排序对象与方向均符合题意。
+Q144,gold_correct,,no,volvo范围内最小Accelerate对应volvo 264gl，该字段为数值且最小值唯一，其Cylinders为6，金标正确返回6。
+Q145,gold_correct,,yes,按student_id排除入学记录后确为Gleichner、Weimann两人，当前15名学生的姓均唯一，按姓EXCEPT结果正确但存在同姓误排的潜在风险。
+Q146,gold_correct,,yes,BETWEEN包含边界而题目用严格大于和小于，但本库没有人口恰为160000或900000的城市，金标与严格条件实际均返回1860行。
+Q147,gold_defective,text_column_numeric_or_ordering,no,1980年前316辆车中2条Horsepower为文本null，AVG将其按0计入得到111.1329，排除缺失后314条有效马力的均值应约111.8408。
+Q148,gold_correct,,yes,年龄列虽为TEXT但当前7个值均为两位数，金标排序与显式数值排序一致，正确列出从26岁到45岁的教师姓名。
+Q149,gold_defective,other,yes,实际只有学生1002 Tracy符合有狗无猫，金标按两只犬的连接关系将同一人重复返回两行，并额外返回题目未要求的年龄列。
+Q150,gold_correct,,no,English和French两分支的国家名称交集为6国，与按国家Code同时检查两种语言存在的结果一致。
+Q151,question_underspecified,,yes,好友关系是否双向未说明，金标把只有入边的Brittany和John视为无朋友而取最低年级10；按两端计好友则无人无朋友、MIN应为NULL。
+Q152,question_underspecified,,yes,less than any可指少于至少一个亚洲国家或少于每个亚洲国家，金标与亚洲最大人口比较得58国，全称解释则应与最小人口比较得5国。
+Q153,gold_correct,,yes,按赛事名称与左手标记筛选后去重胜者确为2人，参与该赛事且在库中有任何胜场的左手选手核验也得到相同两人。

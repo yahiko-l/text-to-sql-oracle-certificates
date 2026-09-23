@@ -1,0 +1,1686 @@
+{
+ "pass": "B",
+ "reviewer": "codex gpt-5.6-sol xhigh, fresh threads, cases re-shuffled stride-6, taxonomy listed in reverse order",
+ "labels": [
+  {
+   "case_id": "C001",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "LIMIT chooses one arbitrary co-youngest singer, whereas MIN returns every tied youngest; the question leaves tie handling unstated."
+  },
+  {
+   "case_id": "C002",
+   "label": "semantic_error",
+   "error_type": "wrong_grouping",
+   "borderline": false,
+   "reason": "Grouping by stadium name and capacity merges distinct stadium entities, so the concert count is not for one stadium."
+  },
+  {
+   "case_id": "C003",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Both LIMIT 1 queries may choose different stadiums when the maximum concert count ties; the question gives no tie rule."
+  },
+  {
+   "case_id": "C004",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "EXCEPT removes an eligible stadium when another stadium sharing its name hosted a 2014 concert; ID filtering matches the question."
+  },
+  {
+   "case_id": "C005",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "EXCEPT operates on stadium names, so one 2014 venue wrongly removes a different same-named stadium; ID-based exclusion answers the entity-level condition."
+  },
+  {
+   "case_id": "C006",
+   "label": "semantic_error",
+   "error_type": "wrong_grouping",
+   "borderline": false,
+   "reason": "Grouping by concert name and theme merges distinct concerts sharing those descriptions; the question asks for a singer count for each concert."
+  },
+  {
+   "case_id": "C007",
+   "label": "semantic_error",
+   "error_type": "wrong_grouping",
+   "borderline": false,
+   "reason": "Grouping by singer name merges distinct same-named people, contradicting for each person; grouping by singer ID preserves individuals."
+  },
+  {
+   "case_id": "C008",
+   "label": "semantic_error",
+   "error_type": "wrong_grouping",
+   "borderline": false,
+   "reason": "Grouping by singer name merges different people sharing a name, so concert counts are not computed for each person."
+  },
+  {
+   "case_id": "C009",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The gold omits the required dog filter; the returned query correctly restricts pets to dogs before choosing the youngest."
+  },
+  {
+   "case_id": "C010",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The gold omits the required dog filter, while the returned query correctly finds the youngest dog rather than the youngest pet."
+  },
+  {
+   "case_id": "C011",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "INTERSECT combines first names across students, creating false matches when different same-named students own cats and dogs; identity grouping correctly tests each student."
+  },
+  {
+   "case_id": "C012",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "INTERSECT matches first names across students, so same-named students owning different pet types can create a false match; grouping by StuID is correct."
+  },
+  {
+   "case_id": "C013",
+   "label": "instance_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Grouping by country name differs from country ID only because generated data duplicates nation names, which a real country catalog would not."
+  },
+  {
+   "case_id": "C014",
+   "label": "instance_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Grouping differs only because generated rows assign one canonical country name to multiple CountryIds, impossible for distinct real nations."
+  },
+  {
+   "case_id": "C015",
+   "label": "semantic_error",
+   "error_type": "wrong_grouping",
+   "borderline": true,
+   "reason": "Grouping by FullName merges distinct manufacturer IDs sharing a name, so it no longer computes a count for each manufacturer."
+  },
+  {
+   "case_id": "C016",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The gold selects the Volvo marque while the returned query selects all marques owned by the Volvo manufacturer; the wording does not distinguish them."
+  },
+  {
+   "case_id": "C017",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": true,
+   "reason": "Filtering the parent maker named Volvo includes every brand it owns, while all Volvos targets car_names.Model equal to volvo."
+  },
+  {
+   "case_id": "C018",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The wording does not say whether volvo denotes the car_names model or the car_makers maker, and the two joins implement those readings."
+  },
+  {
+   "case_id": "C019",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The normalized Volvo-maker path captures Volvo vehicles, while the gold unnecessarily requires the model label itself to equal volvo."
+  },
+  {
+   "case_id": "C020",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Fiat can denote the manufacturer or a model named Fiat; the question does not distinguish those schema levels."
+  },
+  {
+   "case_id": "C021",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": true,
+   "reason": "The second branch filters a maker named fiat instead of models named fiat, so it does not test which countries produce Fiats."
+  },
+  {
+   "case_id": "C022",
+   "label": "instance_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The suite creates several airline rows named JetBlue Airways; that duplicated real-world identity makes the scalar subquery diverge from the join."
+  },
+  {
+   "case_id": "C023",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "EXCEPT removes duplicates while the returned join preserves repeated flights; the question does not specify whether airline names should repeat."
+  },
+  {
+   "case_id": "C024",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "EXCEPT deduplicates airline names while NOT IN preserves one row per qualifying flight; the question does not specify duplicate-row multiplicity."
+  },
+  {
+   "case_id": "C025",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Age is semantically numeric despite TEXT storage; casting gives chronological order, whereas the gold lexicographically sorts string representations."
+  },
+  {
+   "case_id": "C026",
+   "label": "instance_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "CAST selects differently only because generated Age values are nonnumeric and cannot describe real teachers."
+  },
+  {
+   "case_id": "C027",
+   "label": "semantic_error",
+   "error_type": "wrong_set_operation",
+   "borderline": true,
+   "reason": "Without DISTINCT, repeated match wins can occupy multiple top-three slots, although the question asks for three youngest victors."
+  },
+  {
+   "case_id": "C028",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "DISTINCT ranks unique winner-name and rank pairs, while the returned query ranks match rows; the question does not define repeated-victor handling."
+  },
+  {
+   "case_id": "C029",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "DISTINCT winner_name conflates different players who share a name; winner_id represents the different winners the question asks to count."
+  },
+  {
+   "case_id": "C030",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "EXCEPT deduplicates identical projected battle descriptions, while NOT IN preserves one row per battle; the requested output does not pin duplicate multiplicity."
+  },
+  {
+   "case_id": "C031",
+   "label": "semantic_error",
+   "error_type": "wrong_aggregate",
+   "borderline": true,
+   "reason": "UNION ALL counts both address roles and can count one student twice, while most students calls for counting students at one place."
+  },
+  {
+   "case_id": "C032",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "DISTINCT removes repeated country labels from multiple qualifying cartoons; the question does not specify output multiplicity."
+  },
+  {
+   "case_id": "C033",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "DISTINCT only removes repeated country values from multiple qualifying cartoons, and the question does not specify multiplicity."
+  },
+  {
+   "case_id": "C034",
+   "label": "instance_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The suite contains several country rows named Aruba; with the single real Aruba, the scalar lookup and join consider the same language rows."
+  },
+  {
+   "case_id": "C035",
+   "label": "instance_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The scalar subquery differs only because the generated database contains multiple countries named Aruba, an impossible duplication in this world catalog."
+  },
+  {
+   "case_id": "C036",
+   "label": "instance_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The scalar subquery differs only when multiple country rows are named Aruba, an impossible duplication for this real-world country table."
+  },
+  {
+   "case_id": "C037",
+   "label": "instance_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The returned query uses Afghanistan's fixed ISO code AFG; disagreement requires generated data to break that real-world name-code mapping."
+  },
+  {
+   "case_id": "C038",
+   "label": "instance_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "AFG is Afghanistan's fixed ISO code; separation requires generated country rows that break this real-world code-name mapping."
+  },
+  {
+   "case_id": "C039",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The gold intersects names and can combine languages from different same-named nations; the returned query requires both languages for one country code."
+  },
+  {
+   "case_id": "C040",
+   "label": "instance_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The suite assigns one country name to several codes, making name-based exclusion overreach only under duplicated country identities absent from realistic data."
+  },
+  {
+   "case_id": "C041",
+   "label": "instance_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The generated data assigns one country name to multiple nation codes with different English usage, impossible for this country catalog."
+  },
+  {
+   "case_id": "C042",
+   "label": "instance_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Code-based and name-based exclusion differ only when distinct countries share one country name, an unrealistic duplication in this current-country table."
+  },
+  {
+   "case_id": "C043",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "More than and less than require exclusive bounds; the gold's BETWEEN incorrectly includes populations exactly 160000 or 900000."
+  },
+  {
+   "case_id": "C044",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Multiple students named Kyle leave the referent unresolved; gold combines all Kyles while the scalar subquery arbitrarily selects one."
+  },
+  {
+   "case_id": "C045",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Multiple students can be named Kyle; the question does not specify whether to select one Kyle or combine all same-named students."
+  },
+  {
+   "case_id": "C046",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The question leaves both like direction and which same-named Kyle unresolved; outgoing likes for all Kyles and incoming likes for one are defensible."
+  },
+  {
+   "case_id": "C047",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Likes Kyle has does not specify outgoing Likes.student_id versus incoming Likes.liked_id, so both edge directions are defensible."
+  },
+  {
+   "case_id": "C048",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Both queries find a maximum dog count, but their unspecified tie ordering selects different owners when several owners share that maximum."
+  },
+  {
+   "case_id": "C049",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Both queries select a maximum-count owner without a secondary tie-breaker, so either tied owner satisfies the singular superlative."
+  },
+  {
+   "case_id": "C050",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Gold minimizes summed spending per type while returned uses the cheapest individual treatment; cheapest overall does not specify the intended cost statistic."
+  },
+  {
+   "case_id": "C051",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Least expensive does not distinguish total spending by type from the type of the cheapest individual treatment, making both readings defensible."
+  },
+  {
+   "case_id": "C052",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Both groupings produce the same owner totals; an unpinned tie for maximum spending makes their LIMIT 1 plans choose different owners."
+  },
+  {
+   "case_id": "C053",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Equal maximum treatment totals leave LIMIT 1 unpinned; the harmless extra zip grouping changes which tied owner SQLite returns."
+  },
+  {
+   "case_id": "C054",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Because Dogs.age is textual, the gold compares ages lexicographically; explicit numeric conversion correctly implements younger than average for realistic numeric ages."
+  },
+  {
+   "case_id": "C055",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Dog age is numeric despite text storage; casting prevents lexicographic comparisons that misclassify plausible multi-digit ages."
+  },
+  {
+   "case_id": "C056",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Gold intersects name-location pairs and can combine different stadium IDs across years; returned correctly requires one stadium in both years."
+  },
+  {
+   "case_id": "C057",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Name can defensibly mean first name or full name, and the question does not resolve collisions among students sharing a first name."
+  },
+  {
+   "case_id": "C058",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Intersecting first names conflates different students who separately own cats and dogs; grouping by student ID correctly requires one student to own both."
+  },
+  {
+   "case_id": "C059",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": true,
+   "reason": "Filtering car_makers.Maker for fiat assumes Fiat is the parent manufacturer; the question targets countries producing the fiat model in model_list."
+  },
+  {
+   "case_id": "C060",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "EXCEPT deduplicates airline names while NOT IN preserves one row per qualifying flight; the question does not specify duplicate-row multiplicity."
+  },
+  {
+   "case_id": "C061",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Age is semantically numeric despite TEXT storage; casting gives chronological order, whereas the gold lexicographically sorts string representations."
+  },
+  {
+   "case_id": "C062",
+   "label": "instance_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "CAST selects differently only because generated Age values are nonnumeric and cannot describe real teachers."
+  },
+  {
+   "case_id": "C063",
+   "label": "semantic_error",
+   "error_type": "wrong_set_operation",
+   "borderline": false,
+   "reason": "IN accepts a battle losing either named ship, while the question requires the same battle to have lost both."
+  },
+  {
+   "case_id": "C064",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "DISTINCT removes repeated country names from multiple matching cartoons; the question does not specify whether those duplicate rows should be retained."
+  },
+  {
+   "case_id": "C065",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "DISTINCT only removes repeated country values created by multiple qualifying cartoons; the question does not specify duplicate multiplicity."
+  },
+  {
+   "case_id": "C066",
+   "label": "instance_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The scalar subquery differs only when multiple country rows are named Aruba, an impossible duplication for this real-world country table."
+  },
+  {
+   "case_id": "C067",
+   "label": "instance_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Code and name identify the same nation realistically; duplicate generated country names make the gold's name-based exclusion overreach."
+  },
+  {
+   "case_id": "C068",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Multiple students named Kyle leave the referent unresolved; gold combines all Kyles while the scalar subquery arbitrarily selects one."
+  },
+  {
+   "case_id": "C069",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Cheapest overall can mean lowest total spending by type or the type of the cheapest individual treatment; the question does not decide."
+  },
+  {
+   "case_id": "C070",
+   "label": "semantic_error",
+   "error_type": "wrong_grouping",
+   "borderline": false,
+   "reason": "Grouping by name and capacity merges distinct stadiums sharing both attributes, so their combined concert count can incorrectly become the maximum."
+  },
+  {
+   "case_id": "C071",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "INTERSECT combines first names across students, creating false matches when different same-named students own cats and dogs; identity grouping correctly tests each student."
+  },
+  {
+   "case_id": "C072",
+   "label": "semantic_error",
+   "error_type": "wrong_grouping",
+   "borderline": true,
+   "reason": "Grouping by FullName can merge distinct manufacturers sharing a name; the question requires a separate model count for each manufacturer."
+  },
+  {
+   "case_id": "C073",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The normalized Volvo-maker path captures all Volvo vehicles, while the gold unnecessarily requires the model label itself to equal volvo."
+  },
+  {
+   "case_id": "C074",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Fiat can denote the manufacturer or a model named Fiat; the question does not distinguish those schema levels."
+  },
+  {
+   "case_id": "C075",
+   "label": "instance_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The generated instance duplicates United Airlines master records; a realistic airline dimension contains that carrier once, making the scalar subquery and join equivalent."
+  },
+  {
+   "case_id": "C076",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Adding functionally dependent address columns changes only which tied maximum group LIMIT 1 returns; the question supplies no tie-breaker."
+  },
+  {
+   "case_id": "C077",
+   "label": "instance_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The scalar subquery differs only because the generated catalog contains several countries named Aruba, which cannot represent distinct real Arubas."
+  },
+  {
+   "case_id": "C078",
+   "label": "instance_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "ABW is Aruba's fixed ISO code; the suite separates the queries only by assigning Aruba an impossible different code."
+  },
+  {
+   "case_id": "C079",
+   "label": "instance_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Intersecting nation names matches the self-join when country names uniquely identify nations; generated duplicate names create the extra gold row."
+  },
+  {
+   "case_id": "C080",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Least expensive could mean minimum observed treatment price or minimum total spending; the question does not choose between them."
+  },
+  {
+   "case_id": "C081",
+   "label": "semantic_error",
+   "error_type": "wrong_grouping",
+   "borderline": true,
+   "reason": "Grouping by name and capacity combines distinct stadium IDs with identical descriptions, potentially making their combined concert count win."
+  },
+  {
+   "case_id": "C082",
+   "label": "semantic_error",
+   "error_type": "wrong_grouping",
+   "borderline": false,
+   "reason": "Grouping by name and capacity merges distinct stadiums before choosing the maximum, although the question asks for one stadium entity."
+  },
+  {
+   "case_id": "C083",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "EXCEPT operates on stadium names, so one 2014 venue wrongly removes a different same-named stadium; ID-based exclusion answers the entity-level condition."
+  },
+  {
+   "case_id": "C084",
+   "label": "semantic_error",
+   "error_type": "wrong_grouping",
+   "borderline": false,
+   "reason": "Grouping by singer name merges different people with the same name, contradicting the requested concert count for each person."
+  },
+  {
+   "case_id": "C085",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Name does not specify first name alone versus full first-and-last name, so either projection is defensible."
+  },
+  {
+   "case_id": "C086",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "DISTINCT removes repeated last-name values from multiple matches; the question does not specify whether duplicate names should remain."
+  },
+  {
+   "case_id": "C087",
+   "label": "semantic_error",
+   "error_type": "wrong_grouping",
+   "borderline": true,
+   "reason": "Grouping by FullName merges distinct manufacturer IDs sharing a name, so it no longer computes a count for each manufacturer."
+  },
+  {
+   "case_id": "C088",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The gold selects the Volvo marque while the returned query selects all marques owned by the Volvo manufacturer; the wording does not distinguish them."
+  },
+  {
+   "case_id": "C089",
+   "label": "semantic_error",
+   "error_type": "wrong_join",
+   "borderline": true,
+   "reason": "The unnecessary cars_data inner join discards car-name versions lacking a data row, so it can change which model has the most versions."
+  },
+  {
+   "case_id": "C090",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The wording does not say whether volvo denotes the car_names model or the car_makers maker, and the two joins implement those readings."
+  },
+  {
+   "case_id": "C091",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Produce the fiat does not distinguish a Fiat-named maker from a model named fiat; both schema paths are defensible."
+  },
+  {
+   "case_id": "C092",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Fiat can denote the manufacturer or a model named Fiat; the question does not distinguish those schema levels."
+  },
+  {
+   "case_id": "C093",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "DISTINCT changes only repeated airline names caused by multiple qualifying flights; the question does not specify duplicate multiplicity."
+  },
+  {
+   "case_id": "C094",
+   "label": "semantic_error",
+   "error_type": "wrong_grouping",
+   "borderline": false,
+   "reason": "Grouping by shop name combines distinct shops in a chain, so the result can identify a name aggregate rather than the busiest shop."
+  },
+  {
+   "case_id": "C095",
+   "label": "semantic_error",
+   "error_type": "wrong_grouping",
+   "borderline": false,
+   "reason": "Grouping by shop name merges distinct same-named shops, so their employee counts no longer identify the individual shop with the most employees."
+  },
+  {
+   "case_id": "C096",
+   "label": "semantic_error",
+   "error_type": "wrong_join",
+   "borderline": false,
+   "reason": "The rankings join uses undated ranking records instead of each match's winner_rank_points, so it can select the wrong Australian Open winner."
+  },
+  {
+   "case_id": "C097",
+   "label": "semantic_error",
+   "error_type": "wrong_aggregate",
+   "borderline": false,
+   "reason": "The returned WHERE tests each casualty row above ten instead of summing deaths per battle, so it computes the wrong threshold."
+  },
+  {
+   "case_id": "C098",
+   "label": "instance_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The scalar subquery differs only because the suite creates multiple countries named Aruba, which cannot represent a realistic country dimension."
+  },
+  {
+   "case_id": "C099",
+   "label": "instance_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The suite breaks the fixed real-world Afghanistan-to-AFG mapping; on realistic country data, the name and code filters identify the same nation."
+  },
+  {
+   "case_id": "C100",
+   "label": "instance_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The suite assigns one country name to several codes, making name-based exclusion overreach only under duplicated country identities absent from realistic data."
+  },
+  {
+   "case_id": "C101",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "BETWEEN includes 160000 and 900000, contradicting the question's strict more-than and less-than boundaries; the returned inequalities are correct."
+  },
+  {
+   "case_id": "C102",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Both queries find a maximum dog count, but their unspecified tie ordering selects different owners when several owners share that maximum."
+  },
+  {
+   "case_id": "C103",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Both queries select a maximum-count owner without a secondary tie-breaker, so either tied owner satisfies the singular superlative."
+  },
+  {
+   "case_id": "C104",
+   "label": "semantic_error",
+   "error_type": "wrong_grouping",
+   "borderline": false,
+   "reason": "Grouping by singer name combines different people sharing a name, contrary to the requested count for each person."
+  },
+  {
+   "case_id": "C105",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "DISTINCT only collapses identical last names from multiple qualifying rows; the question does not specify whether repeated names should be preserved."
+  },
+  {
+   "case_id": "C106",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Volvo can denote either the marque filtered by gold or the corporate maker filtered by the returned join, and the question supplies no distinction."
+  },
+  {
+   "case_id": "C107",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "Scalar equality chooses one airport code per city, omitting flights involving other legitimate Aberdeen or Ashley airports."
+  },
+  {
+   "case_id": "C108",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Winner IDs identify people canonically; gold's name-based distinct count can merge different same-named winners, while the joined player record supplies handedness."
+  },
+  {
+   "case_id": "C109",
+   "label": "instance_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "A real country catalog has one Aruba row; only generated duplicate names make the scalar code lookup omit additional Aruba language rows."
+  },
+  {
+   "case_id": "C110",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Language diversity means distinct languages; gold instead counts repeated occurrences across countries on the continent."
+  },
+  {
+   "case_id": "C111",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The gold excludes by country name, so an English-speaking nation can wrongly exclude a different non-English nation sharing its name."
+  },
+  {
+   "case_id": "C112",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Age is stored as text; explicit numeric casts avoid lexicographic comparison, while the gold only coerces values inside AVG."
+  },
+  {
+   "case_id": "C113",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "EXCEPT operates on stadium names, so one 2014 venue wrongly removes a different same-named stadium; ID-based exclusion answers the entity-level condition."
+  },
+  {
+   "case_id": "C114",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The wording does not say whether volvo denotes the car_names model or the car_makers maker, and the two joins implement those readings."
+  },
+  {
+   "case_id": "C115",
+   "label": "instance_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Grouping by country name versus country ID diverges only because generated data assigns the same name to multiple nations."
+  },
+  {
+   "case_id": "C116",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Fiat can denote the manufacturer or a model named Fiat; the question does not distinguish those schema levels."
+  },
+  {
+   "case_id": "C117",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "DISTINCT changes only repeated airline names caused by multiple qualifying flights; the question does not specify duplicate multiplicity."
+  },
+  {
+   "case_id": "C118",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Both groupings produce the same owner totals; an unpinned tie for maximum spending makes their LIMIT 1 plans choose different owners."
+  },
+  {
+   "case_id": "C119",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Several singers tie for minimum age; the question gives no rule for returning one tied singer versus all youngest singers."
+  },
+  {
+   "case_id": "C120",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Grouping columns are equivalent through the join; both queries reach the same maximum count but choose different stadiums from an unpinned tie."
+  },
+  {
+   "case_id": "C121",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Both queries rank identical stadium counts without a secondary tie-breaker, so different co-maximal stadiums are equally responsive."
+  },
+  {
+   "case_id": "C122",
+   "label": "semantic_error",
+   "error_type": "wrong_grouping",
+   "borderline": false,
+   "reason": "Grouping by singer name merges distinct people sharing a name; each person requires grouping by singer identity."
+  },
+  {
+   "case_id": "C123",
+   "label": "semantic_error",
+   "error_type": "wrong_grouping",
+   "borderline": false,
+   "reason": "Grouping by singer name merges distinct people with the same name, violating the requested per-person concert count."
+  },
+  {
+   "case_id": "C124",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Name can reasonably mean first name alone or first plus last name, and that choice changes both projection and cross-student matching."
+  },
+  {
+   "case_id": "C125",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Several pets tie for minimum age; the question gives no rule for returning one tied animal versus every youngest animal."
+  },
+  {
+   "case_id": "C126",
+   "label": "instance_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Grouping by CountryName merges generated duplicate country rows; a realistic current-country table cannot contain several nations with the identical country name."
+  },
+  {
+   "case_id": "C127",
+   "label": "instance_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Grouping by country name differs from country ID only because generated data duplicates nation names, which a real country catalog would not."
+  },
+  {
+   "case_id": "C128",
+   "label": "semantic_error",
+   "error_type": "wrong_grouping",
+   "borderline": true,
+   "reason": "Grouping by FullName can merge distinct manufacturer entities, so counts are not reliably computed for each manufacturer."
+  },
+  {
+   "case_id": "C129",
+   "label": "instance_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The generated instance contains two countries named France; a realistic country table has one France, under which both queries agree."
+  },
+  {
+   "case_id": "C130",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The gold selects the Volvo marque while the returned query selects all marques owned by the Volvo manufacturer; the wording does not distinguish them."
+  },
+  {
+   "case_id": "C131",
+   "label": "instance_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The scalar subquery differs only because the generated manufacturer catalog duplicates the exact full name American Motor Company across multiple IDs."
+  },
+  {
+   "case_id": "C132",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The wording does not say whether volvo denotes the car_names model or the car_makers maker, and the two joins implement those readings."
+  },
+  {
+   "case_id": "C133",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The normalized Volvo-maker path captures Volvo vehicles, while the gold unnecessarily requires the model label itself to equal volvo."
+  },
+  {
+   "case_id": "C134",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Fiat can denote the manufacturer or a model named Fiat; the question does not distinguish those schema levels."
+  },
+  {
+   "case_id": "C135",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": true,
+   "reason": "The Fiat branch filters CM.Maker rather than ML.Model, selecting countries with a Fiat-named maker instead of countries producing Fiat models."
+  },
+  {
+   "case_id": "C136",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "Scalar equality chooses one arbitrary airport code for each city, omitting flights when Aberdeen or Ashley has multiple airports."
+  },
+  {
+   "case_id": "C137",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "DISTINCT only removes repeated airline values created by multiple qualifying flights; the question does not specify duplicate multiplicity."
+  },
+  {
+   "case_id": "C138",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "DISTINCT removes repeated airline names caused by multiple qualifying flights; the question does not determine whether such duplicate output rows should remain."
+  },
+  {
+   "case_id": "C139",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "DISTINCT removes repeated airline names caused by multiple qualifying flights; the question does not specify whether duplicate rows should be retained."
+  },
+  {
+   "case_id": "C140",
+   "label": "semantic_error",
+   "error_type": "wrong_projection",
+   "borderline": true,
+   "reason": "The returned query projects internal airline IDs, while the question asks for airlines and the schema provides their names."
+  },
+  {
+   "case_id": "C141",
+   "label": "semantic_error",
+   "error_type": "wrong_projection",
+   "borderline": true,
+   "reason": "The returned query outputs internal airline IDs from flights, while the question asks which airlines and the schema provides airline names."
+  },
+  {
+   "case_id": "C142",
+   "label": "instance_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The suite makes matches' winner names disagree with the referenced players' names; with consistent winner identities, the two name sources coincide."
+  },
+  {
+   "case_id": "C143",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Several players tie for earliest birth date; the question gives no rule for returning one tied player versus every oldest player."
+  },
+  {
+   "case_id": "C144",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Grouping by winner_id identifies the person; gold's winner_name grouping can merge different players who share a name, changing who won most often."
+  },
+  {
+   "case_id": "C145",
+   "label": "semantic_error",
+   "error_type": "wrong_join",
+   "borderline": false,
+   "reason": "Joining undated ranking history orders by any ranking record rather than the winner's match-specific rank points, changing who qualifies as highest."
+  },
+  {
+   "case_id": "C146",
+   "label": "instance_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The suite makes matches.winner_name inconsistent with the referenced player's full name; valid player-match data would identify the same winner."
+  },
+  {
+   "case_id": "C147",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Winner IDs and player handedness track people; the gold can merge same-named winners and relies on a redundant match-level hand value."
+  },
+  {
+   "case_id": "C148",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Distinct winner names can conflate different players sharing a name; distinct winner IDs correctly count the people who won."
+  },
+  {
+   "case_id": "C149",
+   "label": "semantic_error",
+   "error_type": "wrong_set_operation",
+   "borderline": false,
+   "reason": "IN implements either ship, whereas the conjunction asks for a battle in which both Lettice and HMS Atalanta were lost."
+  },
+  {
+   "case_id": "C150",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "EXCEPT deduplicates identical projected battle descriptions, while NOT IN preserves one row per battle; the requested output does not pin duplicate multiplicity."
+  },
+  {
+   "case_id": "C151",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "DISTINCT reports each qualifying country once, while the gold repeats it per cartoon; the question leaves duplicate multiplicity unstated."
+  },
+  {
+   "case_id": "C152",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "DISTINCT reports each qualifying country once while gold repeats countries for multiple cartoons; duplicate multiplicity is not specified."
+  },
+  {
+   "case_id": "C153",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The gold intersects names and can combine languages from different same-named nations; the returned query requires both languages for one country code."
+  },
+  {
+   "case_id": "C154",
+   "label": "instance_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The suite reuses one country name for different country codes; realistic country identities make intersecting by name or code equivalent here."
+  },
+  {
+   "case_id": "C155",
+   "label": "instance_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The generated data assigns one country name to multiple nation codes with different English usage, impossible for this country catalog."
+  },
+  {
+   "case_id": "C156",
+   "label": "instance_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Code-based and name-based exclusion differ only when distinct countries share one country name, an unrealistic duplication in this current-country table."
+  },
+  {
+   "case_id": "C157",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "More than and less than require exclusive bounds; the gold's BETWEEN incorrectly includes populations exactly 160000 or 900000."
+  },
+  {
+   "case_id": "C158",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Multiple students named Kyle leave the referent unresolved; gold combines all Kyles while the scalar subquery arbitrarily selects one."
+  },
+  {
+   "case_id": "C159",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Multiple students can be named Kyle; the question does not specify whether to select one Kyle or combine all same-named students."
+  },
+  {
+   "case_id": "C160",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Several students can realistically be named Kyle, and the question does not say whether to aggregate all matching students or choose one."
+  },
+  {
+   "case_id": "C161",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Likes Kyle has does not specify outgoing Likes.student_id versus incoming Likes.liked_id, so both edge directions are defensible."
+  },
+  {
+   "case_id": "C162",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Likes.student_id counts people Kyle likes, whereas liked_id counts likes Kyle receives; likes Kyle has does not specify direction."
+  },
+  {
+   "case_id": "C163",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Both queries select a maximum-count owner without a secondary tie-breaker, so either tied owner satisfies the singular superlative."
+  },
+  {
+   "case_id": "C164",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The queries select different owners tied for the maximum dog count, and the question supplies no tie-breaker."
+  },
+  {
+   "case_id": "C165",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Cheapest overall does not say whether to compare each type's total spending or average treatment cost, so both summaries are defensible."
+  },
+  {
+   "case_id": "C166",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The question does not define expense as total type cost versus the cheapest individual treatment, and it also leaves minimum ties unresolved."
+  },
+  {
+   "case_id": "C167",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Equal maximum treatment totals leave LIMIT 1 unpinned; the harmless extra zip grouping changes which tied owner SQLite returns."
+  },
+  {
+   "case_id": "C168",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Adding zip_code to owner_id cannot change valid groups because owner_id is a key; the disagreement is an unpinned maximum-total tie."
+  },
+  {
+   "case_id": "C169",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Both queries rank identical stadium counts without a secondary tie-breaker, so different co-maximal stadiums are equally responsive."
+  },
+  {
+   "case_id": "C170",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Gold subtracts names and can exclude an inactive stadium sharing an active stadium's name; returned filters the stadium entities themselves."
+  },
+  {
+   "case_id": "C171",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Name can defensibly mean first name or full name, and the question does not resolve collisions among students sharing a first name."
+  },
+  {
+   "case_id": "C172",
+   "label": "semantic_error",
+   "error_type": "wrong_grouping",
+   "borderline": true,
+   "reason": "Grouping by FullName merges separate manufacturer IDs sharing a name, violating the request for a count for each manufacturer."
+  },
+  {
+   "case_id": "C173",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Cars of Volvo can mean Volvo-branded models or every model attached to the Volvo manufacturer; the question does not distinguish them."
+  },
+  {
+   "case_id": "C174",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The wording does not say whether volvo denotes the car_names model or the car_makers maker, and the two joins implement those readings."
+  },
+  {
+   "case_id": "C175",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The normalized Volvo-maker path captures Volvo vehicles, while the gold unnecessarily requires the model label itself to equal volvo."
+  },
+  {
+   "case_id": "C176",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Fiat can denote the manufacturer or a model named Fiat; the question does not distinguish those schema levels."
+  },
+  {
+   "case_id": "C177",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": true,
+   "reason": "The Fiat branch filters CM.Maker instead of models named fiat, so it does not directly test which countries produce Fiats."
+  },
+  {
+   "case_id": "C178",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "Scalar equality chooses one arbitrary Aberdeen airport code, while the question asks for all flights departing from the city."
+  },
+  {
+   "case_id": "C179",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "Scalar equality chooses one airport code per city, omitting flights involving other legitimate Aberdeen or Ashley airports."
+  },
+  {
+   "case_id": "C180",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": false,
+   "reason": "Scalar city subqueries choose one arbitrary airport per city, omitting flights involving other Aberdeen or Ashley airports."
+  },
+  {
+   "case_id": "C181",
+   "label": "instance_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "JetBlue Airways denotes one real airline; generated duplicate airline-name rows make the scalar UID lookup count only one arbitrary record."
+  },
+  {
+   "case_id": "C182",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "DISTINCT lists each airline once while gold repeats it for each qualifying flight; requested multiplicity is unstated."
+  },
+  {
+   "case_id": "C183",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "DISTINCT changes only repeated airline names caused by multiple qualifying flights; the question does not specify duplicate multiplicity."
+  },
+  {
+   "case_id": "C184",
+   "label": "semantic_error",
+   "error_type": "wrong_projection",
+   "borderline": true,
+   "reason": "The returned query projects flight-table airline identifiers, while the schema's human-readable airline names are required to answer which airlines."
+  },
+  {
+   "case_id": "C185",
+   "label": "semantic_error",
+   "error_type": "wrong_projection",
+   "borderline": false,
+   "reason": "The returned query projects flights.Airline identifiers rather than the airline names explicitly requested."
+  },
+  {
+   "case_id": "C186",
+   "label": "semantic_error",
+   "error_type": "wrong_projection",
+   "borderline": false,
+   "reason": "The returned query projects flights.Airline identifiers, while the question asks for airline names supplied by airlines.Airline."
+  },
+  {
+   "case_id": "C187",
+   "label": "instance_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Match winner_name and the joined player's full name are redundant representations; generated mismatches alone separate the queries."
+  },
+  {
+   "case_id": "C188",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Several players share the earliest birth date; gold chooses one while returned includes all, and no tie policy is stated."
+  },
+  {
+   "case_id": "C189",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Winner IDs and player handedness track people; the gold can merge same-named winners and relies on a redundant match-level hand value."
+  },
+  {
+   "case_id": "C190",
+   "label": "semantic_error",
+   "error_type": "wrong_aggregate",
+   "borderline": false,
+   "reason": "Filtering individual death rows above ten neither sums deaths per battle nor removes repeated battle rows, so it does not answer the requested total."
+  },
+  {
+   "case_id": "C191",
+   "label": "semantic_error",
+   "error_type": "wrong_set_operation",
+   "borderline": false,
+   "reason": "IN implements either ship, whereas the conjunction asks for a battle in which both Lettice and HMS Atalanta were lost."
+  },
+  {
+   "case_id": "C192",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "DISTINCT reports each country once while the gold repeats countries for multiple qualifying cartoons; the question does not specify duplicate multiplicity."
+  },
+  {
+   "case_id": "C193",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "EXCEPT deduplicates country names while NOT IN preserves one row per channel; the question does not specify duplicate multiplicity."
+  },
+  {
+   "case_id": "C194",
+   "label": "instance_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "DISTINCT changes the count only because multiple generated country codes are named Aruba; a realistic country table has one Aruba."
+  },
+  {
+   "case_id": "C195",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The gold excludes by country name, so an English-speaking nation can wrongly exclude a different non-English nation sharing its name."
+  },
+  {
+   "case_id": "C196",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Several students can realistically be named Kyle, and the question does not say whether to aggregate all matching students or choose one."
+  },
+  {
+   "case_id": "C197",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Likes Kyle has does not specify outgoing Likes.student_id versus incoming Likes.liked_id, so both edge directions are defensible."
+  },
+  {
+   "case_id": "C198",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Gold minimizes total spending per treatment type, while returned minimizes an individual treatment charge; least expensive does not choose between these measures."
+  },
+  {
+   "case_id": "C199",
+   "label": "semantic_error",
+   "error_type": "wrong_grouping",
+   "borderline": true,
+   "reason": "Grouping by name and capacity merges distinct stadium IDs sharing those descriptors, so their concerts are incorrectly combined."
+  },
+  {
+   "case_id": "C200",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Gold intersects first names and can combine different students; returned full names better preserve the identity required to own both pets."
+  },
+  {
+   "case_id": "C201",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The queries differ only when several pets share the minimum age; the singular question supplies no rule for returning one or all ties."
+  },
+  {
+   "case_id": "C202",
+   "label": "semantic_error",
+   "error_type": "wrong_grouping",
+   "borderline": true,
+   "reason": "Grouping by FullName merges separate manufacturer IDs sharing a name, violating the request for a count for each manufacturer."
+  },
+  {
+   "case_id": "C203",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": true,
+   "reason": "Filtering the parent maker named Volvo includes every brand it owns, while all Volvos targets car_names.Model equal to volvo."
+  },
+  {
+   "case_id": "C204",
+   "label": "instance_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The scalar subquery differs only when several car_maker rows have the exact FullName American Motor Company, an impossible duplicate company identity."
+  },
+  {
+   "case_id": "C205",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Produce the fiat does not distinguish a Fiat-named maker from a model named fiat; both schema paths are defensible."
+  },
+  {
+   "case_id": "C206",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Fiat can denote the manufacturer or a model named Fiat; the question does not distinguish those schema levels."
+  },
+  {
+   "case_id": "C207",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "DISTINCT changes only repeated airline names caused by multiple qualifying flights; the question does not specify duplicate multiplicity."
+  },
+  {
+   "case_id": "C208",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "DISTINCT removes repeated airline names caused by multiple qualifying flights; the question does not specify whether duplicate rows should be retained."
+  },
+  {
+   "case_id": "C209",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "DISTINCT only removes repeated airline values created by multiple qualifying flights; the question does not specify duplicate multiplicity."
+  },
+  {
+   "case_id": "C210",
+   "label": "semantic_error",
+   "error_type": "wrong_projection",
+   "borderline": false,
+   "reason": "The returned query projects flights.Airline identifiers, while the question asks for airline names supplied by airlines.Airline."
+  },
+  {
+   "case_id": "C211",
+   "label": "instance_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "winner_name and the referenced player's full name should identify the same person; generated inconsistent redundant names make the projections differ."
+  },
+  {
+   "case_id": "C212",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Because address and student IDs are keys, the grouping and counts coincide; only an unpinned maximum tie changes the selected row."
+  },
+  {
+   "case_id": "C213",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The gold intersects names and can combine languages from different same-named nations; the returned query requires both languages for one country code."
+  },
+  {
+   "case_id": "C214",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Having likes can mean likes Kyle gives or likes Kyle receives, so choosing student_id versus liked_id is not pinned by the wording."
+  },
+  {
+   "case_id": "C215",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The question does not say whether least expensive means minimum individual treatment cost or minimum total cost aggregated by treatment type."
+  },
+  {
+   "case_id": "C216",
+   "label": "gold_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "EXCEPT subtracts by stadium name, wrongly removing non-2014 stadiums sharing a name with a 2014 venue; returned filtering uses stadium identity."
+  },
+  {
+   "case_id": "C217",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Name does not specify first name alone versus full first-and-last name, so either projection is defensible."
+  },
+  {
+   "case_id": "C218",
+   "label": "instance_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Grouping differs only because generated rows assign one canonical country name to multiple CountryIds, impossible for distinct real nations."
+  },
+  {
+   "case_id": "C219",
+   "label": "semantic_error",
+   "error_type": "wrong_grouping",
+   "borderline": true,
+   "reason": "Grouping by CountryName combines distinct country IDs sharing a name, potentially making their combined maker count appear largest."
+  },
+  {
+   "case_id": "C220",
+   "label": "semantic_error",
+   "error_type": "wrong_grouping",
+   "borderline": true,
+   "reason": "Grouping by FullName merges separate manufacturer IDs sharing a name, violating the request for a count for each manufacturer."
+  },
+  {
+   "case_id": "C221",
+   "label": "instance_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "The scalar subquery fails only because the generated continent table contains several distinct IDs all named Europe, an impossible catalog state."
+  },
+  {
+   "case_id": "C222",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The wording does not say whether volvo denotes the car_names model or the car_makers maker, and the two joins implement those readings."
+  },
+  {
+   "case_id": "C223",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Using canonical Model versus searching descriptive Make text are two plausible ways to identify Volvos; the question does not distinguish them."
+  },
+  {
+   "case_id": "C224",
+   "label": "instance_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Separation requires Maker=gm and FullName=General Motors to identify different manufacturers, breaking their intended code-name mapping."
+  },
+  {
+   "case_id": "C225",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "For Volvo does not determine whether Volvo denotes the model-list label or the manufacturer, and both coincide in the shipped database."
+  },
+  {
+   "case_id": "C226",
+   "label": "instance_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The separating row labels a non-Volvo model's free-text car name as Volvo; realistic car names and marque values would not contradict each other."
+  },
+  {
+   "case_id": "C227",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": true,
+   "reason": "Filtering car_makers.Maker for fiat assumes Fiat is the parent manufacturer; the question targets countries producing the fiat model in model_list."
+  },
+  {
+   "case_id": "C228",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "borderline": true,
+   "reason": "Filtering car_makers.Maker=fiat merely finds a company name and never verifies any Fiat model; producing Fiats requires the model_list join."
+  },
+  {
+   "case_id": "C229",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Popularity could mean presence across countries or aggregate language percentages; the question selects neither metric."
+  },
+  {
+   "case_id": "C230",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Multiple students named Kyle leave the referent unresolved; gold combines all Kyles while the scalar subquery arbitrarily selects one."
+  },
+  {
+   "case_id": "C231",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Cheapest overall does not say whether to compare each type's total spending or average treatment cost, so both summaries are defensible."
+  },
+  {
+   "case_id": "C232",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Least expensive does not specify total cost by treatment type versus the cheapest individual treatment, so both aggregation levels are defensible."
+  },
+  {
+   "case_id": "C233",
+   "label": "instance_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The suite separates only incoherent car rows whose Make text says Volvo while Model names another brand, or vice versa."
+  },
+  {
+   "case_id": "C234",
+   "label": "instance_defect",
+   "error_type": null,
+   "borderline": false,
+   "reason": "Maker=gm and FullName=General Motors identify the same real manufacturer; suite disagreements require nonsensical rows breaking that code-to-name mapping."
+  },
+  {
+   "case_id": "C235",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Using canonical Model versus searching descriptive Make text are two plausible ways to identify Volvos; the question does not distinguish them."
+  },
+  {
+   "case_id": "C236",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Least expensive could mean minimum observed treatment price or minimum total spending; the question does not choose between them."
+  },
+  {
+   "case_id": "C237",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "Name can defensibly mean first name or full name, and the question does not resolve collisions among students sharing a first name."
+  },
+  {
+   "case_id": "C238",
+   "label": "semantic_error",
+   "error_type": "wrong_grouping",
+   "borderline": true,
+   "reason": "Grouping by FullName merges separate manufacturer IDs sharing a name, violating the request for a count for each manufacturer."
+  },
+  {
+   "case_id": "C239",
+   "label": "instance_defect",
+   "error_type": null,
+   "borderline": true,
+   "reason": "The generated rows break the geographic correspondence between African regions and the Africa continent; coherent world data makes the predicates equivalent."
+  },
+  {
+   "case_id": "C240",
+   "label": "underspecified",
+   "error_type": null,
+   "borderline": true,
+   "reason": "SUM ranks treatment types by total spending, whereas AVG ranks typical treatment cost; cheapest overall does not specify which aggregation defines cheapest."
+  }
+ ]
+}

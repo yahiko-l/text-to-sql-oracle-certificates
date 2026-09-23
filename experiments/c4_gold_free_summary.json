@@ -1,0 +1,157 @@
+{
+ "note": "fully gold-free sensitivity: the partition is built from the sampled candidates alone AND the row-order convention passed to result_eq comes from the pair being compared (order matters if either query carries an ORDER BY) rather than from the gold query. The gold is then used only to label a class after the partition exists. Deriving the order rule per pair makes the relation non-transitive in a few questions; the counts are reported per model.",
+ "models": {
+  "kwai-autosql-32b": {
+   "GAP_gold_free": 0.1023,
+   "GAP_preregistered": 0.1023,
+   "REPAIR_gold_free": -0.1038,
+   "REPAIR_preregistered": -0.1038,
+   "identical_to_preregistered": true,
+   "max_abs_diff": 0.0,
+   "per_seed_GAP_gold_free": [
+    0.1041,
+    0.099,
+    0.1038
+   ],
+   "per_seed_REPAIR_gold_free": [
+    -0.1054,
+    -0.1002,
+    -0.1059
+   ],
+   "intransitivity": [
+    {
+     "seed": 101,
+     "intransitive_pairs_single": 2,
+     "intransitive_pairs_multi": 41,
+     "questions_with_intransitivity": 4
+    },
+    {
+     "seed": 202,
+     "intransitive_pairs_single": 2,
+     "intransitive_pairs_multi": 28,
+     "questions_with_intransitivity": 4
+    },
+    {
+     "seed": 303,
+     "intransitive_pairs_single": 16,
+     "intransitive_pairs_multi": 21,
+     "questions_with_intransitivity": 3
+    }
+   ]
+  },
+  "kwai-autosql-14b": {
+   "GAP_gold_free": 0.0808,
+   "GAP_preregistered": 0.0808,
+   "REPAIR_gold_free": -0.0829,
+   "REPAIR_preregistered": -0.083,
+   "identical_to_preregistered": false,
+   "max_abs_diff": 0.0003,
+   "per_seed_GAP_gold_free": [
+    0.0776,
+    0.083,
+    0.0819
+   ],
+   "per_seed_REPAIR_gold_free": [
+    -0.0798,
+    -0.0847,
+    -0.0842
+   ],
+   "intransitivity": [
+    {
+     "seed": 101,
+     "intransitive_pairs_single": 0,
+     "intransitive_pairs_multi": 0,
+     "questions_with_intransitivity": 0
+    },
+    {
+     "seed": 202,
+     "intransitive_pairs_single": 0,
+     "intransitive_pairs_multi": 2,
+     "questions_with_intransitivity": 1
+    },
+    {
+     "seed": 303,
+     "intransitive_pairs_single": 0,
+     "intransitive_pairs_multi": 10,
+     "questions_with_intransitivity": 3
+    }
+   ]
+  },
+  "xiyansql-32b": {
+   "GAP_gold_free": 0.0311,
+   "GAP_preregistered": 0.0311,
+   "REPAIR_gold_free": -0.029,
+   "REPAIR_preregistered": -0.029,
+   "identical_to_preregistered": true,
+   "max_abs_diff": 0.0,
+   "per_seed_GAP_gold_free": [
+    0.0306,
+    0.0313,
+    0.0313
+   ],
+   "per_seed_REPAIR_gold_free": [
+    -0.0285,
+    -0.0293,
+    -0.0291
+   ],
+   "intransitivity": [
+    {
+     "seed": 101,
+     "intransitive_pairs_single": 0,
+     "intransitive_pairs_multi": 0,
+     "questions_with_intransitivity": 0
+    },
+    {
+     "seed": 202,
+     "intransitive_pairs_single": 0,
+     "intransitive_pairs_multi": 0,
+     "questions_with_intransitivity": 0
+    },
+    {
+     "seed": 303,
+     "intransitive_pairs_single": 0,
+     "intransitive_pairs_multi": 0,
+     "questions_with_intransitivity": 0
+    }
+   ]
+  },
+  "omnisql-32b": {
+   "GAP_gold_free": 0.0951,
+   "GAP_preregistered": 0.0951,
+   "REPAIR_gold_free": -0.0959,
+   "REPAIR_preregistered": -0.0959,
+   "identical_to_preregistered": false,
+   "max_abs_diff": 0.0001,
+   "per_seed_GAP_gold_free": [
+    0.0963,
+    0.0944,
+    0.0946
+   ],
+   "per_seed_REPAIR_gold_free": [
+    -0.0985,
+    -0.0942,
+    -0.0951
+   ],
+   "intransitivity": [
+    {
+     "seed": 101,
+     "intransitive_pairs_single": 25,
+     "intransitive_pairs_multi": 21,
+     "questions_with_intransitivity": 4
+    },
+    {
+     "seed": 202,
+     "intransitive_pairs_single": 133,
+     "intransitive_pairs_multi": 66,
+     "questions_with_intransitivity": 11
+    },
+    {
+     "seed": 303,
+     "intransitive_pairs_single": 39,
+     "intransitive_pairs_multi": 39,
+     "questions_with_intransitivity": 4
+    }
+   ]
+  }
+ }
+}

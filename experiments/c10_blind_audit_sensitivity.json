@@ -1,0 +1,259 @@
+{
+ "note": "post-hoc quantities; the preregistered analysis is in c10_blind_audit_result.json",
+ "generated_from": {
+  "key": "experiments/c10_blind_audit_key.json",
+  "responses": [
+   "experiments/blind_audit/RESPONSES_专家1.clean.csv",
+   "experiments/blind_audit/RESPONSES_专家2.clean.csv"
+  ],
+  "adjudicated": "experiments/blind_audit/ADJUDICATION_标注.clean.csv"
+ },
+ "borderline_either": {
+  "rule": "drop an item if either expert marked it borderline",
+  "conflicting_marks_on_agreed_verdicts": 12,
+  "rates": {
+   "flagged": {
+    "n": 42,
+    "defective": 31,
+    "D": 0.7381,
+    "interval95": [
+     0.5796,
+     0.8614
+    ],
+    "underspecified": 0,
+    "cannot_judge": 0
+   },
+   "examined": {
+    "n": 22,
+    "defective": 3,
+    "D": 0.1364,
+    "interval95": [
+     0.0291,
+     0.3491
+    ],
+    "underspecified": 0,
+    "cannot_judge": 0
+   },
+   "unexamined": {
+    "n": 32,
+    "defective": 3,
+    "D": 0.0938,
+    "interval95": [
+     0.0198,
+     0.2502
+    ],
+    "underspecified": 0,
+    "cannot_judge": 0
+   }
+  },
+  "decision": {
+   "verdict": "supported",
+   "margin": 0.6017,
+   "D_flagged": 0.7381,
+   "D_examined": 0.1364,
+   "rule": "supported if margin >= 0.25 and D(flagged) >= 0.4; refuted if margin < 0.1; otherwise partially supported"
+  }
+ },
+ "design_weighted": {
+  "rule": "every flagged question was sampled, so its confirmed count enters directly; the two controls enter at their sampled rates times their stratum sizes",
+  "strata_sizes": {
+   "flagged": 73,
+   "examined": 130,
+   "unexamined": 305
+  },
+  "questions": 508,
+  "estimate": 0.175,
+  "interval95": null,
+  "caveat": "point estimate only; no preregistered interval, and the strata are defined by what four checkpoints exposed"
+ },
+ "extensional": {
+  "rule": "score a reference correct when its result on the supplied database is correct, even where its logic would fail on other data",
+  "items": [
+   "Q033",
+   "Q070",
+   "Q080",
+   "Q108",
+   "Q145",
+   "Q146"
+  ],
+  "rates": {
+   "flagged": {
+    "n": 73,
+    "defective": 35,
+    "D": 0.4795,
+    "interval95": [
+     0.361,
+     0.5996
+    ],
+    "underspecified": 15,
+    "cannot_judge": 0
+   },
+   "examined": {
+    "n": 40,
+    "defective": 7,
+    "D": 0.175,
+    "interval95": [
+     0.0734,
+     0.3278
+    ],
+    "underspecified": 9,
+    "cannot_judge": 1
+   },
+   "unexamined": {
+    "n": 40,
+    "defective": 3,
+    "D": 0.075,
+    "interval95": [
+     0.0157,
+     0.2039
+    ],
+    "underspecified": 7,
+    "cannot_judge": 0
+   }
+  },
+  "decision": {
+   "verdict": "supported",
+   "margin": 0.3045,
+   "D_flagged": 0.4795,
+   "D_examined": 0.175,
+   "rule": "supported if margin >= 0.25 and D(flagged) >= 0.4; refuted if margin < 0.1; otherwise partially supported"
+  }
+ },
+ "human_vs_ai_restricted": {
+  "rule": "the preregistered figure codes the never-examined stratum as an AI negative, though the AI never examined it; this restricts to the flagged and examined strata",
+  "n": 113,
+  "agreement": 0.6372,
+  "kappa": 0.3049
+ },
+ "single_expert": {
+  "expert1": {
+   "rates": {
+    "flagged": {
+     "n": 73,
+     "defective": 41,
+     "D": 0.5616,
+     "interval95": [
+      0.4405,
+      0.6776
+     ],
+     "underspecified": 14,
+     "cannot_judge": 0
+    },
+    "examined": {
+     "n": 40,
+     "defective": 8,
+     "D": 0.2,
+     "interval95": [
+      0.0905,
+      0.3565
+     ],
+     "underspecified": 8,
+     "cannot_judge": 1
+    },
+    "unexamined": {
+     "n": 40,
+     "defective": 3,
+     "D": 0.075,
+     "interval95": [
+      0.0157,
+      0.2039
+     ],
+     "underspecified": 6,
+     "cannot_judge": 0
+    }
+   },
+   "decision": {
+    "verdict": "supported",
+    "margin": 0.3616,
+    "D_flagged": 0.5616,
+    "D_examined": 0.2,
+    "rule": "supported if margin >= 0.25 and D(flagged) >= 0.4; refuted if margin < 0.1; otherwise partially supported"
+   }
+  },
+  "expert2": {
+   "rates": {
+    "flagged": {
+     "n": 73,
+     "defective": 33,
+     "D": 0.4521,
+     "interval95": [
+      0.3352,
+      0.573
+     ],
+     "underspecified": 14,
+     "cannot_judge": 0
+    },
+    "examined": {
+     "n": 40,
+     "defective": 7,
+     "D": 0.175,
+     "interval95": [
+      0.0734,
+      0.3278
+     ],
+     "underspecified": 8,
+     "cannot_judge": 1
+    },
+    "unexamined": {
+     "n": 40,
+     "defective": 3,
+     "D": 0.075,
+     "interval95": [
+      0.0157,
+      0.2039
+     ],
+     "underspecified": 6,
+     "cannot_judge": 0
+    }
+   },
+   "decision": {
+    "verdict": "supported",
+    "margin": 0.2771,
+    "D_flagged": 0.4521,
+    "D_examined": 0.175,
+    "rule": "supported if margin >= 0.25 and D(flagged) >= 0.4; refuted if margin < 0.1; otherwise partially supported"
+   }
+  }
+ },
+ "defect_types": {
+  "overall": {
+   "wrong_grouping": 5,
+   "other": 15,
+   "wrong_or_negated_filter": 7,
+   "text_column_numeric_or_ordering": 7,
+   "case_sensitivity": 9,
+   "wrong_extremum": 2,
+   "missing_join_condition": 2,
+   "incomplete_projection": 2,
+   "wrong_set_operation_key": 2
+  },
+  "by_stratum": {
+   "examined": {
+    "other": 7,
+    "wrong_set_operation_key": 1
+   },
+   "flagged": {
+    "wrong_grouping": 5,
+    "wrong_or_negated_filter": 7,
+    "text_column_numeric_or_ordering": 6,
+    "case_sensitivity": 9,
+    "wrong_extremum": 2,
+    "other": 6,
+    "missing_join_condition": 2,
+    "incomplete_projection": 2,
+    "wrong_set_operation_key": 1
+   },
+   "unexamined": {
+    "other": 2,
+    "text_column_numeric_or_ordering": 1
+   }
+  }
+ },
+ "expert_agreement": {
+  "n": 153,
+  "four_way_agreement": 0.915,
+  "four_way_kappa": 0.8634,
+  "binary_agreement": 0.9412,
+  "binary_kappa": 0.8632
+ }
+}

@@ -1,0 +1,40 @@
+{
+ "source": [
+  "experiments/alignment-audit/RESPONSES_E2.csv"
+ ],
+ "items_sha256": "9d1f79f1eeb1e3a0c015edf5eb6ec0f0ea1a790301bb5ac9e727adc225bd351a",
+ "checkpoints": {
+  "xiyansql-32b": {
+   "score": "top_class_mass",
+   "n_correct": 385,
+   "n_wrong": 96,
+   "unlabelled": 0,
+   "auroc_built_on_A": 0.5552,
+   "auroc_built_on_D": 0.5672,
+   "delta": 0.0119,
+   "se": 0.0136,
+   "z": 0.879,
+   "p_two_sided": 0.37923,
+   "significant_05": false
+  },
+  "kwai-autosql-32b": {
+   "score": "top_class_mass",
+   "n_correct": 373,
+   "n_wrong": 95,
+   "unlabelled": 0,
+   "auroc_built_on_A": 0.6277,
+   "auroc_built_on_D": 0.6886,
+   "delta": 0.0609,
+   "se": 0.0233,
+   "z": 2.61,
+   "p_two_sided": 0.00907,
+   "significant_05": true
+  }
+ },
+ "verdict_counts": {
+  "answers": 776,
+  "does_not_answer": 196,
+  "question_underspecified": 56
+ },
+ "preregistered_verdict": "MIXED"
+}

@@ -1,0 +1,1107 @@
+{
+ "built": "2026-09-06",
+ "seed": 20260906,
+ "note": "the key maps a blinded item id back to its question and stratum. It is NOT part of what the expert receives; the expert gets the blind-audit/ directory only.",
+ "strata_sizes_in_the_benchmark": {
+  "flagged": 73,
+  "examined": 130,
+  "unexamined": 305
+ },
+ "sampled": {
+  "flagged": 73,
+  "examined": 40,
+  "unexamined": 40
+ },
+ "items": 153,
+ "verdict_vocabulary": [
+  "gold_correct",
+  "gold_defective",
+  "question_underspecified",
+  "cannot_judge"
+ ],
+ "defect_vocabulary": [
+  "case_sensitivity",
+  "text_column_numeric_or_ordering",
+  "wrong_extremum",
+  "missing_join_condition",
+  "wrong_or_negated_filter",
+  "incomplete_projection",
+  "wrong_set_operation_key",
+  "wrong_grouping",
+  "other"
+ ],
+ "items_sha256": "48d955007732402c4c9457fdd8627a2755a8f7238f7bda5c3b0741ad01eb4872",
+ "key": [
+  {
+   "item_id": "Q001",
+   "qid": 106,
+   "stratum": "flagged",
+   "db": "car_1",
+   "ai_gold_defect_tier": "two_pass_non_borderline"
+  },
+  {
+   "item_id": "Q002",
+   "qid": 234,
+   "stratum": "flagged",
+   "db": "wta_1",
+   "ai_gold_defect_tier": "two_pass_agreed"
+  },
+  {
+   "item_id": "Q003",
+   "qid": 311,
+   "stratum": "examined",
+   "db": "tvshow",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q004",
+   "qid": 254,
+   "stratum": "examined",
+   "db": "battle_death",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q005",
+   "qid": 133,
+   "stratum": "examined",
+   "db": "flight_2",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q006",
+   "qid": 135,
+   "stratum": "unexamined",
+   "db": "flight_2",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q007",
+   "qid": 105,
+   "stratum": "flagged",
+   "db": "car_1",
+   "ai_gold_defect_tier": "two_pass_non_borderline"
+  },
+  {
+   "item_id": "Q008",
+   "qid": 377,
+   "stratum": "unexamined",
+   "db": "world_1",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q009",
+   "qid": 268,
+   "stratum": "flagged",
+   "db": "student_transcripts_tracking",
+   "ai_gold_defect_tier": "adjudicated_only"
+  },
+  {
+   "item_id": "Q010",
+   "qid": 356,
+   "stratum": "examined",
+   "db": "world_1",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q011",
+   "qid": 21,
+   "stratum": "flagged",
+   "db": "concert_singer",
+   "ai_gold_defect_tier": "two_pass_agreed"
+  },
+  {
+   "item_id": "Q012",
+   "qid": 0,
+   "stratum": "unexamined",
+   "db": "concert_singer",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q013",
+   "qid": 334,
+   "stratum": "unexamined",
+   "db": "world_1",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q014",
+   "qid": 199,
+   "stratum": "unexamined",
+   "db": "course_teach",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q015",
+   "qid": 467,
+   "stratum": "flagged",
+   "db": "dog_kennels",
+   "ai_gold_defect_tier": "two_pass_non_borderline"
+  },
+  {
+   "item_id": "Q016",
+   "qid": 486,
+   "stratum": "unexamined",
+   "db": "dog_kennels",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q017",
+   "qid": 139,
+   "stratum": "examined",
+   "db": "flight_2",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q018",
+   "qid": 433,
+   "stratum": "flagged",
+   "db": "world_1",
+   "ai_gold_defect_tier": "two_pass_non_borderline"
+  },
+  {
+   "item_id": "Q019",
+   "qid": 34,
+   "stratum": "unexamined",
+   "db": "pets_1",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q020",
+   "qid": 405,
+   "stratum": "flagged",
+   "db": "world_1",
+   "ai_gold_defect_tier": "two_pass_agreed"
+  },
+  {
+   "item_id": "Q021",
+   "qid": 398,
+   "stratum": "flagged",
+   "db": "world_1",
+   "ai_gold_defect_tier": "adjudicated_only"
+  },
+  {
+   "item_id": "Q022",
+   "qid": 395,
+   "stratum": "unexamined",
+   "db": "world_1",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q023",
+   "qid": 23,
+   "stratum": "examined",
+   "db": "concert_singer",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q024",
+   "qid": 434,
+   "stratum": "flagged",
+   "db": "world_1",
+   "ai_gold_defect_tier": "two_pass_non_borderline"
+  },
+  {
+   "item_id": "Q025",
+   "qid": 4,
+   "stratum": "examined",
+   "db": "concert_singer",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q026",
+   "qid": 49,
+   "stratum": "examined",
+   "db": "pets_1",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q027",
+   "qid": 484,
+   "stratum": "flagged",
+   "db": "dog_kennels",
+   "ai_gold_defect_tier": "two_pass_agreed"
+  },
+  {
+   "item_id": "Q028",
+   "qid": 84,
+   "stratum": "examined",
+   "db": "car_1",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q029",
+   "qid": 107,
+   "stratum": "flagged",
+   "db": "car_1",
+   "ai_gold_defect_tier": "two_pass_non_borderline"
+  },
+  {
+   "item_id": "Q030",
+   "qid": 223,
+   "stratum": "flagged",
+   "db": "wta_1",
+   "ai_gold_defect_tier": "two_pass_agreed"
+  },
+  {
+   "item_id": "Q031",
+   "qid": 29,
+   "stratum": "flagged",
+   "db": "concert_singer",
+   "ai_gold_defect_tier": "two_pass_agreed"
+  },
+  {
+   "item_id": "Q032",
+   "qid": 417,
+   "stratum": "unexamined",
+   "db": "world_1",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q033",
+   "qid": 35,
+   "stratum": "flagged",
+   "db": "pets_1",
+   "ai_gold_defect_tier": "two_pass_non_borderline"
+  },
+  {
+   "item_id": "Q034",
+   "qid": 372,
+   "stratum": "flagged",
+   "db": "world_1",
+   "ai_gold_defect_tier": "two_pass_agreed"
+  },
+  {
+   "item_id": "Q035",
+   "qid": 267,
+   "stratum": "examined",
+   "db": "student_transcripts_tracking",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q036",
+   "qid": 63,
+   "stratum": "examined",
+   "db": "car_1",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q037",
+   "qid": 191,
+   "stratum": "flagged",
+   "db": "course_teach",
+   "ai_gold_defect_tier": "two_pass_non_borderline"
+  },
+  {
+   "item_id": "Q038",
+   "qid": 153,
+   "stratum": "examined",
+   "db": "flight_2",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q039",
+   "qid": 399,
+   "stratum": "flagged",
+   "db": "world_1",
+   "ai_gold_defect_tier": "two_pass_agreed"
+  },
+  {
+   "item_id": "Q040",
+   "qid": 481,
+   "stratum": "flagged",
+   "db": "dog_kennels",
+   "ai_gold_defect_tier": "two_pass_non_borderline"
+  },
+  {
+   "item_id": "Q041",
+   "qid": 482,
+   "stratum": "unexamined",
+   "db": "dog_kennels",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q042",
+   "qid": 412,
+   "stratum": "unexamined",
+   "db": "world_1",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q043",
+   "qid": 264,
+   "stratum": "examined",
+   "db": "student_transcripts_tracking",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q044",
+   "qid": 54,
+   "stratum": "unexamined",
+   "db": "pets_1",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q045",
+   "qid": 366,
+   "stratum": "examined",
+   "db": "world_1",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q046",
+   "qid": 276,
+   "stratum": "unexamined",
+   "db": "tvshow",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q047",
+   "qid": 33,
+   "stratum": "unexamined",
+   "db": "pets_1",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q048",
+   "qid": 253,
+   "stratum": "flagged",
+   "db": "battle_death",
+   "ai_gold_defect_tier": "two_pass_agreed"
+  },
+  {
+   "item_id": "Q049",
+   "qid": 500,
+   "stratum": "unexamined",
+   "db": "singer",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q050",
+   "qid": 447,
+   "stratum": "unexamined",
+   "db": "network_1",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q051",
+   "qid": 24,
+   "stratum": "examined",
+   "db": "concert_singer",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q052",
+   "qid": 73,
+   "stratum": "examined",
+   "db": "car_1",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q053",
+   "qid": 457,
+   "stratum": "examined",
+   "db": "network_1",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q054",
+   "qid": 435,
+   "stratum": "flagged",
+   "db": "world_1",
+   "ai_gold_defect_tier": "two_pass_agreed"
+  },
+  {
+   "item_id": "Q055",
+   "qid": 458,
+   "stratum": "examined",
+   "db": "network_1",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q056",
+   "qid": 411,
+   "stratum": "flagged",
+   "db": "world_1",
+   "ai_gold_defect_tier": "two_pass_non_borderline"
+  },
+  {
+   "item_id": "Q057",
+   "qid": 345,
+   "stratum": "examined",
+   "db": "world_1",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q058",
+   "qid": 100,
+   "stratum": "flagged",
+   "db": "car_1",
+   "ai_gold_defect_tier": "two_pass_agreed"
+  },
+  {
+   "item_id": "Q059",
+   "qid": 424,
+   "stratum": "unexamined",
+   "db": "world_1",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q060",
+   "qid": 77,
+   "stratum": "examined",
+   "db": "car_1",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q061",
+   "qid": 192,
+   "stratum": "flagged",
+   "db": "course_teach",
+   "ai_gold_defect_tier": "two_pass_non_borderline"
+  },
+  {
+   "item_id": "Q062",
+   "qid": 32,
+   "stratum": "examined",
+   "db": "concert_singer",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q063",
+   "qid": 403,
+   "stratum": "flagged",
+   "db": "world_1",
+   "ai_gold_defect_tier": "two_pass_non_borderline"
+  },
+  {
+   "item_id": "Q064",
+   "qid": 477,
+   "stratum": "flagged",
+   "db": "dog_kennels",
+   "ai_gold_defect_tier": "two_pass_non_borderline"
+  },
+  {
+   "item_id": "Q065",
+   "qid": 432,
+   "stratum": "flagged",
+   "db": "world_1",
+   "ai_gold_defect_tier": "adjudicated_only"
+  },
+  {
+   "item_id": "Q066",
+   "qid": 149,
+   "stratum": "examined",
+   "db": "flight_2",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q067",
+   "qid": 346,
+   "stratum": "unexamined",
+   "db": "world_1",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q068",
+   "qid": 357,
+   "stratum": "flagged",
+   "db": "world_1",
+   "ai_gold_defect_tier": "two_pass_agreed"
+  },
+  {
+   "item_id": "Q069",
+   "qid": 374,
+   "stratum": "flagged",
+   "db": "world_1",
+   "ai_gold_defect_tier": "two_pass_agreed"
+  },
+  {
+   "item_id": "Q070",
+   "qid": 36,
+   "stratum": "flagged",
+   "db": "pets_1",
+   "ai_gold_defect_tier": "two_pass_non_borderline"
+  },
+  {
+   "item_id": "Q071",
+   "qid": 83,
+   "stratum": "flagged",
+   "db": "car_1",
+   "ai_gold_defect_tier": "two_pass_non_borderline"
+  },
+  {
+   "item_id": "Q072",
+   "qid": 222,
+   "stratum": "unexamined",
+   "db": "wta_1",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q073",
+   "qid": 25,
+   "stratum": "examined",
+   "db": "concert_singer",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q074",
+   "qid": 251,
+   "stratum": "examined",
+   "db": "battle_death",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q075",
+   "qid": 407,
+   "stratum": "flagged",
+   "db": "world_1",
+   "ai_gold_defect_tier": "two_pass_agreed"
+  },
+  {
+   "item_id": "Q076",
+   "qid": 271,
+   "stratum": "flagged",
+   "db": "student_transcripts_tracking",
+   "ai_gold_defect_tier": "two_pass_non_borderline"
+  },
+  {
+   "item_id": "Q077",
+   "qid": 270,
+   "stratum": "flagged",
+   "db": "student_transcripts_tracking",
+   "ai_gold_defect_tier": "two_pass_non_borderline"
+  },
+  {
+   "item_id": "Q078",
+   "qid": 463,
+   "stratum": "flagged",
+   "db": "network_1",
+   "ai_gold_defect_tier": "two_pass_non_borderline"
+  },
+  {
+   "item_id": "Q079",
+   "qid": 252,
+   "stratum": "flagged",
+   "db": "battle_death",
+   "ai_gold_defect_tier": "two_pass_non_borderline"
+  },
+  {
+   "item_id": "Q080",
+   "qid": 373,
+   "stratum": "flagged",
+   "db": "world_1",
+   "ai_gold_defect_tier": "two_pass_agreed"
+  },
+  {
+   "item_id": "Q081",
+   "qid": 108,
+   "stratum": "flagged",
+   "db": "car_1",
+   "ai_gold_defect_tier": "two_pass_non_borderline"
+  },
+  {
+   "item_id": "Q082",
+   "qid": 189,
+   "stratum": "flagged",
+   "db": "course_teach",
+   "ai_gold_defect_tier": "two_pass_agreed"
+  },
+  {
+   "item_id": "Q083",
+   "qid": 362,
+   "stratum": "examined",
+   "db": "world_1",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q084",
+   "qid": 211,
+   "stratum": "unexamined",
+   "db": "museum_visit",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q085",
+   "qid": 195,
+   "stratum": "flagged",
+   "db": "course_teach",
+   "ai_gold_defect_tier": "adjudicated_only"
+  },
+  {
+   "item_id": "Q086",
+   "qid": 235,
+   "stratum": "flagged",
+   "db": "wta_1",
+   "ai_gold_defect_tier": "two_pass_agreed"
+  },
+  {
+   "item_id": "Q087",
+   "qid": 87,
+   "stratum": "flagged",
+   "db": "car_1",
+   "ai_gold_defect_tier": "two_pass_non_borderline"
+  },
+  {
+   "item_id": "Q088",
+   "qid": 426,
+   "stratum": "examined",
+   "db": "world_1",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q089",
+   "qid": 469,
+   "stratum": "examined",
+   "db": "dog_kennels",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q090",
+   "qid": 476,
+   "stratum": "flagged",
+   "db": "dog_kennels",
+   "ai_gold_defect_tier": "two_pass_non_borderline"
+  },
+  {
+   "item_id": "Q091",
+   "qid": 382,
+   "stratum": "flagged",
+   "db": "world_1",
+   "ai_gold_defect_tier": "two_pass_non_borderline"
+  },
+  {
+   "item_id": "Q092",
+   "qid": 370,
+   "stratum": "examined",
+   "db": "world_1",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q093",
+   "qid": 329,
+   "stratum": "unexamined",
+   "db": "poker_player",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q094",
+   "qid": 266,
+   "stratum": "flagged",
+   "db": "student_transcripts_tracking",
+   "ai_gold_defect_tier": "two_pass_non_borderline"
+  },
+  {
+   "item_id": "Q095",
+   "qid": 90,
+   "stratum": "examined",
+   "db": "car_1",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q096",
+   "qid": 404,
+   "stratum": "flagged",
+   "db": "world_1",
+   "ai_gold_defect_tier": "adjudicated_only"
+  },
+  {
+   "item_id": "Q097",
+   "qid": 91,
+   "stratum": "flagged",
+   "db": "car_1",
+   "ai_gold_defect_tier": "two_pass_agreed"
+  },
+  {
+   "item_id": "Q098",
+   "qid": 258,
+   "stratum": "unexamined",
+   "db": "student_transcripts_tracking",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q099",
+   "qid": 296,
+   "stratum": "unexamined",
+   "db": "tvshow",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q100",
+   "qid": 122,
+   "stratum": "unexamined",
+   "db": "flight_2",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q101",
+   "qid": 427,
+   "stratum": "flagged",
+   "db": "world_1",
+   "ai_gold_defect_tier": "two_pass_non_borderline"
+  },
+  {
+   "item_id": "Q102",
+   "qid": 485,
+   "stratum": "flagged",
+   "db": "dog_kennels",
+   "ai_gold_defect_tier": "adjudicated_only"
+  },
+  {
+   "item_id": "Q103",
+   "qid": 65,
+   "stratum": "examined",
+   "db": "car_1",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q104",
+   "qid": 454,
+   "stratum": "unexamined",
+   "db": "network_1",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q105",
+   "qid": 228,
+   "stratum": "examined",
+   "db": "wta_1",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q106",
+   "qid": 480,
+   "stratum": "flagged",
+   "db": "dog_kennels",
+   "ai_gold_defect_tier": "two_pass_non_borderline"
+  },
+  {
+   "item_id": "Q107",
+   "qid": 321,
+   "stratum": "unexamined",
+   "db": "poker_player",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q108",
+   "qid": 44,
+   "stratum": "flagged",
+   "db": "pets_1",
+   "ai_gold_defect_tier": "two_pass_non_borderline"
+  },
+  {
+   "item_id": "Q109",
+   "qid": 178,
+   "stratum": "unexamined",
+   "db": "employee_hire_evaluation",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q110",
+   "qid": 196,
+   "stratum": "examined",
+   "db": "course_teach",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q111",
+   "qid": 175,
+   "stratum": "unexamined",
+   "db": "employee_hire_evaluation",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q112",
+   "qid": 262,
+   "stratum": "flagged",
+   "db": "student_transcripts_tracking",
+   "ai_gold_defect_tier": "two_pass_non_borderline"
+  },
+  {
+   "item_id": "Q113",
+   "qid": 249,
+   "stratum": "flagged",
+   "db": "wta_1",
+   "ai_gold_defect_tier": "two_pass_agreed"
+  },
+  {
+   "item_id": "Q114",
+   "qid": 431,
+   "stratum": "flagged",
+   "db": "world_1",
+   "ai_gold_defect_tier": "adjudicated_only"
+  },
+  {
+   "item_id": "Q115",
+   "qid": 66,
+   "stratum": "flagged",
+   "db": "car_1",
+   "ai_gold_defect_tier": "two_pass_agreed"
+  },
+  {
+   "item_id": "Q116",
+   "qid": 428,
+   "stratum": "flagged",
+   "db": "world_1",
+   "ai_gold_defect_tier": "two_pass_agreed"
+  },
+  {
+   "item_id": "Q117",
+   "qid": 353,
+   "stratum": "unexamined",
+   "db": "world_1",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q118",
+   "qid": 474,
+   "stratum": "examined",
+   "db": "dog_kennels",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q119",
+   "qid": 42,
+   "stratum": "examined",
+   "db": "pets_1",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q120",
+   "qid": 82,
+   "stratum": "flagged",
+   "db": "car_1",
+   "ai_gold_defect_tier": "two_pass_non_borderline"
+  },
+  {
+   "item_id": "Q121",
+   "qid": 157,
+   "stratum": "unexamined",
+   "db": "flight_2",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q122",
+   "qid": 40,
+   "stratum": "unexamined",
+   "db": "pets_1",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q123",
+   "qid": 173,
+   "stratum": "unexamined",
+   "db": "employee_hire_evaluation",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q124",
+   "qid": 392,
+   "stratum": "flagged",
+   "db": "world_1",
+   "ai_gold_defect_tier": "two_pass_agreed"
+  },
+  {
+   "item_id": "Q125",
+   "qid": 436,
+   "stratum": "flagged",
+   "db": "world_1",
+   "ai_gold_defect_tier": "two_pass_non_borderline"
+  },
+  {
+   "item_id": "Q126",
+   "qid": 51,
+   "stratum": "examined",
+   "db": "pets_1",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q127",
+   "qid": 448,
+   "stratum": "unexamined",
+   "db": "network_1",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q128",
+   "qid": 315,
+   "stratum": "flagged",
+   "db": "tvshow",
+   "ai_gold_defect_tier": "two_pass_non_borderline"
+  },
+  {
+   "item_id": "Q129",
+   "qid": 462,
+   "stratum": "examined",
+   "db": "network_1",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q130",
+   "qid": 186,
+   "stratum": "unexamined",
+   "db": "employee_hire_evaluation",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q131",
+   "qid": 438,
+   "stratum": "unexamined",
+   "db": "orchestra",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q132",
+   "qid": 20,
+   "stratum": "flagged",
+   "db": "concert_singer",
+   "ai_gold_defect_tier": "two_pass_agreed"
+  },
+  {
+   "item_id": "Q133",
+   "qid": 169,
+   "stratum": "unexamined",
+   "db": "employee_hire_evaluation",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q134",
+   "qid": 86,
+   "stratum": "flagged",
+   "db": "car_1",
+   "ai_gold_defect_tier": "two_pass_non_borderline"
+  },
+  {
+   "item_id": "Q135",
+   "qid": 43,
+   "stratum": "flagged",
+   "db": "pets_1",
+   "ai_gold_defect_tier": "two_pass_agreed"
+  },
+  {
+   "item_id": "Q136",
+   "qid": 393,
+   "stratum": "flagged",
+   "db": "world_1",
+   "ai_gold_defect_tier": "adjudicated_only"
+  },
+  {
+   "item_id": "Q137",
+   "qid": 422,
+   "stratum": "unexamined",
+   "db": "world_1",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q138",
+   "qid": 92,
+   "stratum": "examined",
+   "db": "car_1",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q139",
+   "qid": 99,
+   "stratum": "flagged",
+   "db": "car_1",
+   "ai_gold_defect_tier": "two_pass_agreed"
+  },
+  {
+   "item_id": "Q140",
+   "qid": 118,
+   "stratum": "unexamined",
+   "db": "flight_2",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q141",
+   "qid": 413,
+   "stratum": "examined",
+   "db": "world_1",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q142",
+   "qid": 336,
+   "stratum": "flagged",
+   "db": "world_1",
+   "ai_gold_defect_tier": "two_pass_agreed"
+  },
+  {
+   "item_id": "Q143",
+   "qid": 491,
+   "stratum": "unexamined",
+   "db": "singer",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q144",
+   "qid": 103,
+   "stratum": "examined",
+   "db": "car_1",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q145",
+   "qid": 259,
+   "stratum": "examined",
+   "db": "student_transcripts_tracking",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q146",
+   "qid": 429,
+   "stratum": "flagged",
+   "db": "world_1",
+   "ai_gold_defect_tier": "two_pass_non_borderline"
+  },
+  {
+   "item_id": "Q147",
+   "qid": 88,
+   "stratum": "unexamined",
+   "db": "car_1",
+   "ai_gold_defect_tier": null
+  },
+  {
+   "item_id": "Q148",
+   "qid": 190,
+   "stratum": "flagged",
+   "db": "course_teach",
+   "ai_gold_defect_tier": "adjudicated_only"
+  },
+  {
+   "item_id": "Q149",
+   "qid": 50,
+   "stratum": "flagged",
+   "db": "pets_1",
+   "ai_gold_defect_tier": "adjudicated_only"
+  },
+  {
+   "item_id": "Q150",
+   "qid": 375,
+   "stratum": "flagged",
+   "db": "world_1",
+   "ai_gold_defect_tier": "two_pass_agreed"
+  },
+  {
+   "item_id": "Q151",
+   "qid": 464,
+   "stratum": "flagged",
+   "db": "network_1",
+   "ai_gold_defect_tier": "two_pass_non_borderline"
+  },
+  {
+   "item_id": "Q152",
+   "qid": 400,
+   "stratum": "flagged",
+   "db": "world_1",
+   "ai_gold_defect_tier": "two_pass_agreed"
+  },
+  {
+   "item_id": "Q153",
+   "qid": 248,
+   "stratum": "flagged",
+   "db": "wta_1",
+   "ai_gold_defect_tier": "two_pass_agreed"
+  }
+ ]
+}

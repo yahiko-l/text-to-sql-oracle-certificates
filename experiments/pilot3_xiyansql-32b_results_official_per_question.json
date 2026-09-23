@@ -1,0 +1,4684 @@
+{
+ "candidates": "experiments/pilot3_xiyansql-32b_candidates.jsonl",
+ "comparator": "official",
+ "weak_oracle": "original",
+ "note": "classes sorted by count; a class is correct iff its representative lands in the gold's class under the named oracle; mass = count / denominator",
+ "questions": [
+  {
+   "qid": 0,
+   "db": "concert_singer",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM singer"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM singer"
+    }
+   ]
+  },
+  {
+   "qid": 16,
+   "db": "concert_singer",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 6,
+     "weak_ok": false,
+     "strong_ok": false,
+     "representative": "SELECT max(capacity) , avg(capacity) FROM stadium"
+    },
+    {
+     "count": 4,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT max(capacity) , average FROM stadium"
+    }
+   ],
+   "multi": [
+    {
+     "count": 6,
+     "weak_ok": false,
+     "strong_ok": false,
+     "representative": "SELECT max(capacity) , avg(capacity) FROM stadium"
+    },
+    {
+     "count": 4,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT max(capacity) , average FROM stadium"
+    }
+   ]
+  },
+  {
+   "qid": 22,
+   "db": "concert_singer",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T2.name , count(*) FROM concert AS T1 JOIN stadium AS T2 ON T1.stadium_id = T2.stadium_id GROUP BY T1.stadium_id"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T2.name , count(*) FROM concert AS T1 JOIN stadium AS T2 ON T1.stadium_id = T2.stadium_id GROUP BY T1.stadium_id"
+    }
+   ]
+  },
+  {
+   "qid": 23,
+   "db": "concert_singer",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 8,
+     "weak_ok": false,
+     "strong_ok": false,
+     "representative": "SELECT T2.stadium_id , count(*) FROM concert AS T2 JOIN stadium AS T1 ON T1.stadium_id = T2.stadium_id GROUP BY T2.stadium_id"
+    },
+    {
+     "count": 2,
+     "weak_ok": false,
+     "strong_ok": false,
+     "representative": "SELECT count(*) , T1.stadium_id FROM stadium AS T1 JOIN concert AS T2 ON T1.stadium_id = T2.stadium_id GROUP BY T1.stadium_id"
+    }
+   ],
+   "multi": [
+    {
+     "count": 8,
+     "weak_ok": false,
+     "strong_ok": false,
+     "representative": "SELECT T2.stadium_id , count(*) FROM concert AS T2 JOIN stadium AS T1 ON T1.stadium_id = T2.stadium_id GROUP BY T2.stadium_id"
+    },
+    {
+     "count": 2,
+     "weak_ok": false,
+     "strong_ok": false,
+     "representative": "SELECT count(*) , T1.stadium_id FROM stadium AS T1 JOIN concert AS T2 ON T1.stadium_id = T2.stadium_id GROUP BY T1.stadium_id"
+    }
+   ]
+  },
+  {
+   "qid": 49,
+   "db": "pets_1",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT max(weight) , petType FROM pets GROUP BY petType"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT max(weight) , petType FROM pets GROUP BY petType"
+    }
+   ]
+  },
+  {
+   "qid": 56,
+   "db": "pets_1",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(DISTINCT pettype) FROM pets"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(DISTINCT pettype) FROM pets"
+    }
+   ]
+  },
+  {
+   "qid": 75,
+   "db": "pets_1",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT DISTINCT T1.fname , T1.age FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid = T2.stuid"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT DISTINCT T1.fname , T1.age FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid = T2.stuid"
+    }
+   ]
+  },
+  {
+   "qid": 78,
+   "db": "pets_1",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.petid FROM has_pet AS T1 JOIN student AS T2 ON T1.stuid = T2.stuid WHERE T2.Lname = 'Smith'"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.petid FROM has_pet AS T1 JOIN student AS T2 ON T1.stuid = T2.stuid WHERE T2.Lname = 'Smith'"
+    }
+   ]
+  },
+  {
+   "qid": 79,
+   "db": "pets_1",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) , T1.stuid FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid = T2.stuid GROUP BY T1.stuid"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) , T1.stuid FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid = T2.stuid GROUP BY T1.stuid"
+    }
+   ]
+  },
+  {
+   "qid": 82,
+   "db": "pets_1",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.fname , T1.sex FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid = T2.stuid GROUP BY T1.stuid HAVING count(*) > 1"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.fname , T1.sex FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid = T2.stuid GROUP BY T1.stuid HAVING count(*) > 1"
+    }
+   ]
+  },
+  {
+   "qid": 88,
+   "db": "car_1",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM CONTINENTS"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM CONTINENTS"
+    }
+   ]
+  },
+  {
+   "qid": 90,
+   "db": "car_1",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.ContId , T1.Continent , count(*) FROM CONTINENTS AS T1 JOIN COUNTRIES AS T2 ON T1.ContId = T2.Continent GROUP BY T1.ContId"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.ContId , T1.Continent , count(*) FROM CONTINENTS AS T1 JOIN COUNTRIES AS T2 ON T1.ContId = T2.Continent GROUP BY T1.ContId"
+    }
+   ]
+  },
+  {
+   "qid": 91,
+   "db": "car_1",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM COUNTRIES"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM COUNTRIES"
+    }
+   ]
+  },
+  {
+   "qid": 92,
+   "db": "car_1",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM COUNTRIES"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM COUNTRIES"
+    }
+   ]
+  },
+  {
+   "qid": 106,
+   "db": "car_1",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.Continent , count(*) FROM CONTINENTS AS T1 JOIN COUNTRIES AS T2 ON T1.ContId = T2.Continent JOIN CAR_MAKERS AS T3 ON T2.CountryId = T3.Country GROUP BY T1.Continent"
+    }
+   ],
+   "multi": [
+    {
+     "count": 8,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.Continent , count(*) FROM CONTINENTS AS T1 JOIN COUNTRIES AS T2 ON T1.ContId = T2.Continent JOIN CAR_MAKERS AS T3 ON T2.CountryId = T3.Country GROUP BY T1.Continent"
+    },
+    {
+     "count": 2,
+     "weak_ok": true,
+     "strong_ok": false,
+     "representative": "SELECT T1.Continent , count(*) FROM CONTINENTS AS T1 JOIN COUNTRIES AS T2 ON T1.ContId = T2.Continent JOIN CAR_MAKERS AS T3 ON T2.CountryId = T3.Country GROUP BY T1.ContId"
+    }
+   ]
+  },
+  {
+   "qid": 121,
+   "db": "car_1",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT Maker , Model FROM MODEL_LIST"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT Maker , Model FROM MODEL_LIST"
+    }
+   ]
+  },
+  {
+   "qid": 122,
+   "db": "car_1",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 7,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT Maker , Model FROM MODEL_LIST"
+    },
+    {
+     "count": 3,
+     "weak_ok": false,
+     "strong_ok": false,
+     "representative": "SELECT T1.Maker , T2.Model FROM CAR_MAKERS AS T1 JOIN MODEL_LIST AS T2 ON T1.Id = T2.Maker"
+    }
+   ],
+   "multi": [
+    {
+     "count": 7,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT Maker , Model FROM MODEL_LIST"
+    },
+    {
+     "count": 3,
+     "weak_ok": false,
+     "strong_ok": false,
+     "representative": "SELECT T1.Maker , T2.Model FROM CAR_MAKERS AS T1 JOIN MODEL_LIST AS T2 ON T1.Id = T2.Maker"
+    }
+   ]
+  },
+  {
+   "qid": 139,
+   "db": "car_1",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT max(Accelerate) , Cylinders FROM CARS_DATA GROUP BY Cylinders"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT max(Accelerate) , Cylinders FROM CARS_DATA GROUP BY Cylinders"
+    }
+   ]
+  },
+  {
+   "qid": 140,
+   "db": "car_1",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT max(Accelerate) , Cylinders FROM CARS_DATA GROUP BY Cylinders"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT max(Accelerate) , Cylinders FROM CARS_DATA GROUP BY Cylinders"
+    }
+   ]
+  },
+  {
+   "qid": 144,
+   "db": "car_1",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM CARS_DATA WHERE Cylinders > 4"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM CARS_DATA WHERE Cylinders > 4"
+    }
+   ]
+  },
+  {
+   "qid": 164,
+   "db": "car_1",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM CARS_DATA WHERE Cylinders > 6"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM CARS_DATA WHERE Cylinders > 6"
+    }
+   ]
+  },
+  {
+   "qid": 174,
+   "db": "car_1",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": false,
+     "representative": "SELECT CountryName FROM COUNTRIES WHERE CountryId NOT IN (SELECT Country FROM car_makers)"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": false,
+     "representative": "SELECT CountryName FROM COUNTRIES WHERE CountryId NOT IN (SELECT Country FROM car_makers)"
+    }
+   ]
+  },
+  {
+   "qid": 176,
+   "db": "car_1",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 6,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.Id , T1.Maker FROM CAR_MAKERS AS T1 JOIN MODEL_LIST AS T2 ON T1.Id = T2.Maker GROUP BY T1.Id HAVING count(*) >= 2 INTERSECT SELECT T1.Id , T1.Maker FROM CAR_MAKERS AS T1 JOIN MODEL_LIST AS T2 ON T1.Id = T2.Maker JOIN CAR_NAMES AS T3 ON T2.Model = T3.Model GROUP BY T1.Id HAVING count(*) > 3"
+    },
+    {
+     "count": 3,
+     "weak_ok": false,
+     "strong_ok": false,
+     "representative": "SELECT T1.Id , T1.Maker FROM CAR_MAKERS AS T1 JOIN MODEL_LIST AS T2 ON T1.Id = T2.Maker JOIN CAR_NAMES AS T3 ON T2.Model = T3.Model GROUP BY T1.Id HAVING count(*) >= 2 INTERSECT SELECT T1.Id , T1.Maker FROM CAR_MAKERS AS T1 JOIN MODEL_LIST AS T2 ON T1.Id = T2.Maker JOIN CAR_NAMES AS T3 ON T2.Model = T3.Model JOIN CARS_DATA AS T4 ON T3.MakeId = T4.Id GROUP BY T1.Id HAVING count(*) > 3"
+    },
+    {
+     "count": 1,
+     "weak_ok": false,
+     "strong_ok": false,
+     "representative": "SELECT T2.Id , T2.Maker FROM model_list AS T1 JOIN car_makers AS T2 ON T1.Maker = T2.Id JOIN CAR_NAMES AS T3 ON T2.Id = T3.MakeId GROUP BY T2.Id HAVING count(*) >= 2 INTERSECT SELECT T2.Id , T2.Maker FROM CAR_NAMES AS T1 JOIN car_makers AS T2 ON T1.MakeId = T2.Id JOIN CARS_DATA AS T3 ON T1.MakeId = T3.Id GROUP BY T2.Id HAVING count(*) > 3"
+    }
+   ],
+   "multi": [
+    {
+     "count": 6,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.Id , T1.Maker FROM CAR_MAKERS AS T1 JOIN MODEL_LIST AS T2 ON T1.Id = T2.Maker GROUP BY T1.Id HAVING count(*) >= 2 INTERSECT SELECT T1.Id , T1.Maker FROM CAR_MAKERS AS T1 JOIN MODEL_LIST AS T2 ON T1.Id = T2.Maker JOIN CAR_NAMES AS T3 ON T2.Model = T3.Model GROUP BY T1.Id HAVING count(*) > 3"
+    },
+    {
+     "count": 3,
+     "weak_ok": false,
+     "strong_ok": false,
+     "representative": "SELECT T1.Id , T1.Maker FROM CAR_MAKERS AS T1 JOIN MODEL_LIST AS T2 ON T1.Id = T2.Maker JOIN CAR_NAMES AS T3 ON T2.Model = T3.Model GROUP BY T1.Id HAVING count(*) >= 2 INTERSECT SELECT T1.Id , T1.Maker FROM CAR_MAKERS AS T1 JOIN MODEL_LIST AS T2 ON T1.Id = T2.Maker JOIN CAR_NAMES AS T3 ON T2.Model = T3.Model JOIN CARS_DATA AS T4 ON T3.MakeId = T4.Id GROUP BY T1.Id HAVING count(*) > 3"
+    },
+    {
+     "count": 1,
+     "weak_ok": false,
+     "strong_ok": false,
+     "representative": "SELECT T2.Id , T2.Maker FROM model_list AS T1 JOIN car_makers AS T2 ON T1.Maker = T2.Id JOIN CAR_NAMES AS T3 ON T2.Id = T3.MakeId GROUP BY T2.Id HAVING count(*) >= 2 INTERSECT SELECT T2.Id , T2.Maker FROM CAR_NAMES AS T1 JOIN car_makers AS T2 ON T1.MakeId = T2.Id JOIN CARS_DATA AS T3 ON T1.MakeId = T3.Id GROUP BY T2.Id HAVING count(*) > 3"
+    }
+   ]
+  },
+  {
+   "qid": 187,
+   "db": "flight_2",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM AIRLINES"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM AIRLINES"
+    }
+   ]
+  },
+  {
+   "qid": 188,
+   "db": "flight_2",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM AIRLINES"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM AIRLINES"
+    }
+   ]
+  },
+  {
+   "qid": 190,
+   "db": "flight_2",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM AIRPORTS"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM AIRPORTS"
+    }
+   ]
+  },
+  {
+   "qid": 191,
+   "db": "flight_2",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM FLIGHTS"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM FLIGHTS"
+    }
+   ]
+  },
+  {
+   "qid": 197,
+   "db": "flight_2",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT City , Country FROM AIRPORTS WHERE AirportName = \"Alton\""
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT City , Country FROM AIRPORTS WHERE AirportName = \"Alton\""
+    }
+   ]
+  },
+  {
+   "qid": 221,
+   "db": "flight_2",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.City FROM AIRPORTS AS T1 JOIN FLIGHTS AS T2 ON T1.AirportCode = T2.DestAirport GROUP BY T1.City ORDER BY count(*) DESC LIMIT 1"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.City FROM AIRPORTS AS T1 JOIN FLIGHTS AS T2 ON T1.AirportCode = T2.DestAirport GROUP BY T1.City ORDER BY count(*) DESC LIMIT 1"
+    }
+   ]
+  },
+  {
+   "qid": 229,
+   "db": "flight_2",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.Airline FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T1.uid = T2.Airline GROUP BY T1.Airline ORDER BY count(*) DESC LIMIT 1"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.Airline FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T1.uid = T2.Airline GROUP BY T1.Airline ORDER BY count(*) DESC LIMIT 1"
+    }
+   ]
+  },
+  {
+   "qid": 230,
+   "db": "flight_2",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.Airline FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T1.uid = T2.Airline GROUP BY T1.Airline ORDER BY count(*) DESC LIMIT 1"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.Airline FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T1.uid = T2.Airline GROUP BY T1.Airline ORDER BY count(*) DESC LIMIT 1"
+    }
+   ]
+  },
+  {
+   "qid": 231,
+   "db": "flight_2",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.Abbreviation , T1.Country FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T1.uid = T2.Airline GROUP BY T1.Airline ORDER BY count(*) ASC LIMIT 1"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.Abbreviation , T1.Country FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T1.uid = T2.Airline GROUP BY T1.Airline ORDER BY count(*) ASC LIMIT 1"
+    }
+   ]
+  },
+  {
+   "qid": 241,
+   "db": "flight_2",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": false,
+     "representative": "SELECT T1.Airline FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T1.uid = T2.Airline GROUP BY T1.Airline HAVING count(*) >= 10"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": false,
+     "representative": "SELECT T1.Airline FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T1.uid = T2.Airline GROUP BY T1.Airline HAVING count(*) >= 10"
+    }
+   ]
+  },
+  {
+   "qid": 259,
+   "db": "employee_hire_evaluation",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM employee"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM employee"
+    }
+   ]
+  },
+  {
+   "qid": 260,
+   "db": "employee_hire_evaluation",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM employee"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM employee"
+    }
+   ]
+  },
+  {
+   "qid": 271,
+   "db": "employee_hire_evaluation",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT min(Number_products) , max(Number_products) FROM shop"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT min(Number_products) , max(Number_products) FROM shop"
+    }
+   ]
+  },
+  {
+   "qid": 272,
+   "db": "employee_hire_evaluation",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT min(Number_products) , max(Number_products) FROM shop"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT min(Number_products) , max(Number_products) FROM shop"
+    }
+   ]
+  },
+  {
+   "qid": 277,
+   "db": "employee_hire_evaluation",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": false,
+     "representative": "SELECT t1.name FROM employee AS t1 JOIN evaluation AS t2 ON t1.Employee_ID = t2.Employee_ID GROUP BY t1.Employee_ID ORDER BY count(*) DESC LIMIT 1"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": false,
+     "representative": "SELECT t1.name FROM employee AS t1 JOIN evaluation AS t2 ON t1.Employee_ID = t2.Employee_ID GROUP BY t1.Employee_ID ORDER BY count(*) DESC LIMIT 1"
+    }
+   ]
+  },
+  {
+   "qid": 278,
+   "db": "employee_hire_evaluation",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": false,
+     "representative": "SELECT t1.name FROM employee AS t1 JOIN evaluation AS t2 ON t1.Employee_ID = t2.Employee_ID GROUP BY t1.Employee_ID ORDER BY count(*) DESC LIMIT 1"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": false,
+     "representative": "SELECT t1.name FROM employee AS t1 JOIN evaluation AS t2 ON t1.Employee_ID = t2.Employee_ID GROUP BY t1.Employee_ID ORDER BY count(*) DESC LIMIT 1"
+    }
+   ]
+  },
+  {
+   "qid": 292,
+   "db": "employee_hire_evaluation",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT * FROM hiring"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT * FROM hiring"
+    }
+   ]
+  },
+  {
+   "qid": 300,
+   "db": "cre_Doc_Template_Mgt",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT document_id , document_name , document_description FROM Documents"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT document_id , document_name , document_description FROM Documents"
+    }
+   ]
+  },
+  {
+   "qid": 301,
+   "db": "cre_Doc_Template_Mgt",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT document_name , template_id FROM Documents WHERE document_description LIKE '%w%'"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT document_name , template_id FROM Documents WHERE document_description LIKE '%w%'"
+    }
+   ]
+  },
+  {
+   "qid": 302,
+   "db": "cre_Doc_Template_Mgt",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT document_name , template_id FROM Documents WHERE document_description LIKE \"%w%\""
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT document_name , template_id FROM Documents WHERE document_description LIKE \"%w%\""
+    }
+   ]
+  },
+  {
+   "qid": 303,
+   "db": "cre_Doc_Template_Mgt",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT document_id , template_id , document_description FROM Documents WHERE document_name = \"Robbin CV\""
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT document_id , template_id , document_description FROM Documents WHERE document_name = \"Robbin CV\""
+    }
+   ]
+  },
+  {
+   "qid": 305,
+   "db": "cre_Doc_Template_Mgt",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(DISTINCT template_id) FROM Documents"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(DISTINCT template_id) FROM Documents"
+    }
+   ]
+  },
+  {
+   "qid": 310,
+   "db": "cre_Doc_Template_Mgt",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT template_id , count(*) FROM Documents GROUP BY template_id"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT template_id , count(*) FROM Documents GROUP BY template_id"
+    }
+   ]
+  },
+  {
+   "qid": 320,
+   "db": "cre_Doc_Template_Mgt",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT template_id , version_number , template_type_code FROM Templates"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT template_id , version_number , template_type_code FROM Templates"
+    }
+   ]
+  },
+  {
+   "qid": 326,
+   "db": "cre_Doc_Template_Mgt",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM Templates WHERE template_type_code = \"CV\""
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM Templates WHERE template_type_code = \"CV\""
+    }
+   ]
+  },
+  {
+   "qid": 327,
+   "db": "cre_Doc_Template_Mgt",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT version_number , template_type_code FROM Templates WHERE version_number > 5"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT version_number , template_type_code FROM Templates WHERE version_number > 5"
+    }
+   ]
+  },
+  {
+   "qid": 328,
+   "db": "cre_Doc_Template_Mgt",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT version_number , template_type_code FROM Templates WHERE version_number > 5"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT version_number , template_type_code FROM Templates WHERE version_number > 5"
+    }
+   ]
+  },
+  {
+   "qid": 329,
+   "db": "cre_Doc_Template_Mgt",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT template_type_code , count(*) FROM Templates GROUP BY template_type_code"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT template_type_code , count(*) FROM Templates GROUP BY template_type_code"
+    }
+   ]
+  },
+  {
+   "qid": 330,
+   "db": "cre_Doc_Template_Mgt",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT template_type_code , count(*) FROM Templates GROUP BY template_type_code"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT template_type_code , count(*) FROM Templates GROUP BY template_type_code"
+    }
+   ]
+  },
+  {
+   "qid": 331,
+   "db": "cre_Doc_Template_Mgt",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT template_type_code FROM Templates GROUP BY template_type_code ORDER BY count(*) DESC LIMIT 1"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT template_type_code FROM Templates GROUP BY template_type_code ORDER BY count(*) DESC LIMIT 1"
+    }
+   ]
+  },
+  {
+   "qid": 332,
+   "db": "cre_Doc_Template_Mgt",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT template_type_code FROM Templates GROUP BY template_type_code ORDER BY count(*) DESC LIMIT 1"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT template_type_code FROM Templates GROUP BY template_type_code ORDER BY count(*) DESC LIMIT 1"
+    }
+   ]
+  },
+  {
+   "qid": 334,
+   "db": "cre_Doc_Template_Mgt",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT template_type_code FROM Templates GROUP BY template_type_code HAVING count(*) < 3"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT template_type_code FROM Templates GROUP BY template_type_code HAVING count(*) < 3"
+    }
+   ]
+  },
+  {
+   "qid": 335,
+   "db": "cre_Doc_Template_Mgt",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT version_number , template_type_code FROM Templates ORDER BY version_number ASC LIMIT 1"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT version_number , template_type_code FROM Templates ORDER BY version_number ASC LIMIT 1"
+    }
+   ]
+  },
+  {
+   "qid": 338,
+   "db": "cre_Doc_Template_Mgt",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.template_type_code FROM Templates AS T1 JOIN Documents AS T2 ON T1.template_id = T2.template_id WHERE T2.document_name = \"Data base\""
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.template_type_code FROM Templates AS T1 JOIN Documents AS T2 ON T1.template_id = T2.template_id WHERE T2.document_name = \"Data base\""
+    }
+   ]
+  },
+  {
+   "qid": 344,
+   "db": "cre_Doc_Template_Mgt",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 8,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT template_type_code FROM Templates AS T1 JOIN Documents AS T2 ON T1.template_id = T2.template_id GROUP BY template_type_code ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+     "count": 2,
+     "weak_ok": false,
+     "strong_ok": false,
+     "representative": "SELECT template_type_code FROM Templates GROUP BY template_type_code ORDER BY count(*) DESC LIMIT 1"
+    }
+   ],
+   "multi": [
+    {
+     "count": 8,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT template_type_code FROM Templates AS T1 JOIN Documents AS T2 ON T1.template_id = T2.template_id GROUP BY template_type_code ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+     "count": 2,
+     "weak_ok": false,
+     "strong_ok": false,
+     "representative": "SELECT template_type_code FROM Templates GROUP BY template_type_code ORDER BY count(*) DESC LIMIT 1"
+    }
+   ]
+  },
+  {
+   "qid": 345,
+   "db": "cre_Doc_Template_Mgt",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT template_type_code FROM Templates EXCEPT SELECT template_type_code FROM Templates AS T1 JOIN Documents AS T2 ON T1.template_id = T2.template_id"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT template_type_code FROM Templates EXCEPT SELECT template_type_code FROM Templates AS T1 JOIN Documents AS T2 ON T1.template_id = T2.template_id"
+    }
+   ]
+  },
+  {
+   "qid": 346,
+   "db": "cre_Doc_Template_Mgt",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT template_type_code FROM Templates EXCEPT SELECT template_type_code FROM Templates AS T1 JOIN Documents AS T2 ON T1.template_id = T2.template_id"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT template_type_code FROM Templates EXCEPT SELECT template_type_code FROM Templates AS T1 JOIN Documents AS T2 ON T1.template_id = T2.template_id"
+    }
+   ]
+  },
+  {
+   "qid": 349,
+   "db": "cre_Doc_Template_Mgt",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT template_type_description FROM Ref_template_types WHERE template_type_code = \"AD\""
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT template_type_description FROM Ref_template_types WHERE template_type_code = \"AD\""
+    }
+   ]
+  },
+  {
+   "qid": 350,
+   "db": "cre_Doc_Template_Mgt",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT template_type_description FROM Ref_template_types WHERE template_type_code = \"AD\""
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT template_type_description FROM Ref_template_types WHERE template_type_code = \"AD\""
+    }
+   ]
+  },
+  {
+   "qid": 352,
+   "db": "cre_Doc_Template_Mgt",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT template_type_code FROM Ref_template_types WHERE template_type_description = \"Book\""
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT template_type_code FROM Ref_template_types WHERE template_type_description = \"Book\""
+    }
+   ]
+  },
+  {
+   "qid": 353,
+   "db": "cre_Doc_Template_Mgt",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT DISTINCT T1.template_type_description FROM Ref_template_types AS T1 JOIN Templates AS T2 ON T1.template_type_code = T2.template_type_code JOIN Documents AS T3 ON T2.template_id = T3.template_id"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT DISTINCT T1.template_type_description FROM Ref_template_types AS T1 JOIN Templates AS T2 ON T1.template_type_code = T2.template_type_code JOIN Documents AS T3 ON T2.template_id = T3.template_id"
+    }
+   ]
+  },
+  {
+   "qid": 357,
+   "db": "cre_Doc_Template_Mgt",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM Paragraphs"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM Paragraphs"
+    }
+   ]
+  },
+  {
+   "qid": 358,
+   "db": "cre_Doc_Template_Mgt",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM Paragraphs"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM Paragraphs"
+    }
+   ]
+  },
+  {
+   "qid": 359,
+   "db": "cre_Doc_Template_Mgt",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM Paragraphs AS T1 JOIN Documents AS T2 ON T1.document_id = T2.document_id WHERE T2.document_name = \"Summer Show\""
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM Paragraphs AS T1 JOIN Documents AS T2 ON T1.document_id = T2.document_id WHERE T2.document_name = \"Summer Show\""
+    }
+   ]
+  },
+  {
+   "qid": 363,
+   "db": "cre_Doc_Template_Mgt",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.paragraph_id , T1.paragraph_text FROM Paragraphs AS T1 JOIN Documents AS T2 ON T1.document_id = T2.document_id WHERE T2.document_name = \"Welcome to NY\""
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.paragraph_id , T1.paragraph_text FROM Paragraphs AS T1 JOIN Documents AS T2 ON T1.document_id = T2.document_id WHERE T2.document_name = \"Welcome to NY\""
+    }
+   ]
+  },
+  {
+   "qid": 369,
+   "db": "cre_Doc_Template_Mgt",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.document_id , T2.document_name , count(*) FROM Paragraphs AS T1 JOIN Documents AS T2 ON T1.document_id = T2.document_id GROUP BY T1.document_id"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.document_id , T2.document_name , count(*) FROM Paragraphs AS T1 JOIN Documents AS T2 ON T1.document_id = T2.document_id GROUP BY T1.document_id"
+    }
+   ]
+  },
+  {
+   "qid": 371,
+   "db": "cre_Doc_Template_Mgt",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT document_id FROM Paragraphs GROUP BY document_id HAVING count(*) >= 2"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT document_id FROM Paragraphs GROUP BY document_id HAVING count(*) >= 2"
+    }
+   ]
+  },
+  {
+   "qid": 375,
+   "db": "cre_Doc_Template_Mgt",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT document_id FROM Paragraphs GROUP BY document_id ORDER BY count(*) ASC LIMIT 1"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT document_id FROM Paragraphs GROUP BY document_id ORDER BY count(*) ASC LIMIT 1"
+    }
+   ]
+  },
+  {
+   "qid": 377,
+   "db": "cre_Doc_Template_Mgt",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT document_id FROM Paragraphs GROUP BY document_id HAVING count(*) BETWEEN 1 AND 2"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT document_id FROM Paragraphs GROUP BY document_id HAVING count(*) BETWEEN 1 AND 2"
+    }
+   ]
+  },
+  {
+   "qid": 379,
+   "db": "cre_Doc_Template_Mgt",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT document_id FROM Paragraphs WHERE paragraph_text = 'Brazil' INTERSECT SELECT document_id FROM Paragraphs WHERE paragraph_text = 'Ireland'"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT document_id FROM Paragraphs WHERE paragraph_text = 'Brazil' INTERSECT SELECT document_id FROM Paragraphs WHERE paragraph_text = 'Ireland'"
+    }
+   ]
+  },
+  {
+   "qid": 385,
+   "db": "course_teach",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT Age , Hometown FROM teacher"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT Age , Hometown FROM teacher"
+    }
+   ]
+  },
+  {
+   "qid": 386,
+   "db": "course_teach",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT Age , Hometown FROM teacher"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT Age , Hometown FROM teacher"
+    }
+   ]
+  },
+  {
+   "qid": 399,
+   "db": "course_teach",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T3.Name , T2.Course FROM course_arrange AS T1 JOIN course AS T2 ON T1.Course_ID = T2.Course_ID JOIN teacher AS T3 ON T1.Teacher_ID = T3.Teacher_ID"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T3.Name , T2.Course FROM course_arrange AS T1 JOIN course AS T2 ON T1.Course_ID = T2.Course_ID JOIN teacher AS T3 ON T1.Teacher_ID = T3.Teacher_ID"
+    }
+   ]
+  },
+  {
+   "qid": 401,
+   "db": "course_teach",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T3.Name , T2.Course FROM course_arrange AS T1 JOIN course AS T2 ON T1.Course_ID = T2.Course_ID JOIN teacher AS T3 ON T1.Teacher_ID = T3.Teacher_ID ORDER BY T3.Name"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T3.Name , T2.Course FROM course_arrange AS T1 JOIN course AS T2 ON T1.Course_ID = T2.Course_ID JOIN teacher AS T3 ON T1.Teacher_ID = T3.Teacher_ID ORDER BY T3.Name"
+    }
+   ]
+  },
+  {
+   "qid": 408,
+   "db": "course_teach",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T2.Name FROM course_arrange AS T1 JOIN teacher AS T2 ON T1.Teacher_ID = T2.Teacher_ID GROUP BY T2.Name HAVING COUNT(*) >= 2"
+    }
+   ],
+   "multi": [
+    {
+     "count": 5,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T2.Name FROM course_arrange AS T1 JOIN teacher AS T2 ON T1.Teacher_ID = T2.Teacher_ID GROUP BY T2.Name HAVING COUNT(*) >= 2"
+    },
+    {
+     "count": 5,
+     "weak_ok": true,
+     "strong_ok": false,
+     "representative": "SELECT T2.Name FROM course_arrange AS T1 JOIN teacher AS T2 ON T1.Teacher_ID = T2.Teacher_ID GROUP BY T2.Teacher_ID HAVING COUNT(*) >= 2"
+    }
+   ]
+  },
+  {
+   "qid": 424,
+   "db": "museum_visit",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT avg(num_of_ticket) , max(num_of_ticket) FROM visit"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT avg(num_of_ticket) , max(num_of_ticket) FROM visit"
+    }
+   ]
+  },
+  {
+   "qid": 428,
+   "db": "museum_visit",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM museum WHERE open_year > 2013 OR open_year < 2008"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM museum WHERE open_year > 2013 OR open_year < 2008"
+    }
+   ]
+  },
+  {
+   "qid": 429,
+   "db": "wta_1",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM players"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM players"
+    }
+   ]
+  },
+  {
+   "qid": 431,
+   "db": "wta_1",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM matches"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM matches"
+    }
+   ]
+  },
+  {
+   "qid": 432,
+   "db": "wta_1",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM matches"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM matches"
+    }
+   ]
+  },
+  {
+   "qid": 437,
+   "db": "wta_1",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT avg(winner_rank) FROM matches"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT avg(winner_rank) FROM matches"
+    }
+   ]
+  },
+  {
+   "qid": 439,
+   "db": "wta_1",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT min(loser_rank) FROM matches"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT min(loser_rank) FROM matches"
+    }
+   ]
+  },
+  {
+   "qid": 440,
+   "db": "wta_1",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT min(loser_rank) FROM matches"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT min(loser_rank) FROM matches"
+    }
+   ]
+  },
+  {
+   "qid": 443,
+   "db": "wta_1",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(DISTINCT loser_name) FROM matches"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(DISTINCT loser_name) FROM matches"
+    }
+   ]
+  },
+  {
+   "qid": 444,
+   "db": "wta_1",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(DISTINCT loser_name) FROM matches"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(DISTINCT loser_name) FROM matches"
+    }
+   ]
+  },
+  {
+   "qid": 460,
+   "db": "wta_1",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 9,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.first_name , T1.country_code FROM players AS T1 JOIN rankings AS T2 ON T1.player_id = T2.player_id ORDER BY T2.tours DESC LIMIT 1"
+    },
+    {
+     "count": 1,
+     "weak_ok": false,
+     "strong_ok": false,
+     "representative": "SELECT T1.first_name , T1.country_code FROM players AS T1 JOIN rankings AS T2 ON T1.player_id = T2.player_id GROUP BY T1.player_id ORDER BY sum(T2.tours) DESC LIMIT 1"
+    }
+   ],
+   "multi": [
+    {
+     "count": 9,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.first_name , T1.country_code FROM players AS T1 JOIN rankings AS T2 ON T1.player_id = T2.player_id ORDER BY T2.tours DESC LIMIT 1"
+    },
+    {
+     "count": 1,
+     "weak_ok": false,
+     "strong_ok": false,
+     "representative": "SELECT T1.first_name , T1.country_code FROM players AS T1 JOIN rankings AS T2 ON T1.player_id = T2.player_id GROUP BY T1.player_id ORDER BY sum(T2.tours) DESC LIMIT 1"
+    }
+   ]
+  },
+  {
+   "qid": 462,
+   "db": "wta_1",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT YEAR FROM matches GROUP BY YEAR ORDER BY count(*) DESC LIMIT 1"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT YEAR FROM matches GROUP BY YEAR ORDER BY count(*) DESC LIMIT 1"
+    }
+   ]
+  },
+  {
+   "qid": 470,
+   "db": "wta_1",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.first_name , avg(T2.ranking) FROM players AS T1 JOIN rankings AS T2 ON T1.player_id = T2.player_id GROUP BY T1.first_name"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.first_name , avg(T2.ranking) FROM players AS T1 JOIN rankings AS T2 ON T1.player_id = T2.player_id GROUP BY T1.first_name"
+    }
+   ]
+  },
+  {
+   "qid": 481,
+   "db": "wta_1",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) , YEAR FROM matches GROUP BY YEAR"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) , YEAR FROM matches GROUP BY YEAR"
+    }
+   ]
+  },
+  {
+   "qid": 496,
+   "db": "battle_death",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T2.killed , T2.injured FROM ship AS T1 JOIN death AS T2 ON T1.id = T2.caused_by_ship_id WHERE T1.tonnage = 't'"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T2.killed , T2.injured FROM ship AS T1 JOIN death AS T2 ON T1.id = T2.caused_by_ship_id WHERE T1.tonnage = 't'"
+    }
+   ]
+  },
+  {
+   "qid": 501,
+   "db": "battle_death",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": false,
+     "representative": "SELECT DISTINCT name FROM battle WHERE bulgarian_commander = 'Kaloyan' AND latin_commander = 'Baldwin I'"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": false,
+     "representative": "SELECT DISTINCT name FROM battle WHERE bulgarian_commander = 'Kaloyan' AND latin_commander = 'Baldwin I'"
+    }
+   ]
+  },
+  {
+   "qid": 502,
+   "db": "battle_death",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(DISTINCT RESULT) FROM battle"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(DISTINCT RESULT) FROM battle"
+    }
+   ]
+  },
+  {
+   "qid": 506,
+   "db": "battle_death",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT note FROM death WHERE note LIKE '%East%'"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT note FROM death WHERE note LIKE '%East%'"
+    }
+   ]
+  },
+  {
+   "qid": 507,
+   "db": "student_transcripts_tracking",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT line_1 , line_2 FROM addresses"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT line_1 , line_2 FROM addresses"
+    }
+   ]
+  },
+  {
+   "qid": 508,
+   "db": "student_transcripts_tracking",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT line_1 , line_2 FROM addresses"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT line_1 , line_2 FROM addresses"
+    }
+   ]
+  },
+  {
+   "qid": 509,
+   "db": "student_transcripts_tracking",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM Courses"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM Courses"
+    }
+   ]
+  },
+  {
+   "qid": 515,
+   "db": "student_transcripts_tracking",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T2.department_name , T1.department_id FROM Degree_Programs AS T1 JOIN Departments AS T2 ON T1.department_id = T2.department_id GROUP BY T1.department_id ORDER BY count(*) DESC LIMIT 1"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T2.department_name , T1.department_id FROM Degree_Programs AS T1 JOIN Departments AS T2 ON T1.department_id = T2.department_id GROUP BY T1.department_id ORDER BY count(*) DESC LIMIT 1"
+    }
+   ]
+  },
+  {
+   "qid": 517,
+   "db": "student_transcripts_tracking",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(DISTINCT department_id) FROM degree_programs"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(DISTINCT department_id) FROM degree_programs"
+    }
+   ]
+  },
+  {
+   "qid": 523,
+   "db": "student_transcripts_tracking",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT section_name , section_description FROM Sections"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT section_name , section_description FROM Sections"
+    }
+   ]
+  },
+  {
+   "qid": 528,
+   "db": "student_transcripts_tracking",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT section_name FROM Sections ORDER BY section_name DESC"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT section_name FROM Sections ORDER BY section_name DESC"
+    }
+   ]
+  },
+  {
+   "qid": 530,
+   "db": "student_transcripts_tracking",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 5,
+     "weak_ok": false,
+     "strong_ok": false,
+     "representative": "SELECT T1.semester_id , T1.semester_name , T2.student_id FROM semesters AS T1 JOIN student_enrolment AS T2 ON T1.semester_id = T2.semester_id GROUP BY T1.semester_id ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+     "count": 4,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.semester_id , T1.semester_name FROM Semesters AS T1 JOIN Student_Enrolment AS T2 ON T1.semester_id = T2.semester_id GROUP BY T1.semester_id ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+     "count": 1,
+     "weak_ok": false,
+     "strong_ok": false,
+     "representative": "SELECT T1.semester_id , T1.semester_name , T2.semester_id , max(T3.num) FROM semesters AS T1 JOIN student_enrolment AS T2 ON T1.semester_id = T2.semester_id JOIN (SELECT semester_id , count(*) AS num FROM student_enrolment GROUP BY semester_id) AS T3 ON T2.semester_id = T3.semester_id GROUP BY T1.semester_id"
+    }
+   ],
+   "multi": [
+    {
+     "count": 5,
+     "weak_ok": false,
+     "strong_ok": false,
+     "representative": "SELECT T1.semester_id , T1.semester_name , T2.student_id FROM semesters AS T1 JOIN student_enrolment AS T2 ON T1.semester_id = T2.semester_id GROUP BY T1.semester_id ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+     "count": 3,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.semester_id , T1.semester_name FROM Semesters AS T1 JOIN Student_Enrolment AS T2 ON T1.semester_id = T2.semester_id GROUP BY T1.semester_id ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+     "count": 1,
+     "weak_ok": true,
+     "strong_ok": false,
+     "representative": "SELECT T2.semester_id , T2.semester_name FROM (SELECT semester_id, count(*) as num FROM Student_Enrolment GROUP BY semester_id) AS T1 JOIN semesters AS T2 ON T1.semester_id = T2.semester_id ORDER BY T1.num DESC LIMIT 1"
+    },
+    {
+     "count": 1,
+     "weak_ok": false,
+     "strong_ok": false,
+     "representative": "SELECT T1.semester_id , T1.semester_name , T2.semester_id , max(T3.num) FROM semesters AS T1 JOIN student_enrolment AS T2 ON T1.semester_id = T2.semester_id JOIN (SELECT semester_id , count(*) AS num FROM student_enrolment GROUP BY semester_id) AS T3 ON T2.semester_id = T3.semester_id GROUP BY T1.semester_id"
+    }
+   ]
+  },
+  {
+   "qid": 532,
+   "db": "student_transcripts_tracking",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT department_description FROM Departments WHERE department_name LIKE '%computer%'"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT department_description FROM Departments WHERE department_name LIKE '%computer%'"
+    }
+   ]
+  },
+  {
+   "qid": 533,
+   "db": "student_transcripts_tracking",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.first_name , T1.middle_name , T1.last_name , T1.student_id FROM Students AS T1 JOIN Student_Enrolment AS T2 ON T1.student_id = T2.student_id GROUP BY T1.student_id HAVING count(*) = 2"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.first_name , T1.middle_name , T1.last_name , T1.student_id FROM Students AS T1 JOIN Student_Enrolment AS T2 ON T1.student_id = T2.student_id GROUP BY T1.student_id HAVING count(*) = 2"
+    }
+   ]
+  },
+  {
+   "qid": 536,
+   "db": "student_transcripts_tracking",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 9,
+     "weak_ok": false,
+     "strong_ok": false,
+     "representative": "SELECT T1.first_name , T1.middle_name , T1.last_name FROM Students AS T1 JOIN Student_Enrolment AS T2 ON T1.student_id = T2.student_id JOIN Degree_Programs AS T3 ON T2.degree_program_id = T3.degree_program_id WHERE T3.degree_summary_name = 'Bachelors'"
+    },
+    {
+     "count": 1,
+     "weak_ok": false,
+     "strong_ok": false,
+     "representative": "SELECT T1.first_name , T1.middle_name , T1.last_name FROM students AS T1 JOIN student_enrolment AS T2 ON T1.student_id = T2.student_id JOIN degree_programs AS T3 ON T2.degree_program_id = T3.degree_program_id WHERE T3.degree_summary_name = 'Bachelor'"
+    }
+   ],
+   "multi": [
+    {
+     "count": 6,
+     "weak_ok": false,
+     "strong_ok": false,
+     "representative": "SELECT T1.first_name , T1.middle_name , T1.last_name FROM Students AS T1 JOIN Student_Enrolment AS T2 ON T1.student_id = T2.student_id JOIN Degree_Programs AS T3 ON T2.degree_program_id = T3.degree_program_id WHERE T3.degree_summary_name = 'Bachelors'"
+    },
+    {
+     "count": 3,
+     "weak_ok": false,
+     "strong_ok": false,
+     "representative": "SELECT DISTINCT T1.first_name , T1.middle_name , T1.last_name FROM students AS T1 JOIN student_enrolment AS T2 ON T1.student_id = T2.student_id JOIN degree_programs AS T3 ON T2.degree_program_id = T3.degree_program_id WHERE T3.degree_summary_name LIKE 'Bachelors%'"
+    },
+    {
+     "count": 1,
+     "weak_ok": false,
+     "strong_ok": false,
+     "representative": "SELECT T1.first_name , T1.middle_name , T1.last_name FROM students AS T1 JOIN student_enrolment AS T2 ON T1.student_id = T2.student_id JOIN degree_programs AS T3 ON T2.degree_program_id = T3.degree_program_id WHERE T3.degree_summary_name = 'Bachelor'"
+    }
+   ]
+  },
+  {
+   "qid": 540,
+   "db": "student_transcripts_tracking",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 6,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.degree_program_id , T2.degree_summary_name FROM Student_Enrolment AS T1 JOIN Degree_Programs AS T2 ON T1.degree_program_id = T2.degree_program_id GROUP BY T1.degree_program_id ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+     "count": 4,
+     "weak_ok": false,
+     "strong_ok": false,
+     "representative": "SELECT T1.degree_program_id , T2.degree_summary_description FROM Student_Enrolment AS T1 JOIN Degree_Programs AS T2 ON T1.degree_program_id = T2.degree_program_id GROUP BY T1.degree_program_id ORDER BY count(*) DESC LIMIT 1"
+    }
+   ],
+   "multi": [
+    {
+     "count": 6,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.degree_program_id , T2.degree_summary_name FROM Student_Enrolment AS T1 JOIN Degree_Programs AS T2 ON T1.degree_program_id = T2.degree_program_id GROUP BY T1.degree_program_id ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+     "count": 4,
+     "weak_ok": false,
+     "strong_ok": false,
+     "representative": "SELECT T1.degree_program_id , T2.degree_summary_description FROM Student_Enrolment AS T1 JOIN Degree_Programs AS T2 ON T1.degree_program_id = T2.degree_program_id GROUP BY T1.degree_program_id ORDER BY count(*) DESC LIMIT 1"
+    }
+   ]
+  },
+  {
+   "qid": 546,
+   "db": "student_transcripts_tracking",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 7,
+     "weak_ok": false,
+     "strong_ok": false,
+     "representative": "SELECT T1.course_name FROM Courses AS T1 JOIN Sections AS T2 ON T1.course_id = T2.course_id JOIN Student_Enrolment_Courses AS T3 ON T2.course_id = T3.course_id"
+    },
+    {
+     "count": 3,
+     "weak_ok": false,
+     "strong_ok": false,
+     "representative": "SELECT DISTINCT T1.course_name FROM courses AS T1 JOIN sections AS T2 ON T1.course_id = T2.course_id JOIN student_enrolment_courses AS T3 ON T2.course_id = T3.course_id"
+    }
+   ],
+   "multi": [
+    {
+     "count": 7,
+     "weak_ok": false,
+     "strong_ok": false,
+     "representative": "SELECT T1.course_name FROM Courses AS T1 JOIN Sections AS T2 ON T1.course_id = T2.course_id JOIN Student_Enrolment_Courses AS T3 ON T2.course_id = T3.course_id"
+    },
+    {
+     "count": 3,
+     "weak_ok": false,
+     "strong_ok": false,
+     "representative": "SELECT DISTINCT T1.course_name FROM courses AS T1 JOIN sections AS T2 ON T1.course_id = T2.course_id JOIN student_enrolment_courses AS T3 ON T2.course_id = T3.course_id"
+    }
+   ]
+  },
+  {
+   "qid": 548,
+   "db": "student_transcripts_tracking",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": false,
+     "strong_ok": false,
+     "representative": "SELECT T1.course_name FROM Courses AS T1 JOIN Sections AS T2 ON T1.course_id = T2.course_id JOIN Student_Enrolment_Courses AS T3 ON T2.course_id = T3.course_id GROUP BY T1.course_name ORDER BY count(*) DESC LIMIT 1"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": false,
+     "strong_ok": false,
+     "representative": "SELECT T1.course_name FROM Courses AS T1 JOIN Sections AS T2 ON T1.course_id = T2.course_id JOIN Student_Enrolment_Courses AS T3 ON T2.course_id = T3.course_id GROUP BY T1.course_name ORDER BY count(*) DESC LIMIT 1"
+    }
+   ]
+  },
+  {
+   "qid": 551,
+   "db": "student_transcripts_tracking",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.transcript_date , T1.transcript_id FROM Transcripts AS T1 JOIN Transcript_Contents AS T2 ON T1.transcript_id = T2.transcript_id GROUP BY T1.transcript_id HAVING count(*) >= 2"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.transcript_date , T1.transcript_id FROM Transcripts AS T1 JOIN Transcript_Contents AS T2 ON T1.transcript_id = T2.transcript_id GROUP BY T1.transcript_id HAVING count(*) >= 2"
+    }
+   ]
+  },
+  {
+   "qid": 560,
+   "db": "student_transcripts_tracking",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT first_name FROM Students WHERE current_address_id != permanent_address_id"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT first_name FROM Students WHERE current_address_id != permanent_address_id"
+    }
+   ]
+  },
+  {
+   "qid": 563,
+   "db": "student_transcripts_tracking",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT avg(transcript_date) FROM Transcripts"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT avg(transcript_date) FROM Transcripts"
+    }
+   ]
+  },
+  {
+   "qid": 565,
+   "db": "student_transcripts_tracking",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT transcript_date , other_details FROM Transcripts ORDER BY transcript_date ASC LIMIT 1"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT transcript_date , other_details FROM Transcripts ORDER BY transcript_date ASC LIMIT 1"
+    }
+   ]
+  },
+  {
+   "qid": 567,
+   "db": "student_transcripts_tracking",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM Transcripts"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM Transcripts"
+    }
+   ]
+  },
+  {
+   "qid": 572,
+   "db": "student_transcripts_tracking",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 9,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) , student_course_id FROM Transcript_Contents GROUP BY student_course_id ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+     "count": 1,
+     "weak_ok": false,
+     "strong_ok": false,
+     "representative": "SELECT max(T1.student_course_id) , T1.student_course_id FROM Transcript_Contents AS T1 JOIN Student_Enrolment_Courses AS T2 ON T1.student_course_id = T2.student_course_id GROUP BY T1.student_course_id ORDER BY count(*) DESC LIMIT 1"
+    }
+   ],
+   "multi": [
+    {
+     "count": 9,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) , student_course_id FROM Transcript_Contents GROUP BY student_course_id ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+     "count": 1,
+     "weak_ok": false,
+     "strong_ok": false,
+     "representative": "SELECT max(T1.student_course_id) , T1.student_course_id FROM Transcript_Contents AS T1 JOIN Student_Enrolment_Courses AS T2 ON T1.student_course_id = T2.student_course_id GROUP BY T1.student_course_id ORDER BY count(*) DESC LIMIT 1"
+    }
+   ]
+  },
+  {
+   "qid": 573,
+   "db": "student_transcripts_tracking",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 8,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.transcript_date , T1.transcript_id FROM Transcripts AS T1 JOIN Transcript_Contents AS T2 ON T1.transcript_id = T2.transcript_id GROUP BY T1.transcript_id ORDER BY count(*) ASC LIMIT 1"
+    },
+    {
+     "count": 2,
+     "weak_ok": false,
+     "strong_ok": false,
+     "representative": "SELECT transcript_date , transcript_id FROM Transcripts GROUP BY transcript_id ORDER BY count(*) ASC LIMIT 1"
+    }
+   ],
+   "multi": [
+    {
+     "count": 8,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.transcript_date , T1.transcript_id FROM Transcripts AS T1 JOIN Transcript_Contents AS T2 ON T1.transcript_id = T2.transcript_id GROUP BY T1.transcript_id ORDER BY count(*) ASC LIMIT 1"
+    },
+    {
+     "count": 2,
+     "weak_ok": false,
+     "strong_ok": false,
+     "representative": "SELECT transcript_date , transcript_id FROM Transcripts GROUP BY transcript_id ORDER BY count(*) ASC LIMIT 1"
+    }
+   ]
+  },
+  {
+   "qid": 574,
+   "db": "student_transcripts_tracking",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.transcript_date , T1.transcript_id FROM Transcripts AS T1 JOIN Transcript_Contents AS T2 ON T1.transcript_id = T2.transcript_id GROUP BY T1.transcript_id ORDER BY count(*) ASC LIMIT 1"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.transcript_date , T1.transcript_id FROM Transcripts AS T1 JOIN Transcript_Contents AS T2 ON T1.transcript_id = T2.transcript_id GROUP BY T1.transcript_id ORDER BY count(*) ASC LIMIT 1"
+    }
+   ]
+  },
+  {
+   "qid": 577,
+   "db": "student_transcripts_tracking",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(DISTINCT current_address_id) FROM Students"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(DISTINCT current_address_id) FROM Students"
+    }
+   ]
+  },
+  {
+   "qid": 580,
+   "db": "student_transcripts_tracking",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT other_student_details FROM Students ORDER BY other_student_details DESC"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT other_student_details FROM Students ORDER BY other_student_details DESC"
+    }
+   ]
+  },
+  {
+   "qid": 605,
+   "db": "tvshow",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT LANGUAGE , count(*) FROM TV_Channel GROUP BY LANGUAGE ORDER BY count(*) ASC LIMIT 1"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT LANGUAGE , count(*) FROM TV_Channel GROUP BY LANGUAGE ORDER BY count(*) ASC LIMIT 1"
+    }
+   ]
+  },
+  {
+   "qid": 606,
+   "db": "tvshow",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT LANGUAGE , count(*) FROM TV_Channel GROUP BY LANGUAGE ORDER BY count(*) ASC LIMIT 1"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT LANGUAGE , count(*) FROM TV_Channel GROUP BY LANGUAGE ORDER BY count(*) ASC LIMIT 1"
+    }
+   ]
+  },
+  {
+   "qid": 614,
+   "db": "tvshow",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT Episode FROM TV_series ORDER BY Rating"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT Episode FROM TV_series ORDER BY Rating"
+    }
+   ]
+  },
+  {
+   "qid": 616,
+   "db": "tvshow",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT Episode , Rating FROM TV_series ORDER BY Rating DESC LIMIT 3"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT Episode , Rating FROM TV_series ORDER BY Rating DESC LIMIT 3"
+    }
+   ]
+  },
+  {
+   "qid": 618,
+   "db": "tvshow",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT max(SHARE) , min(SHARE) FROM TV_series"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT max(SHARE) , min(SHARE) FROM TV_series"
+    }
+   ]
+  },
+  {
+   "qid": 647,
+   "db": "poker_player",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM poker_player"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM poker_player"
+    }
+   ]
+  },
+  {
+   "qid": 652,
+   "db": "poker_player",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT Final_Table_Made , Best_Finish FROM poker_player"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT Final_Table_Made , Best_Finish FROM poker_player"
+    }
+   ]
+  },
+  {
+   "qid": 654,
+   "db": "poker_player",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT avg(Earnings) FROM poker_player"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT avg(Earnings) FROM poker_player"
+    }
+   ]
+  },
+  {
+   "qid": 655,
+   "db": "poker_player",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT Money_Rank FROM poker_player ORDER BY Earnings DESC LIMIT 1"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT Money_Rank FROM poker_player ORDER BY Earnings DESC LIMIT 1"
+    }
+   ]
+  },
+  {
+   "qid": 661,
+   "db": "poker_player",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.Name FROM people AS T1 JOIN poker_player AS T2 ON T1.People_ID = T2.People_ID WHERE T2.Earnings > 300000"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.Name FROM people AS T1 JOIN poker_player AS T2 ON T1.People_ID = T2.People_ID WHERE T2.Earnings > 300000"
+    }
+   ]
+  },
+  {
+   "qid": 662,
+   "db": "poker_player",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.Name FROM people AS T1 JOIN poker_player AS T2 ON T1.People_ID = T2.People_ID WHERE T2.Earnings > 300000"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.Name FROM people AS T1 JOIN poker_player AS T2 ON T1.People_ID = T2.People_ID WHERE T2.Earnings > 300000"
+    }
+   ]
+  },
+  {
+   "qid": 664,
+   "db": "poker_player",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.Name FROM people AS T1 JOIN poker_player AS T2 ON T1.People_ID = T2.People_ID ORDER BY T2.Final_Table_Made ASC"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.Name FROM people AS T1 JOIN poker_player AS T2 ON T1.People_ID = T2.People_ID ORDER BY T2.Final_Table_Made ASC"
+    }
+   ]
+  },
+  {
+   "qid": 666,
+   "db": "poker_player",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.Birth_Date FROM people AS T1 JOIN poker_player AS T2 ON T1.People_ID = T2.People_ID ORDER BY T2.Earnings ASC LIMIT 1"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.Birth_Date FROM people AS T1 JOIN poker_player AS T2 ON T1.People_ID = T2.People_ID ORDER BY T2.Earnings ASC LIMIT 1"
+    }
+   ]
+  },
+  {
+   "qid": 671,
+   "db": "poker_player",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.Name FROM people AS T1 JOIN poker_player AS T2 ON T1.People_ID = T2.People_ID ORDER BY T2.Earnings DESC"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.Name FROM people AS T1 JOIN poker_player AS T2 ON T1.People_ID = T2.People_ID ORDER BY T2.Earnings DESC"
+    }
+   ]
+  },
+  {
+   "qid": 680,
+   "db": "poker_player",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT Name , Birth_Date FROM people ORDER BY Name ASC"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT Name , Birth_Date FROM people ORDER BY Name ASC"
+    }
+   ]
+  },
+  {
+   "qid": 685,
+   "db": "poker_player",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(DISTINCT Nationality) FROM people"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(DISTINCT Nationality) FROM people"
+    }
+   ]
+  },
+  {
+   "qid": 690,
+   "db": "voter_1",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT max(area_code) , min(area_code) FROM area_code_state"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT max(area_code) , min(area_code) FROM area_code_state"
+    }
+   ]
+  },
+  {
+   "qid": 693,
+   "db": "voter_1",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT DISTINCT state , created FROM votes"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT DISTINCT state , created FROM votes"
+    }
+   ]
+  },
+  {
+   "qid": 695,
+   "db": "voter_1",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.contestant_number , T1.contestant_name FROM contestants AS T1 JOIN votes AS T2 ON T1.contestant_number = T2.contestant_number GROUP BY T1.contestant_number ORDER BY count(*) ASC LIMIT 1"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.contestant_number , T1.contestant_name FROM contestants AS T1 JOIN votes AS T2 ON T1.contestant_number = T2.contestant_number GROUP BY T1.contestant_number ORDER BY count(*) ASC LIMIT 1"
+    }
+   ]
+  },
+  {
+   "qid": 697,
+   "db": "voter_1",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM contestants WHERE contestant_number NOT IN (SELECT contestant_number FROM votes)"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM contestants WHERE contestant_number NOT IN (SELECT contestant_number FROM votes)"
+    }
+   ]
+  },
+  {
+   "qid": 732,
+   "db": "world_1",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(DISTINCT LANGUAGE) FROM countrylanguage"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(DISTINCT LANGUAGE) FROM countrylanguage"
+    }
+   ]
+  },
+  {
+   "qid": 755,
+   "db": "world_1",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": false,
+     "strong_ok": false,
+     "representative": "SELECT T1.Name FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code = T2.CountryCode WHERE T2.IsOfficial = 'T' AND T2.Language IN ('English' , 'Dutch')"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": false,
+     "strong_ok": false,
+     "representative": "SELECT T1.Name FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code = T2.CountryCode WHERE T2.IsOfficial = 'T' AND T2.Language IN ('English' , 'Dutch')"
+    }
+   ]
+  },
+  {
+   "qid": 793,
+   "db": "world_1",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.Name , COUNT(*) FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code = T2.CountryCode GROUP BY T1.Name HAVING COUNT(*) > 2"
+    }
+   ],
+   "multi": [
+    {
+     "count": 9,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.Name , COUNT(*) FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code = T2.CountryCode GROUP BY T1.Name HAVING COUNT(*) > 2"
+    },
+    {
+     "count": 1,
+     "weak_ok": true,
+     "strong_ok": false,
+     "representative": "SELECT T2.Name , COUNT(*) FROM countrylanguage AS T1 JOIN country AS T2 ON T1.CountryCode = T2.Code GROUP BY T1.CountryCode HAVING COUNT(*) > 2"
+    }
+   ]
+  },
+  {
+   "qid": 814,
+   "db": "world_1",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT LANGUAGE FROM countrylanguage GROUP BY LANGUAGE ORDER BY count(*) DESC LIMIT 1"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT LANGUAGE FROM countrylanguage GROUP BY LANGUAGE ORDER BY count(*) DESC LIMIT 1"
+    }
+   ]
+  },
+  {
+   "qid": 815,
+   "db": "world_1",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT LANGUAGE FROM countrylanguage GROUP BY LANGUAGE ORDER BY count(*) DESC LIMIT 1"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT LANGUAGE FROM countrylanguage GROUP BY LANGUAGE ORDER BY count(*) DESC LIMIT 1"
+    }
+   ]
+  },
+  {
+   "qid": 822,
+   "db": "orchestra",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM conductor"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM conductor"
+    }
+   ]
+  },
+  {
+   "qid": 830,
+   "db": "orchestra",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT avg(Attendance) FROM SHOW"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT avg(Attendance) FROM SHOW"
+    }
+   ]
+  },
+  {
+   "qid": 832,
+   "db": "orchestra",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 9,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT max(share) , min(share) FROM performance WHERE TYPE != \"Live final\""
+    },
+    {
+     "count": 1,
+     "weak_ok": false,
+     "strong_ok": false,
+     "representative": "SELECT max(SUBSTR(Share, 1, LENGTH(Share) - 1)) , min(SUBSTR(Share, 1, LENGTH(Share) - 1)) FROM performance WHERE TYPE != \"Live final\""
+    }
+   ],
+   "multi": [
+    {
+     "count": 9,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT max(share) , min(share) FROM performance WHERE TYPE != \"Live final\""
+    },
+    {
+     "count": 1,
+     "weak_ok": false,
+     "strong_ok": false,
+     "representative": "SELECT max(SUBSTR(Share, 1, LENGTH(Share) - 1)) , min(SUBSTR(Share, 1, LENGTH(Share) - 1)) FROM performance WHERE TYPE != \"Live final\""
+    }
+   ]
+  },
+  {
+   "qid": 833,
+   "db": "orchestra",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT max(SHARE) , min(SHARE) FROM performance WHERE TYPE != \"Live final\""
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT max(SHARE) , min(SHARE) FROM performance WHERE TYPE != \"Live final\""
+    }
+   ]
+  },
+  {
+   "qid": 836,
+   "db": "orchestra",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT Name FROM conductor ORDER BY Year_of_Work DESC"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT Name FROM conductor ORDER BY Year_of_Work DESC"
+    }
+   ]
+  },
+  {
+   "qid": 837,
+   "db": "orchestra",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT Name FROM conductor ORDER BY Year_of_Work DESC"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT Name FROM conductor ORDER BY Year_of_Work DESC"
+    }
+   ]
+  },
+  {
+   "qid": 838,
+   "db": "orchestra",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT Name FROM conductor ORDER BY Year_of_Work DESC LIMIT 1"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT Name FROM conductor ORDER BY Year_of_Work DESC LIMIT 1"
+    }
+   ]
+  },
+  {
+   "qid": 840,
+   "db": "orchestra",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.Name , T2.Orchestra FROM conductor AS T1 JOIN orchestra AS T2 ON T1.Conductor_ID = T2.Conductor_ID"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.Name , T2.Orchestra FROM conductor AS T1 JOIN orchestra AS T2 ON T1.Conductor_ID = T2.Conductor_ID"
+    }
+   ]
+  },
+  {
+   "qid": 841,
+   "db": "orchestra",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.Name , T2.Orchestra FROM conductor AS T1 JOIN orchestra AS T2 ON T1.Conductor_ID = T2.Conductor_ID"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.Name , T2.Orchestra FROM conductor AS T1 JOIN orchestra AS T2 ON T1.Conductor_ID = T2.Conductor_ID"
+    }
+   ]
+  },
+  {
+   "qid": 845,
+   "db": "orchestra",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.Name FROM conductor AS T1 JOIN orchestra AS T2 ON T1.Conductor_ID = T2.Conductor_ID GROUP BY T2.Conductor_ID ORDER BY COUNT(*) DESC LIMIT 1"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.Name FROM conductor AS T1 JOIN orchestra AS T2 ON T1.Conductor_ID = T2.Conductor_ID GROUP BY T2.Conductor_ID ORDER BY COUNT(*) DESC LIMIT 1"
+    }
+   ]
+  },
+  {
+   "qid": 846,
+   "db": "orchestra",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.Name FROM conductor AS T1 JOIN orchestra AS T2 ON T1.Conductor_ID = T2.Conductor_ID WHERE T2.Year_of_Founded > 2008"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.Name FROM conductor AS T1 JOIN orchestra AS T2 ON T1.Conductor_ID = T2.Conductor_ID WHERE T2.Year_of_Founded > 2008"
+    }
+   ]
+  },
+  {
+   "qid": 850,
+   "db": "orchestra",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT Major_Record_Format FROM orchestra GROUP BY Major_Record_Format ORDER BY COUNT(*) ASC"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT Major_Record_Format FROM orchestra GROUP BY Major_Record_Format ORDER BY COUNT(*) ASC"
+    }
+   ]
+  },
+  {
+   "qid": 852,
+   "db": "orchestra",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT Record_Company FROM orchestra GROUP BY Record_Company ORDER BY COUNT(*) DESC LIMIT 1"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT Record_Company FROM orchestra GROUP BY Record_Company ORDER BY COUNT(*) DESC LIMIT 1"
+    }
+   ]
+  },
+  {
+   "qid": 862,
+   "db": "network_1",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM Highschooler"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM Highschooler"
+    }
+   ]
+  },
+  {
+   "qid": 863,
+   "db": "network_1",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM Highschooler"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM Highschooler"
+    }
+   ]
+  },
+  {
+   "qid": 865,
+   "db": "network_1",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT name , grade FROM Highschooler"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT name , grade FROM Highschooler"
+    }
+   ]
+  },
+  {
+   "qid": 866,
+   "db": "network_1",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT grade FROM Highschooler"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT grade FROM Highschooler"
+    }
+   ]
+  },
+  {
+   "qid": 881,
+   "db": "network_1",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT grade FROM Highschooler GROUP BY grade HAVING count(*) >= 4"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT grade FROM Highschooler GROUP BY grade HAVING count(*) >= 4"
+    }
+   ]
+  },
+  {
+   "qid": 883,
+   "db": "network_1",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT student_id , count(*) FROM Friend GROUP BY student_id"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT student_id , count(*) FROM Friend GROUP BY student_id"
+    }
+   ]
+  },
+  {
+   "qid": 884,
+   "db": "network_1",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T2.name , count(*) FROM Friend AS T1 JOIN Highschooler AS T2 ON T1.student_id = T2.id GROUP BY T1.student_id"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T2.name , count(*) FROM Friend AS T1 JOIN Highschooler AS T2 ON T1.student_id = T2.id GROUP BY T1.student_id"
+    }
+   ]
+  },
+  {
+   "qid": 886,
+   "db": "network_1",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T2.name FROM Friend AS T1 JOIN Highschooler AS T2 ON T1.student_id = T2.id GROUP BY T1.student_id ORDER BY count(*) DESC LIMIT 1"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T2.name FROM Friend AS T1 JOIN Highschooler AS T2 ON T1.student_id = T2.id GROUP BY T1.student_id ORDER BY count(*) DESC LIMIT 1"
+    }
+   ]
+  },
+  {
+   "qid": 888,
+   "db": "network_1",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T2.name FROM Friend AS T1 JOIN Highschooler AS T2 ON T1.student_id = T2.id GROUP BY T1.student_id HAVING count(*) >= 3"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T2.name FROM Friend AS T1 JOIN Highschooler AS T2 ON T1.student_id = T2.id GROUP BY T1.student_id HAVING count(*) >= 3"
+    }
+   ]
+  },
+  {
+   "qid": 895,
+   "db": "network_1",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT id FROM Highschooler EXCEPT SELECT student_id FROM Friend"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT id FROM Highschooler EXCEPT SELECT student_id FROM Friend"
+    }
+   ]
+  },
+  {
+   "qid": 898,
+   "db": "network_1",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT student_id FROM Friend INTERSECT SELECT liked_id FROM Likes"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT student_id FROM Friend INTERSECT SELECT liked_id FROM Likes"
+    }
+   ]
+  },
+  {
+   "qid": 901,
+   "db": "network_1",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 9,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T2.name FROM Friend AS T1 JOIN Highschooler AS T2 ON T1.student_id = T2.id INTERSECT SELECT T2.name FROM Likes AS T1 JOIN Highschooler AS T2 ON T1.liked_id = T2.id"
+    },
+    {
+     "count": 1,
+     "weak_ok": false,
+     "strong_ok": false,
+     "representative": "SELECT T2.name FROM Friend AS T1 JOIN Highschooler AS T2 ON T1.student_id = T2.id INTERSECT SELECT T2.name FROM Likes AS T1 JOIN Highschooler AS T2 ON T1.student_id = T2.id"
+    }
+   ],
+   "multi": [
+    {
+     "count": 9,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T2.name FROM Friend AS T1 JOIN Highschooler AS T2 ON T1.student_id = T2.id INTERSECT SELECT T2.name FROM Likes AS T1 JOIN Highschooler AS T2 ON T1.liked_id = T2.id"
+    },
+    {
+     "count": 1,
+     "weak_ok": false,
+     "strong_ok": false,
+     "representative": "SELECT T2.name FROM Friend AS T1 JOIN Highschooler AS T2 ON T1.student_id = T2.id INTERSECT SELECT T2.name FROM Likes AS T1 JOIN Highschooler AS T2 ON T1.student_id = T2.id"
+    }
+   ]
+  },
+  {
+   "qid": 905,
+   "db": "network_1",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T2.name , count(*) FROM Likes AS T1 JOIN Highschooler AS T2 ON T1.student_id = T2.id GROUP BY T1.student_id"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T2.name , count(*) FROM Likes AS T1 JOIN Highschooler AS T2 ON T1.student_id = T2.id GROUP BY T1.student_id"
+    }
+   ]
+  },
+  {
+   "qid": 910,
+   "db": "network_1",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T2.name FROM Friend AS T1 JOIN Highschooler AS T2 ON T1.student_id = T2.id WHERE T2.grade > 5 GROUP BY T1.student_id HAVING count(*) >= 2"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T2.name FROM Friend AS T1 JOIN Highschooler AS T2 ON T1.student_id = T2.id WHERE T2.grade > 5 GROUP BY T1.student_id HAVING count(*) >= 2"
+    }
+   ]
+  },
+  {
+   "qid": 919,
+   "db": "dog_kennels",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT state FROM Owners INTERSECT SELECT state FROM Professionals"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT state FROM Owners INTERSECT SELECT state FROM Professionals"
+    }
+   ]
+  },
+  {
+   "qid": 928,
+   "db": "dog_kennels",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 9,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT professional_id , role_code , email_address FROM Professionals EXCEPT SELECT T1.professional_id , T2.role_code , T2.email_address FROM Treatments AS T1 JOIN Professionals AS T2 ON T1.professional_id = T2.professional_id"
+    },
+    {
+     "count": 1,
+     "weak_ok": false,
+     "strong_ok": false,
+     "representative": "SELECT professional_id , role_code , email_address FROM Professionals EXCEPT SELECT professional_id FROM Treatments"
+    }
+   ],
+   "multi": [
+    {
+     "count": 9,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT professional_id , role_code , email_address FROM Professionals EXCEPT SELECT T1.professional_id , T2.role_code , T2.email_address FROM Treatments AS T1 JOIN Professionals AS T2 ON T1.professional_id = T2.professional_id"
+    },
+    {
+     "count": 1,
+     "weak_ok": false,
+     "strong_ok": false,
+     "representative": "SELECT professional_id , role_code , email_address FROM Professionals EXCEPT SELECT professional_id FROM Treatments"
+    }
+   ]
+  },
+  {
+   "qid": 934,
+   "db": "dog_kennels",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.breed_name FROM Breeds AS T1 JOIN Dogs AS T2 ON T1.breed_code = T2.breed_code GROUP BY T1.breed_name ORDER BY count(*) DESC LIMIT 1"
+    }
+   ],
+   "multi": [
+    {
+     "count": 9,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.breed_name FROM Breeds AS T1 JOIN Dogs AS T2 ON T1.breed_code = T2.breed_code GROUP BY T1.breed_name ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+     "count": 1,
+     "weak_ok": true,
+     "strong_ok": false,
+     "representative": "SELECT T1.breed_name FROM Breeds AS T1 JOIN Dogs AS T2 ON T1.breed_code = T2.breed_code GROUP BY T1.breed_code ORDER BY count(*) DESC LIMIT 1"
+    }
+   ]
+  },
+  {
+   "qid": 936,
+   "db": "dog_kennels",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.owner_id , T2.last_name FROM Dogs AS T1 JOIN Owners AS T2 ON T1.owner_id = T2.owner_id JOIN Treatments AS T3 ON T1.dog_id = T3.dog_id GROUP BY T1.owner_id ORDER BY count(*) DESC LIMIT 1"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.owner_id , T2.last_name FROM Dogs AS T1 JOIN Owners AS T2 ON T1.owner_id = T2.owner_id JOIN Treatments AS T3 ON T1.dog_id = T3.dog_id GROUP BY T1.owner_id ORDER BY count(*) DESC LIMIT 1"
+    }
+   ]
+  },
+  {
+   "qid": 947,
+   "db": "dog_kennels",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.date_of_treatment , T2.first_name FROM Treatments AS T1 JOIN Professionals AS T2 ON T1.professional_id = T2.professional_id"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.date_of_treatment , T2.first_name FROM Treatments AS T1 JOIN Professionals AS T2 ON T1.professional_id = T2.professional_id"
+    }
+   ]
+  },
+  {
+   "qid": 948,
+   "db": "dog_kennels",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.cost_of_treatment , T2.treatment_type_description FROM Treatments AS T1 JOIN Treatment_Types AS T2 ON T1.treatment_type_code = T2.treatment_type_code"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.cost_of_treatment , T2.treatment_type_description FROM Treatments AS T1 JOIN Treatment_Types AS T2 ON T1.treatment_type_code = T2.treatment_type_code"
+    }
+   ]
+  },
+  {
+   "qid": 949,
+   "db": "dog_kennels",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.cost_of_treatment , T2.treatment_type_description FROM Treatments AS T1 JOIN Treatment_Types AS T2 ON T1.treatment_type_code = T2.treatment_type_code"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.cost_of_treatment , T2.treatment_type_description FROM Treatments AS T1 JOIN Treatment_Types AS T2 ON T1.treatment_type_code = T2.treatment_type_code"
+    }
+   ]
+  },
+  {
+   "qid": 958,
+   "db": "dog_kennels",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT DISTINCT T1.date_arrived , T1.date_departed FROM Dogs AS T1 JOIN Treatments AS T2 ON T1.dog_id = T2.dog_id"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT DISTINCT T1.date_arrived , T1.date_departed FROM Dogs AS T1 JOIN Treatments AS T2 ON T1.dog_id = T2.dog_id"
+    }
+   ]
+  },
+  {
+   "qid": 964,
+   "db": "dog_kennels",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT date_arrived , date_departed FROM Dogs"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT date_arrived , date_departed FROM Dogs"
+    }
+   ]
+  },
+  {
+   "qid": 970,
+   "db": "dog_kennels",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT role_code , street , city , state FROM professionals WHERE city LIKE '%West%'"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT role_code , street , city , state FROM professionals WHERE city LIKE '%West%'"
+    }
+   ]
+  },
+  {
+   "qid": 971,
+   "db": "dog_kennels",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT role_code , street , city , state FROM professionals WHERE city LIKE '%West%'"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT role_code , street , city , state FROM professionals WHERE city LIKE '%West%'"
+    }
+   ]
+  },
+  {
+   "qid": 978,
+   "db": "dog_kennels",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM Dogs WHERE dog_id NOT IN ( SELECT dog_id FROM Treatments )"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM Dogs WHERE dog_id NOT IN ( SELECT dog_id FROM Treatments )"
+    }
+   ]
+  },
+  {
+   "qid": 980,
+   "db": "dog_kennels",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM Owners WHERE owner_id NOT IN ( SELECT owner_id FROM Dogs )"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM Owners WHERE owner_id NOT IN ( SELECT owner_id FROM Dogs )"
+    }
+   ]
+  },
+  {
+   "qid": 982,
+   "db": "dog_kennels",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM Professionals WHERE professional_id NOT IN ( SELECT professional_id FROM Treatments )"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT count(*) FROM Professionals WHERE professional_id NOT IN ( SELECT professional_id FROM Treatments )"
+    }
+   ]
+  },
+  {
+   "qid": 987,
+   "db": "dog_kennels",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT avg(age) FROM Dogs"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT avg(age) FROM Dogs"
+    }
+   ]
+  },
+  {
+   "qid": 988,
+   "db": "dog_kennels",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT max(age) FROM Dogs"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT max(age) FROM Dogs"
+    }
+   ]
+  },
+  {
+   "qid": 989,
+   "db": "dog_kennels",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT max(age) FROM Dogs"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT max(age) FROM Dogs"
+    }
+   ]
+  },
+  {
+   "qid": 993,
+   "db": "dog_kennels",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT max(charge_amount) FROM Charges"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT max(charge_amount) FROM Charges"
+    }
+   ]
+  },
+  {
+   "qid": 994,
+   "db": "dog_kennels",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT email_address , cell_number , home_phone FROM professionals"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT email_address , cell_number , home_phone FROM professionals"
+    }
+   ]
+  },
+  {
+   "qid": 997,
+   "db": "dog_kennels",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT DISTINCT breed_code , size_code FROM dogs"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT DISTINCT breed_code , size_code FROM dogs"
+    }
+   ]
+  },
+  {
+   "qid": 998,
+   "db": "dog_kennels",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 8,
+     "weak_ok": false,
+     "strong_ok": false,
+     "representative": "SELECT T1.first_name , T3.treatment_type_description FROM professionals AS T1 JOIN treatments AS T2 ON T1.professional_id = T2.professional_id JOIN treatment_types AS T3 ON T2.treatment_type_code = T3.treatment_type_code"
+    },
+    {
+     "count": 2,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT DISTINCT T1.first_name , T3.treatment_type_description FROM professionals AS T1 JOIN treatments AS T2 ON T1.professional_id = T2.professional_id JOIN treatment_types AS T3 ON T2.treatment_type_code = T3.treatment_type_code"
+    }
+   ],
+   "multi": [
+    {
+     "count": 8,
+     "weak_ok": false,
+     "strong_ok": false,
+     "representative": "SELECT T1.first_name , T3.treatment_type_description FROM professionals AS T1 JOIN treatments AS T2 ON T1.professional_id = T2.professional_id JOIN treatment_types AS T3 ON T2.treatment_type_code = T3.treatment_type_code"
+    },
+    {
+     "count": 2,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT DISTINCT T1.first_name , T3.treatment_type_description FROM professionals AS T1 JOIN treatments AS T2 ON T1.professional_id = T2.professional_id JOIN treatment_types AS T3 ON T2.treatment_type_code = T3.treatment_type_code"
+    }
+   ]
+  },
+  {
+   "qid": 999,
+   "db": "dog_kennels",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 5,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT DISTINCT T1.first_name , T3.treatment_type_description FROM professionals AS T1 JOIN treatments AS T2 ON T1.professional_id = T2.professional_id JOIN treatment_types AS T3 ON T2.treatment_type_code = T3.treatment_type_code"
+    },
+    {
+     "count": 5,
+     "weak_ok": false,
+     "strong_ok": false,
+     "representative": "SELECT T1.first_name , T3.treatment_type_description FROM professionals AS T1 JOIN treatments AS T2 ON T1.professional_id = T2.professional_id JOIN treatment_types AS T3 ON T2.treatment_type_code = T3.treatment_type_code"
+    }
+   ],
+   "multi": [
+    {
+     "count": 5,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT DISTINCT T1.first_name , T3.treatment_type_description FROM professionals AS T1 JOIN treatments AS T2 ON T1.professional_id = T2.professional_id JOIN treatment_types AS T3 ON T2.treatment_type_code = T3.treatment_type_code"
+    },
+    {
+     "count": 5,
+     "weak_ok": false,
+     "strong_ok": false,
+     "representative": "SELECT T1.first_name , T3.treatment_type_description FROM professionals AS T1 JOIN treatments AS T2 ON T1.professional_id = T2.professional_id JOIN treatment_types AS T3 ON T2.treatment_type_code = T3.treatment_type_code"
+    }
+   ]
+  },
+  {
+   "qid": 1023,
+   "db": "singer",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": false,
+     "representative": "SELECT T1.Name FROM singer AS T1 JOIN song AS T2 ON T1.Singer_ID = T2.Singer_ID GROUP BY T1.Singer_ID HAVING COUNT(*) > 1"
+    }
+   ],
+   "multi": [
+    {
+     "count": 9,
+     "weak_ok": true,
+     "strong_ok": false,
+     "representative": "SELECT T1.Name FROM singer AS T1 JOIN song AS T2 ON T1.Singer_ID = T2.Singer_ID GROUP BY T1.Singer_ID HAVING COUNT(*) > 1"
+    },
+    {
+     "count": 1,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.Name FROM singer AS T1 JOIN song AS T2 ON T1.Singer_ID = T2.Singer_ID GROUP BY T1.Name HAVING COUNT(*) > 1"
+    }
+   ]
+  },
+  {
+   "qid": 1024,
+   "db": "singer",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.Name , sum(T2.Sales) FROM singer AS T1 JOIN song AS T2 ON T1.Singer_ID = T2.Singer_ID GROUP BY T1.Name"
+    }
+   ],
+   "multi": [
+    {
+     "count": 9,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.Name , sum(T2.Sales) FROM singer AS T1 JOIN song AS T2 ON T1.Singer_ID = T2.Singer_ID GROUP BY T1.Name"
+    },
+    {
+     "count": 1,
+     "weak_ok": true,
+     "strong_ok": false,
+     "representative": "SELECT T1.Name , sum(T2.Sales) FROM singer AS T1 JOIN song AS T2 ON T1.Singer_ID = T2.Singer_ID GROUP BY T1.Singer_ID"
+    }
+   ]
+  },
+  {
+   "qid": 1025,
+   "db": "singer",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.Name , sum(T2.Sales) FROM singer AS T1 JOIN song AS T2 ON T1.Singer_ID = T2.Singer_ID GROUP BY T1.Name"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T1.Name , sum(T2.Sales) FROM singer AS T1 JOIN song AS T2 ON T1.Singer_ID = T2.Singer_ID GROUP BY T1.Name"
+    }
+   ]
+  },
+  {
+   "qid": 1026,
+   "db": "singer",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT Name FROM singer WHERE Singer_ID NOT IN (SELECT Singer_ID FROM song)"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT Name FROM singer WHERE Singer_ID NOT IN (SELECT Singer_ID FROM song)"
+    }
+   ]
+  },
+  {
+   "qid": 1027,
+   "db": "singer",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT Name FROM singer WHERE Singer_ID NOT IN (SELECT Singer_ID FROM song)"
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT Name FROM singer WHERE Singer_ID NOT IN (SELECT Singer_ID FROM song)"
+    }
+   ]
+  },
+  {
+   "qid": 1031,
+   "db": "real_estate_properties",
+   "n_total": 10,
+   "n_usable": 10,
+   "single": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T2.feature_type_name FROM Other_Available_Features AS T1 JOIN Ref_Feature_Types AS T2 ON T1.feature_type_code = T2.feature_type_code WHERE T1.feature_name = \"AirCon\""
+    }
+   ],
+   "multi": [
+    {
+     "count": 10,
+     "weak_ok": true,
+     "strong_ok": true,
+     "representative": "SELECT T2.feature_type_name FROM Other_Available_Features AS T1 JOIN Ref_Feature_Types AS T2 ON T1.feature_type_code = T2.feature_type_code WHERE T1.feature_name = \"AirCon\""
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,347 @@
+{
+ "experiment": "E0 oracle intervention 2x2",
+ "provenance": {
+  "candidates_path": "experiments/c4_omnisql-32b_seed303_candidates.jsonl",
+  "candidates_sha256": "3b3388531e0ed342ecc970f3ac0bb5d10e8ada260eb233439035ce2f73e4ff95",
+  "candidates_meta": {
+   "model": "OmniSQL/OmniSQL-32B",
+   "arm": "main",
+   "questions": 508,
+   "samples_per_question": 50,
+   "sampling_policy": {
+    "kind": "independent temperature sampling, fixed budget",
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "max_tokens": 2048,
+    "seed": 303
+   },
+   "encoder": "chat_template",
+   "template": "omnisql",
+   "chat_template_kwargs": {},
+   "system_prompt": "",
+   "negative_control": "none",
+   "instrument_checks": {
+    "candidates": 25400,
+    "parse_rate": 0.9995,
+    "truncation_rate": 0.0,
+    "note": "a truncated generation is a cut-off scratchpad: discard it, never parse it",
+    "raw_kept": true
+   }
+  },
+  "suite_root": "data/spider/test_suite_database",
+  "official_evaluator": null,
+  "official_evaluator_sha256": null,
+  "analyser": "experiments/e0_analyse.py",
+  "analyser_sha256": "21e64a487fc5dd00700d7ecadf3d9c2f9de80a164c1872c5fbec3c37f496f14d",
+  "git": {
+   "commit": "bcd3a2ed06cd56f4a60dbca8c13d91db4a7676ca",
+   "dirty": true
+  },
+  "python": "3.12.7",
+  "options": {
+   "alpha": 0.1,
+   "splits": 200,
+   "analysis_seed": 20260903,
+   "max_instances": 0,
+   "comparator": "custom",
+   "weak_oracle": "original",
+   "split_by": "question",
+   "mass_denominator": "usable"
+  },
+  "per_question_file": "experiments/c4_omnisql-32b_seed303_results_custom_per_question.json",
+  "per_question_sha256": "030bd6820c5e49549209084c3befa312f06a707037a72ebba16bb0587aa18d65",
+  "timestamp_utc": "2026-09-05T13:35:17Z"
+ },
+ "alpha": 0.1,
+ "weak_oracle": "original",
+ "comparator": "custom",
+ "repeated_splits": 200,
+ "split_info": {
+  "split_by": "question",
+  "n_splits": 200
+ },
+ "questions_usable": 508,
+ "counters": {
+  "questions_usable": 508,
+  "single_classes_split_by_strong_oracle": 358,
+  "gold_matching_single_class_is_impure": 196
+ },
+ "top1_accuracy_under_strong_oracle": 0.6929,
+ "instrument_diagnostics": {
+  "mean_top_class_mass": 0.8824,
+  "unanimous_fraction": 0.4685,
+  "distinct_score_values": 47,
+  "lambda_cell_A": 0.7282,
+  "mean_classes_per_question": 2.6654,
+  "single_classes_total": 1354,
+  "classes_split_over_classes": 0.2644,
+  "impure_gold_class_over_questions": 0.3858,
+  "no_correct_class_rate_weak_partition": 0.2106,
+  "no_correct_class_rate_strong_partition": 0.1181,
+  "usable_candidate_fraction": 0.9995,
+  "note": "descriptive only. The instrument-validity gate was retired prospectively in PREREGISTRATION.md and has no replacement; instrument validity is checked by parse rate, truncation rate and the negative control."
+ },
+ "oracle_gap_within_cell_A": {
+  "marginal_risk_strong_minus_fit": {
+   "mean": 0.081,
+   "sd_of_paired_diff": 0.0146,
+   "splits_with_same_sign": 1.0,
+   "splits_with_zero_diff": 0.0
+  },
+  "setcov_fit_minus_strong": {
+   "mean": 0.1315,
+   "sd_of_paired_diff": 0.0148,
+   "splits_with_same_sign": 1.0,
+   "splits_with_zero_diff": 0.0
+  },
+  "note": "the splits share questions and overlap heavily, so a same-sign proportion is a descriptive statement about resplit stability and is NOT a confidence level"
+ },
+ "paired_contrasts_vs_cell_A": {
+  "score=single|calib=multi": {
+   "setcov_strong": {
+    "mean_change_vs_A": 0.0254,
+    "sd_of_paired_diff": 0.0137,
+    "splits_with_same_sign": 0.985,
+    "splits_with_zero_diff": 0.015
+   },
+   "marginal_risk_strong": {
+    "mean_change_vs_A": -0.0962,
+    "sd_of_paired_diff": 0.0358,
+    "splits_with_same_sign": 1.0,
+    "splits_with_zero_diff": 0.0
+   },
+   "answer_rate": {
+    "mean_change_vs_A": -0.275,
+    "sd_of_paired_diff": 0.0843,
+    "splits_with_same_sign": 1.0,
+    "splits_with_zero_diff": 0.0
+   },
+   "selective_risk_strong": {
+    "mean_change_vs_A": -0.0702,
+    "sd_of_paired_diff": 0.0344,
+    "splits_with_same_sign": 0.995,
+    "splits_with_zero_diff": 0.0
+   }
+  },
+  "score=multi|calib=single": {
+   "setcov_strong": {
+    "mean_change_vs_A": 0.0806,
+    "sd_of_paired_diff": 0.014,
+    "splits_with_same_sign": 1.0,
+    "splits_with_zero_diff": 0.0
+   },
+   "marginal_risk_strong": {
+    "mean_change_vs_A": -0.0569,
+    "sd_of_paired_diff": 0.02,
+    "splits_with_same_sign": 0.995,
+    "splits_with_zero_diff": 0.0
+   },
+   "answer_rate": {
+    "mean_change_vs_A": -0.0708,
+    "sd_of_paired_diff": 0.0336,
+    "splits_with_same_sign": 0.965,
+    "splits_with_zero_diff": 0.01
+   },
+   "selective_risk_strong": {
+    "mean_change_vs_A": -0.0568,
+    "sd_of_paired_diff": 0.0193,
+    "splits_with_same_sign": 0.995,
+    "splits_with_zero_diff": 0.0
+   }
+  },
+  "score=multi|calib=multi": {
+   "setcov_strong": {
+    "mean_change_vs_A": 0.1157,
+    "sd_of_paired_diff": 0.0183,
+    "splits_with_same_sign": 1.0,
+    "splits_with_zero_diff": 0.0
+   },
+   "marginal_risk_strong": {
+    "mean_change_vs_A": -0.0821,
+    "sd_of_paired_diff": 0.0209,
+    "splits_with_same_sign": 1.0,
+    "splits_with_zero_diff": 0.0
+   },
+   "answer_rate": {
+    "mean_change_vs_A": -0.1223,
+    "sd_of_paired_diff": 0.0311,
+    "splits_with_same_sign": 0.995,
+    "splits_with_zero_diff": 0.0
+   },
+   "selective_risk_strong": {
+    "mean_change_vs_A": -0.0802,
+    "sd_of_paired_diff": 0.0189,
+    "splits_with_same_sign": 1.0,
+    "splits_with_zero_diff": 0.0
+   }
+  }
+ },
+ "cells": {
+  "score=single|calib=single": {
+   "setcov_fit": {
+    "mean": 0.8939,
+    "sd": 0.0221
+   },
+   "setcov_strong": {
+    "mean": 0.7624,
+    "sd": 0.0241
+   },
+   "setsize": {
+    "mean": 1.5962,
+    "sd": 0.2031
+   },
+   "tau": {
+    "mean": 0.9511,
+    "sd": 0.0331
+   },
+   "answer_rate": {
+    "mean": 0.811,
+    "sd": 0.0467
+   },
+   "marginal_risk_strong": {
+    "mean": 0.1787,
+    "sd": 0.0389
+   },
+   "marginal_risk_fit": {
+    "mean": 0.0977,
+    "sd": 0.0287
+   },
+   "selective_risk_strong": {
+    "mean": 0.2186,
+    "sd": 0.037
+   },
+   "lambda": {
+    "mean": 0.7282,
+    "sd": 0.0778
+   }
+  },
+  "score=single|calib=multi": {
+   "setcov_fit": {
+    "mean": 0.7878,
+    "sd": 0.0173
+   },
+   "setcov_strong": {
+    "mean": 0.7878,
+    "sd": 0.0173
+   },
+   "setsize": {
+    "mean": 2.6643,
+    "sd": 0.1282
+   },
+   "tau": {
+    "mean": 1.0,
+    "sd": 0.0
+   },
+   "answer_rate": {
+    "mean": 0.5359,
+    "sd": 0.0889
+   },
+   "marginal_risk_strong": {
+    "mean": 0.0825,
+    "sd": 0.0339
+   },
+   "marginal_risk_fit": {
+    "mean": 0.0825,
+    "sd": 0.0339
+   },
+   "selective_risk_strong": {
+    "mean": 0.1484,
+    "sd": 0.0377
+   },
+   "lambda": {
+    "mean": 0.9678,
+    "sd": 0.0255
+   }
+  },
+  "score=multi|calib=single": {
+   "setcov_fit": {
+    "mean": 0.8938,
+    "sd": 0.0206
+   },
+   "setcov_strong": {
+    "mean": 0.843,
+    "sd": 0.0277
+   },
+   "setsize": {
+    "mean": 2.0743,
+    "sd": 0.3424
+   },
+   "tau": {
+    "mean": 0.9584,
+    "sd": 0.0268
+   },
+   "answer_rate": {
+    "mean": 0.7401,
+    "sd": 0.0558
+   },
+   "marginal_risk_strong": {
+    "mean": 0.1218,
+    "sd": 0.04
+   },
+   "marginal_risk_fit": {
+    "mean": 0.0981,
+    "sd": 0.0292
+   },
+   "selective_risk_strong": {
+    "mean": 0.1617,
+    "sd": 0.0413
+   },
+   "lambda": {
+    "mean": 0.6311,
+    "sd": 0.07
+   }
+  },
+  "score=multi|calib=multi": {
+   "setcov_fit": {
+    "mean": 0.8781,
+    "sd": 0.0192
+   },
+   "setcov_strong": {
+    "mean": 0.8781,
+    "sd": 0.0192
+   },
+   "setsize": {
+    "mean": 3.7832,
+    "sd": 0.4962
+   },
+   "tau": {
+    "mean": 0.9982,
+    "sd": 0.0057
+   },
+   "answer_rate": {
+    "mean": 0.6887,
+    "sd": 0.0421
+   },
+   "marginal_risk_strong": {
+    "mean": 0.0966,
+    "sd": 0.0293
+   },
+   "marginal_risk_fit": {
+    "mean": 0.0966,
+    "sd": 0.0293
+   },
+   "selective_risk_strong": {
+    "mean": 0.1384,
+    "sd": 0.0349
+   },
+   "lambda": {
+    "mean": 0.7081,
+    "sd": 0.0563
+   }
+  }
+ },
+ "definitions": {
+  "setcov_strong / setcov_fit": "sampled-candidate-set coverage: fraction of test questions whose prediction set, formed over the SAMPLED execution classes at threshold tau, contains a class that is correct under the strong oracle / under the oracle that fitted tau. Bounded above by 1 - no_correct_class_rate; not the unconditional coverage of an oracle-complete set.",
+  "marginal_risk_strong / marginal_risk_fit": "fraction of test questions that are answered (top-class mass >= lambda) AND wrong under the strong oracle / under the oracle that fitted lambda; the CRC-controlled loss.",
+  "selective_risk_strong": "wrong-answer rate among answered test questions; undefined (null) on a split with no answered question; means are over defined splits, n_splits_undefined is reported.",
+  "answer_rate": "fraction of test questions with top-class mass >= lambda",
+  "tau / lambda": "split-conformal quantile / CRC threshold fitted on the calibration half",
+  "mass_denominator": "usable",
+  "class_representative": "most frequent SQL string in the class; ties broken by ascending lexicographic order of the SQL string",
+  "top_class_tie_break": "highest mass; ties broken by the larger class key",
+  "union_find_order": "official comparator only: gold first, then candidates in sampling order, first occurrence of each distinct SQL string; result_eq is called with the earlier item as its first argument",
+  "paired_statistics": "mean and population sd of the per-split difference; strict sign counting with zero differences counted apart; splits overlap, so same-sign proportions are not confidence levels"
+ },
+ "reading": "Every cell is evaluated against the STRONG oracle. A = score single, calib single is current practice. Compare A with D.",
+ "wall_clock_sec": 368.3
+}

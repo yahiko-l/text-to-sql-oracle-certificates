@@ -1,0 +1,291 @@
+{
+ "note": "post-hoc re-analysis from per-question sufficient statistics; the preregistered result is experiments/c4_panel_summary.json",
+ "options": {
+  "tags": [
+   "kwai-autosql-32b",
+   "kwai-autosql-14b",
+   "xiyansql-32b",
+   "omnisql-32b"
+  ],
+  "alpha": 0.1,
+  "splits": 200,
+  "seed": 20260903,
+  "verify": true,
+  "alphas": null,
+  "per_db": false,
+  "bootstrap": 0,
+  "tie_break": "first",
+  "denominator": "usable",
+  "out": "experiments/c4_recompute_verify.json"
+ },
+ "verify": {
+  "rows": [
+   {
+    "tag": "kwai-autosql-32b",
+    "seed": 101,
+    "split": "question",
+    "GAP": 0.1041,
+    "GAP_stored": 0.1041,
+    "dGAP": 0.0,
+    "REPAIR": -0.1054,
+    "REPAIR_stored": -0.1054,
+    "dREPAIR": 0.0
+   },
+   {
+    "tag": "kwai-autosql-32b",
+    "seed": 101,
+    "split": "database",
+    "GAP": 0.1019,
+    "GAP_stored": 0.1019,
+    "dGAP": 0.0,
+    "REPAIR": -0.1071,
+    "REPAIR_stored": -0.1071,
+    "dREPAIR": 0.0
+   },
+   {
+    "tag": "kwai-autosql-32b",
+    "seed": 202,
+    "split": "question",
+    "GAP": 0.099,
+    "GAP_stored": 0.099,
+    "dGAP": 0.0,
+    "REPAIR": -0.1002,
+    "REPAIR_stored": -0.1002,
+    "dREPAIR": 0.0
+   },
+   {
+    "tag": "kwai-autosql-32b",
+    "seed": 202,
+    "split": "database",
+    "GAP": 0.0994,
+    "GAP_stored": 0.0994,
+    "dGAP": 0.0,
+    "REPAIR": -0.1041,
+    "REPAIR_stored": -0.1041,
+    "dREPAIR": 0.0
+   },
+   {
+    "tag": "kwai-autosql-32b",
+    "seed": 303,
+    "split": "question",
+    "GAP": 0.1038,
+    "GAP_stored": 0.1038,
+    "dGAP": 0.0,
+    "REPAIR": -0.1058,
+    "REPAIR_stored": -0.1059,
+    "dREPAIR": 0.0001
+   },
+   {
+    "tag": "kwai-autosql-32b",
+    "seed": 303,
+    "split": "database",
+    "GAP": 0.1039,
+    "GAP_stored": 0.1039,
+    "dGAP": 0.0,
+    "REPAIR": -0.1096,
+    "REPAIR_stored": -0.1098,
+    "dREPAIR": 0.0002
+   },
+   {
+    "tag": "kwai-autosql-14b",
+    "seed": 101,
+    "split": "question",
+    "GAP": 0.0776,
+    "GAP_stored": 0.0776,
+    "dGAP": 0.0,
+    "REPAIR": -0.0801,
+    "REPAIR_stored": -0.0801,
+    "dREPAIR": 0.0
+   },
+   {
+    "tag": "kwai-autosql-14b",
+    "seed": 101,
+    "split": "database",
+    "GAP": 0.0751,
+    "GAP_stored": 0.0751,
+    "dGAP": 0.0,
+    "REPAIR": -0.0788,
+    "REPAIR_stored": -0.0788,
+    "dREPAIR": 0.0
+   },
+   {
+    "tag": "kwai-autosql-14b",
+    "seed": 202,
+    "split": "question",
+    "GAP": 0.083,
+    "GAP_stored": 0.083,
+    "dGAP": 0.0,
+    "REPAIR": -0.0847,
+    "REPAIR_stored": -0.0847,
+    "dREPAIR": 0.0
+   },
+   {
+    "tag": "kwai-autosql-14b",
+    "seed": 202,
+    "split": "database",
+    "GAP": 0.0809,
+    "GAP_stored": 0.0809,
+    "dGAP": 0.0,
+    "REPAIR": -0.0799,
+    "REPAIR_stored": -0.0799,
+    "dREPAIR": 0.0
+   },
+   {
+    "tag": "kwai-autosql-14b",
+    "seed": 303,
+    "split": "question",
+    "GAP": 0.0819,
+    "GAP_stored": 0.0819,
+    "dGAP": 0.0,
+    "REPAIR": -0.0842,
+    "REPAIR_stored": -0.0842,
+    "dREPAIR": 0.0
+   },
+   {
+    "tag": "kwai-autosql-14b",
+    "seed": 303,
+    "split": "database",
+    "GAP": 0.08,
+    "GAP_stored": 0.0799,
+    "dGAP": 0.0001,
+    "REPAIR": -0.082,
+    "REPAIR_stored": -0.0819,
+    "dREPAIR": -0.0001
+   },
+   {
+    "tag": "xiyansql-32b",
+    "seed": 101,
+    "split": "question",
+    "GAP": 0.0306,
+    "GAP_stored": 0.0306,
+    "dGAP": 0.0,
+    "REPAIR": -0.0287,
+    "REPAIR_stored": -0.0285,
+    "dREPAIR": -0.0002
+   },
+   {
+    "tag": "xiyansql-32b",
+    "seed": 101,
+    "split": "database",
+    "GAP": 0.0276,
+    "GAP_stored": 0.0276,
+    "dGAP": 0.0,
+    "REPAIR": -0.0127,
+    "REPAIR_stored": -0.013,
+    "dREPAIR": 0.0003
+   },
+   {
+    "tag": "xiyansql-32b",
+    "seed": 202,
+    "split": "question",
+    "GAP": 0.0313,
+    "GAP_stored": 0.0313,
+    "dGAP": 0.0,
+    "REPAIR": -0.0293,
+    "REPAIR_stored": -0.0293,
+    "dREPAIR": 0.0
+   },
+   {
+    "tag": "xiyansql-32b",
+    "seed": 202,
+    "split": "database",
+    "GAP": 0.0262,
+    "GAP_stored": 0.0262,
+    "dGAP": 0.0,
+    "REPAIR": -0.0111,
+    "REPAIR_stored": -0.0111,
+    "dREPAIR": 0.0
+   },
+   {
+    "tag": "xiyansql-32b",
+    "seed": 303,
+    "split": "question",
+    "GAP": 0.0313,
+    "GAP_stored": 0.0313,
+    "dGAP": 0.0,
+    "REPAIR": -0.0291,
+    "REPAIR_stored": -0.0291,
+    "dREPAIR": 0.0
+   },
+   {
+    "tag": "xiyansql-32b",
+    "seed": 303,
+    "split": "database",
+    "GAP": 0.028,
+    "GAP_stored": 0.028,
+    "dGAP": 0.0,
+    "REPAIR": -0.0136,
+    "REPAIR_stored": -0.0136,
+    "dREPAIR": 0.0
+   },
+   {
+    "tag": "omnisql-32b",
+    "seed": 101,
+    "split": "question",
+    "GAP": 0.0963,
+    "GAP_stored": 0.0963,
+    "dGAP": 0.0,
+    "REPAIR": -0.0984,
+    "REPAIR_stored": -0.0984,
+    "dREPAIR": 0.0
+   },
+   {
+    "tag": "omnisql-32b",
+    "seed": 101,
+    "split": "database",
+    "GAP": 0.096,
+    "GAP_stored": 0.096,
+    "dGAP": 0.0,
+    "REPAIR": -0.104,
+    "REPAIR_stored": -0.104,
+    "dREPAIR": 0.0
+   },
+   {
+    "tag": "omnisql-32b",
+    "seed": 202,
+    "split": "question",
+    "GAP": 0.0944,
+    "GAP_stored": 0.0944,
+    "dGAP": 0.0,
+    "REPAIR": -0.0941,
+    "REPAIR_stored": -0.0941,
+    "dREPAIR": 0.0
+   },
+   {
+    "tag": "omnisql-32b",
+    "seed": 202,
+    "split": "database",
+    "GAP": 0.0943,
+    "GAP_stored": 0.0944,
+    "dGAP": -0.0001,
+    "REPAIR": -0.1003,
+    "REPAIR_stored": -0.1004,
+    "dREPAIR": 0.0001
+   },
+   {
+    "tag": "omnisql-32b",
+    "seed": 303,
+    "split": "question",
+    "GAP": 0.0943,
+    "GAP_stored": 0.0946,
+    "dGAP": -0.0003,
+    "REPAIR": -0.0948,
+    "REPAIR_stored": -0.0951,
+    "dREPAIR": 0.0003
+   },
+   {
+    "tag": "omnisql-32b",
+    "seed": 303,
+    "split": "database",
+    "GAP": 0.0945,
+    "GAP_stored": 0.0963,
+    "dGAP": -0.0018,
+    "REPAIR": -0.1021,
+    "REPAIR_stored": -0.1045,
+    "dREPAIR": 0.0024
+   }
+  ],
+  "max_abs_diff_gap": 0.0018,
+  "max_abs_diff_repair": 0.0024
+ }
+}

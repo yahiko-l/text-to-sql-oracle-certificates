@@ -1,0 +1,106 @@
+{
+ "note": "What the outstanding adjudication can and cannot change in the PREREGISTRATION_4 endpoint.",
+ "items": 1028,
+ "disagreed": 57,
+ "agreed": 971,
+ "checkpoints": {
+  "xiyansql-32b": {
+   "disagreed_items": 28,
+   "agreed_only": {
+    "auroc_a": 0.5596,
+    "auroc_d": 0.5749,
+    "delta": 0.0153,
+    "se": 0.014,
+    "p": 0.2751,
+    "n_correct": 370,
+    "n_wrong": 93
+   },
+   "E1": {
+    "auroc_a": 0.561,
+    "auroc_d": 0.5831,
+    "delta": 0.0221,
+    "se": 0.0143,
+    "p": 0.1211,
+    "n_correct": 378,
+    "n_wrong": 105
+   },
+   "E2": {
+    "auroc_a": 0.5552,
+    "auroc_d": 0.5672,
+    "delta": 0.0119,
+    "se": 0.0136,
+    "p": 0.3792,
+    "n_correct": 385,
+    "n_wrong": 96
+   },
+   "max": {
+    "auroc_a": 0.5561,
+    "auroc_d": 0.5832,
+    "delta": 0.0272,
+    "se": 0.0153,
+    "p": 0.0761,
+    "n_correct": 392,
+    "n_wrong": 96
+   },
+   "min": {
+    "auroc_a": 0.568,
+    "auroc_d": 0.5727,
+    "delta": 0.0047,
+    "se": 0.0117,
+    "p": 0.6882,
+    "n_correct": 375,
+    "n_wrong": 116
+   },
+   "verdict_invariant": true
+  },
+  "kwai-autosql-32b": {
+   "disagreed_items": 26,
+   "agreed_only": {
+    "auroc_a": 0.6274,
+    "auroc_d": 0.697,
+    "delta": 0.0696,
+    "se": 0.0242,
+    "p": 0.004,
+    "n_correct": 364,
+    "n_wrong": 91
+   },
+   "E1": {
+    "auroc_a": 0.6316,
+    "auroc_d": 0.7024,
+    "delta": 0.0708,
+    "se": 0.0233,
+    "p": 0.0024,
+    "n_correct": 377,
+    "n_wrong": 99
+   },
+   "E2": {
+    "auroc_a": 0.6277,
+    "auroc_d": 0.6886,
+    "delta": 0.0609,
+    "se": 0.0233,
+    "p": 0.0091,
+    "n_correct": 373,
+    "n_wrong": 95
+   },
+   "max": {
+    "auroc_a": 0.6125,
+    "auroc_d": 0.7008,
+    "delta": 0.0883,
+    "se": 0.0248,
+    "p": 0.0004,
+    "n_correct": 376,
+    "n_wrong": 95
+   },
+   "min": {
+    "auroc_a": 0.6574,
+    "auroc_d": 0.6992,
+    "delta": 0.0418,
+    "se": 0.0209,
+    "p": 0.0451,
+    "n_correct": 369,
+    "n_wrong": 112
+   },
+   "verdict_invariant": true
+  }
+ }
+}

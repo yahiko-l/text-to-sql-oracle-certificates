@@ -1,7 +1,13 @@
 __pycache__/
 *.pyc
 
-# The benchmark and its test-suite databases are third party and are not
-# redistributed here. Place a copy at data/spider/ to rerun anything that
-# executes SQL.
-data/
+# The benchmark, its test-suite databases and the official evaluator are third party and are not
+# redistributed here; see the README for where to get them. The one file under data/ that this
+# study produced is kept.
+data/*
+!data/spider_realistic/
+data/spider_realistic/*
+!data/spider_realistic/spider-realistic-matched-original.json
+
+# Prompts and pools are stored gzip-compressed; the decompressed copies stay out of version control.
+experiments/*.jsonl

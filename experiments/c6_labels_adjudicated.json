@@ -1,0 +1,294 @@
+{
+ "pass": "adjudication",
+ "reviewer": "codex gpt-5.6-sol xhigh, fresh thread, saw both labels and both reasons",
+ "labels": [
+  {
+   "case_id": "C018",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "ruled_for": "1",
+   "confidence": "high",
+   "reason": "A Volvo ordinarily means a Volvo-branded car, represented by car_names.Model. Filtering the parent maker can include sibling marques and therefore answers a broader question."
+  },
+  {
+   "case_id": "C019",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "ruled_for": "1",
+   "confidence": "high",
+   "reason": "The phrase a Volvo and its versions refers to Volvo-branded vehicles. The maker-level path can include other marques owned by the Volvo manufacturer."
+  },
+  {
+   "case_id": "C020",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "ruled_for": "1",
+   "confidence": "medium",
+   "reason": "Producing the Fiat means producing a Fiat-branded model. Merely having a corporate maker named Fiat does not establish that any model_list row is Fiat."
+  },
+  {
+   "case_id": "C026",
+   "label": "gold_defect",
+   "error_type": null,
+   "ruled_for": "1",
+   "confidence": "high",
+   "reason": "Age is semantically numeric despite TEXT storage. Lexical ordering is wrong even for realistic multi-digit ages, while the returned cast implements youngest correctly."
+  },
+  {
+   "case_id": "C027",
+   "label": "semantic_error",
+   "error_type": "wrong_set_operation",
+   "ruled_for": "2",
+   "confidence": "high",
+   "reason": "The requested three victors are three people, not three match-result occurrences. Without deduplication, repeated wins can consume the limit."
+  },
+  {
+   "case_id": "C031",
+   "label": "semantic_error",
+   "error_type": "wrong_aggregate",
+   "ruled_for": "2",
+   "confidence": "high",
+   "reason": "Even if both address roles are considered, UNION ALL counts address assignments rather than distinct students and can count one student twice at the same place."
+  },
+  {
+   "case_id": "C039",
+   "label": "gold_defect",
+   "error_type": null,
+   "ruled_for": "2",
+   "confidence": "high",
+   "reason": "CountryCode carries nation identity and is the language foreign key. Intersecting projected names can combine English and French records belonging to different nations with the same name."
+  },
+  {
+   "case_id": "C041",
+   "label": "gold_defect",
+   "error_type": null,
+   "ruled_for": "1",
+   "confidence": "high",
+   "reason": "English usage belongs to a country code. The gold's name-based exclusion can remove a distinct non-English nation merely because another code shares its displayed name."
+  },
+  {
+   "case_id": "C042",
+   "label": "gold_defect",
+   "error_type": null,
+   "ruled_for": "1",
+   "confidence": "high",
+   "reason": "The returned code-based anti-join preserves nation identity; the gold incorrectly lets an English-speaking country exclude another country having the same name."
+  },
+  {
+   "case_id": "C054",
+   "label": "gold_defect",
+   "error_type": null,
+   "ruled_for": "2",
+   "confidence": "high",
+   "reason": "Dog age is numeric in meaning. Because the column is TEXT, the gold's comparison can be lexical and can fail on valid values such as 2 and 10, not only on generated nonnumeric strings."
+  },
+  {
+   "case_id": "C055",
+   "label": "gold_defect",
+   "error_type": null,
+   "ruled_for": "2",
+   "confidence": "high",
+   "reason": "Casting is required to compare numeric ages stored as text. The gold can misclassify realistic multi-digit ages, so the defect is not confined to impossible generated values."
+  },
+  {
+   "case_id": "C061",
+   "label": "gold_defect",
+   "error_type": null,
+   "ruled_for": "2",
+   "confidence": "high",
+   "reason": "Youngest-to-oldest requires numeric age ordering. TEXT ordering is lexicographic and can be wrong for entirely realistic age strings."
+  },
+  {
+   "case_id": "C067",
+   "label": "gold_defect",
+   "error_type": null,
+   "ruled_for": "1",
+   "confidence": "high",
+   "reason": "Language rows identify nations by CountryCode. The gold's name-based exclusion conflates distinct country identities, whereas the returned query follows the schema's identity key."
+  },
+  {
+   "case_id": "C071",
+   "label": "gold_defect",
+   "error_type": null,
+   "ruled_for": "2",
+   "confidence": "high",
+   "reason": "The gold intersects first-name values and can combine a cat owner and a different dog owner sharing that first name. The returned query tests ownership per StuID and renders the student's full name."
+  },
+  {
+   "case_id": "C073",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "ruled_for": "1",
+   "confidence": "high",
+   "reason": "All Volvos means Volvo-branded cars. Filtering car_makers.Maker can include every marque belonging to the parent manufacturer."
+  },
+  {
+   "case_id": "C074",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "ruled_for": "1",
+   "confidence": "medium",
+   "reason": "Countries that produce Fiats must have Fiat-branded models. A maker named Fiat alone does not verify production of such a model."
+  },
+  {
+   "case_id": "C079",
+   "label": "gold_defect",
+   "error_type": null,
+   "ruled_for": "1",
+   "confidence": "high",
+   "reason": "The gold intersects display names and can combine languages spoken by different country codes. The returned query correctly requires one nation identity to have both languages."
+  },
+  {
+   "case_id": "C111",
+   "label": "gold_defect",
+   "error_type": null,
+   "ruled_for": "2",
+   "confidence": "high",
+   "reason": "CountryCode, not Name, is the identity used by countrylanguage. The gold can wrongly exclude a non-English country because a different English-speaking country shares its name."
+  },
+  {
+   "case_id": "C115",
+   "label": "semantic_error",
+   "error_type": "wrong_aggregate",
+   "ruled_for": "1",
+   "confidence": "high",
+   "reason": "The question requests one count of qualifying nations, but the returned query emits a maker count for each qualifying name group. This is wrong independently of duplicate country names."
+  },
+  {
+   "case_id": "C130",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "ruled_for": "1",
+   "confidence": "high",
+   "reason": "Cars of Volvo denotes Volvo-branded cars in this catalog. The maker filter can admit other marques owned by the Volvo parent."
+  },
+  {
+   "case_id": "C132",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "ruled_for": "1",
+   "confidence": "high",
+   "reason": "The requested car is a Volvo-branded vehicle, represented by car_names.Model. Filtering the corporate maker broadens the candidate set to its other marques."
+  },
+  {
+   "case_id": "C133",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "ruled_for": "1",
+   "confidence": "high",
+   "reason": "A Volvo version is a vehicle under the Volvo marque, not every vehicle brand linked to a parent manufacturer named Volvo."
+  },
+  {
+   "case_id": "C134",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "ruled_for": "1",
+   "confidence": "medium",
+   "reason": "The question asks whether a country produces Fiat-branded cars. Testing only the corporate maker's name does not establish that a Fiat model is produced."
+  },
+  {
+   "case_id": "C153",
+   "label": "gold_defect",
+   "error_type": null,
+   "ruled_for": "2",
+   "confidence": "high",
+   "reason": "Intersecting country names can combine English from one nation with French from another. Intersecting CountryCode values preserves the nation identity required by the question."
+  },
+  {
+   "case_id": "C171",
+   "label": "gold_defect",
+   "error_type": null,
+   "ruled_for": "1",
+   "confidence": "high",
+   "reason": "The gold's first-name intersection can manufacture a match from two different students. A first-and-last-name result is also the more faithful rendering of a student's name."
+  },
+  {
+   "case_id": "C175",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "ruled_for": "neither",
+   "confidence": "high",
+   "reason": "A Volvo version refers to a Volvo-branded vehicle. The returned maker-level path can include sibling marques, so it is broader than the requested set."
+  },
+  {
+   "case_id": "C176",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "ruled_for": "1",
+   "confidence": "medium",
+   "reason": "A country produces Fiats only if it produces Fiat-branded models; the existence of a maker named Fiat is not sufficient."
+  },
+  {
+   "case_id": "C189",
+   "label": "gold_defect",
+   "error_type": null,
+   "ruled_for": "2",
+   "confidence": "medium",
+   "reason": "Winners are people identified by winner_id, and handedness is normalized in players. The gold can conflate same-named people and relies on a redundant match-level hand field."
+  },
+  {
+   "case_id": "C203",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "ruled_for": "2",
+   "confidence": "high",
+   "reason": "All Volvos targets the Volvo marque in car_names.Model. The returned corporate-maker filter can include non-Volvo marques owned by that maker."
+  },
+  {
+   "case_id": "C217",
+   "label": "gold_defect",
+   "error_type": null,
+   "ruled_for": "1",
+   "confidence": "high",
+   "reason": "The gold can intersect cat and dog ownership belonging to different students who share a first name. The returned full-name projection reduces that conflation and better renders name."
+  },
+  {
+   "case_id": "C218",
+   "label": "semantic_error",
+   "error_type": "wrong_grouping",
+   "ruled_for": "1",
+   "confidence": "high",
+   "reason": "CountryId carries nation identity. Grouping by CountryName can merge distinct nations and award the maximum to their combined maker count."
+  },
+  {
+   "case_id": "C223",
+   "label": "instance_defect",
+   "error_type": null,
+   "ruled_for": "1",
+   "confidence": "medium",
+   "reason": "Here Model is the normalized marque and Make is its descriptive vehicle name. Separation requires an internally inconsistent catalog row whose Make identifies Volvo while its Model does not."
+  },
+  {
+   "case_id": "C227",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "ruled_for": "2",
+   "confidence": "medium",
+   "reason": "Producing the Fiat refers to producing the Fiat-branded model in model_list. Filtering a company's name never verifies that production condition."
+  },
+  {
+   "case_id": "C228",
+   "label": "semantic_error",
+   "error_type": "wrong_filter",
+   "ruled_for": "2",
+   "confidence": "medium",
+   "reason": "Producing Fiats is a model-level condition. A country containing a corporate maker named Fiat need not have any Fiat-branded model."
+  },
+  {
+   "case_id": "C235",
+   "label": "instance_defect",
+   "error_type": null,
+   "ruled_for": "1",
+   "confidence": "medium",
+   "reason": "The normalized Model and descriptive Make are two representations of the vehicle's marque here. They separate only on a generated row that labels the Make as Volvo while assigning another Model."
+  },
+  {
+   "case_id": "C237",
+   "label": "gold_defect",
+   "error_type": null,
+   "ruled_for": "1",
+   "confidence": "high",
+   "reason": "Intersecting only first names can combine ownership records from different students. The returned full name is a better projection and avoids the observed first-name false match."
+  }
+ ]
+}

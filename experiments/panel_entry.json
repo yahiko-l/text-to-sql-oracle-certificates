@@ -1,0 +1,63 @@
+{
+ "rule": {
+  "parse_rate_min": 0.98,
+  "truncation_rate_max": 0.01,
+  "top1_strong_min": 0.75
+ },
+ "candidates": [
+  {
+   "tag": "deepseek-v4-flash",
+   "meta": "experiments/pilot_deepseek-v4-flash_candidates_meta.json",
+   "results": "experiments/pilot_deepseek-v4-flash_results_official.json",
+   "model": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "parse_rate": 0.998,
+   "truncation_rate": 0.0,
+   "top1_strong": 0.65,
+   "questions_usable": 200,
+   "status": "EXCLUDED",
+   "reason": "top-1 under the strong oracle below 0.75"
+  },
+  {
+   "tag": "qwen3.8-27b",
+   "meta": "experiments/pilot_qwen3.8-27b_candidates_meta.json",
+   "results": "experiments/pilot_qwen3.8-27b_results_official.json",
+   "model": "Qwen/Qwen3.8-27B",
+   "parse_rate": 1.0,
+   "truncation_rate": 0.0,
+   "top1_strong": 0.745,
+   "questions_usable": 200,
+   "status": "EXCLUDED",
+   "reason": "top-1 under the strong oracle below 0.75"
+  },
+  {
+   "tag": "qwen3.6-27b",
+   "meta": "experiments/pilot_qwen3.6-27b_candidates_meta.json",
+   "results": "experiments/pilot_qwen3.6-27b_results_official.json",
+   "model": "Qwen/Qwen3.6-27B",
+   "parse_rate": 1.0,
+   "truncation_rate": 0.0,
+   "top1_strong": 0.73,
+   "questions_usable": 200,
+   "status": "EXCLUDED",
+   "reason": "top-1 under the strong oracle below 0.75"
+  },
+  {
+   "tag": "gpt-oss-120b",
+   "meta": "experiments/pilot_gpt-oss-120b_candidates_meta.json",
+   "results": "experiments/pilot_gpt-oss-120b_results_official.json",
+   "model": "openai/gpt-oss-120b",
+   "parse_rate": 1.0,
+   "truncation_rate": 0.0,
+   "top1_strong": 0.62,
+   "questions_usable": 200,
+   "status": "EXCLUDED",
+   "reason": "top-1 under the strong oracle below 0.75"
+  },
+  {
+   "tag": "gemma-4-31b",
+   "status": "UNLOADABLE",
+   "reason": "transformers 4.57.1 GemmaTokenizerFast cannot parse the Gemma 4 tokenizer_config (extra_special_tokens is a list); needs transformers 5.x, environment frozen"
+  }
+ ],
+ "panel": []
+}

@@ -1,0 +1,288 @@
+{
+ "alpha": 0.1,
+ "splits": 200,
+ "note": "the tie rule the per-question files force on every recomputation, against the frozen analyser's own choice. Ties are the only decisions that can differ, so this bounds the whole effect.",
+ "tied": {
+  "decisions_examined": 12192,
+  "tied": 53
+ },
+ "reconstruction": {
+  "tied_decisions": 53,
+  "representative_differs": 51,
+  "correctness_label_differs": 27
+ },
+ "populations": {
+  "c6": {
+   "stored_answers": 521,
+   "frozen_answers": 522,
+   "cases_labelled": 240,
+   "cases_under_frozen": 240,
+   "never_labelled": [
+    [
+     249,
+     "SELECT \n    COUNT(DISTINCT m.winner_id) AS count_left_hand_winners\nFROM \n    matches m\nJOIN \n    players p ON m.winner_id = p.player_id\nWHERE \n    m.tourney_name = 'WTA Championships' \n    AND p.hand = 'L'"
+    ]
+   ],
+   "labelled_but_not_in_population": 1
+  },
+  "c7": {
+   "stored_answers": 2779,
+   "frozen_answers": 2771,
+   "cases_labelled": 742,
+   "cases_under_frozen": 740,
+   "never_labelled": [
+    [
+     66,
+     "SELECT cm.Maker, cd.Year\nFROM cars_data cd\nJOIN car_names cn ON cd.Id = cn.MakeId\nJOIN model_list ml ON cn.Make = ml.Model\nJOIN car_makers cm ON ml.Maker = cm.Id\nWHERE cd.Year = (SELECT MIN(Year) FROM cars_data)"
+    ],
+    [
+     92,
+     "SELECT Make, COUNT(DISTINCT Model) AS ModelCount\nFROM car_names\nGROUP BY Make\nORDER BY ModelCount DESC\nLIMIT 1"
+    ],
+    [
+     92,
+     "SELECT T1.Make\nFROM car_names AS T1\nJOIN model_list AS T2 ON T1.MakeId = T2.Maker\nGROUP BY T1.Make\nORDER BY COUNT(DISTINCT T2.Model) DESC\nLIMIT 1"
+    ],
+    [
+     100,
+     "SELECT DISTINCT T3.Model\nFROM car_makers AS T1\nINNER JOIN model_list AS T2 ON T1.Id = T2.Maker\nINNER JOIN car_names AS T3 ON T2.ModelId = T3.MakeId\nINNER JOIN cars_data AS T4 ON T3.MakeId = T4.Id\nWHERE T1.FullName = 'General Motors' OR T4.Weight > 3500"
+    ],
+    [
+     234,
+     "SELECT p.first_name, p.last_name, m.winner_rank_points\nFROM players p\nJOIN matches m ON p.player_id = m.winner_id\nWHERE m.winner_id = (\n  SELECT winner_id\n  FROM matches\n  GROUP BY winner_id\n  ORDER BY COUNT(*) DESC\n  LIMIT 1\n)"
+    ],
+    [
+     235,
+     "SELECT p.first_name || ' ' || p.last_name AS player_name, r.ranking_points\nFROM (\n    SELECT winner_id, COUNT(*) AS win_count\n    FROM matches\n    GROUP BY winner_id\n    ORDER BY win_count DESC\n    LIMIT 1\n) AS most_wins\nJOIN players p ON most_wins.winner_id = p.player_id\nJOIN rankings r ON most_wins.winner_id = r.player_id\nORDER BY r.ranking_points DESC\nLIMIT 1"
+    ],
+    [
+     235,
+     "SELECT p.first_name, p.last_name, r.ranking_points\nFROM matches m\nINNER JOIN players p ON m.winner_id = p.player_id\nINNER JOIN rankings r ON p.player_id = r.player_id\nGROUP BY m.winner_id\nORDER BY COUNT(m.winner_id) DESC\nLIMIT 1"
+    ],
+    [
+     253,
+     "SELECT \n    b.name AS battle_name, \n    b.date AS battle_date\nFROM \n    ship s\nINNER JOIN \n    battle b\nON \n    s.lost_in_battle = b.id\nWHERE \n    s.name IN ('Lettice', 'HMS Atalanta')\nGROUP BY \n    b.id\nHAVING \n    COUNT(DISTINCT s.name) = 2"
+    ],
+    [
+     253,
+     "SELECT DISTINCT b.name, b.date\nFROM battle b\nINNER JOIN ship s ON b.id = s.lost_in_battle\nWHERE s.name IN ('Lettice', 'HMS Atalanta')\nGROUP BY b.id\nHAVING COUNT(DISTINCT s.name) = 2"
+    ],
+    [
+     362,
+     "SELECT AVG(GNP), SUM(Population)\nFROM country\nWHERE GovernmentForm LIKE '%Territory of the United States%'"
+    ],
+    [
+     431,
+     "SELECT \n    c.Name AS Country, \n    cl.Language AS TopLanguage, \n    cl.Percentage AS Percentage\nFROM \n    country AS c\nINNER JOIN \n    countrylanguage AS cl\nON \n    c.Code = cl.CountryCode\nWHERE \n    cl.Percentage = (\n        SELECT MAX(Percentage)\n        FROM countrylanguage AS cl2\n        WHERE cl2.CountryCode = cl.CountryCode\n    )"
+    ],
+    [
+     431,
+     "SELECT Language\nFROM (\n  SELECT CountryCode, Language, Percentage,\n         ROW_NUMBER() OVER (PARTITION BY CountryCode ORDER BY Percentage DESC) AS rn\n  FROM countrylanguage\n)\nWHERE rn = 1"
+    ],
+    [
+     433,
+     "SELECT COUNT(DISTINCT T1.CountryCode) AS TotalCountries\nFROM countrylanguage AS T1\nWHERE T1.Language = 'Spanish'\n  AND T1.Percentage = (\n    SELECT MAX(T2.Percentage)\n    FROM countrylanguage AS T2\n    WHERE T2.CountryCode = T1.CountryCode\n      AND T2.Language = 'Spanish'\n  )"
+    ],
+    [
+     476,
+     "SELECT T1.first_name, T1.last_name\nFROM Professionals T1\nINNER JOIN Treatments T2 ON T1.professional_id = T2.professional_id\nWHERE T2.cost_of_treatment < (SELECT AVG(cost_of_treatment) FROM Treatments)"
+    ],
+    [
+     481,
+     "SELECT \n    O.last_name\nFROM \n    Owners O\nJOIN \n    Dogs D ON O.owner_id = D.owner_id\nORDER BY \n    D.date_of_birth DESC\nLIMIT 1"
+    ]
+   ],
+   "labelled_but_not_in_population": 17
+  }
+ },
+ "recompute": {
+  "kwai-autosql-14b|database": {
+   "narrow|file_order|errors|GAP": -0.0328,
+   "narrow|file_order|errors|REPAIR": -0.0365,
+   "narrow|file_order|not_errors|GAP": -0.0328,
+   "narrow|file_order|not_errors|REPAIR": -0.0365,
+   "narrow|frozen|errors|GAP": -0.0327,
+   "narrow|frozen|errors|REPAIR": -0.0366,
+   "narrow|frozen|not_errors|GAP": -0.0328,
+   "narrow|frozen|not_errors|REPAIR": -0.0365,
+   "preregistered|file_order|GAP": 0.0787,
+   "preregistered|file_order|REPAIR": -0.0802,
+   "preregistered|frozen|GAP": 0.0786,
+   "preregistered|frozen|REPAIR": -0.0802,
+   "wide|file_order|errors|GAP": -0.0224,
+   "wide|file_order|errors|REPAIR": -0.0417,
+   "wide|file_order|not_errors|GAP": -0.0224,
+   "wide|file_order|not_errors|REPAIR": -0.0417,
+   "wide|frozen|errors|GAP": -0.0224,
+   "wide|frozen|errors|REPAIR": -0.0417,
+   "wide|frozen|not_errors|GAP": -0.0225,
+   "wide|frozen|not_errors|REPAIR": -0.0417
+  },
+  "kwai-autosql-14b|question": {
+   "narrow|file_order|errors|GAP": -0.0337,
+   "narrow|file_order|errors|REPAIR": -0.0374,
+   "narrow|file_order|not_errors|GAP": -0.0337,
+   "narrow|file_order|not_errors|REPAIR": -0.0374,
+   "narrow|frozen|errors|GAP": -0.0337,
+   "narrow|frozen|errors|REPAIR": -0.0375,
+   "narrow|frozen|not_errors|GAP": -0.0337,
+   "narrow|frozen|not_errors|REPAIR": -0.0375,
+   "preregistered|file_order|GAP": 0.0808,
+   "preregistered|file_order|REPAIR": -0.083,
+   "preregistered|frozen|GAP": 0.0808,
+   "preregistered|frozen|REPAIR": -0.083,
+   "wide|file_order|errors|GAP": -0.0225,
+   "wide|file_order|errors|REPAIR": -0.0432,
+   "wide|file_order|not_errors|GAP": -0.0225,
+   "wide|file_order|not_errors|REPAIR": -0.0432,
+   "wide|frozen|errors|GAP": -0.0225,
+   "wide|frozen|errors|REPAIR": -0.0432,
+   "wide|frozen|not_errors|GAP": -0.0225,
+   "wide|frozen|not_errors|REPAIR": -0.0432
+  },
+  "kwai-autosql-32b|database": {
+   "narrow|file_order|errors|GAP": -0.0528,
+   "narrow|file_order|errors|REPAIR": -0.0307,
+   "narrow|file_order|not_errors|GAP": -0.0528,
+   "narrow|file_order|not_errors|REPAIR": -0.0307,
+   "narrow|frozen|errors|GAP": -0.0528,
+   "narrow|frozen|errors|REPAIR": -0.0308,
+   "narrow|frozen|not_errors|GAP": -0.0528,
+   "narrow|frozen|not_errors|REPAIR": -0.0308,
+   "preregistered|file_order|GAP": 0.1018,
+   "preregistered|file_order|REPAIR": -0.1069,
+   "preregistered|frozen|GAP": 0.1018,
+   "preregistered|frozen|REPAIR": -0.107,
+   "wide|file_order|errors|GAP": -0.0351,
+   "wide|file_order|errors|REPAIR": -0.041,
+   "wide|file_order|not_errors|GAP": -0.0351,
+   "wide|file_order|not_errors|REPAIR": -0.041,
+   "wide|frozen|errors|GAP": -0.0351,
+   "wide|frozen|errors|REPAIR": -0.0411,
+   "wide|frozen|not_errors|GAP": -0.0351,
+   "wide|frozen|not_errors|REPAIR": -0.0411
+  },
+  "kwai-autosql-32b|question": {
+   "narrow|file_order|errors|GAP": -0.0499,
+   "narrow|file_order|errors|REPAIR": -0.028,
+   "narrow|file_order|not_errors|GAP": -0.0499,
+   "narrow|file_order|not_errors|REPAIR": -0.028,
+   "narrow|frozen|errors|GAP": -0.0499,
+   "narrow|frozen|errors|REPAIR": -0.028,
+   "narrow|frozen|not_errors|GAP": -0.0499,
+   "narrow|frozen|not_errors|REPAIR": -0.028,
+   "preregistered|file_order|GAP": 0.1023,
+   "preregistered|file_order|REPAIR": -0.1038,
+   "preregistered|frozen|GAP": 0.1023,
+   "preregistered|frozen|REPAIR": -0.1038,
+   "wide|file_order|errors|GAP": -0.0315,
+   "wide|file_order|errors|REPAIR": -0.0392,
+   "wide|file_order|not_errors|GAP": -0.0315,
+   "wide|file_order|not_errors|REPAIR": -0.0392,
+   "wide|frozen|errors|GAP": -0.0315,
+   "wide|frozen|errors|REPAIR": -0.0393,
+   "wide|frozen|not_errors|GAP": -0.0315,
+   "wide|frozen|not_errors|REPAIR": -0.0393
+  },
+  "omnisql-32b|database": {
+   "narrow|file_order|errors|GAP": -0.0517,
+   "narrow|file_order|errors|REPAIR": -0.0314,
+   "narrow|file_order|not_errors|GAP": -0.0517,
+   "narrow|file_order|not_errors|REPAIR": -0.0314,
+   "narrow|frozen|errors|GAP": -0.0516,
+   "narrow|frozen|errors|REPAIR": -0.0317,
+   "narrow|frozen|not_errors|GAP": -0.0523,
+   "narrow|frozen|not_errors|REPAIR": -0.0311,
+   "preregistered|file_order|GAP": 0.0949,
+   "preregistered|file_order|REPAIR": -0.1021,
+   "preregistered|frozen|GAP": 0.0955,
+   "preregistered|frozen|REPAIR": -0.103,
+   "wide|file_order|errors|GAP": -0.0364,
+   "wide|file_order|errors|REPAIR": -0.0413,
+   "wide|file_order|not_errors|GAP": -0.0364,
+   "wide|file_order|not_errors|REPAIR": -0.0413,
+   "wide|frozen|errors|GAP": -0.0361,
+   "wide|frozen|errors|REPAIR": -0.0418,
+   "wide|frozen|not_errors|GAP": -0.0368,
+   "wide|frozen|not_errors|REPAIR": -0.0412
+  },
+  "omnisql-32b|question": {
+   "narrow|file_order|errors|GAP": -0.0425,
+   "narrow|file_order|errors|REPAIR": -0.0271,
+   "narrow|file_order|not_errors|GAP": -0.0425,
+   "narrow|file_order|not_errors|REPAIR": -0.0271,
+   "narrow|frozen|errors|GAP": -0.0425,
+   "narrow|frozen|errors|REPAIR": -0.0271,
+   "narrow|frozen|not_errors|GAP": -0.0425,
+   "narrow|frozen|not_errors|REPAIR": -0.0271,
+   "preregistered|file_order|GAP": 0.095,
+   "preregistered|file_order|REPAIR": -0.0957,
+   "preregistered|frozen|GAP": 0.0951,
+   "preregistered|frozen|REPAIR": -0.0958,
+   "wide|file_order|errors|GAP": -0.0268,
+   "wide|file_order|errors|REPAIR": -0.0385,
+   "wide|file_order|not_errors|GAP": -0.0268,
+   "wide|file_order|not_errors|REPAIR": -0.0385,
+   "wide|frozen|errors|GAP": -0.0268,
+   "wide|frozen|errors|REPAIR": -0.0385,
+   "wide|frozen|not_errors|GAP": -0.0268,
+   "wide|frozen|not_errors|REPAIR": -0.0385
+  },
+  "xiyansql-32b|database": {
+   "narrow|file_order|errors|GAP": -0.0408,
+   "narrow|file_order|errors|REPAIR": -0.0043,
+   "narrow|file_order|not_errors|GAP": -0.0408,
+   "narrow|file_order|not_errors|REPAIR": -0.0043,
+   "narrow|frozen|errors|GAP": -0.0405,
+   "narrow|frozen|errors|REPAIR": -0.0045,
+   "narrow|frozen|not_errors|GAP": -0.0405,
+   "narrow|frozen|not_errors|REPAIR": -0.0045,
+   "preregistered|file_order|GAP": 0.0273,
+   "preregistered|file_order|REPAIR": -0.0125,
+   "preregistered|frozen|GAP": 0.0273,
+   "preregistered|frozen|REPAIR": -0.0126,
+   "wide|file_order|errors|GAP": -0.0345,
+   "wide|file_order|errors|REPAIR": -0.0073,
+   "wide|file_order|not_errors|GAP": -0.0345,
+   "wide|file_order|not_errors|REPAIR": -0.0073,
+   "wide|frozen|errors|GAP": -0.0342,
+   "wide|frozen|errors|REPAIR": -0.0075,
+   "wide|frozen|not_errors|GAP": -0.0342,
+   "wide|frozen|not_errors|REPAIR": -0.0075
+  },
+  "xiyansql-32b|question": {
+   "narrow|file_order|errors|GAP": -0.0422,
+   "narrow|file_order|errors|REPAIR": -0.0104,
+   "narrow|file_order|not_errors|GAP": -0.0422,
+   "narrow|file_order|not_errors|REPAIR": -0.0104,
+   "narrow|frozen|errors|GAP": -0.0419,
+   "narrow|frozen|errors|REPAIR": -0.0107,
+   "narrow|frozen|not_errors|GAP": -0.0419,
+   "narrow|frozen|not_errors|REPAIR": -0.0107,
+   "preregistered|file_order|GAP": 0.0311,
+   "preregistered|file_order|REPAIR": -0.029,
+   "preregistered|frozen|GAP": 0.0311,
+   "preregistered|frozen|REPAIR": -0.029,
+   "wide|file_order|errors|GAP": -0.0353,
+   "wide|file_order|errors|REPAIR": -0.0166,
+   "wide|file_order|not_errors|GAP": -0.0353,
+   "wide|file_order|not_errors|REPAIR": -0.0166,
+   "wide|frozen|errors|GAP": -0.0351,
+   "wide|frozen|errors|REPAIR": -0.0169,
+   "wide|frozen|not_errors|GAP": -0.0351,
+   "wide|frozen|not_errors|REPAIR": -0.0169
+  }
+ },
+ "unlabelled_answers_encountered": 68,
+ "impact_bounds": {
+  "largest_change_points": 0.084095,
+  "largest_bracket_width_points": 0.063075,
+  "sign_changes": 0,
+  "crossings_of_the_three_point_line": 0
+ },
+ "threshold_effect": {
+  "evaluations": 9600,
+  "lambda_changed": 83,
+  "answer_rate_changed": 66
+ }
+}

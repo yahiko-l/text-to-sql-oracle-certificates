@@ -1,0 +1,55 @@
+{
+ "note": "Precision of the paired AUROC contrast the independent-yardstick audit will estimate.",
+ "checkpoints": {
+  "xiyansql-32b": {
+   "same_sql_questions": 507,
+   "wrong_rate_suite": 0.14,
+   "auroc_a_suite": 0.6645,
+   "auroc_d_suite": 0.7564,
+   "delta_suite": 0.092,
+   "paired_se": {
+    "507": {
+     "se": 0.0241,
+     "mde_95": 0.0473
+    },
+    "400": {
+     "se": 0.0279,
+     "mde_95": 0.0547
+    },
+    "300": {
+     "se": 0.0322,
+     "mde_95": 0.063
+    },
+    "200": {
+     "se": 0.0387,
+     "mde_95": 0.0758
+    }
+   }
+  },
+  "kwai-autosql-32b": {
+   "same_sql_questions": 496,
+   "wrong_rate_suite": 0.248,
+   "auroc_a_suite": 0.7521,
+   "auroc_d_suite": 0.8407,
+   "delta_suite": 0.0886,
+   "paired_se": {
+    "496": {
+     "se": 0.0219,
+     "mde_95": 0.043
+    },
+    "400": {
+     "se": 0.0238,
+     "mde_95": 0.0466
+    },
+    "300": {
+     "se": 0.0287,
+     "mde_95": 0.0563
+    },
+    "200": {
+     "se": 0.0353,
+     "mde_95": 0.0693
+    }
+   }
+  }
+ }
+}

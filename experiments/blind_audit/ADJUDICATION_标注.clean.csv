@@ -1,0 +1,14 @@
+item_id,verdict,defect_type,borderline,note
+Q003,question_underspecified,,yes,题目未明确要求同一频道分别播出两位导演的作品，还是播出两人共同执导的作品，参考查询只实现前者而题面不能排除后者。
+Q022,question_underspecified,,yes,HeadOfState='Beatrix'匹配三个国家／地区，而题目用单数且未明确目标国家或语言去重口径，参考查询的四行结果仅对应一种解释。
+Q033,gold_defective,wrong_or_negated_filter,yes,题目明确限定dog，参考查询却在全部Pets中取最小年龄而缺少PetType='dog'条件，当前同得9.3只是数据上的巧合。
+Q034,question_underspecified,,yes,“most diverse languages”未明确按不同语言种数还是语言使用分布衡量多样性，COUNT(*)仅计国家—语言记录且当前返回Africa不足以消除口径歧义。
+Q058,gold_defective,other,no,重量条件不依赖制造商记录，CAR_MAKERS内连接却排除了制造商记录缺失、重量4732的hi，完整OR并集应为14种而非13种。
+Q070,gold_defective,wrong_or_negated_filter,yes,应先筛选PetType='dog'再取最小年龄，参考查询取的是最年轻宠物的体重，当前返回9.3不能消除缺失筛选的逻辑错误。
+Q080,gold_defective,other,yes,“most languages”要求统计大陆内不同Language，COUNT(*)却重复计入同一语言在不同国家的记录，非洲310条对应215种且当前仍居首不代表查询语义正确。
+Q108,gold_defective,wrong_set_operation_key,yes,猫狗必须由同一StuID的学生同时拥有，按非唯一Fname取交集会误合并同名的不同学生，当前按主键核验也为空只是该错误尚未触发。
+Q137,question_underspecified,,yes,七个国家／地区人口同为0，题目指定返回三个却未给出并列取舍规则，参考查询返回其中三个但题面无法确定唯一的三国名单。
+Q138,question_underspecified,,yes,“different versions”未定义按MakeId记录还是不同Make名称计数，ford对应53条与37种且两者均居首，结果相同不能确定题目所要求的版本口径。
+Q139,gold_defective,other,no,CAR_MAKERS内连接给OR的重量分支额外施加了制造商必须存在的限制，漏掉重量4732的hi，完整答案应含14种车型而非13种。
+Q145,gold_defective,wrong_set_operation_key,yes,未注册条件须按student_id排除，按非唯一last_name做EXCEPT会连带排除同姓未注册学生，当前15个姓氏恰好唯一不构成姓氏可替代主键的保证。
+Q146,gold_defective,wrong_or_negated_filter,yes,“more than”和“less than”明确要求严格开区间，BETWEEN却包含160000及900000端点，当前无端点记录只使1860行结果暂时一致。

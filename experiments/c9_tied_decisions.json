@@ -1,0 +1,1087 @@
+{
+ "note": "every top-class decision of cells A and D over the twelve pools whose maximum class count is attained by more than one class",
+ "decisions_examined": 12192,
+ "tied": [
+  {
+   "tag": "kwai-autosql-32b",
+   "seed": 101,
+   "qid": 29,
+   "db": "concert_singer",
+   "part": "multi",
+   "n_tied": 2,
+   "reps": [
+    "SELECT DISTINCT s.Name, s.Location\nFROM stadium s\nJOIN concert c ON s.Stadium_ID = c.Stadium_ID\nWHERE c.Year IN ('2014', '2015')\nGROUP BY s.Name, s.Location\nHAVING COUNT(DISTINCT c.Year) = 2",
+    "SELECT T1.Name, T1.Location\nFROM stadium AS T1\nWHERE T1.Stadium_ID IN (\n    SELECT Stadium_ID FROM concert WHERE Year = '2014'\n    INTERSECT\n    SELECT Stadium_ID FROM concert WHERE Year = '2015'\n)"
+   ],
+   "weak": [
+    true,
+    true
+   ],
+   "strong": [
+    true,
+    false
+   ]
+  },
+  {
+   "tag": "kwai-autosql-32b",
+   "seed": 101,
+   "qid": 345,
+   "db": "world_1",
+   "part": "multi",
+   "n_tied": 2,
+   "reps": [
+    "SELECT T2.Language\nFROM country AS T1\nINNER JOIN countrylanguage AS T2 ON T1.Code = T2.CountryCode\nWHERE T1.Name = 'Aruba'\nORDER BY T2.Percentage DESC\nLIMIT 1",
+    "SELECT Language\nFROM countrylanguage\nWHERE CountryCode = (\n    SELECT Code FROM country WHERE Name = 'Aruba'\n)\nORDER BY Percentage DESC\nLIMIT 1"
+   ],
+   "weak": [
+    true,
+    true
+   ],
+   "strong": [
+    true,
+    false
+   ]
+  },
+  {
+   "tag": "kwai-autosql-32b",
+   "seed": 101,
+   "qid": 362,
+   "db": "world_1",
+   "part": "multi",
+   "n_tied": 2,
+   "reps": [
+    "SELECT AVG(GNP), SUM(Population)\nFROM country\nWHERE Region = 'Caribbean'",
+    "SELECT AVG(GNP) AS AverageGNP, SUM(Population) AS TotalPopulation\nFROM country\nWHERE GovernmentForm LIKE '%United States%'"
+   ],
+   "weak": [
+    false,
+    false
+   ],
+   "strong": [
+    false,
+    false
+   ]
+  },
+  {
+   "tag": "kwai-autosql-32b",
+   "seed": 101,
+   "qid": 476,
+   "db": "dog_kennels",
+   "part": "multi",
+   "n_tied": 2,
+   "reps": [
+    "SELECT DISTINCT T1.first_name, T1.last_name\nFROM Professionals T1\nINNER JOIN Treatments T2 ON T1.professional_id = T2.professional_id\nWHERE T2.cost_of_treatment < (SELECT AVG(cost_of_treatment) FROM Treatments)",
+    "SELECT T1.first_name, T1.last_name\nFROM Professionals T1\nINNER JOIN Treatments T2 ON T1.professional_id = T2.professional_id\nWHERE T2.cost_of_treatment < (SELECT AVG(cost_of_treatment) FROM Treatments)"
+   ],
+   "weak": [
+    false,
+    false
+   ],
+   "strong": [
+    false,
+    false
+   ]
+  },
+  {
+   "tag": "kwai-autosql-32b",
+   "seed": 202,
+   "qid": 362,
+   "db": "world_1",
+   "part": "multi",
+   "n_tied": 3,
+   "reps": [
+    "SELECT AVG(GNP) AS AverageGNP, SUM(Population) AS TotalPopulation\nFROM country\nWHERE GovernmentForm LIKE '%Territory%'",
+    "SELECT AVG(GNP), SUM(Population)\nFROM country\nWHERE Region = 'Caribbean'",
+    "SELECT AVG(GNP), SUM(Population)\nFROM country\nWHERE GovernmentForm LIKE '%Territory of the United States%'"
+   ],
+   "weak": [
+    false,
+    false,
+    false
+   ],
+   "strong": [
+    false,
+    false,
+    false
+   ]
+  },
+  {
+   "tag": "kwai-autosql-32b",
+   "seed": 202,
+   "qid": 375,
+   "db": "world_1",
+   "part": "multi",
+   "n_tied": 2,
+   "reps": [
+    "SELECT T1.Name\nFROM country AS T1\nINNER JOIN countrylanguage AS T2 ON T1.Code = T2.CountryCode AND T2.Language = 'English'\nINNER JOIN countrylanguage AS T3 ON T1.Code = T3.CountryCode AND T3.Language = 'French'",
+    "SELECT T1.Name\nFROM country AS T1\nINNER JOIN countrylanguage AS T2 ON T1.Code = T2.CountryCode\nWHERE T2.Language IN ('English', 'French')\nGROUP BY T1.Name\nHAVING COUNT(DISTINCT T2.Language) = 2"
+   ],
+   "weak": [
+    true,
+    true
+   ],
+   "strong": [
+    false,
+    true
+   ]
+  },
+  {
+   "tag": "kwai-autosql-32b",
+   "seed": 303,
+   "qid": 25,
+   "db": "concert_singer",
+   "part": "single",
+   "n_tied": 2,
+   "reps": [
+    "SELECT DISTINCT T3.Name\nFROM concert AS T1\nINNER JOIN singer_in_concert AS T2 ON T1.concert_ID = T2.concert_ID\nINNER JOIN singer AS T3 ON T2.Singer_ID = T3.Singer_ID\nWHERE T1.Year = '2014'",
+    "SELECT T3.Name\nFROM concert AS T1\nINNER JOIN singer_in_concert AS T2 ON T1.concert_ID = T2.concert_ID\nINNER JOIN singer AS T3 ON T2.Singer_ID = T3.Singer_ID\nWHERE T1.Year = '2014'"
+   ],
+   "weak": [
+    false,
+    true
+   ],
+   "strong": [
+    false,
+    true
+   ]
+  },
+  {
+   "tag": "kwai-autosql-32b",
+   "seed": 303,
+   "qid": 25,
+   "db": "concert_singer",
+   "part": "multi",
+   "n_tied": 2,
+   "reps": [
+    "SELECT DISTINCT T3.Name\nFROM concert AS T1\nINNER JOIN singer_in_concert AS T2 ON T1.concert_ID = T2.concert_ID\nINNER JOIN singer AS T3 ON T2.Singer_ID = T3.Singer_ID\nWHERE T1.Year = '2014'",
+    "SELECT T3.Name\nFROM concert AS T1\nINNER JOIN singer_in_concert AS T2 ON T1.concert_ID = T2.concert_ID\nINNER JOIN singer AS T3 ON T2.Singer_ID = T3.Singer_ID\nWHERE T1.Year = '2014'"
+   ],
+   "weak": [
+    false,
+    true
+   ],
+   "strong": [
+    false,
+    true
+   ]
+  },
+  {
+   "tag": "kwai-autosql-32b",
+   "seed": 303,
+   "qid": 44,
+   "db": "pets_1",
+   "part": "multi",
+   "n_tied": 2,
+   "reps": [
+    "SELECT T1.Fname\nFROM Student AS T1\nINNER JOIN Has_Pet AS T2 ON T1.StuID = T2.StuID\nINNER JOIN Pets AS T3 ON T2.PetID = T3.PetID\nGROUP BY T1.Fname\nHAVING SUM(CASE WHEN T3.PetType = 'cat' THEN 1 ELSE 0 END) > 0\n   AND SUM(CASE WHEN T3.PetType = 'dog' THEN 1 ELSE 0 END) > 0",
+    "SELECT T1.Fname\nFROM Student AS T1\nINNER JOIN Has_Pet AS T2 ON T1.StuID = T2.StuID\nINNER JOIN Pets AS T3 ON T2.PetID = T3.PetID\nGROUP BY T1.StuID, T1.Fname\nHAVING SUM(CASE WHEN T3.PetType = 'cat' THEN 1 ELSE 0 END) > 0\n   AND SUM(CASE WHEN T3.PetType = 'dog' THEN 1 ELSE 0 END) > 0"
+   ],
+   "weak": [
+    true,
+    true
+   ],
+   "strong": [
+    true,
+    false
+   ]
+  },
+  {
+   "tag": "kwai-autosql-32b",
+   "seed": 303,
+   "qid": 253,
+   "db": "battle_death",
+   "part": "multi",
+   "n_tied": 2,
+   "reps": [
+    "SELECT DISTINCT T1.name, T1.date\nFROM battle AS T1\nINNER JOIN ship AS T2 ON T1.id = T2.lost_in_battle\nWHERE T2.name IN ('Lettice', 'HMS Atalanta')",
+    "SELECT DISTINCT b.name, b.date\nFROM battle b\nINNER JOIN ship s ON b.id = s.lost_in_battle\nWHERE s.name IN ('Lettice', 'HMS Atalanta')\nGROUP BY b.id\nHAVING COUNT(DISTINCT s.name) = 2"
+   ],
+   "weak": [
+    true,
+    true
+   ],
+   "strong": [
+    false,
+    false
+   ]
+  },
+  {
+   "tag": "kwai-autosql-32b",
+   "seed": 303,
+   "qid": 434,
+   "db": "world_1",
+   "part": "single",
+   "n_tied": 2,
+   "reps": [
+    "SELECT COUNT(*) FROM countrylanguage WHERE Language = 'Spanish' AND IsOfficial = 'T'",
+    "SELECT COUNT(*)\nFROM countrylanguage\nWHERE Language = 'Spanish'"
+   ],
+   "weak": [
+    false,
+    false
+   ],
+   "strong": [
+    false,
+    false
+   ]
+  },
+  {
+   "tag": "kwai-autosql-14b",
+   "seed": 101,
+   "qid": 65,
+   "db": "car_1",
+   "part": "single",
+   "n_tied": 2,
+   "reps": [
+    "SELECT T1.Maker, T3.Year\nFROM car_makers AS T1\nINNER JOIN car_names AS T2 ON T1.Id = T2.Make\nINNER JOIN cars_data AS T3 ON T2.MakeId = T3.Id\nORDER BY T3.Year ASC\nLIMIT 1",
+    "SELECT T2.Make, T1.Year\nFROM cars_data AS T1\nINNER JOIN car_names AS T2 ON T1.Id = T2.MakeId\nORDER BY T1.Year ASC\nLIMIT 1"
+   ],
+   "weak": [
+    false,
+    false
+   ],
+   "strong": [
+    false,
+    false
+   ]
+  },
+  {
+   "tag": "kwai-autosql-14b",
+   "seed": 101,
+   "qid": 235,
+   "db": "wta_1",
+   "part": "single",
+   "n_tied": 2,
+   "reps": [
+    "SELECT p.first_name, p.last_name, r.ranking_points\nFROM matches m\nINNER JOIN players p ON m.winner_id = p.player_id\nINNER JOIN rankings r ON p.player_id = r.player_id\nGROUP BY p.first_name, p.last_name, r.ranking_points\nORDER BY COUNT(m.winner_id) DESC\nLIMIT 1",
+    "SELECT p.first_name, p.last_name, r.ranking_points\nFROM matches m\nINNER JOIN players p ON m.winner_id = p.player_id\nINNER JOIN rankings r ON p.player_id = r.player_id\nGROUP BY m.winner_id\nORDER BY COUNT(m.winner_id) DESC\nLIMIT 1"
+   ],
+   "weak": [
+    false,
+    false
+   ],
+   "strong": [
+    false,
+    false
+   ]
+  },
+  {
+   "tag": "kwai-autosql-14b",
+   "seed": 101,
+   "qid": 266,
+   "db": "student_transcripts_tracking",
+   "part": "multi",
+   "n_tied": 2,
+   "reps": [
+    "SELECT T1.address_id, T1.line_1, T1.line_2, T1.line_3\nFROM Addresses AS T1\nINNER JOIN Students AS T2 ON T1.address_id = T2.current_address_id\nGROUP BY T1.address_id, T1.line_1, T1.line_2, T1.line_3\nORDER BY COUNT(T2.student_id) DESC\nLIMIT 1",
+    "SELECT T1.address_id, T1.line_1, T1.line_2, T1.line_3\nFROM Addresses AS T1\nINNER JOIN Students AS T2 ON T1.address_id = T2.current_address_id\nGROUP BY T1.address_id\nORDER BY COUNT(T2.student_id) DESC\nLIMIT 1"
+   ],
+   "weak": [
+    false,
+    false
+   ],
+   "strong": [
+    false,
+    false
+   ]
+  },
+  {
+   "tag": "kwai-autosql-14b",
+   "seed": 101,
+   "qid": 372,
+   "db": "world_1",
+   "part": "multi",
+   "n_tied": 2,
+   "reps": [
+    "SELECT T1.Continent\nFROM country AS T1\nINNER JOIN countrylanguage AS T2 ON T1.Code = T2.CountryCode\nGROUP BY T1.Continent\nORDER BY COUNT(DISTINCT T2.Language) DESC\nLIMIT 1",
+    "SELECT T1.Continent\nFROM country AS T1\nINNER JOIN countrylanguage AS T2 ON T1.Code = T2.CountryCode\nGROUP BY T1.Continent\nORDER BY COUNT(T2.Language) DESC\nLIMIT 1"
+   ],
+   "weak": [
+    true,
+    true
+   ],
+   "strong": [
+    false,
+    true
+   ]
+  },
+  {
+   "tag": "kwai-autosql-14b",
+   "seed": 101,
+   "qid": 392,
+   "db": "world_1",
+   "part": "multi",
+   "n_tied": 2,
+   "reps": [
+    "SELECT SUM(Population)\nFROM country\nWHERE Code NOT IN (\n  SELECT CountryCode\n  FROM countrylanguage\n  WHERE Language = 'English'\n)",
+    "SELECT SUM(T1.Population)\nFROM country AS T1\nINNER JOIN countrylanguage AS T2 ON T1.Code = T2.CountryCode\nWHERE T2.Language != 'English'"
+   ],
+   "weak": [
+    true,
+    false
+   ],
+   "strong": [
+    false,
+    false
+   ]
+  },
+  {
+   "tag": "kwai-autosql-14b",
+   "seed": 202,
+   "qid": 46,
+   "db": "pets_1",
+   "part": "multi",
+   "n_tied": 2,
+   "reps": [
+    "SELECT DISTINCT S.Major, S.Age\nFROM Student S\nWHERE S.StuID NOT IN (\n    SELECT HP.StuID\n    FROM Has_Pet HP\n    INNER JOIN Pets P ON HP.PetID = P.PetID\n    WHERE P.PetType = 'cat'\n)",
+    "SELECT T1.Major, T1.Age\nFROM Student AS T1\nWHERE T1.StuID NOT IN (\n    SELECT T2.StuID\n    FROM Has_Pet AS T2\n    INNER JOIN Pets AS T3 ON T2.PetID = T3.PetID\n    WHERE T3.PetType = 'cat'\n)"
+   ],
+   "weak": [
+    false,
+    true
+   ],
+   "strong": [
+    false,
+    true
+   ]
+  },
+  {
+   "tag": "kwai-autosql-14b",
+   "seed": 303,
+   "qid": 100,
+   "db": "car_1",
+   "part": "multi",
+   "n_tied": 2,
+   "reps": [
+    "SELECT DISTINCT T2.Model\nFROM car_makers AS T1\nINNER JOIN car_names AS T2 ON T1.Id = T2.Make\nINNER JOIN cars_data AS T3 ON T2.MakeId = T3.Id\nWHERE T1.FullName = 'General Motors' OR T3.Weight > 3500",
+    "SELECT DISTINCT T3.Model\nFROM car_makers AS T1\nINNER JOIN model_list AS T2 ON T1.Id = T2.Maker\nINNER JOIN car_names AS T3 ON T2.ModelId = T3.MakeId\nINNER JOIN cars_data AS T4 ON T3.MakeId = T4.Id\nWHERE T1.FullName = 'General Motors' OR T4.Weight > 3500"
+   ],
+   "weak": [
+    false,
+    false
+   ],
+   "strong": [
+    false,
+    false
+   ]
+  },
+  {
+   "tag": "kwai-autosql-14b",
+   "seed": 303,
+   "qid": 383,
+   "db": "world_1",
+   "part": "multi",
+   "n_tied": 2,
+   "reps": [
+    "SELECT T2.Language\nFROM country AS T1\nINNER JOIN countrylanguage AS T2 ON T1.Code = T2.CountryCode\nWHERE T1.Continent = 'Asia'\nGROUP BY T2.Language\nORDER BY COUNT(T2.Language) DESC\nLIMIT 1",
+    "SELECT T2.Language\nFROM country AS T1\nINNER JOIN countrylanguage AS T2 ON T1.Code = T2.CountryCode\nWHERE T1.Continent = 'Asia'\nORDER BY T2.Percentage DESC\nLIMIT 1"
+   ],
+   "weak": [
+    true,
+    false
+   ],
+   "strong": [
+    true,
+    false
+   ]
+  },
+  {
+   "tag": "kwai-autosql-14b",
+   "seed": 303,
+   "qid": 431,
+   "db": "world_1",
+   "part": "single",
+   "n_tied": 2,
+   "reps": [
+    "SELECT CountryCode, Language\nFROM (\n  SELECT CountryCode, Language, Percentage,\n         ROW_NUMBER() OVER (PARTITION BY CountryCode ORDER BY Percentage DESC) AS rn\n  FROM countrylanguage\n)\nWHERE rn = 1",
+    "SELECT Language\nFROM (\n  SELECT CountryCode, Language, Percentage,\n         ROW_NUMBER() OVER (PARTITION BY CountryCode ORDER BY Percentage DESC) AS rn\n  FROM countrylanguage\n)\nWHERE rn = 1"
+   ],
+   "weak": [
+    false,
+    false
+   ],
+   "strong": [
+    false,
+    false
+   ]
+  },
+  {
+   "tag": "kwai-autosql-14b",
+   "seed": 303,
+   "qid": 431,
+   "db": "world_1",
+   "part": "multi",
+   "n_tied": 2,
+   "reps": [
+    "SELECT CountryCode, Language\nFROM (\n  SELECT CountryCode, Language, Percentage,\n         ROW_NUMBER() OVER (PARTITION BY CountryCode ORDER BY Percentage DESC) AS rn\n  FROM countrylanguage\n)\nWHERE rn = 1",
+    "SELECT Language\nFROM (\n  SELECT CountryCode, Language, Percentage,\n         ROW_NUMBER() OVER (PARTITION BY CountryCode ORDER BY Percentage DESC) AS rn\n  FROM countrylanguage\n)\nWHERE rn = 1"
+   ],
+   "weak": [
+    false,
+    false
+   ],
+   "strong": [
+    false,
+    false
+   ]
+  },
+  {
+   "tag": "kwai-autosql-14b",
+   "seed": 303,
+   "qid": 475,
+   "db": "dog_kennels",
+   "part": "single",
+   "n_tied": 2,
+   "reps": [
+    "SELECT T1.owner_id, T1.zip_code\nFROM Owners T1\nINNER JOIN Dogs T2 ON T1.owner_id = T2.owner_id\nINNER JOIN Treatments T3 ON T2.dog_id = T3.dog_id\nGROUP BY T1.owner_id, T1.zip_code\nORDER BY SUM(T3.cost_of_treatment) DESC\nLIMIT 1",
+    "SELECT T1.owner_id, T1.zip_code\nFROM Owners AS T1\nINNER JOIN Dogs AS T2 ON T1.owner_id = T2.owner_id\nINNER JOIN Charges AS T3 ON T2.dog_id = T3.charge_id\nGROUP BY T1.owner_id, T1.zip_code\nORDER BY SUM(T3.charge_amount) DESC\nLIMIT 1"
+   ],
+   "weak": [
+    true,
+    false
+   ],
+   "strong": [
+    false,
+    false
+   ]
+  },
+  {
+   "tag": "xiyansql-32b",
+   "seed": 101,
+   "qid": 63,
+   "db": "car_1",
+   "part": "single",
+   "n_tied": 2,
+   "reps": [
+    "SELECT T1.FullName FROM CAR_MAKERS AS T1 JOIN MODEL_LIST AS T2 ON T1.Id = T2.Maker JOIN CAR_NAMES AS T3 ON T2.Model = T3.Model JOIN CARS_DATA AS T4 ON T3.MakeId = T4.Id WHERE T4.Year = 1970",
+    "SELECT DISTINCT T1.Maker FROM CAR_MAKERS AS T1 JOIN MODEL_LIST AS T2 ON T1.Id = T2.Maker JOIN CAR_NAMES AS T3 ON T2.Model = T3.Model JOIN CARS_DATA AS T4 ON T3.MakeId = T4.Id WHERE T4.Year = 1970"
+   ],
+   "weak": [
+    false,
+    true
+   ],
+   "strong": [
+    false,
+    true
+   ]
+  },
+  {
+   "tag": "xiyansql-32b",
+   "seed": 101,
+   "qid": 63,
+   "db": "car_1",
+   "part": "multi",
+   "n_tied": 2,
+   "reps": [
+    "SELECT T1.FullName FROM CAR_MAKERS AS T1 JOIN MODEL_LIST AS T2 ON T1.Id = T2.Maker JOIN CAR_NAMES AS T3 ON T2.Model = T3.Model JOIN CARS_DATA AS T4 ON T3.MakeId = T4.Id WHERE T4.Year = 1970",
+    "SELECT DISTINCT T1.Maker FROM CAR_MAKERS AS T1 JOIN MODEL_LIST AS T2 ON T1.Id = T2.Maker JOIN CAR_NAMES AS T3 ON T2.Model = T3.Model JOIN CARS_DATA AS T4 ON T3.MakeId = T4.Id WHERE T4.Year = 1970"
+   ],
+   "weak": [
+    false,
+    true
+   ],
+   "strong": [
+    false,
+    true
+   ]
+  },
+  {
+   "tag": "xiyansql-32b",
+   "seed": 101,
+   "qid": 340,
+   "db": "world_1",
+   "part": "single",
+   "n_tied": 2,
+   "reps": [
+    "SELECT Continent FROM country WHERE Name = \"Anguilla\"",
+    "SELECT T1.Continent FROM country AS T1 JOIN city AS T2 ON T1.Code = T2.CountryCode WHERE T2.Name = \"Anguilla\""
+   ],
+   "weak": [
+    true,
+    false
+   ],
+   "strong": [
+    true,
+    false
+   ]
+  },
+  {
+   "tag": "xiyansql-32b",
+   "seed": 101,
+   "qid": 340,
+   "db": "world_1",
+   "part": "multi",
+   "n_tied": 2,
+   "reps": [
+    "SELECT Continent FROM country WHERE Name = \"Anguilla\"",
+    "SELECT T1.Continent FROM country AS T1 JOIN city AS T2 ON T1.Code = T2.CountryCode WHERE T2.Name = \"Anguilla\""
+   ],
+   "weak": [
+    true,
+    false
+   ],
+   "strong": [
+    true,
+    false
+   ]
+  },
+  {
+   "tag": "omnisql-32b",
+   "seed": 101,
+   "qid": 66,
+   "db": "car_1",
+   "part": "single",
+   "n_tied": 2,
+   "reps": [
+    "SELECT cm.Maker, cd.Year\nFROM cars_data cd\nJOIN car_names cn ON cd.Id = cn.MakeId\nJOIN model_list ml ON cn.Model = ml.Model\nJOIN car_makers cm ON ml.Maker = cm.Id\nWHERE cd.Year = (\n    SELECT MIN(Year) FROM cars_data\n)",
+    "SELECT cm.Maker, cd.Year\nFROM cars_data cd\nJOIN car_names cn ON cd.Id = cn.MakeId\nJOIN model_list ml ON cn.Make = ml.Model\nJOIN car_makers cm ON ml.Maker = cm.Id\nWHERE cd.Year = (SELECT MIN(Year) FROM cars_data)"
+   ],
+   "weak": [
+    false,
+    false
+   ],
+   "strong": [
+    false,
+    false
+   ]
+  },
+  {
+   "tag": "omnisql-32b",
+   "seed": 101,
+   "qid": 92,
+   "db": "car_1",
+   "part": "single",
+   "n_tied": 2,
+   "reps": [
+    "SELECT Model, COUNT(*) AS VersionCount\nFROM model_list\nGROUP BY Model\nORDER BY VersionCount DESC\nLIMIT 1",
+    "SELECT Make, COUNT(DISTINCT Model) AS ModelCount\nFROM car_names\nGROUP BY Make\nORDER BY ModelCount DESC\nLIMIT 1"
+   ],
+   "weak": [
+    false,
+    false
+   ],
+   "strong": [
+    false,
+    false
+   ]
+  },
+  {
+   "tag": "omnisql-32b",
+   "seed": 101,
+   "qid": 92,
+   "db": "car_1",
+   "part": "multi",
+   "n_tied": 5,
+   "reps": [
+    "SELECT Model, COUNT(*) AS VersionCount\nFROM model_list\nGROUP BY Model\nORDER BY VersionCount DESC\nLIMIT 1",
+    "SELECT Make\nFROM car_names\nGROUP BY MakeId\nORDER BY COUNT(*) DESC\nLIMIT 1",
+    "SELECT Make, COUNT(DISTINCT Model) AS ModelCount\nFROM car_names\nGROUP BY Make\nORDER BY ModelCount DESC\nLIMIT 1",
+    "SELECT Make\nFROM car_names\nGROUP BY Make\nORDER BY COUNT(*) DESC\nLIMIT 1",
+    "SELECT T1.Make\nFROM car_names AS T1\nJOIN model_list AS T2 ON T1.MakeId = T2.Maker\nGROUP BY T1.Make\nORDER BY COUNT(DISTINCT T2.Model) DESC\nLIMIT 1"
+   ],
+   "weak": [
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "strong": [
+    false,
+    false,
+    false,
+    false,
+    false
+   ]
+  },
+  {
+   "tag": "omnisql-32b",
+   "seed": 101,
+   "qid": 100,
+   "db": "car_1",
+   "part": "multi",
+   "n_tied": 2,
+   "reps": [
+    "SELECT DISTINCT Model\nFROM model_list AS m\nJOIN car_makers AS cm ON m.Maker = cm.Id\nWHERE cm.FullName = 'General Motors'\n\nUNION\n\nSELECT DISTINCT Model\nFROM car_names AS cn\nJOIN cars_data AS cd ON cn.MakeId = cd.Id\nWHERE cd.Weight > 3500",
+    "SELECT DISTINCT T1.Model\nFROM model_list AS T1\nJOIN car_names AS T2 ON T1.Model = T2.Model\nJOIN cars_data AS T3 ON T2.MakeId = T3.Id\nJOIN car_makers AS T4 ON T1.Maker = T4.Id\nWHERE T4.FullName = 'General Motors' OR T3.Weight > 3500"
+   ],
+   "weak": [
+    false,
+    true
+   ],
+   "strong": [
+    false,
+    true
+   ]
+  },
+  {
+   "tag": "omnisql-32b",
+   "seed": 101,
+   "qid": 228,
+   "db": "wta_1",
+   "part": "multi",
+   "n_tied": 2,
+   "reps": [
+    "SELECT first_name, country_code\nFROM players\nORDER BY birth_date ASC\nLIMIT 1",
+    "SELECT first_name, country_code\nFROM players\nWHERE birth_date = (SELECT MIN(birth_date) FROM players)"
+   ],
+   "weak": [
+    true,
+    true
+   ],
+   "strong": [
+    true,
+    false
+   ]
+  },
+  {
+   "tag": "omnisql-32b",
+   "seed": 101,
+   "qid": 234,
+   "db": "wta_1",
+   "part": "multi",
+   "n_tied": 3,
+   "reps": [
+    "SELECT winner_name, winner_rank_points\nFROM matches\nGROUP BY winner_id\nORDER BY COUNT(*) DESC\nLIMIT 1",
+    "SELECT p.first_name, p.last_name, m.winner_rank_points\nFROM players p\nJOIN matches m ON p.player_id = m.winner_id\nGROUP BY m.winner_id\nORDER BY COUNT(*) DESC\nLIMIT 1",
+    "SELECT p.first_name, p.last_name, m.winner_rank_points\nFROM players p\nJOIN matches m ON p.player_id = m.winner_id\nWHERE m.winner_id = (\n  SELECT winner_id\n  FROM matches\n  GROUP BY winner_id\n  ORDER BY COUNT(*) DESC\n  LIMIT 1\n)"
+   ],
+   "weak": [
+    true,
+    false,
+    false
+   ],
+   "strong": [
+    false,
+    false,
+    false
+   ]
+  },
+  {
+   "tag": "omnisql-32b",
+   "seed": 101,
+   "qid": 311,
+   "db": "tvshow",
+   "part": "single",
+   "n_tied": 2,
+   "reps": [
+    "SELECT \n    TV_Channel.series_name, \n    TV_Channel.Country\nFROM \n    Cartoon\nINNER JOIN \n    TV_Channel \nON \n    Cartoon.Channel = TV_Channel.id\nWHERE \n    Cartoon.Directed_by LIKE '%Ben Jones%' \n    AND Cartoon.Directed_by LIKE '%Michael Chang%'",
+    "SELECT \n    TV_Channel.series_name, \n    TV_Channel.Country\nFROM \n    Cartoon\nINNER JOIN \n    TV_Channel \nON \n    Cartoon.Channel = TV_Channel.id\nWHERE \n    Cartoon.Directed_by = 'Ben Jones' \n    OR Cartoon.Directed_by = 'Michael Chang'"
+   ],
+   "weak": [
+    false,
+    false
+   ],
+   "strong": [
+    false,
+    false
+   ]
+  },
+  {
+   "tag": "omnisql-32b",
+   "seed": 101,
+   "qid": 431,
+   "db": "world_1",
+   "part": "single",
+   "n_tied": 2,
+   "reps": [
+    "SELECT \n    c.Name AS Country, \n    cl.Language AS MostSpokenLanguage\nFROM \n    country AS c\nINNER JOIN \n    countrylanguage AS cl\nON \n    c.Code = cl.CountryCode\nWHERE \n    cl.Percentage = (\n        SELECT MAX(cl_inner.Percentage)\n        FROM countrylanguage AS cl_inner\n        WHERE cl_inner.CountryCode = c.Code\n    )",
+    "SELECT \n    c.Name AS Country, \n    cl.Language AS TopLanguage, \n    cl.Percentage AS Percentage\nFROM \n    country AS c\nINNER JOIN \n    countrylanguage AS cl\nON \n    c.Code = cl.CountryCode\nWHERE \n    cl.Percentage = (\n        SELECT MAX(Percentage)\n        FROM countrylanguage AS cl2\n        WHERE cl2.CountryCode = cl.CountryCode\n    )"
+   ],
+   "weak": [
+    false,
+    false
+   ],
+   "strong": [
+    false,
+    false
+   ]
+  },
+  {
+   "tag": "omnisql-32b",
+   "seed": 101,
+   "qid": 431,
+   "db": "world_1",
+   "part": "multi",
+   "n_tied": 2,
+   "reps": [
+    "SELECT \n    c.Name AS Country, \n    cl.Language AS MostSpokenLanguage\nFROM \n    country AS c\nINNER JOIN \n    countrylanguage AS cl\nON \n    c.Code = cl.CountryCode\nWHERE \n    cl.Percentage = (\n        SELECT MAX(cl_inner.Percentage)\n        FROM countrylanguage AS cl_inner\n        WHERE cl_inner.CountryCode = c.Code\n    )",
+    "SELECT \n    c.Name AS Country, \n    cl.Language AS TopLanguage, \n    cl.Percentage AS Percentage\nFROM \n    country AS c\nINNER JOIN \n    countrylanguage AS cl\nON \n    c.Code = cl.CountryCode\nWHERE \n    cl.Percentage = (\n        SELECT MAX(Percentage)\n        FROM countrylanguage AS cl2\n        WHERE cl2.CountryCode = cl.CountryCode\n    )"
+   ],
+   "weak": [
+    false,
+    false
+   ],
+   "strong": [
+    false,
+    false
+   ]
+  },
+  {
+   "tag": "omnisql-32b",
+   "seed": 101,
+   "qid": 433,
+   "db": "world_1",
+   "part": "multi",
+   "n_tied": 2,
+   "reps": [
+    "SELECT COUNT(*)\nFROM (\n    SELECT CountryCode\n    FROM countrylanguage\n    WHERE Language = 'Spanish'\n    AND Percentage = (\n        SELECT MAX(Percentage)\n        FROM countrylanguage AS cl2\n        WHERE cl2.CountryCode = countrylanguage.CountryCode\n        AND cl2.Language = 'Spanish'\n    )\n) AS subquery",
+    "SELECT COUNT(*) AS TotalCountries\nFROM countrylanguage\nWHERE Language = 'Spanish'\n  AND Percentage = (\n    SELECT MAX(Percentage)\n    FROM countrylanguage\n    WHERE Language = 'Spanish'\n  )"
+   ],
+   "weak": [
+    false,
+    false
+   ],
+   "strong": [
+    false,
+    false
+   ]
+  },
+  {
+   "tag": "omnisql-32b",
+   "seed": 101,
+   "qid": 481,
+   "db": "dog_kennels",
+   "part": "multi",
+   "n_tied": 2,
+   "reps": [
+    "SELECT o.last_name\nFROM Owners o\nJOIN Dogs d ON o.owner_id = d.owner_id\nWHERE d.age = (SELECT MIN(age) FROM Dogs)",
+    "SELECT \n    O.last_name\nFROM \n    Owners O\nJOIN \n    Dogs D ON O.owner_id = D.owner_id\nORDER BY \n    D.date_of_birth DESC\nLIMIT 1"
+   ],
+   "weak": [
+    false,
+    false
+   ],
+   "strong": [
+    false,
+    false
+   ]
+  },
+  {
+   "tag": "omnisql-32b",
+   "seed": 202,
+   "qid": 15,
+   "db": "concert_singer",
+   "part": "multi",
+   "n_tied": 2,
+   "reps": [
+    "SELECT \n    stadium.Name, \n    stadium.Capacity\nFROM \n    concert\nINNER JOIN \n    stadium \nON \n    concert.Stadium_ID = stadium.Stadium_ID\nWHERE \n    concert.Year >= 2014\nGROUP BY \n    concert.Stadium_ID\nORDER BY \n    COUNT(*) DESC\nLIMIT 1",
+    "SELECT \n    s.Name, \n    s.Capacity\nFROM \n    concert c\nINNER JOIN \n    stadium s\nON \n    c.Stadium_ID = s.Stadium_ID\nWHERE \n    c.Year >= 2014\nGROUP BY \n    s.Stadium_ID\nORDER BY \n    COUNT(*) DESC\nLIMIT 1"
+   ],
+   "weak": [
+    true,
+    true
+   ],
+   "strong": [
+    false,
+    true
+   ]
+  },
+  {
+   "tag": "omnisql-32b",
+   "seed": 202,
+   "qid": 168,
+   "db": "flight_2",
+   "part": "single",
+   "n_tied": 2,
+   "reps": [
+    "SELECT AirportCode\nFROM airports\nWHERE AirportCode NOT IN (SELECT SourceAirport FROM flights)\n  AND AirportCode NOT IN (SELECT DestAirport FROM flights)",
+    "SELECT AirportName\nFROM airports\nWHERE AirportCode NOT IN (\n    SELECT SourceAirport\n    FROM flights\n    UNION\n    SELECT DestAirport\n    FROM flights\n)"
+   ],
+   "weak": [
+    false,
+    true
+   ],
+   "strong": [
+    false,
+    true
+   ]
+  },
+  {
+   "tag": "omnisql-32b",
+   "seed": 202,
+   "qid": 168,
+   "db": "flight_2",
+   "part": "multi",
+   "n_tied": 2,
+   "reps": [
+    "SELECT AirportCode\nFROM airports\nWHERE AirportCode NOT IN (SELECT SourceAirport FROM flights)\n  AND AirportCode NOT IN (SELECT DestAirport FROM flights)",
+    "SELECT AirportName\nFROM airports\nWHERE AirportCode NOT IN (\n    SELECT SourceAirport\n    FROM flights\n    UNION\n    SELECT DestAirport\n    FROM flights\n)"
+   ],
+   "weak": [
+    false,
+    true
+   ],
+   "strong": [
+    false,
+    true
+   ]
+  },
+  {
+   "tag": "omnisql-32b",
+   "seed": 202,
+   "qid": 223,
+   "db": "wta_1",
+   "part": "multi",
+   "n_tied": 2,
+   "reps": [
+    "SELECT \n    p.first_name || ' ' || p.last_name AS player_name\nFROM \n    players p\nWHERE \n    p.player_id IN (\n        SELECT \n            m.winner_id\n        FROM \n            matches m\n        WHERE \n            m.year = 2013\n        INTERSECT\n        SELECT \n            m.winner_id\n        FROM \n            matches m\n        WHERE \n            m.year = 2016\n    )",
+    "SELECT p.first_name || ' ' || p.last_name AS player_name\nFROM players p\nJOIN matches m ON p.player_id = m.winner_id\nWHERE m.year = 2013\nINTERSECT\nSELECT p.first_name || ' ' || p.last_name AS player_name\nFROM players p\nJOIN matches m ON p.player_id = m.winner_id\nWHERE m.year = 2016"
+   ],
+   "weak": [
+    true,
+    true
+   ],
+   "strong": [
+    false,
+    false
+   ]
+  },
+  {
+   "tag": "omnisql-32b",
+   "seed": 202,
+   "qid": 253,
+   "db": "battle_death",
+   "part": "multi",
+   "n_tied": 2,
+   "reps": [
+    "SELECT \n    battle.name AS battle_name, \n    battle.date AS battle_date\nFROM \n    ship\nINNER JOIN \n    battle \nON \n    ship.lost_in_battle = battle.id\nWHERE \n    ship.name IN ('Lettice', 'HMS Atalanta')",
+    "SELECT \n    b.name AS battle_name, \n    b.date AS battle_date\nFROM \n    ship s\nINNER JOIN \n    battle b\nON \n    s.lost_in_battle = b.id\nWHERE \n    s.name IN ('Lettice', 'HMS Atalanta')\nGROUP BY \n    b.id\nHAVING \n    COUNT(DISTINCT s.name) = 2"
+   ],
+   "weak": [
+    false,
+    true
+   ],
+   "strong": [
+    false,
+    false
+   ]
+  },
+  {
+   "tag": "omnisql-32b",
+   "seed": 202,
+   "qid": 433,
+   "db": "world_1",
+   "part": "single",
+   "n_tied": 2,
+   "reps": [
+    "SELECT COUNT(*) AS TotalCountries\nFROM countrylanguage\nWHERE Language = 'Spanish'\n  AND Percentage = (\n    SELECT MAX(Percentage)\n    FROM countrylanguage\n    WHERE Language = 'Spanish'\n  )",
+    "SELECT COUNT(DISTINCT T1.CountryCode) AS TotalCountries\nFROM countrylanguage AS T1\nWHERE T1.Language = 'Spanish'\n  AND T1.Percentage = (\n    SELECT MAX(T2.Percentage)\n    FROM countrylanguage AS T2\n    WHERE T2.CountryCode = T1.CountryCode\n      AND T2.Language = 'Spanish'\n  )"
+   ],
+   "weak": [
+    false,
+    false
+   ],
+   "strong": [
+    false,
+    false
+   ]
+  },
+  {
+   "tag": "omnisql-32b",
+   "seed": 303,
+   "qid": 41,
+   "db": "pets_1",
+   "part": "single",
+   "n_tied": 2,
+   "reps": [
+    "SELECT Student.Fname\nFROM Student\nINNER JOIN Has_Pet ON Student.StuID = Has_Pet.StuID\nINNER JOIN Pets ON Has_Pet.PetID = Pets.PetID\nWHERE Pets.PetType IN ('cat', 'dog')",
+    "SELECT DISTINCT Student.Fname\nFROM Student\nINNER JOIN Has_Pet ON Student.StuID = Has_Pet.StuID\nINNER JOIN Pets ON Has_Pet.PetID = Pets.PetID\nWHERE Pets.PetType = 'cat' OR Pets.PetType = 'dog'"
+   ],
+   "weak": [
+    false,
+    true
+   ],
+   "strong": [
+    false,
+    true
+   ]
+  },
+  {
+   "tag": "omnisql-32b",
+   "seed": 303,
+   "qid": 41,
+   "db": "pets_1",
+   "part": "multi",
+   "n_tied": 2,
+   "reps": [
+    "SELECT Student.Fname\nFROM Student\nINNER JOIN Has_Pet ON Student.StuID = Has_Pet.StuID\nINNER JOIN Pets ON Has_Pet.PetID = Pets.PetID\nWHERE Pets.PetType IN ('cat', 'dog')",
+    "SELECT DISTINCT Student.Fname\nFROM Student\nINNER JOIN Has_Pet ON Student.StuID = Has_Pet.StuID\nINNER JOIN Pets ON Has_Pet.PetID = Pets.PetID\nWHERE Pets.PetType = 'cat' OR Pets.PetType = 'dog'"
+   ],
+   "weak": [
+    false,
+    true
+   ],
+   "strong": [
+    false,
+    true
+   ]
+  },
+  {
+   "tag": "omnisql-32b",
+   "seed": 303,
+   "qid": 50,
+   "db": "pets_1",
+   "part": "multi",
+   "n_tied": 2,
+   "reps": [
+    "SELECT DISTINCT S.Fname\nFROM Student AS S\nJOIN Has_Pet AS HP ON S.StuID = HP.StuID\nJOIN Pets AS P ON HP.PetID = P.PetID\nWHERE P.PetType = 'dog'\n  AND S.StuID NOT IN (\n    SELECT StuID\n    FROM Has_Pet AS HP\n    JOIN Pets AS P ON HP.PetID = P.PetID\n    WHERE P.PetType = 'cat'\n  )",
+    "SELECT S.Fname\nFROM Student S\nJOIN Has_Pet HP ON S.StuID = HP.StuID\nJOIN Pets P ON HP.PetID = P.PetID\nWHERE P.PetType = 'dog'\nEXCEPT\nSELECT S.Fname\nFROM Student S\nJOIN Has_Pet HP ON S.StuID = HP.StuID\nJOIN Pets P ON HP.PetID = P.PetID\nWHERE P.PetType = 'cat'"
+   ],
+   "weak": [
+    false,
+    false
+   ],
+   "strong": [
+    false,
+    false
+   ]
+  },
+  {
+   "tag": "omnisql-32b",
+   "seed": 303,
+   "qid": 235,
+   "db": "wta_1",
+   "part": "multi",
+   "n_tied": 4,
+   "reps": [
+    "SELECT \n    p.first_name || ' ' || p.last_name AS PlayerName,\n    SUM(r.ranking_points) AS TotalRankPoints\nFROM \n    matches m\nINNER JOIN \n    players p ON m.winner_id = p.player_id\nINNER JOIN \n    rankings r ON p.player_id = r.player_id\nGROUP BY \n    p.player_id, p.first_name, p.last_name\nORDER BY \n    COUNT(m.match_num) DESC\nLIMIT 1",
+    "SELECT \n    p.first_name || ' ' || p.last_name AS \"Player Name\",\n    r.ranking_points AS \"Rank Points\"\nFROM \n    (SELECT winner_id, COUNT(*) AS \"Matches Won\"\n     FROM matches\n     GROUP BY winner_id\n     ORDER BY \"Matches Won\" DESC\n     LIMIT 1) AS top_player\nJOIN \n    players p ON top_player.winner_id = p.player_id\nJOIN \n    rankings r ON top_player.winner_id = r.player_id",
+    "SELECT \n  P.first_name || ' ' || P.last_name AS player_name, \n  R.ranking_points\nFROM \n  players P\n  INNER JOIN (\n    SELECT \n      winner_id, \n      COUNT(*) AS win_count\n    FROM \n      matches\n    GROUP BY \n      winner_id\n    ORDER BY \n      win_count DESC\n    LIMIT 1\n  ) MW ON P.player_id = MW.winner_id\n  INNER JOIN (\n    SELECT \n      player_id, \n      ranking_points, \n      ranking_date\n    FROM \n      rankings\n    WHERE \n      (player_id, ranking_date) IN (\n        SELECT \n          player_id, \n          MAX(ranking_date) \n        FROM \n          rankings \n        GROUP BY \n          player_id\n      )\n  ) R ON P.player_id = R.player_id",
+    "SELECT p.first_name || ' ' || p.last_name AS player_name, r.ranking_points\nFROM (\n    SELECT winner_id, COUNT(*) AS win_count\n    FROM matches\n    GROUP BY winner_id\n    ORDER BY win_count DESC\n    LIMIT 1\n) AS most_wins\nJOIN players p ON most_wins.winner_id = p.player_id\nJOIN rankings r ON most_wins.winner_id = r.player_id\nORDER BY r.ranking_points DESC\nLIMIT 1"
+   ],
+   "weak": [
+    false,
+    false,
+    false,
+    false
+   ],
+   "strong": [
+    false,
+    false,
+    false,
+    false
+   ]
+  },
+  {
+   "tag": "omnisql-32b",
+   "seed": 303,
+   "qid": 249,
+   "db": "wta_1",
+   "part": "single",
+   "n_tied": 2,
+   "reps": [
+    "SELECT COUNT(*) \nFROM matches \nWHERE tourney_name = 'WTA Championships' AND winner_hand = 'L'",
+    "SELECT \n    COUNT(DISTINCT m.winner_id) AS count_left_hand_winners\nFROM \n    matches m\nJOIN \n    players p ON m.winner_id = p.player_id\nWHERE \n    m.tourney_name = 'WTA Championships' \n    AND p.hand = 'L'"
+   ],
+   "weak": [
+    false,
+    true
+   ],
+   "strong": [
+    false,
+    false
+   ]
+  },
+  {
+   "tag": "omnisql-32b",
+   "seed": 303,
+   "qid": 269,
+   "db": "student_transcripts_tracking",
+   "part": "multi",
+   "n_tied": 2,
+   "reps": [
+    "SELECT s.semester_id\nFROM Semesters s\nJOIN Student_Enrolment se ON s.semester_id = se.semester_id\nJOIN Degree_Programs dp ON se.degree_program_id = dp.degree_program_id\nWHERE dp.degree_summary_name IN ('Masters', 'Bachelors')\nGROUP BY s.semester_id\nHAVING COUNT(DISTINCT dp.degree_summary_name) = 2",
+    "SELECT \n    se.semester_id\nFROM \n    Student_Enrolment se\nINNER JOIN \n    Degree_Programs dp ON se.degree_program_id = dp.degree_program_id\nWHERE \n    dp.degree_summary_name IN ('Master', 'Bachelor')\nGROUP BY \n    se.semester_id\nHAVING \n    COUNT(DISTINCT dp.degree_summary_name) = 2"
+   ],
+   "weak": [
+    false,
+    true
+   ],
+   "strong": [
+    false,
+    true
+   ]
+  },
+  {
+   "tag": "omnisql-32b",
+   "seed": 303,
+   "qid": 391,
+   "db": "world_1",
+   "part": "single",
+   "n_tied": 2,
+   "reps": [
+    "SELECT AVG(country.LifeExpectancy)\nFROM country\nINNER JOIN countrylanguage\nON country.Code = countrylanguage.CountryCode\nWHERE countrylanguage.Language = 'English' AND countrylanguage.IsOfficial = 'F'",
+    "SELECT AVG(LifeExpectancy)\nFROM country\nWHERE Code NOT IN (\n    SELECT CountryCode\n    FROM countrylanguage\n    WHERE Language = 'English' AND IsOfficial = 'T'\n)"
+   ],
+   "weak": [
+    false,
+    true
+   ],
+   "strong": [
+    false,
+    false
+   ]
+  },
+  {
+   "tag": "omnisql-32b",
+   "seed": 303,
+   "qid": 391,
+   "db": "world_1",
+   "part": "multi",
+   "n_tied": 2,
+   "reps": [
+    "SELECT AVG(country.LifeExpectancy)\nFROM country\nINNER JOIN countrylanguage\nON country.Code = countrylanguage.CountryCode\nWHERE countrylanguage.Language = 'English' AND countrylanguage.IsOfficial = 'F'",
+    "SELECT AVG(LifeExpectancy)\nFROM country\nWHERE Code NOT IN (\n    SELECT CountryCode\n    FROM countrylanguage\n    WHERE Language = 'English' AND IsOfficial = 'T'\n)"
+   ],
+   "weak": [
+    false,
+    true
+   ],
+   "strong": [
+    false,
+    false
+   ]
+  },
+  {
+   "tag": "omnisql-32b",
+   "seed": 303,
+   "qid": 433,
+   "db": "world_1",
+   "part": "single",
+   "n_tied": 2,
+   "reps": [
+    "SELECT COUNT(DISTINCT cl.CountryCode) AS TotalCountries\nFROM countrylanguage AS cl\nWHERE cl.Language = 'Spanish'\n  AND cl.Percentage = (\n    SELECT MAX(cl2.Percentage)\n    FROM countrylanguage AS cl2\n    WHERE cl2.CountryCode = cl.CountryCode\n      AND cl2.Language = 'Spanish'\n  )",
+    "SELECT COUNT(*) AS TotalCountries\nFROM countrylanguage\nWHERE Language = 'Spanish'\n  AND Percentage = (\n    SELECT MAX(Percentage)\n    FROM countrylanguage\n    WHERE Language = 'Spanish'\n  )"
+   ],
+   "weak": [
+    false,
+    false
+   ],
+   "strong": [
+    false,
+    false
+   ]
+  },
+  {
+   "tag": "omnisql-32b",
+   "seed": 303,
+   "qid": 433,
+   "db": "world_1",
+   "part": "multi",
+   "n_tied": 2,
+   "reps": [
+    "SELECT COUNT(DISTINCT cl.CountryCode) AS TotalCountries\nFROM countrylanguage AS cl\nWHERE cl.Language = 'Spanish'\n  AND cl.Percentage = (\n    SELECT MAX(cl2.Percentage)\n    FROM countrylanguage AS cl2\n    WHERE cl2.CountryCode = cl.CountryCode\n      AND cl2.Language = 'Spanish'\n  )",
+    "SELECT COUNT(*) AS TotalCountries\nFROM countrylanguage\nWHERE Language = 'Spanish'\n  AND Percentage = (\n    SELECT MAX(Percentage)\n    FROM countrylanguage\n    WHERE Language = 'Spanish'\n  )"
+   ],
+   "weak": [
+    false,
+    false
+   ],
+   "strong": [
+    false,
+    false
+   ]
+  }
+ ]
+}
