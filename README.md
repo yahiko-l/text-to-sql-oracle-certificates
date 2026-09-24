@@ -8,6 +8,9 @@ that typeset the paper's tables and draw its figures, and every file those scrip
 that the study produced. Each file sits at the path the scripts name, so the scripts run on a clone
 as they are.
 
+`supplementary.pdf` is the paper's supplementary material: the sections, tables and figures the
+paper numbers with a letter.
+
 ## Quick start
 
     pip install -r requirements.txt
@@ -31,17 +34,20 @@ the working directory. All of this runs on a laptop in seconds.
 | `experiments/c6_*`, `experiments/c7_*` | the two censuses: the dossiers the AI labeller read, both labelling passes, the adjudications |
 | `experiments/c10_*`, `experiments/blind_audit/`, `blind-audit/` | the reference-query audit: the package the experts received, its key, their answer sheets, the adjudication |
 | `experiments/c15_*`, `experiments/alignment-audit/`, `alignment-audit/` | the independent-yardstick audit: the package, its key, the answer sheets |
+| `experiments/spider_dev_*` | the two pilot measurements on Spider dev: collisions between questions on the shipped database, and near-miss mutants of reference queries |
 | other `experiments/*.json` | panel summaries and every post-hoc analysis |
 | `experiments/c4_manifest.json` | SHA-256 of every panel pool and of each checkpoint's weight shards |
 | `data/spider_realistic/spider-realistic-matched-original.json` | the Spider-Realistic items with their original Spider dev wording, for the matched control |
 | `figures/` | table and figure scripts |
+| `supplementary.pdf` | the paper's supplementary material |
 
 Result files are named `<step>_<checkpoint>_<condition>_results_<partition>[_per_question].json`.
 The `_per_question` files are the sufficient statistics every reported quantity is computed from;
 the others are aggregates. `c4` is the preregistered panel, with generation seeds 101, 202 and 303
 and the false-schema negative control; `c5` is the matched original-Spider control; `e0`, `c1`,
-`c2`, `c3` and `pilot` are the stages before the final preregistration, whose history the paper's
-appendix gives.
+`c2`, `c3` and `pilot` are the stages before the final preregistration, whose history the
+supplementary material gives; the two `spider_dev_*` files are the pilot measurements that
+motivated the intervention.
 
 ## Third-party inputs
 
@@ -122,7 +128,9 @@ under `provenance` the pool, the options and the evaluator it was produced with,
 behind it can be read off the file. `c6_semantic_cases.py` and `c7_repair_cases.py` extract the
 census cases, and `c9_tie_reconstruct.py`, `c10_blind_audit_build.py` and
 `c15_alignment_audit_build.py` rebuild the tie reconstruction and the two audit item sheets, the
-sheets byte for byte.
+sheets byte for byte. The two pilot measurements on Spider dev need no candidate pool, only the
+benchmark and its test suites: `spider_dev_collision_census.py` and `spider_dev_near_miss_census.py`
+each rewrite the file of the same name in under a minute on a CPU.
 
 **Sampling** needs GPUs and vLLM. The paper's pools were drawn with vLLM 0.22.1 in bfloat16 on
 H100 80GB cards; tensor parallelism is the number of visible cards:

@@ -6,6 +6,8 @@
 Abstention for Text-to-SQL* 的代码与数据：采样、评测与分析脚本，排版论文表格、绘制论文图的脚本，
 以及这些脚本读写的、由本研究产生的全部文件。每个文件都放在脚本所写的路径上，克隆下来即可直接运行。
 
+`supplementary.pdf` 是论文的补充材料：论文中以字母编号的章节、表和图都在其中。
+
 ## 快速开始
 
     pip install -r requirements.txt
@@ -28,15 +30,18 @@ Abstention for Text-to-SQL* 的代码与数据：采样、评测与分析脚本�
 | `experiments/c6_*`、`experiments/c7_*` | 两次普查：AI 标注者读的卷宗、两轮标注与裁定 |
 | `experiments/c10_*`、`experiments/blind_audit/`、`blind-audit/` | 参考查询审计：专家收到的材料包、密钥、专家答卷与裁定 |
 | `experiments/c15_*`、`experiments/alignment-audit/`、`alignment-audit/` | 独立标尺审计：材料包、密钥与专家答卷 |
+| `experiments/spider_dev_*` | Spider dev 上的两项预实验：不同题目在基准自带数据库上的结果碰撞，以及参考查询的近似变异 |
 | 其余 `experiments/*.json` | 面板汇总与全部事后分析 |
 | `experiments/c4_manifest.json` | 面板每个候选池与每个 checkpoint 各权重分片的 SHA-256 |
 | `data/spider_realistic/spider-realistic-matched-original.json` | Spider-Realistic 各题对应的 Spider dev 原始问法，供匹配对照使用 |
 | `figures/` | 表格与图的脚本 |
+| `supplementary.pdf` | 论文的补充材料 |
 
 结果文件命名为 `<步骤>_<checkpoint>_<条件>_results_<划分>[_per_question].json`。带
 `_per_question` 的是每题充分统计量，论文报告的每个量都由它算出；其余是聚合结果。`c4` 是预注册面板，
 生成种子为 101、202、303，另有错误 schema 阴性对照；`c5` 是匹配原始 Spider 的对照；`e0`、`c1`、
-`c2`、`c3` 与 `pilot` 是最终预注册之前的各阶段，其历程见论文附录。
+`c2`、`c3` 与 `pilot` 是最终预注册之前的各阶段，其历程见补充材料；两个 `spider_dev_*` 文件是
+促成这项干预的两项预实验。
 
 ## 第三方输入
 
@@ -111,7 +116,8 @@ Abstention for Text-to-SQL* 的代码与数据：采样、评测与分析脚本�
 结果文件；每个结果文件都在 `provenance` 下记录了生成它所用的候选池、选项与评测器，据此可以读出对应的
 命令。`c6_semantic_cases.py` 与 `c7_repair_cases.py` 抽取普查案例；`c9_tie_reconstruct.py`、
 `c10_blind_audit_build.py` 与 `c15_alignment_audit_build.py` 重建并列重构结果与两份审计条目表，
-条目表逐字节相同。
+条目表逐字节相同。Spider dev 上的两项预实验不需要候选池，只需要基准及其 test suite：
+`spider_dev_collision_census.py` 与 `spider_dev_near_miss_census.py` 各自在 CPU 上一分钟内重写同名文件。
 
 **采样**：需要 GPU 与 vLLM。论文的候选池用 vLLM 0.22.1、bfloat16 在 H100 80GB 上采样；
 张量并行数等于可见卡数：
