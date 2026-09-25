@@ -1,0 +1,30 @@
+{
+ "note": "agreement between the two experts of the independent-yardstick audit, on their own sheets before adjudication. The binary reading is correct against wrong, over the items both experts judged answers or does_not_answer.",
+ "responses": [
+  "experiments/alignment-audit/RESPONSES_E1.csv",
+  "experiments/alignment-audit/RESPONSES_E2.csv"
+ ],
+ "verdicts": {
+  "first": {
+   "answers": 770,
+   "does_not_answer": 211,
+   "question_underspecified": 46,
+   "cannot_judge": 1
+  },
+  "second": {
+   "answers": 776,
+   "does_not_answer": 196,
+   "question_underspecified": 56
+  }
+ },
+ "four_way": {
+  "items": 1028,
+  "agreement": 0.9446,
+  "kappa": 0.8589
+ },
+ "binary": {
+  "items": 958,
+  "agreement": 0.9791,
+  "kappa": 0.9366
+ }
+}

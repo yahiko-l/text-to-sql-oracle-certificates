@@ -106,7 +106,7 @@ rewrites the released file it names; all of them run on a CPU, most in seconds.
 | `python experiments/c7_repair_audited.py` | `c7_repair_audited.json` |
 | `python experiments/c8_baselines.py --check-crc 5000 --rank-decomposition --same-answer-auroc --grid-sensitivity --verify` | `c8_baselines.json` |
 | `python experiments/c8_baselines.py --audited agreed --out experiments/c8_baselines_audited_agreed.json` | the four audited conventions; `narrow`, `unanimous` and `wide` likewise |
-| `python experiments/c9_tie_audit.py --enumerate --populations --recompute` | `c9_tie_audit.json`, `c9_tied_decisions.json` |
+| `python experiments/c9_tie_audit.py --enumerate --populations --recompute --six-scores --gap-ladder` | `c9_tie_audit.json`, `c9_tied_decisions.json` |
 | `python experiments/c10_blind_audit_analyse.py --responses experiments/blind_audit/RESPONSES_专家1.clean.csv experiments/blind_audit/RESPONSES_专家2.clean.csv --adjudicated experiments/blind_audit/ADJUDICATION_标注.clean.csv` | `c10_blind_audit_result.json` |
 | `python experiments/c10_blind_audit_sensitivity.py` | `c10_blind_audit_sensitivity.json` |
 | `python experiments/c11_dma_decomposition.py` | `c11_dma_decomposition.json` |
@@ -114,7 +114,7 @@ rewrites the released file it names; all of them run on a CPU, most in seconds.
 | `python experiments/c13_blind_audit_weighted.py` | `c13_blind_audit_weighted.json` |
 | `python experiments/c14_alignment_power.py` | `c14_alignment_power.json` |
 | `python experiments/c15_alignment_audit_analyse.py --responses experiments/alignment-audit/RESPONSES_E1.csv --out experiments/c15_alignment_audit_result_E1.json` | the first expert's result; `E2` likewise |
-| `python experiments/c16_alignment_secondary.py` to `python experiments/c20_matched_suite_contrast.py` | one file each |
+| `python experiments/c16_alignment_secondary.py` to `python experiments/c21_expert_agreement.py` | one file each |
 | `python experiments/panel_entry.py kwai-autosql-32b kwai-autosql-14b xiyansql-32b omnisql-32b sqlcoder-70b llama3-sqlcoder-8b --prefix experiments/pilot3 --out experiments/panel_entry_3.json` | the entry decision of the final panel |
 
 In `panel_entry_3.json` the record of `llama3-sqlcoder-8b` states why it was excluded in words:

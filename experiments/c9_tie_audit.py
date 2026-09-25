@@ -7,7 +7,7 @@ c9_tie_reconstruct.py rebuilt the frozen choice on the 53 tied decisions. This s
 only question that matters: does using the frozen choice instead change anything that has been
 claimed.
 
-Three measurements.
+Four measurements.
 
   --enumerate   list every tied decision from the per-question files, the input to the
                 reconstruction. Ties are the only decisions that can differ.
@@ -19,6 +19,14 @@ Three measurements.
                 answers that were never labelled bracketed BOTH ways: counted as semantic errors
                 and counted as not errors. A conclusion that survives both brackets is not at risk
                 from the unlabelled answers; one that does not is reported as at risk.
+
+  --six-scores  the same comparison for every score of the six-score comparison of
+                c8_baselines.py, under the preregistered labels and under every census
+                convention. All six scores answer with the representative of the top class, so
+                all six inherit the tie rule.
+
+  --gap-ladder  the two GAP ladder columns --recompute does not reach: GAP relabelled with the
+                disagreement census, and the reverse stress test of c6_gap_audited.py.
 
 What the patch does and does not touch. Tied classes carry the same count, so moving one to the
 front leaves the class counts, the mass vector, the top-class mass, the fitting-class mass and the
@@ -255,27 +263,255 @@ def recompute(fm, alpha, n_splits, seed0, conventions):
                             rows[(tag, split)][f"{name}|{label}|{b}|REPAIR"].append(r)
     out = {f"{t}|{s}": {k: statistics.mean(v) for k, v in sorted(d.items())}
            for (t, s), d in sorted(rows.items())}
-    # Bounds taken on the unrounded means; rounding first would understate them.
+    return ({k: {kk: round(vv, 4) for kk, vv in v.items()} for k, v in out.items()},
+            unlabelled, impact_bounds(out))
+
+
+def relabel_cell_a(questions, is_error, unlabelled_are_errors, population,
+                   stress_questions=frozenset()):
+    """c6_gap_audited.relabel, with the never-labelled answers bracketed.
+
+    Only the answer of cell A is relabelled, as in the GAP ladder. `population` says which
+    strong-wrong answers the census was meant to cover: an answer inside it that the census never
+    labelled is bracketed both ways, one outside it stays an error, as c6_gap_audited leaves it.
+    The stress test also counts as wrong every accepted answer on a question in
+    `stress_questions`.
+    """
+    out = copy.deepcopy(questions)
+    missing = 0
+    for q in out:
+        cls = q["single"]
+        if not cls:
+            continue
+        c = cls[top_index(cls)]
+        if not c["strong_ok"]:
+            row = is_error.get((q["qid"], c["representative"]))
+            if row is None:
+                if population(c):
+                    missing += 1
+                    if not unlabelled_are_errors:
+                        c["strong_ok"] = True
+            elif not row:
+                c["strong_ok"] = True
+        elif q["qid"] in stress_questions:
+            c["strong_ok"] = False
+    return out, missing
+
+
+def gap_ladder(fm, alpha, n_splits, seed0, conventions):
+    """GAP under the disagreement census and under the reverse stress test, both tie rules.
+
+    The disagreement census covers only the answers the shipped database accepts and the suite
+    rejects; the stress test relabels with the full census and also counts as wrong every
+    accepted answer on a question with a suspected defective reference, which is how
+    c6_gap_audited.py builds c6_gap_audited.json and c7_gap_stress.json. The file-order values are
+    checked against those two files before anything is compared with them.
+    """
+    from c6_gap_audited import defective_gold_questions
+    censuses = {}
+    for name, audit_path, cases_path, stored_path, stress, population in (
+            ("disagreement", "experiments/c6_semantic_audit.json",
+             "experiments/c6_semantic_cases.json", "experiments/c6_gap_audited.json", False,
+             lambda c: c["weak_ok"]),
+            ("stress", "experiments/c7_semantic_audit.json",
+             "experiments/c7_repair_cases.json", "experiments/c7_gap_stress.json", True,
+             lambda c: True)):
+        audit = {r["case_id"]: r for r in json.load(open(audit_path))["cases"]}
+        cases = {c["case_id"]: c for c in json.load(open(cases_path))["cases"]}
+        censuses[name] = {
+            "labels": {conv: {(cases[i]["qid"], cases[i]["rep"]): CONVENTIONS[conv](r)
+                              for i, r in audit.items()} for conv in conventions},
+            "stress": defective_gold_questions(audit, cases) if stress else frozenset(),
+            "population": population,
+            "stored": json.load(open(stored_path))["pools"]}
+
+    rows = collections.defaultdict(lambda: collections.defaultdict(list))
+    checked, mismatched, missing = 0, [], collections.Counter()
+    for tag in TAGS:
+        for seed in SEEDS:
+            for split in ("question", "database"):
+                qs = json.load(open(path_of(tag, seed, split)))["questions"]
+                pq, _ = patch(qs, tag, seed, fm)
+                sp = make_splits([q["qid"] for q in qs], {q["qid"]: q["db"] for q in qs},
+                                 split, n_splits, seed0)
+                pool = f"{tag}|seed{seed}|{split}"
+                for name, c in censuses.items():
+                    for conv in conventions:
+                        for label, src in (("file_order", qs), ("frozen", pq)):
+                            for bracket in (True, False):
+                                rel, miss = relabel_cell_a(src, c["labels"][conv], bracket,
+                                                           c["population"], c["stress"])
+                                g, _ = gap_repair(rel, sp, alpha)
+                                b = "errors" if bracket else "not_errors"
+                                rows[(tag, split)][f"{name}|{conv}|{label}|{b}|GAP"].append(g)
+                                if label == "file_order":
+                                    checked += 1
+                                    if round(g, 4) != c["stored"][pool][conv]["GAP"]:
+                                        mismatched.append(f"{pool}|{name}|{conv}")
+                                elif bracket:
+                                    missing[name] += miss
+    if mismatched:
+        raise SystemExit(f"{len(mismatched)} file-order values do not reproduce the archived GAP "
+                         f"ladder, first {mismatched[:3]}; nothing is compared with them")
+    out = {f"{t}|{s}": {k: statistics.mean(v) for k, v in sorted(d.items())}
+           for (t, s), d in sorted(rows.items())}
+    return {
+        "note": "three-seed means of GAP in fractions; keys are census|convention|tie rule|bracket. "
+                "The file-order values reproduce c6_gap_audited.json and c7_gap_stress.json.",
+        "file_order_values_checked": checked,
+        "never_labelled_answers_encountered": dict(missing),
+        "rows": {k: {kk: round(vv, 6) for kk, vv in v.items()} for k, v in out.items()},
+        "impact_bounds": impact_bounds(out),
+    }
+
+
+def impact_bounds(out, keep=lambda key: True):
+    """How far the frozen rule moves the three-seed means of `out`, over the keys `keep` admits.
+
+    Taken on the unrounded means; rounding first would understate them. A key carries `file_order`
+    or `frozen` and, under a census convention, the bracket; a cell is the key with both removed,
+    so a cell that changes sign or crosses the three-point line under either bracket is counted
+    once and named.
+    """
     worst = bracket = 0.0
-    signs = crossings = 0
-    for row in out.values():
+    signs, crossings = set(), {}
+    for pool, row in out.items():
         for k, v in row.items():
+            if not keep(k):
+                continue
             if "|file_order|" in k:
                 fz = k.replace("|file_order|", "|frozen|")
                 if fz in row:
+                    cell = f"{pool}|" + k.replace("|file_order|", "|").replace(
+                        "|errors|", "|").replace("|not_errors|", "|")
                     worst = max(worst, abs(v - row[fz]))
-                    signs += (v > 0) != (row[fz] > 0)
-                    if k.endswith("REPAIR"):
-                        crossings += (v <= -0.03) != (row[fz] <= -0.03)
+                    if (v > 0) != (row[fz] > 0):
+                        signs.add(cell)
+                    if k.endswith("REPAIR") and (v <= -0.03) != (row[fz] <= -0.03):
+                        b = ("errors" if "|errors|" in k else
+                             "not_errors" if "|not_errors|" in k else "no_bracket")
+                        crossings.setdefault(cell, {"file_order_points": round(100 * v, 4),
+                                                    "frozen_points": {}})[
+                            "frozen_points"][b] = round(100 * row[fz], 4)
             if "|frozen|errors|" in k:
                 o = k.replace("|frozen|errors|", "|frozen|not_errors|")
                 if o in row:
                     bracket = max(bracket, abs(v - row[o]))
-    bounds = {"largest_change_points": round(100 * worst, 6),
-              "largest_bracket_width_points": round(100 * bracket, 6),
-              "sign_changes": signs, "crossings_of_the_three_point_line": crossings}
-    return ({k: {kk: round(vv, 4) for kk, vv in v.items()} for k, v in out.items()},
-            unlabelled, bounds)
+    return {"largest_change_points": round(100 * worst, 6),
+            "largest_bracket_width_points": round(100 * bracket, 6),
+            "sign_changes": len(signs), "crossings_of_the_three_point_line": len(crossings),
+            "crossing_cells": crossings}
+
+
+class Bracketed(dict):
+    """A census lookup that also answers for the answers the census never saw, one way or the
+    other, and remembers which those were."""
+
+    def __init__(self, labels, missing_is_error):
+        super().__init__(labels)
+        self.missing_is_error = missing_is_error
+        self.missing = set()
+
+    def get(self, key, default=None):
+        if key in self:
+            return self[key]
+        self.missing.add(key)
+        return self.missing_is_error
+
+
+def score_gap_repair(c8, questions, lnlp, splits, alpha, is_error=None):
+    """Unrounded GAP and REPAIR of every score on one pool, computed as c8_baselines.run_pool."""
+    stats = {p: c8.question_stats(questions, lnlp, p, is_error) for p in ("single", "multi")}
+    out = {}
+    for score, (grid, _, _) in c8.SCORES.items():
+        cells = {}
+        for cell, (part, cal) in c8.CELLS.items():
+            recs = c8.cell_records(stats[part], score, cal)
+            agg = collections.defaultdict(list)
+            for calq, tstq in splits:
+                calq = [q for q in calq if q in recs]
+                tstq = [q for q in tstq if q in recs]
+                if not calq or not tstq:
+                    continue
+                for k, v in c8.evaluate(recs, calq, tstq, alpha, grid).items():
+                    agg[k].append(v)
+            cells[cell] = agg
+        gap = [s - f for f, s in zip(cells["A"]["marginal_risk_fit"],
+                                     cells["A"]["marginal_risk_strong"])]
+        rep = [d - a for a, d in zip(cells["A"]["marginal_risk_strong"],
+                                     cells["D"]["marginal_risk_strong"])]
+        out[score] = (statistics.mean(gap), statistics.mean(rep))
+    return out
+
+
+def six_scores(fm, alpha, n_splits, seed0, conventions):
+    """The six-score comparison under both tie rules, preregistered and under every convention.
+
+    The census replaces the yardstick only, as c8_baselines applies it: each cell still fits its
+    threshold on the labels it had. The answers the frozen rule returns and the census never saw
+    are bracketed both ways, as in `recompute`. Before anything is compared with them, the
+    file-order values are checked against the archived c8 results, rounded as those were written.
+    """
+    import c8_baselines as c8
+    labels = {name: c8.load_audit("experiments/c7_repair_cases.json",
+                                  "experiments/c7_semantic_audit.json", name)
+              for name in conventions}
+    archived = {"preregistered": json.load(open("experiments/c8_baselines.json"))["pools"]}
+    for name in conventions:
+        archived[name] = json.load(open(f"experiments/c8_baselines_audited_{name}.json"))["pools"]
+
+    rows = collections.defaultdict(lambda: collections.defaultdict(list))
+    unlabelled, checked, mismatched = set(), 0, []
+    for tag in TAGS:
+        for seed in SEEDS:
+            for split in ("question", "database"):
+                qs = json.load(open(path_of(tag, seed, split)))["questions"]
+                pq, _ = patch(qs, tag, seed, fm)
+                lnlp = c8.load_lnlp(tag, seed, {q["qid"] for q in qs})
+                sp = make_splits([q["qid"] for q in qs], {q["qid"]: q["db"] for q in qs},
+                                 split, n_splits, seed0)
+                pool = f"{tag}|seed{seed}|{split}"
+                runs = [("preregistered", qs, None, [("file_order", None)]),
+                        ("preregistered", pq, None, [("frozen", None)])]
+                for name in conventions:
+                    runs.append((name, qs, labels[name],
+                                 [("file_order", "errors"), ("file_order", "not_errors")]))
+                    for missing_is_error, b in ((True, "errors"), (False, "not_errors")):
+                        runs.append((name, pq, Bracketed(labels[name], missing_is_error),
+                                     [("frozen", b)]))
+                for variant, src, is_error, keys in runs:
+                    res = score_gap_repair(c8, src, lnlp, sp, alpha, is_error)
+                    if keys[0][0] == "file_order":
+                        stored = archived[variant][pool]
+                        for score, (g, r) in res.items():
+                            checked += 2
+                            for kind, v in (("GAP", g), ("REPAIR", r)):
+                                if round(v, 4) != stored[score][kind]:
+                                    mismatched.append(f"{pool}|{score}|{variant}|{kind}")
+                    if isinstance(is_error, Bracketed):
+                        unlabelled |= {(tag, seed) + k for k in is_error.missing}
+                    for score, (g, r) in res.items():
+                        for label, b in keys:
+                            key = "|".join(x for x in (score, variant, label, b) if x)
+                            rows[(tag, split)][key + "|GAP"].append(g)
+                            rows[(tag, split)][key + "|REPAIR"].append(r)
+    if mismatched:
+        raise SystemExit(f"{len(mismatched)} file-order values do not reproduce the archived c8 "
+                         f"results, first {mismatched[:3]}; nothing is compared with them")
+    out = {f"{t}|{s}": {k: statistics.mean(v) for k, v in sorted(d.items())}
+           for (t, s), d in sorted(rows.items())}
+    return {
+        "note": "three-seed means in fractions; keys are score|labels|tie rule[|bracket]|quantity. "
+                "The file-order values reproduce the archived c8 results.",
+        "file_order_values_checked": checked,
+        "never_labelled_answers": len({(t, s, q, r) for t, s, q, r in unlabelled}),
+        "rows": {k: {kk: round(vv, 6) for kk, vv in v.items()} for k, v in out.items()},
+        "impact_bounds": impact_bounds(out),
+        "impact_bounds_top_class_mass": impact_bounds(
+            out, keep=lambda k: k.startswith("top_class_mass|")),
+        "impact_bounds_other_scores": impact_bounds(
+            out, keep=lambda k: not k.startswith("top_class_mass|")),
+    }
 
 
 
@@ -307,10 +543,12 @@ def main():
     ap.add_argument("--enumerate", action="store_true")
     ap.add_argument("--populations", action="store_true")
     ap.add_argument("--recompute", action="store_true")
+    ap.add_argument("--six-scores", action="store_true")
+    ap.add_argument("--gap-ladder", action="store_true")
     ap.add_argument("--alpha", type=float, default=0.1)
     ap.add_argument("--splits", type=int, default=200)
     ap.add_argument("--seed", type=int, default=20260903)
-    ap.add_argument("--conventions", nargs="*", default=["narrow", "wide"])
+    ap.add_argument("--conventions", nargs="*", default=["wide", "narrow", "agreed", "unanimous"])
     ap.add_argument("--replace", action="store_true",
                     help="allow this run to write a smaller artifact than the one on disk")
     ap.add_argument("--out", default="experiments/c9_tie_audit.json")
@@ -376,6 +614,31 @@ def main():
                             cells.append(f"{100 * r[f'{c}|file_order|{b}|{kind}']:+7.2f} -> "
                                          f"{100 * r[f'{c}|frozen|{b}|{kind}']:+7.2f}")
                     print(f"      {tag:20s}" + "".join(f"{c:>22s}" for c in cells))
+
+    if a.six_scores:
+        s = six_scores(fm, a.alpha, a.splits, a.seed, a.conventions)
+        result["six_scores"] = s
+        for name, b in (("all six scores", s["impact_bounds"]),
+                        ("top-class mass alone", s["impact_bounds_top_class_mass"])):
+            print(f"\nsix-score comparison, {name}, preregistered and {', '.join(a.conventions)}:")
+            print(f"  largest change {b['largest_change_points']:.4f} points, largest bracket width "
+                  f"{b['largest_bracket_width_points']:.4f}, sign changes {b['sign_changes']}, "
+                  f"crossings of the 3-point line {b['crossings_of_the_three_point_line']}")
+            for cell, v in b["crossing_cells"].items():
+                print(f"    {cell}: {v}")
+        print(f"  file-order values checked against the archived c8 results: "
+              f"{s['file_order_values_checked']}, never-labelled answers {s['never_labelled_answers']}")
+
+    if a.gap_ladder:
+        g = gap_ladder(fm, a.alpha, a.splits, a.seed, a.conventions)
+        result["gap_ladder"] = g
+        b = g["impact_bounds"]
+        print(f"\nGAP ladder, disagreement census and reverse stress test, {', '.join(a.conventions)}:")
+        print(f"  largest change {b['largest_change_points']:.4f} points, largest bracket width "
+              f"{b['largest_bracket_width_points']:.4f}, sign changes {b['sign_changes']}")
+        print(f"  file-order values checked against the archived ladder: "
+              f"{g['file_order_values_checked']}, never-labelled answers "
+              f"{g['never_labelled_answers_encountered']}")
 
     if "impact_bounds" in result:
         b = result["impact_bounds"]

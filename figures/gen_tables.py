@@ -26,8 +26,6 @@ def _words(n):
     """Numbers up to twenty are spelled out in the prose of the tables, as in the text."""
     return _NUMBER_WORDS[n] if 0 <= n < len(_NUMBER_WORDS) else f"{n:,}"
 
-NOTE_POP = "Populations are the archived file-order tie-rule populations; recomputing under the frozen tie rule moves every reported GAP and D minus A value by less than 0.085 points."
-
 
 APPENDIX_TABLES = {"TABLE_4_labels.tex", "TABLE_6_gap_ladder.tex", "TABLE_7_sixscores.tex", "TABLE_8_auroc.tex",
                    "TABLE_9_robustness.tex", "TABLE_10_tie.tex", "TABLE_11_blind_audit.tex",
@@ -89,7 +87,7 @@ for t in CHECKPOINTS:
         rows.append(f"{name} & {split} & {A_fit:.4f} & {A_str:.4f} & {pts(gap)} & {D_str:.4f} & {pts(rep)} & {pts(ans, 1)} & {'yes' if m[split]['gap_positive'] else 'no'} & {verdict} \\\\")
 t2 = r"""\begin{table}[t]
 \centering
-\caption{Preregistered main result at nominal risk $\alpha=0.10$, three-seed means. The current-practice cell A is calibrated on labels from the shipped database and evaluated under the multi-instance suite oracle; GAP is its suite-oracle risk minus the risk it reports on its own labels; D minus A is the suite-oracle risk of the fully multi-instance cell D minus that of cell A, negative meaning D carries less. Answer-rate change is D minus A. The last two columns are the frozen-rule verdicts (GAP positive: every seed above zero and mean at least 0.010; D minus A pass: every seed below zero and mean at most $-0.030$; robust: every seed at most $-0.030$). All risks are under the suite oracle unless marked reported.}
+\caption{Preregistered main result at nominal risk $\alpha=0.10$, three-seed means. The current-practice cell A is calibrated on labels from the shipped database and evaluated under the multi-instance suite oracle; GAP is its suite-oracle risk minus the risk it reports on its own labels; D minus A is the suite-oracle risk of the fully multi-instance cell D minus that of cell A, negative meaning D carries less. Answer-rate change is D minus A. The last two columns are the frozen-rule verdicts (GAP positive: every seed above zero and mean at least one point; D minus A pass: every seed below zero and mean at most $-3$ points; robust: every seed at most $-3$ points). All risks are under the suite oracle unless marked reported.}
 \label{tab:main}
 \footnotesize
 \setlength{\tabcolsep}{3.5pt}
@@ -375,15 +373,18 @@ write("TABLE_9_robustness.tex", t9)
 
 # ---------------- Table 10: tie audit ----------------
 tie = load("experiments/c9_tie_audit.json")
-ib = tie["impact_bounds"]; te = tie["threshold_effect"]
-def g(d, *ks, default="n/a"):
-    for k in ks:
-        if isinstance(d, dict) and k in d: d = d[k]
-        else: return default
-    return d
+# Top-class mass: the preregistered labels and every column of both ladders, which the recompute,
+# the six-score run and the GAP-ladder run cover between them; the six-score run and the ladder run
+# hold disjoint cells, so their counts add. The other five scores: the six-score run alone.
+tcm = [tie["impact_bounds"], tie["six_scores"]["impact_bounds_top_class_mass"],
+       tie["gap_ladder"]["impact_bounds"]]
+tcm_cells = tcm[1:]
+five = tie["six_scores"]["impact_bounds_other_scores"]
+worst = lambda key: max(b[key] for b in tcm)
+count = lambda key: sum(b[key] for b in tcm_cells)
 t10 = r"""\begin{table}[t]
 \centering
-\caption{The tie-rule audit. The frozen analyser breaks a top-class tie by the largest integer union-find key; the per-question files sort by the stringified key, so every recomputation from them takes the first-listed class. Impact bounds are over every reported GAP and D minus A cell after recomputing under the frozen rule and bracketing the never-labelled answers in both directions.}
+\caption{The tie-rule audit. The frozen analyser breaks a top-class tie by the largest integer union-find key; the per-question files sort by the stringified key, so every recomputation from them takes the first-listed class. Impact bounds are over the GAP and D minus A cells of top-class mass under the preregistered labels and in every column of both audit ladders, and of the other five scores of the six-score comparison under the preregistered labels and the four census conventions, after recomputing under the frozen rule and bracketing the never-labelled answers in both directions.}
 \label{tab:tie}
 \small
 \begin{tabular}{lc}
@@ -394,9 +395,10 @@ Tied decisions whose representative differs under the frozen rule & """ + f"{tie
 Tied decisions whose correctness label differs & """ + f"{tie['reconstruction']['correctness_label_differs']}" + r""" \\
 Disagreement census: archived / frozen answers & """ + f"{tie['populations']['c6']['stored_answers']} / {tie['populations']['c6']['frozen_answers']}" + r""" \\
 Full census: archived / frozen answers (cases) & """ + f"{tie['populations']['c7']['stored_answers']:,} / {tie['populations']['c7']['frozen_answers']:,} ({tie['populations']['c7']['cases_labelled']} / {tie['populations']['c7']['cases_under_frozen']})" + r""" \\
-Largest change of any reported GAP or D minus A (points) & """ + f"{g(ib, 'largest_change_points', default=0.0841):.4f}" + r""" \\
-Largest bracket width from never-labelled answers (points) & """ + f"{g(ib, 'largest_bracket_width_points', default=0.0631):.4f}" + r""" \\
-Sign changes / crossings of the three-point line & 0 / 0 \\
+Largest change of a GAP or D minus A, top-class mass / other five scores (points) & """ + f"{worst('largest_change_points'):.4f} / {five['largest_change_points']:.4f}" + r""" \\
+Largest bracket width from never-labelled answers, top-class mass / other five scores (points) & """ + f"{worst('largest_bracket_width_points'):.4f} / {five['largest_bracket_width_points']:.4f}" + r""" \\
+Sign changes, top-class mass / other five scores & """ + f"{count('sign_changes')} / {five['sign_changes']}" + r""" \\
+Cells crossing the three-point line, top-class mass / other five scores & """ + f"{count('crossings_of_the_three_point_line')} / {five['crossings_of_the_three_point_line']}" + r""" \\
 \bottomrule
 \end{tabular}
 \end{table}

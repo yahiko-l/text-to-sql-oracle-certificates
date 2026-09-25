@@ -7,9 +7,12 @@ is load-bearing, so it is tested inside the main panel rather than only on anoth
 
 GAP is a quantity of cell A alone, the risk its own weak labels report subtracted from the risk the
 suite oracle assigns at the same threshold, so it depends only on the single-database partition.
-Drawing m of a question's usable candidates without replacement and recounting that partition is
-therefore an exact reduction of the budget for GAP, for the flip rate, and for every resolution
-statistic below.
+Drawing m of a question's usable candidates without replacement and recounting that partition gives
+the score the resolution of an m-sample budget. Each class keeps the representative and the labels
+it has in the full pool, so the answer a class returns is the one the full pool chose, and a
+question's answer changes only when the thinning changes which class is largest. A full budget
+reduction would also re-select the most frequent query within each class, and that needs the
+candidates' own executions, which the per-question files do not carry.
 
 D minus A is NOT recomputed here. It needs both cells at once, and the archived per-question files
 carry the two partitions marginally rather than their joint, so a budget drawn independently for
@@ -25,7 +28,8 @@ from c4_recompute import cell_records, crc_lambda, load, make_splits, pool_files
 
 
 def draw(questions, m, rng):
-    """A budget-m pool: m of each question's usable candidates, single partition recounted."""
+    """m of each question's usable candidates, single partition recounted; every class keeps its
+    full-pool representative and labels."""
     out = []
     for q in questions:
         cls = q["single"]
