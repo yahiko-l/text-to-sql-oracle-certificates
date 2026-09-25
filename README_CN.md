@@ -43,6 +43,14 @@ Abstention for Text-to-SQL* 的代码与数据：采样、评测与分析脚本�
 `c2`、`c3` 与 `pilot` 是最终预注册之前的各阶段，其历程见补充材料；两个 `spider_dev_*` 文件是
 促成这项干预的两项预实验。
 
+脚本与结果文件里有几个论文中没有的名字。四个 cell 的键由两部分组成：`score=` 是构造得分所依据的等价类的
+oracle，`calib=` 是标注校准集的 oracle；`single` 指基准自带的数据库，`multi` 指 distilled test suite。
+cell A 是 `score=single|calib=single`，B 是 `score=single|calib=multi`，C 是 `score=multi|calib=single`，
+D 是 `score=multi|calib=multi`。`REPAIR` 即论文中的 D−A contrast：suite oracle 下 cell D 的 held-out
+风险减去 cell A 的，为负表示 cell D 的风险更低。`REPAIR_labels_only` 与 `REPAIR_partition_only` 分别以
+cell B、cell C 代替 cell D，带 `_answer_rate` 后缀的键给出同一差值在回答率上的版本。`GAP` 即论文中的
+GAP，键名中的 `strong` 指 suite oracle。风险以小数存储，论文以百分点报告。
+
 ## 第三方输入
 
 执行 SQL 与重建 prompt 需要基准、test suite 与官方评测器。它们由各自作者分发，脚本在以下路径查找：
@@ -137,7 +145,7 @@ test-suite 仓库中的评测器也一致。脚本以最新版本发布：预注
     @misc{liu2026certified,
       title  = {Certified Against Which Oracle? Execution Labels Set the
                 Reported Risk of Conformal Abstention for Text-to-SQL},
-      author = {Liu, Jiamiao and Qiao, Dewen and Zhang, Yu and Chen, Xuetao},
+      author = {Liu, Jiamiao and Qiao, Dewen and Xu, Jiajie and Zhang, Yu and Chen, Xuetao},
       year   = {2026},
       note   = {Preprint}
     }

@@ -49,6 +49,17 @@ and the false-schema negative control; `c5` is the matched original-Spider contr
 supplementary material gives; the two `spider_dev_*` files are the pilot measurements that
 motivated the intervention.
 
+Scripts and result files use a few names the paper does not. The four cells are keyed by the
+oracle that builds the equivalence classes behind the score (`score=`) and the oracle that labels
+the calibration set (`calib=`), with `single` for the shipped database and `multi` for the
+distilled test suite: cell A is `score=single|calib=single`, B is `score=single|calib=multi`, C is
+`score=multi|calib=single` and D is `score=multi|calib=multi`. `REPAIR` is the paper's D−A
+contrast, the suite-oracle held-out risk of cell D minus that of cell A, so a negative value means
+cell D carries less risk. `REPAIR_labels_only` and `REPAIR_partition_only` take cell B and cell C
+in place of D, and an `_answer_rate` suffix gives the same difference in answer rate. `GAP` is the
+paper's GAP, and `strong` in a key refers to the suite oracle. Risks are stored as fractions; the
+paper reports them in percentage points.
+
 ## Third-party inputs
 
 Executing SQL and rebuilding prompts need the benchmark, its test suites and the official
@@ -152,7 +163,7 @@ Checkpoint paths on the machine that ran the study are replaced by the checkpoin
     @misc{liu2026certified,
       title  = {Certified Against Which Oracle? Execution Labels Set the
                 Reported Risk of Conformal Abstention for Text-to-SQL},
-      author = {Liu, Jiamiao and Qiao, Dewen and Zhang, Yu and Chen, Xuetao},
+      author = {Liu, Jiamiao and Qiao, Dewen and Xu, Jiajie and Zhang, Yu and Chen, Xuetao},
       year   = {2026},
       note   = {Preprint}
     }
