@@ -1,12 +1,11 @@
-# Certified Against Which Oracle?
+# Execution Oracles Set the Reported Risk of Conformal Abstention for Text-to-SQL
 
 English | [简体中文](README_CN.md)
 
-Code and data for *Certified Against Which Oracle? Execution Labels Set the Reported Risk of
-Conformal Abstention for Text-to-SQL*: the sampling, evaluation and analysis scripts, the scripts
-that typeset the paper's tables and draw its figures, and every file those scripts read or write
-that the study produced. Each file sits at the path the scripts name, so the scripts run on a clone
-as they are.
+Code and data for *Execution Oracles Set the Reported Risk of Conformal Abstention for Text-to-SQL*:
+the sampling, evaluation and analysis scripts, the scripts that typeset the paper's tables and draw
+its figures, and every file those scripts read or write that the study produced. Each file sits at
+the path the scripts name, so the scripts run on a clone as they are.
 
 `supplementary.pdf` is the paper's supplementary material: the sections, tables and figures the
 paper numbers with a letter.
@@ -160,9 +159,8 @@ Checkpoint paths on the machine that ran the study are replaced by the checkpoin
 
 ## Citing this work
 
-    @misc{liu2026certified,
-      title  = {Certified Against Which Oracle? Execution Labels Set the
-                Reported Risk of Conformal Abstention for Text-to-SQL},
+    @misc{liu2026execution,
+      title  = {Execution Oracles Set the Reported Risk of Conformal Abstention for Text-to-SQL},
       author = {Liu, Jiamiao and Qiao, Dewen and Xu, Jiajie and Zhang, Yu and Chen, Xuetao},
       year   = {2026},
       note   = {Preprint}

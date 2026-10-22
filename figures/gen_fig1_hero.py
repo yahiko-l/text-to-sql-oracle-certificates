@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Figure 1, version 2, of "Certified Against Which Oracle?".
+"""Figure 1, version 2, of the paper.
 
 (a) Held-out risk of the current-practice certificate at nominal alpha = 0.10 on the two checkpoints
     the experts audited on both sides of the suite oracle: under its own labels, under the suite

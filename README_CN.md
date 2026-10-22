@@ -1,10 +1,10 @@
-# Certified Against Which Oracle?
+# Execution Oracles Set the Reported Risk of Conformal Abstention for Text-to-SQL
 
 [English](README.md) | 简体中文
 
-论文 *Certified Against Which Oracle? Execution Labels Set the Reported Risk of Conformal
-Abstention for Text-to-SQL* 的代码与数据：采样、评测与分析脚本，排版论文表格、绘制论文图的脚本，
-以及这些脚本读写的、由本研究产生的全部文件。每个文件都放在脚本所写的路径上，克隆下来即可直接运行。
+论文 *Execution Oracles Set the Reported Risk of Conformal Abstention for Text-to-SQL* 的代码与数据：
+采样、评测与分析脚本，排版论文表格、绘制论文图的脚本，以及这些脚本读写的、由本研究产生的全部文件。
+每个文件都放在脚本所写的路径上，克隆下来即可直接运行。
 
 `supplementary.pdf` 是论文的补充材料：论文中以字母编号的章节、表和图都在其中。
 
@@ -142,9 +142,8 @@ test-suite 仓库中的评测器也一致。脚本以最新版本发布：预注
 
 ## 引用
 
-    @misc{liu2026certified,
-      title  = {Certified Against Which Oracle? Execution Labels Set the
-                Reported Risk of Conformal Abstention for Text-to-SQL},
+    @misc{liu2026execution,
+      title  = {Execution Oracles Set the Reported Risk of Conformal Abstention for Text-to-SQL},
       author = {Liu, Jiamiao and Qiao, Dewen and Xu, Jiajie and Zhang, Yu and Chen, Xuetao},
       year   = {2026},
       note   = {Preprint}
